@@ -1,0 +1,30 @@
+.tela-galaxias,
+.tela-galaxias-lista,
+.tela-galaxia-detalhe {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.tela-galaxias,
+.tela-galaxias-lista {
+    background-image: url('../imagens/tela-galaxia.png');
+}
+
+.tela-galaxia-detalhe img {
+    max-width: 50%;
+    max-height: 200px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 20px;
+} 

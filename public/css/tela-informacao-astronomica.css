@@ -1,0 +1,33 @@
+.informacao-astronomica,
+.tela-constelacoes-categorias {
+    background-image: url('../imagens/4.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+} 
+
+.opcao:hover {
+    background-color: rgb(163, 215, 233);
+    transform: scale(1.05);
+}
+
+.botao-voltar {
+    width: 200px;
+    background-color: rgba(63, 63, 63, 0.516);
+    transition: 0.2s ease-out;
+    align-items: center;
+}
+
+ .botao-voltar:hover,
+ .botao-planetario:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.3);
+    background-color: #488AC7;
+} 

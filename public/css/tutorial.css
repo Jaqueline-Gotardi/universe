@@ -1,0 +1,87 @@
+.tela-tutorial {
+    background-image: url('../imagens/tela-criadores.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    color: #e0f2f7;
+    padding: 60px 20px;
+    font-family: 'Space Mono', monospace;
+}
+
+.jornada-projeto p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid #5D3FD3;
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 15px #A020F0;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+}
+
+.titulo-missao {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: #e0f2f7;
+    text-shadow: 0 0 8px #e0f2f7;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.lista-passos li {
+    font-size: 1rem;
+    line-height: 1.6;
+    display: flex;
+    margin-bottom: 15px;   
+}
+
+.botao-iniciar-jornada {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #e0f2f7;
+    background-color: rgb(36, 12, 36);
+    border: 2px solid #A020F0;
+    border-radius: 50px;
+    padding: 15px 40px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #A020F0;
+    transition: all 0.3s ease-in-out;
+}
+
+.botao-iniciar-jornada:hover {
+    box-shadow: 0 0 20px #A020F0, 0 0 30px #A020F0;
+    transform: scale(1.05);
+}
+
+.imagem-adaptavel {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #A020F0;
+}
+
+@media (max-width: 768px) {
+    .titulo-tutorial {
+        font-size: 1.8rem;
+    }
+
+    .secao-missao {
+        padding: 20px;
+    }
+}

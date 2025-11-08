@@ -1,0 +1,20 @@
+{
+  "name": "projeto-universe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaqueline-Gotardi/projeto-universe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaqueline-Gotardi/projeto-universe/issues"
+  },
+  "homepage": "https://github.com/Jaqueline-Gotardi/projeto-universe#readme"
+}

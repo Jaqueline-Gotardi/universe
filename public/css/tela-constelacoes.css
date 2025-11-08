@@ -1,0 +1,49 @@
+.tela-constelacoes-categorias,
+.tela-constelacoes-lista,
+.tela-constelacao-detalhe {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    text-align: center;
+}
+
+.tela-constelacao-detalhe {
+    background-image: url('../imagens/fundo-constelaçoes.png');
+}
+
+.tela-constelacoes-lista {
+    display: flex;
+    background-image: url('../imagens/Fundo_Constelacoes_Moderno-fotor-enhance-20250913234429.jpg');
+}
+
+
+/* --- Estilos para a tela de detalhe da constelação --- */
+.tela-constelacao-detalhe {
+    text-align: center;
+    gap: 25px;
+}
+
+.tela-constelacao-detalhe img {
+    max-width: 80%;
+    max-height: 50vh;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid #fff;
+}
+
+.descricao-constelacao {
+    color: #ffffff;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 80ch;
+    margin: 0 auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}

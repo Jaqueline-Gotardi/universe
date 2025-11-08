@@ -1,0 +1,44 @@
+.tela-principal {
+  background-image: url('../imagens/Fundo_Universo_Puro_Escuro-fotor-enhance-2025091323703.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e0f2f7;
+}
+ 
+.guia {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  gap: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px; 
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 191, 255, 0.6);
+}
+
+.text {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.text h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.intro-text p {
+  font-size: 16px;
+}
+
+@media (max-width: 325px) {
+  .text h2 {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,176 @@
+/* Estilos Gerais da Tela de Apagar Conta */
+.tela-apagar-conta {
+    background-image: url('../imagens/Fundo_Espacial_UI_Astronauta_2-fotor-enhance-20250914141403.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+/* Container principal para o astronauta e o painel de confirmação */
+.container-conteudo { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 50px;
+}
+
+/* Estilização do Astronauta */
+.astronauta img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.astronauta img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilização do Painel de Confirmação */
+.painel-confirmacao {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Estilo da Mensagem */
+.mensagem-persuasiva {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #fff;
+    /* color: #333; */
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Estilos para o grupo de botões "Sim" e "Não" */
+.opcoes-confirmacao {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilo Base dos Botões de Confirmação */
+.botao-confirmacao {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.05em;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 120px;
+}
+
+.botao-sim {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.botao-sim:hover {
+    background-color: #07960e;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+}
+
+.botao-nao {
+    background-color: #f44336;
+    color: white;
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+}
+
+.botao-nao:hover {
+    background-color: #da190b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(244, 67, 54, 0.6);
+}
+
+/* Estilização do Botão de Retorno Home (Casinha) */
+.botao-retorno-home {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; 
+    margin-bottom: 50px; 
+    transition: transform 0.3s ease-in-out;
+}
+
+.icone-home {
+    width: 70px;
+    height: auto;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.botao-retorno-home:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px 5px #A020F0;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes para Responsividade */
+@media (max-width: 500px) {
+    .painel-confirmacao {
+        padding: 20px;
+    }
+
+    .mensagem-persuasiva { 
+        font-size: 1em;
+    }
+
+    .opcoes-confirmacao {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .botao-confirmacao {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .astronauta img {
+        max-height: 200px;
+    }
+
+    .icone-home {
+        width: 60px;
+    }
+}

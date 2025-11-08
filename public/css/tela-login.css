@@ -1,0 +1,403 @@
+/* ESTILIZAÇÃO DA TRILHA SONORA AQUI */
+.audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: #4b125cbe;
+  border: 3px solid darkorchid;
+  box-shadow: 0 0 30px rgba(118, 59, 219, 0.6);
+  font-weight: 600;
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  padding: 15px 10px;
+  border-radius: 20px;
+  font-family: 'Orbitron', sans-serif;
+  width: 120px; 
+}
+
+#titulo-musica {
+  color: #fff; 
+  font-size: 14px;
+  text-align: center; 
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.player-controles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.player-controles button {
+  background-color: #2b005e;
+  color: #fff;
+  border: 2px solid #6c34a2;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 0 10px #6c34a2, 0 0 20px #6c34a2 inset;
+  transition: .3s ease;
+}
+
+.player-controles button:hover {
+  background: linear-gradient(45deg, #6c34a2, #c058ff);
+  box-shadow: 0 0 15px #c058ff, 0 0 25px #c058ff inset;
+  transform: scale(1.09);
+}
+
+.progress-container {
+  background-color: #5d1792;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 8px;
+  height: 150px; 
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column-reverse; 
+}
+
+.progress-outline {
+  background-color: #c058ff;
+  border-radius: 5px;
+  width: 100%;
+  height: 0%; 
+  transition: height 0.1s linear;
+}
+
+
+/* ESTILIZAÇÃO DA TELA DE LOGIN */
+.tela-login {
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+  
+/* .login {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  width: 350px;
+  gap: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+} */
+ 
+.login p {
+  font-weight: 550;
+  width: 100%;
+} 
+
+.usuario,
+.email {
+  color: black;
+  font-size: 20px;
+}
+
+.tela-login input {
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: double;
+}
+
+.button-entrar {
+  background-color: deepskyblue;
+  border: none;
+  padding: 15px;
+  width: 50%;
+  color: black;
+  font-size: 15px; 
+  cursor: pointer;
+  border-radius: 10px;
+  transition: .2s ease-out;
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.button-entrar:hover {
+  background-color: rgb(71, 94, 89);
+  transform: scale(1.05);
+}
+
+
+
+/* mudando o input na validação. . . */
+.mensagem-erro {
+  color: #f52e25;
+  font-size: 13px;
+  display: none;
+}
+
+.mensagem-erro.ativo {
+  display: block;
+}
+
+input.erro {
+  border: 1.8px solid #f52e25;
+}
+
+input.certo {
+  border: 1.8px solid #00c220;
+}
+/* --------------------------------- */
+
+
+
+.welcome-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+}
+
+
+/* Stars Animation */
+.space-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.login-bg {
+  background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 50%, #2d1b69 100%); 
+}
+ 
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 3s linear infinite;
+}
+
+@keyframes sparkle {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100px);
+  }
+}
+/* ---------------------------------------------------------------- */
+
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  /* text-align: center; */
+  justify-items: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 340px) {
+  .login-container {
+    padding: 2rem;
+    max-width: 16rem;
+    position: absolute;
+  }
+}
+
+.welcome-section {
+  margin-bottom: 2rem;
+}
+
+.astronaut-hero {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  animation: float 1.6s ease-in-out infinite;
+}
+
+.welcome-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+@media (max-width: 340px) {
+  .welcome-title {
+    font-size: 1rem;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mensagem-erro {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.btn-primary,
+.btn-cosmic {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
+/* @media (max-width:325px) {
+  .btn-cosmic {
+    font-size: 4rem;
+  }
+} */
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.cadastro-link {
+  color: #ccc;
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cadastro-link a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.cadastro-link a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .audio-player {
+    flex-direction: row;
+    width: 95%;
+    max-width: 470px;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    padding: 8px;
+    border-radius: 50px;
+    gap: 10px;
+  }
+
+  .player-controles {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  #titulo-musica {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    margin-bottom: 0;
+  }
+
+  .progress-container {
+    width: 100%; 
+    height: 8px;
+    margin: 0;
+    flex-direction: row;
+  }
+
+  .progress-outline {
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  .player-controles button {
+    /* padding: 8px 12px; */
+    padding: 4px;
+    font-size: 12px; 
+  }
+}

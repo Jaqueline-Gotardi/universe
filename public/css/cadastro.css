@@ -1,0 +1,69 @@
+.secao-fazer-cadastro {
+    background-image: url('../imagens/fundo-perfil.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+   /*  display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.container-cadastro {
+    background: rgba(13, 11, 28, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 40px rgba(118, 59, 219, 0.6);
+    text-align: center;
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.botoes-cadastro {
+    margin-top: 1rem;
+}
+
+.botoes-cadastro > button {
+    width: 100%;
+}
+
+.link-ja-tem-conta {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #a3a3c2;
+}
+
+.link-ja-tem-conta a {
+    color: #9356f9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.link-ja-tem-conta a:hover {
+    color: #763bdb;
+    text-decoration: underline;
+}
+
+
+/* RESPONSIVO */
+@media (max-width: 550px) {
+    .container-cadastro {
+        padding: 2rem 1.5rem;
+    }
+}
