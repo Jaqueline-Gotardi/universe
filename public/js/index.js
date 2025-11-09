@@ -1,5 +1,5 @@
 /* ATENÇÃO ---> Pense no seu código como uma casa: Se você deixa suas chaves (variáveis) em cada cômodo (bloco de código), quando estiver em outro cômodo, não conseguirá encontrá-las. A solução é deixar todas as chaves em um lugar central, como um chaveiro na entrada da casa.
- */ 
+ */  
     
    
 /* VARIÁVEIS DE BOTÕES E ELEMENTOS GERAIS */

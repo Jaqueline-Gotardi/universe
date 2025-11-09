@@ -1,6 +1,6 @@
 /* PERFIL DO AGENTE */
 .tela-perfil,
-.perfil-edicao,
+.perfil-edicao, 
 .secao-trocar-senha,
 .tela-cadastro {
     background-image: url('../imagens/fundo-perfil.jpg');
@@ -253,7 +253,7 @@
 }
 
 .secao-seguranca {
-    text-align: center;
+    text-align: center; 
     margin-top: 1rem;
 }
 
