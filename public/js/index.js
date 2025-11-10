@@ -1,6 +1,6 @@
 /* ATENÇÃO ---> Pense no seu código como uma casa: Se você deixa suas chaves (variáveis) em cada cômodo (bloco de código), quando estiver em outro cômodo, não conseguirá encontrá-las. A solução é deixar todas as chaves em um lugar central, como um chaveiro na entrada da casa.
  */  
-     
+      
    
 /* VARIÁVEIS DE BOTÕES E ELEMENTOS GERAIS */
 const botaoEntrar = document.querySelector('.btn-primary');
@@ -964,18 +964,30 @@ function atualizarProgresso() {
     btnCancelarPerfil.addEventListener('click', () => {
         secaoEdicao.style.display = 'none';
         secaoVisualizacao.style.display = 'block';
+        galeriaAvatares.style.display = 'none'; //esconder galeria de avatares
     });
 
     
     /* VISUALIZAR A FOTO TROCADA */
     const inputFotoPerfil = document.getElementById('input-foto-perfil-edicao');
     const fotoPerfilPreview = document.getElementById('foto-perfil-preview-edicao');
+    const galeriaAvatares = document.getElementById('galeria-agentes-espaciais');
     
     const btnEscolherGaleria = document.getElementById('btn-escolher-galeria');
     const btnEscolherAvatars = document.getElementById('btn-escolher-avatars');
+    const btnFecharGaleria = document.getElementById('btn-fechar-galeria');
 
     btnEscolherGaleria.addEventListener('click', () => {
-        inputFotoPerfil.click(); //para abrir o file (uma simulação), clicou no botao, exibe o files
+        inputFotoPerfil.click(); //para abrir o file (uma simulação), clicou no botao --> exibe os arquivos
+    });
+
+    btnEscolherAvatars.addEventListener('click', () => {
+        galeriaAvatares.style.display = 'block';
+        //event.preventDefault();
+    });
+
+    btnFecharGaleria.addEventListener('click', () => {
+        galeriaAvatares.style.display = 'none';
     });
 
 
@@ -987,7 +999,6 @@ function atualizarProgresso() {
             reader.onload = (e) => {
                 fotoPerfilPreview.src = e.target.result;
             };
-
             reader.readAsDataURL(arquivo);
         }
     });

@@ -21,6 +21,13 @@ section.selecionado {
     display: none;
 } */
 
+/* SCROOL */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(173, 74, 222, 0.9) rgba(31, 0, 51, 0.9);
+}
+
+
 /* Telas menores, como tablets */
 @media (max-width: 768px) {
     /* Ajustes gerais para botões e fontes */
