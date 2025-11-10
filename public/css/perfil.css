@@ -3,7 +3,7 @@
 .perfil-edicao, 
 .secao-trocar-senha,
 .tela-cadastro {
-    background-image: url('../imagens/fundo-perfil.jpg');
+    background-image: url('../imagens/fundo-perfil.jpg'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
