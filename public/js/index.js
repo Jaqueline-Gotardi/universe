@@ -956,6 +956,11 @@ function atualizarProgresso() {
     const secaoVisualizacao = document.getElementById('secao-visualizacao');
     const secaoEdicao = document.getElementById('secao-edicao');
 
+    const fotoPerfilPreview = document.getElementById('foto-perfil-preview-edicao');
+    const galeriaAvatares = document.getElementById('galeria-agentes-espaciais');
+    const todosAvatares = document.querySelectorAll('.avatar-item img');
+    const fotoPerfil = document.getElementById('foto-perfil-img');
+
     btnEditarPerfil.addEventListener('click', () => {
         secaoVisualizacao.style.display = 'none';
         secaoEdicao.style.display = 'block';
@@ -965,7 +970,7 @@ function atualizarProgresso() {
         secaoEdicao.style.display = 'none';
         secaoVisualizacao.style.display = 'block';
         galeriaAvatares.style.display = 'none'; //esconder galeria de avatares
-        fotoPerfilPreview.src = (#foto-perfil-img.src);
+        fotoPerfilPreview.src = fotoPerfil.src; //reseta a img para a última q foi salva
         todosAvatares.forEach(avatar => {
                 //console.log('avatar selecionado');
                 avatar.classList.remove('ativo');
@@ -975,9 +980,6 @@ function atualizarProgresso() {
     
     /* VISUALIZAR A FOTO TROCADA */
     const inputFotoPerfil = document.getElementById('input-foto-perfil-edicao');
-    const fotoPerfilPreview = document.getElementById('foto-perfil-preview-edicao');
-    const galeriaAvatares = document.getElementById('galeria-agentes-espaciais');
-    const todosAvatares = document.querySelectorAll('.avatar-item img');
 
     const btnEscolherGaleria = document.getElementById('btn-escolher-galeria');
     const btnEscolherAvatars = document.getElementById('btn-escolher-avatars');
@@ -1026,7 +1028,6 @@ function atualizarProgresso() {
 
     btnSalvarPerfil.addEventListener('click', (event) => {
         event.preventDefault();
-
         console.log("Perfil salvo com sucesso!");
         
         /* COLETA DADOS DOS INPUTS */
@@ -1043,6 +1044,7 @@ function atualizarProgresso() {
         secaoEdicao.style.display = 'none';
         secaoVisualizacao.style.display = 'block';
         galeriaAvatares.style.display = 'none'; //esconder galeria de avatares
+        fotoPerfil.src = fotoPerfilPreview.src  //exibir a img q foi salvar, acessando diretamente o src. . .
     });
  
 
