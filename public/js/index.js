@@ -1,7 +1,7 @@
 /* ATENÇÃO ---> Pense no seu código como uma casa: Se você deixa suas chaves (variáveis) em cada cômodo (bloco de código), quando estiver em outro cômodo, não conseguirá encontrá-las. A solução é deixar todas as chaves em um lugar central, como um chaveiro na entrada da casa.
  */  
       
-   
+    
 /* VARIÁVEIS DE BOTÕES E ELEMENTOS GERAIS */
 const botaoEntrar = document.querySelector('.btn-primary');
 const cadastroLink = document.getElementById('cadastro-link');
@@ -965,6 +965,11 @@ function atualizarProgresso() {
         secaoEdicao.style.display = 'none';
         secaoVisualizacao.style.display = 'block';
         galeriaAvatares.style.display = 'none'; //esconder galeria de avatares
+        fotoPerfilPreview.src = (#foto-perfil-img.src);
+        todosAvatares.forEach(avatar => {
+                //console.log('avatar selecionado');
+                avatar.classList.remove('ativo');
+        })
     });
 
     
@@ -995,10 +1000,12 @@ function atualizarProgresso() {
     todosAvatares.forEach(avatar => {
         avatar.addEventListener('click', () => {
             todosAvatares.forEach(avatar => {
-                //console.log('avatar');
+                //console.log('avatar selecionado');
                 avatar.classList.remove('ativo');
             });
             avatar.classList.add('ativo');
+            //acessando o valor "src" de img para mudar sua imagem de acordo com o avatar clicado. . .
+            fotoPerfilPreview.src = avatar.src;
             });
     });
 
@@ -1035,6 +1042,7 @@ function atualizarProgresso() {
         /* QUANDO O USUÁRIO CLICAR EM 'SALVAR ATERAÇÕES', OS NOVOS DADOS IRÃO APARECER NO PERFIL DELE */
         secaoEdicao.style.display = 'none';
         secaoVisualizacao.style.display = 'block';
+        galeriaAvatares.style.display = 'none'; //esconder galeria de avatares
     });
  
 

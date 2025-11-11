@@ -6,7 +6,7 @@
     background-image: url('../imagens/fundo-perfil.jpg'); 
     background-size: cover; 
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     min-height: 100vh;
     /* display: flex; */
     flex-direction: column;
@@ -331,9 +331,8 @@
 }
 
 .ativo {
-    border: 3px solid #16bd6f;
+    border: 4px solid #23df87;
 }
-
 
 .galeria-grid-avatares {
     display: flex;
