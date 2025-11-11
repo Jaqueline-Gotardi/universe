@@ -29,6 +29,7 @@
     text-align: center;
 }
 
+/* --- ESTILOS DE VISUALIZAÇÃO DO PERFIL --- */
 .header-perfil {
     display: flex;
     justify-content: space-between;
@@ -123,7 +124,7 @@
 }
 
 
-/* TELA DE EDITAR PERFIL */
+/* --- TELA DE EDITAR PERFIL --- */
 .btn-salvar,
 .btn-cancelar {
     padding: 0.6rem 1.3rem;
@@ -278,7 +279,7 @@
 }
 
 
-/* TELA DE TROCAR SENHA */
+/* --- TELA DE TROCAR SENHA --- */
 .form-trocar-senha {
     display: flex;
     flex-direction: column;
@@ -288,18 +289,18 @@
 }
 
 .captcha-container {
-        display: flex;
-        gap: 0.8rem;
-        justify-content: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 
-/* GALERIA DE AVATARES */
+/* --- GALERIA DE AVATARES --- */
 .galeria-agentes-espaciais {
     display: flex;
-    /* flex-direction: row; */
+    flex-direction: column; 
     flex-wrap: wrap;
     position: relative;
     background-color: rgba(21, 11, 63, 0.5);
@@ -310,10 +311,6 @@
     padding-right: 15px;
 }
 
-/* .btn-fechar-galeria::after {
-    position: absolute;
-} */
-
 .galeria-agentes-espaciais .btn-fechar-galeria {
     position: absolute;
     top: 10px;
@@ -322,6 +319,7 @@
     width: 25px;
     height: 25px;
     font-size: 1rem;
+    border-radius: 50%;
     background: #ff4081; 
     color: white;
     cursor: pointer;
@@ -332,17 +330,14 @@
     background: #ff7b9f;
 }
 
-.avatar {
-    border: none;
+.ativo {
+    border: 3px solid #16bd6f;
 }
 
-.avatar.ativo {
-    border: 5px solid magenta;
-}
 
 .galeria-grid-avatares {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     justify-content: center;
     gap: 10px; 
     padding: 10px; 
@@ -350,7 +345,7 @@
 }
 
 .avatar-item {
-    width: 65px;
+    width: 85px; 
 }
 
 .avatar-item img {

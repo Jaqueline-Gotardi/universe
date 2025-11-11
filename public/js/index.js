@@ -972,7 +972,8 @@ function atualizarProgresso() {
     const inputFotoPerfil = document.getElementById('input-foto-perfil-edicao');
     const fotoPerfilPreview = document.getElementById('foto-perfil-preview-edicao');
     const galeriaAvatares = document.getElementById('galeria-agentes-espaciais');
-    
+    const todosAvatares = document.querySelectorAll('.avatar-item img');
+
     const btnEscolherGaleria = document.getElementById('btn-escolher-galeria');
     const btnEscolherAvatars = document.getElementById('btn-escolher-avatars');
     const btnFecharGaleria = document.getElementById('btn-fechar-galeria');
@@ -990,18 +991,31 @@ function atualizarProgresso() {
         galeriaAvatares.style.display = 'none';
     });
 
+    // PEGAR AVATAR E EXIBIR
+    todosAvatares.forEach(avatar => {
+        avatar.addEventListener('click', () => {
+            todosAvatares.forEach(avatar => {
+                //console.log('avatar');
+                avatar.classList.remove('ativo');
+            });
+            avatar.classList.add('ativo');
+            });
+    });
 
+
+    // PEGAR IMG DO FILES E EXIBIR
     inputFotoPerfil.addEventListener('change', (event) => {
         const arquivo = event.target.files[0];
         if (arquivo) {
-            const reader = new FileReader();
+            const reader = new FileReader(); //ler arquivo
 
-            reader.onload = (e) => {
+            reader.onload = (e) => { //carregar arquivo
                 fotoPerfilPreview.src = e.target.result;
             };
             reader.readAsDataURL(arquivo);
         }
     });
+
 
     btnSalvarPerfil.addEventListener('click', (event) => {
         event.preventDefault();
