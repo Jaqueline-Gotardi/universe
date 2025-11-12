@@ -20,7 +20,7 @@ O projeto conta com:
   - Constelações famosas (Órion, Cruzeiro do Sul, Andrômeda, etc.)  
   - Eventos astronômicos (Eclipses, Chuvas de Meteoros, Conjunções)  
   - Planetas do Sistema Solar, incluindo a Lua e o Sol ☀️🌙
-  - - **Tela de Perfil do Usuário**: **Módulo de Edição completo com Galeria de Avatares**, onde é possível adicionar nome, foto, interesses e descrição (com gestão de estado de UI).
+- **Tela de Perfil do Usuário**: **Módulo de Edição completo com Galeria de Avatares**, onde é possível adicionar nome, foto, interesses e descrição (com gestão de estado de UI).
 - **Tela de Criadores**: destacando o trabalho original de 2022 e a nova versão atualizada.  
 - **Tela de Apagar Conta**: com mensagem personalizada e interação dinâmica.  
 - **Trilha Sonora Espacial**: o usuário pode ouvir até 5 músicas-tema durante a navegação. 🎶  
