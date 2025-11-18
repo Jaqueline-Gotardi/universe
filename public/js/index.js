@@ -973,7 +973,7 @@ function atualizarProgresso() {
         fotoPerfilPreview.src = fotoPerfil.src; //reseta a img para a última q foi salva
         todosAvatares.forEach(avatar => {
                 //console.log('avatar selecionado');
-                avatar.classList.remove('ativo');
+                avatar.classList.remove('ativo'); //remover borda
         })
     });
 
