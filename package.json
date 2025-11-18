@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Jaqueline-Gotardi/projeto-universe/issues"
   },
-  "homepage": "https://github.com/Jaqueline-Gotardi/projeto-universe#readme"
+  "homepage": "https://github.com/Jaqueline-Gotardi/projeto-universe#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "mysql2": "^3.15.3"
+  }
 }
