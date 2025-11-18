@@ -19,8 +19,8 @@ O projeto conta com:
 - **Sessões Interativas**: com informações sobre:
   - Constelações famosas (Órion, Cruzeiro do Sul, Andrômeda, etc.)  
   - Eventos astronômicos (Eclipses, Chuvas de Meteoros, Conjunções)  
-  - Planetas do Sistema Solar — incluindo a Lua e o Sol ☀️🌙  
-- **Tela de Perfil do Usuário**: onde é possível adicionar nome, foto, interesses e uma breve descrição.  
+  - Planetas do Sistema Solar, incluindo a Lua e o Sol ☀️🌙
+- **Tela de Perfil do Usuário**: **Módulo de Edição completo com Galeria de Avatares**, onde é possível adicionar nome, foto, interesses e descrição (com gestão de estado de UI).
 - **Tela de Criadores**: destacando o trabalho original de 2022 e a nova versão atualizada.  
 - **Tela de Apagar Conta**: com mensagem personalizada e interação dinâmica.  
 - **Trilha Sonora Espacial**: o usuário pode ouvir até 5 músicas-tema durante a navegação. 🎶  
@@ -82,6 +82,8 @@ OBS: Abra o *index.html* do frontend no navegador (Github Pages ou Live Server) 
 3. **Resiliência:** Lógica de fallback para garantir o funcionamento do Front-end mesmo com falha na API principal.
 
 4. **Layout Dinâmico e Responsividade:** Quando a pesquisa é exibida, os elementos do Front-end (menu, barra) mudam o layout e a animação de fundo é ativada.
+   
+5. **Módulo de Perfil e UX**: Implementação completa do módulo de edição com Galeria de Avatares. Lógica de Gestão de Estado para os botões Salvar/Cancelar garantindo que a interface sempre resete para o último estado válido.
 
 ---
 
@@ -97,7 +99,8 @@ Durante o desenvolvimento, aprimorei habilidades como:
 - Criação de telas conectadas por JavaScript;  
 - Desenvolvimento Full Stack Júnior: Conexão entre Front-end (JavaScript) e Back-end (Node.js/Express).
 - Tratamento de Erros: Implementação de try/catch e lógica de fallback para garantir a integridade da aplicação.
-- Além disso, aprendi muito sobre **design de interface**, **consistência visual** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 🌠  
+- Além disso, aprendi muito sobre **design de interface**, **consistência visual** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 🌠
+- Gestão de Estado de UI: Lógica complexa de salvamento e reset de dados em formulários (Módulo de Perfil).
 
 ---
 
