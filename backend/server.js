@@ -3,8 +3,8 @@ const path = require('path');
 const app = express()
 // É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
 require('dotenv').config()
-//const apiKey = process.env.API_KEY 
-//console.log(process.env) 
+//const apiKey = process.env.API_KEY  
+//console.log(process.env)  
 
 //acessando a pasta public, pra iniciar a conexão do front com o back local
 app.use(express.static(path.join(__dirname, '../public')));

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Jaqueline-Gotardi/projeto-universe#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "mysql2": "^3.15.3"
+    "mysql2": "^3.15.3",
+    "pg": "^8.16.3"
   }
 }

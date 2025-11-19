@@ -169,4 +169,4 @@ campoPesquisa.addEventListener("keydown", (e) => {
 
 /* PORQUE A API NÃO TAVA FUNCIONANDO:
          o Node estava bloqueado de fazer conexões HTTPS externas, algo estava impedindo o acesso (pode ser o IPv6, proxy, firewall, ou bloqueio na porta 443). */
-//primeira suspeita: bloqueamento no cors, servidor node rodando na porta 3000 e o live server rodando meu frontend na porta 5001, por isso dava conflito!
+//primeira suspeita: bloqueamento no cors, servidor node rodando na porta 3000 e o live server rodando meu frontend na porta 5001, por isso dava conflito! 
