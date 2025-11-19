@@ -1,7 +1,7 @@
 //importando o pacote pg (PostGres)
 const {Pool} = require('pg');
 
-//configurar o dotenv(biblioteca) para acessar nossa chave em .env
+//configurar o dotenv(biblioteca) para acessar a chave em .env
 require('dotenv').config()
 
 //configurando o pool (são as msm informações do meu universe_db)

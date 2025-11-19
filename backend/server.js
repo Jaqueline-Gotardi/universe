@@ -1,10 +1,18 @@
 const express = require('express');
 const path = require('path');
 const app = express()
+
+app.use(express.json()); //para o express ler requisições json
+app.use(express.urlencoded({extended : true})); //para o express ler dados de formulários
+
 // É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
 require('dotenv').config()
 //const apiKey = process.env.API_KEY  
 //console.log(process.env)  
+
+//importar pool (lá do DB. . .)
+const pool = require('./db_config');
+
 
 //acessando a pasta public, pra iniciar a conexão do front com o back local
 app.use(express.static(path.join(__dirname, '../public')));
@@ -39,7 +47,7 @@ const server = http.createServer((req, res) => {
         const isAPOD = /APOD|foto do dia|astronomia/i.test(q) || q.length === 0; //verifica se o campo está vazio ou se tem o termo APOD, para chamar a API
 
         let resultadosFinais = []; //array q vai guardar todos os resultados (apod + gratuita)
-
+ 
 
         //BUSCAR DADOS NA API APOD
         if (isAPOD) {

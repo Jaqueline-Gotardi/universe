@@ -5,7 +5,7 @@ const lupaPesquisa = document.getElementById('lupa-pesquisa');
 const exibicaoDaPesquisa = document.getElementById('exibicao-da-pesquisa');   
 
 lupaPesquisa.addEventListener('click', () => {
-
+ 
     async function buscarDados() {
         try {
             const valorInput = campoPesquisa.value;

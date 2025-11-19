@@ -1051,7 +1051,7 @@ function atualizarProgresso() {
     /* MUDANDO A TELA PARA TROCAR A SENHA */
     const trocarSenha = document.getElementById('btn-troca-senha');
     const secaoTrocarSenha = document.getElementById('secao-trocar-senha');
-
+ 
     trocarSenha.addEventListener('click', () => {
         telaPerfilUsuario.classList.remove('selecionado');
         secaoTrocarSenha.classList.add('selecionado');
