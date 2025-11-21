@@ -116,6 +116,8 @@ const server = http.createServer(async (req, res) => {
 const express = require('express'); //framework web para node.js
 const path = require('path'); //módulo nativo do node.js
 const app = express(); 
+const bcryptjs = require('bcryptjs');
+
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
 //cors é uma biblioteca para o expŕess
 
@@ -149,10 +151,11 @@ app.post('/register', async (req, res) => {
 
    //verificar duplicidade de dados no banco de dados
    try {
-    const queryText = `SELECT * FROM users WHERE email = $1 OR username = $2`;
-    const verificarDuplicidade = await pool.query(queryText, [email, username]);
+    const queryText = `SELECT * FROM users 
+                       WHERE email = $1 OR username = $2`;
+    const verificarDuplicidade = await pool.query(queryText, [email, username]); //extraindo email e username
     
-    
+    //verificar se tem algo
     if (verificarDuplicidade.rows.length > 0) {
         res.status(409).json({ message: 'Usuário ou email já cadastrado'})
         return;   
@@ -162,7 +165,29 @@ app.post('/register', async (req, res) => {
     res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
     return;
 }
+
+//criptografando a senha
+ const senhaCriptografada = await bcrypt.hash(password, 10); //o "10" é o número de voltas que o bcriptjs dará para fechar o 'cadeado' (é como uma camada extra de proteção de senha para dificultar ataques. . .)
+
+ try {
+    const querySenha = `INSERT INTO users (username, email, password) 
+                        VALUES ($1, $2, $3)`;
+const verificarSenha = await pool.query(querySenha,[username, email, senhaCriptografada]);
+
+//se pelo menos 1 linha tiver sido inserida no banco. . .
+    if (verificarSenha.rows.length === 1) {
+        res.status(201).json({message : 'Usuário cadastrado com sucesso!'})
+        return;   
+    }
+ } catch (error) {
+    console.log('Erro ao inserir dados no banco:', error)
+    res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
+    return;
+ }
 })
+
+
+
 
 
 
