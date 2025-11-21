@@ -133,7 +133,36 @@ const pool = require('./db_config');
 app.use(express.static(path.join(__dirname, '../public')));
  
 
+app.post('/register', async (req, res) => {
+   const username = req.body.username;
+   const email= req.body.email;
+   const password = req.body.password;
+   
+   //verificar se existem ou se estão vazios. . .
+   if (!username || username.trim() === '' 
+     || !email || email.trim() === '' 
+     || !password || password.trim() === '') {
 
+    res.status(400).json({ message: 'Todos os campos (username, email, password) são obrigatórios!'})
+    return;
+   }
+
+   //verificar duplicidade de dados no banco de dados
+   try {
+    const queryText = `SELECT * FROM users WHERE email = $1 OR username = $2`;
+    const verificarDuplicidade = await pool.query(queryText, [email, username]);
+    
+    
+    if (verificarDuplicidade.rows.length > 0) {
+        res.status(409).json({ message: 'Usuário ou email já cadastrado'})
+        return;   
+    }
+} catch (error) {
+    console.log('Erro ao verificar duplicidade no banco de dados:', error)
+    res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
+    return;
+}
+})
 
 
 
