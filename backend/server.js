@@ -188,6 +188,51 @@ const verificarSenha = await pool.query(querySenha,[username, email, senhaCripto
 
 
 
+//rota de login
+app.post('/login', async(req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    if (!email || email.trim() === ''
+        || !password || password.trim() === '') {
+            res.status(400).json({ message: 'Email e senha são obrigatórios.'})
+            return;
+    }
+
+    try {
+        const queryUser = `SELECT * FROM users
+                           WHERE email = $1`;
+        const verificarUsers = await pool.query(queryUser,[email]); 
+
+        //verificar se o usuário foi encontrado. . .
+        if (verificarUsers.rows.length) { //se usuário for encontrado. . .
+            const user = verificarUsers.rows[0];
+            const compararSenha = await bcrypt.compare(password, user.password); //"compare" é para verificar se a senha digitada pelo usuário corresponde ao hash armazenado no banco
+
+            //se a senha estiver certa. . .
+            if (compararSenha === true) { //se senha estiver correta
+            res.status(200).json({message: 'Login bem-sucedido!'});
+            return;
+            } else {
+                 console.log('Senha inválida!');
+            res.status(401).json({message: 'Senha inválida!'});
+            return;
+            }
+
+        } else { //se usuário não for encontrado. . .
+            console.log('Usuário não encontrado');
+            res.status(401).json({message: 'Credenciais inválidas'});
+            return;
+        }
+
+    } catch(error) { //erro inesperado do servidor
+        console.log('Falha ao conectar ao banco de dados, tente novamante mais tarde:', error)
+        res.status(500).json({message: 'Erro interno do servidor. Tente novamente mais tarde. . .'})
+    }
+})
+
+
+
 
 
 
@@ -198,6 +243,7 @@ const verificarSenha = await pool.query(querySenha,[username, email, senhaCripto
 
         let resultadosFinais = [];
 
+        //BUSCAR DADOS NA API APOD. . .
         if (isAPOD) {
             try {
                 console.log('Tentando API APOD. . .');
@@ -228,6 +274,7 @@ const verificarSenha = await pool.query(querySenha,[username, email, senhaCripto
             }
         }
 
+        //BUSCAR DADOS NA API GRATUITA. . .
         try {
             console.log('Chamando API NASA Images (Gratuita)...');
             const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${title}`);
