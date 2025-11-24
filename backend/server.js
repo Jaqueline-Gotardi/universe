@@ -116,7 +116,8 @@ const server = http.createServer(async (req, res) => {
 const express = require('express'); //framework web para node.js
 const path = require('path'); //módulo nativo do node.js
 const app = express(); 
-const bcryptjs = require('bcryptjs');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
 //cors é uma biblioteca para o expŕess
@@ -134,7 +135,7 @@ const pool = require('./db_config');
 //acessando a pasta public, pra iniciar a conexão do front com o back local
 app.use(express.static(path.join(__dirname, '../public')));
  
-
+//ROTA DE REGISTRAR DADOS DO USUÁRIO
 app.post('/register', async (req, res) => {
    const username = req.body.username;
    const email= req.body.email;
@@ -188,7 +189,7 @@ const verificarSenha = await pool.query(querySenha,[username, email, senhaCripto
 
 
 
-//rota de login
+//ROTA DE LOGIN DO USUÁRIO
 app.post('/login', async(req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -211,8 +212,23 @@ app.post('/login', async(req, res) => {
 
             //se a senha estiver certa. . .
             if (compararSenha === true) { //se senha estiver correta
-            res.status(200).json({message: 'Login bem-sucedido!'});
+            const chaveJwt = process.env.JWT_SECRET;
+
+            const payload = {
+                id: user.id,
+                email: user.email
+            }
+
+            const options = { 
+                expiresIn: '1h'
+            }
+
+            const token = jwt.sign(payload, chaveJwt, options) //gera token
+
+            res.status(200).json({message: 'Login bem-sucedido!', token: token}); //envia token pro front
+
             return;
+
             } else {
                  console.log('Senha inválida!');
             res.status(401).json({message: 'Senha inválida!'});
