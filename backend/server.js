@@ -116,8 +116,10 @@ const server = http.createServer(async (req, res) => {
 const express = require('express'); //framework web para node.js
 const path = require('path'); //módulo nativo do node.js
 const app = express(); 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
+const authMiddleware = require('./middleware'); //importando. . .
 
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
 //cors é uma biblioteca para o expŕess
@@ -137,9 +139,12 @@ app.use(express.static(path.join(__dirname, '../public')));
  
 //ROTA DE REGISTRAR DADOS DO USUÁRIO
 app.post('/register', async (req, res) => {
+    console.log('1. Requisição de registro recebida')
    const username = req.body.username;
    const email= req.body.email;
    const password = req.body.password;
+
+    console.log('2. Dados do corpo', {username, email, password});
    
    //verificar se existem ou se estão vazios. . .
    if (!username || username.trim() === '' 
@@ -152,9 +157,12 @@ app.post('/register', async (req, res) => {
 
    //verificar duplicidade de dados no banco de dados
    try {
+    console.log('3. Verificando duplicidade de usuário/email...')
     const queryText = `SELECT * FROM users 
                        WHERE email = $1 OR username = $2`;
     const verificarDuplicidade = await pool.query(queryText, [email, username]); //extraindo email e username
+
+    console.log('4. Resultado da verificação de duplicidade:', verificarDuplicidade.rows)
     
     //verificar se tem algo
     if (verificarDuplicidade.rows.length > 0) {
@@ -162,26 +170,36 @@ app.post('/register', async (req, res) => {
         return;   
     }
 } catch (error) {
-    console.log('Erro ao verificar duplicidade no banco de dados:', error)
+    console.log('5. Erro ao verificar duplicidade no banco de dados:', error)
     res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
     return;
 }
 
 //criptografando a senha
+console.log('6. Criptografando a senha. . .')
  const senhaCriptografada = await bcrypt.hash(password, 10); //o "10" é o número de voltas que o bcriptjs dará para fechar o 'cadeado' (é como uma camada extra de proteção de senha para dificultar ataques. . .)
+ console.log('7. Senha criptografada')
 
  try {
+    console.log('8. Inserindo novo usuário no banco de dados. . .')
     const querySenha = `INSERT INTO users (username, email, password) 
-                        VALUES ($1, $2, $3)`;
+                        VALUES ($1, $2, $3) RETURNING id`;
 const verificarSenha = await pool.query(querySenha,[username, email, senhaCriptografada]);
+
+console.log('9. resultado da inserção:', verificarSenha.rows);
 
 //se pelo menos 1 linha tiver sido inserida no banco. . .
     if (verificarSenha.rows.length === 1) {
+        console.log('10. Usuário cadastrado com sucesso!');
         res.status(201).json({message : 'Usuário cadastrado com sucesso!'})
         return;   
+    } else {
+        console.error('11. Inserção no banco de dados não retornou uma linha.'); 
+        res.status(500).json({ message: 'Erro ao cadastrar usuário: Inserção falhou.' });
+        return;
     }
  } catch (error) {
-    console.log('Erro ao inserir dados no banco:', error)
+    console.log('12. Erro ao inserir dados no banco:', error)
     res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
     return;
  }
@@ -218,7 +236,7 @@ app.post('/login', async(req, res) => {
                 id: user.id,
                 email: user.email
             }
-
+ 
             const options = { 
                 expiresIn: '1h'
             }
@@ -248,11 +266,8 @@ app.post('/login', async(req, res) => {
 })
 
 
-
-
-
-
-    app.get('/search', async(req, res) => {
+//ROTA SEARCH (PARA BUSCAR OS DADOS NA API...)
+    app.get('/search', authMiddleware, async(req, res) => {
         const title = req.query.title || '';
         const q = title?.trim();
         const isAPOD = /APOD|foto do dia|astronomia/i.test(q) || q.length === 0;
