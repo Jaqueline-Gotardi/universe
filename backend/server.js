@@ -235,7 +235,7 @@ app.post('/login', async(req, res) => {
             const payload = {
                 id: user.id,
                 email: user.email
-            }
+            } 
  
             const options = { 
                 expiresIn: '1h'

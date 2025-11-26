@@ -1055,7 +1055,7 @@ function atualizarProgresso() {
     trocarSenha.addEventListener('click', () => {
         telaPerfilUsuario.classList.remove('selecionado');
         secaoTrocarSenha.classList.add('selecionado');
-    });
+    }); 
 
     const btnSalvarSenha = document.getElementById('btn-salvar-senha');
     btnSalvarSenha.addEventListener('click', () => {
