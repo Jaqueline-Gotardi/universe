@@ -154,7 +154,7 @@ async function enviarDados() {
   }
 }
 //enviarDados();
-
+ 
 
 
 lupaPesquisa.addEventListener("click", () => {
