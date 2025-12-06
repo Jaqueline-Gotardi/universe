@@ -182,9 +182,9 @@ const telaPerfilUsuario = document.getElementById('tela-perfil-usuario');
 const detalheCriadores = document.getElementById('detalhe-criadores');
 const detalheApagarConta = document.getElementById('detalhe-apagar-conta');
 
-
+ 
  /* VALIDANDO OS DADOS DO LOGIN */
- const formulario = document.getElementById('formulario');
+ const formulario = document.getElementById('formulario'); //nao esta sendo usado
  const campos = document.querySelectorAll('#formulario input');
  const mensagensErro = document.querySelectorAll('#formulario .mensagem-erro');
 
@@ -194,12 +194,12 @@ const detalheApagarConta = document.getElementById('detalhe-apagar-conta');
      if(input.value.trim() === '') {
          input.classList.add('erro'); 
          input.classList.remove('certo');
-         mensagensErro[index].classList.add('ativo');
+         mensagensErro[index].classList.add('ok');
          isFormularioValido = false;
      } else {
          input.classList.add('certo'); 
          input.classList.remove('erro');
-         mensagensErro[index].classList.remove('ativo');
+         mensagensErro[index].classList.remove('ok');
      }   
  }); 
  return isFormularioValido;
@@ -210,6 +210,8 @@ botaoEntrar.addEventListener('click', (event) => {
 
     const podeProsseguir = validarFormulario();
 
+
+    //Você fará o mesmo na lógica do login. O objetivo aqui é capturar o JWT (o token) e guardá-lo no localStorage.
     if (podeProsseguir) {
         console.log("Login feito com sucesso. Bem vindo(a) explorador! 🛸💜✨");
         telaLogin.classList.remove('selecionado');
@@ -270,14 +272,45 @@ const formCadastro = document.getElementById('form-cadastro');
  return isCadastroValido;
 };  
 
-btnCadastrar.addEventListener('click', (event) => {
+btnCadastrar.addEventListener('click', async (event) => {
     event.preventDefault();  
     const podeProsseguirCadastro = validarCadastro();
 
     if (podeProsseguirCadastro) {
-        console.log("Cadastro feito com sucesso! 🛸💜"); 
-        telaCadastro.classList.remove('selecionado');
-        telaApresentacao.classList.add('selecionado');
+
+        //pegar dados dos inputs
+        const username = document.getElementById('nome-cadastro').value;
+        const email = document.getElementById('email-cadastro').value;
+        const password = document.getElementById('senha-cadastro').value;
+
+        //ligar com a rota register (criada em  server.js)
+        try {
+            const response = await fetch('http://localhost:3000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    email: email,
+                    password: password
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert(data.message || 'Usuário cadastrado com sucesso!🛸💜');
+                telaCadastro.classList.remove('selecionado');
+                telaLogin.classList.add('selecionado');
+            } else {
+                alert('Erro ao cadastrar: ' + (data.messase || 'Erro desconhecido. . .'));
+            }
+
+        } catch (error) {
+            console.log('Erro na conexão com o servidor:', error);
+            alert('Falha ao conectar ao servidor. Tente novamente. . .')
+        }
     } else { 
         console.log("Faça seu cadastro para prosseguir! 🛸");
      } 

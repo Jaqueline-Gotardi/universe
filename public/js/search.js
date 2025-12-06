@@ -53,7 +53,7 @@ async function enviarDados() {
       {
         method: "GET",
       }
-    );
+    ); 
 
     const dados = await response.json();
     console.log(dados);
@@ -153,7 +153,7 @@ async function enviarDados() {
     console.log(`Dados não disponível: ${erro}`);
   }
 }
-//enviarDados();
+//enviarDados(); 
  
 
 
