@@ -14,4 +14,4 @@ const pool = new Pool({
 })
 
 //para que outros arquivos possam usar o pool (minha conexão configurada)
-module.exports = pool;
+module.exports = pool; 

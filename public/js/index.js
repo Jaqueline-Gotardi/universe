@@ -205,21 +205,52 @@ const detalheApagarConta = document.getElementById('detalhe-apagar-conta');
  return isFormularioValido;
 };  
 
-botaoEntrar.addEventListener('click', (event) => {
+botaoEntrar.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    const podeProsseguir = validarFormulario();
+    const podeProsseguirLogin = validarFormulario();
 
+    if (podeProsseguirLogin) {
 
-    //Você fará o mesmo na lógica do login. O objetivo aqui é capturar o JWT (o token) e guardá-lo no localStorage.
-    if (podeProsseguir) {
-        console.log("Login feito com sucesso. Bem vindo(a) explorador! 🛸💜✨");
-        telaLogin.classList.remove('selecionado');
-        telaApresentacao.classList.add('selecionado');
+        //pegar valores dos inputs (os campos preenchidos)
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('senha').value;
+        const universeToken = 'universeToken';
+
+        try {
+        //ligar com a rota login/
+            const response = await fetch ('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-type' : 'application/json'
+                },
+                body: JSON.stringify ({
+                    email: email,
+                    password: password,
+                })
+            })
+
+            const dadosLogin = await response.json();
+
+            if (response.ok) {
+
+                localStorage.setItem(universeToken, dadosLogin.token); //guardando o token na variavel "universeToken"
+
+                alert(dadosLogin.message || 'Login feito com sucesso. Bem vindo(a) explorador! 🛸💜✨');
+                telaLogin.classList.remove('selecionado');
+                telaApresentacao.classList.add('selecionado');
+            } else {
+                alert('Erro ao fazer Login: ' + (dadosLogin.message || 'Faça seu login! 🛸'));
+            }
+
+        } catch (error) {
+            console.log('Erro na conexão com o servidor:', error);
+            alert('Falha ao fazer login. Tente novamente. . .')
+        }
     } else {
-        console.log("Faça seu login! 🛸");
+        console.log('Faça seu login para prosseguir!🛸')
     }
-}); 
+});
 
 
 /* MUDANDO A TELA DE LOGIN PARA A DE CADASTRO */
@@ -304,7 +335,7 @@ btnCadastrar.addEventListener('click', async (event) => {
                 telaCadastro.classList.remove('selecionado');
                 telaLogin.classList.add('selecionado');
             } else {
-                alert('Erro ao cadastrar: ' + (data.messase || 'Erro desconhecido. . .'));
+                alert('Erro ao cadastrar: ' + (data.message || 'Erro desconhecido. . .'));
             }
 
         } catch (error) {

@@ -137,6 +137,9 @@ const pool = require('./db_config');
 //acessando a pasta public, pra iniciar a conexão do front com o back local
 app.use(express.static(path.join(__dirname, '../public')));
  
+
+
+
 //ROTA DE REGISTRAR DADOS DO USUÁRIO
 app.post('/register', async (req, res) => {
     console.log('1. Requisição de registro recebida')

@@ -46,15 +46,19 @@ async function enviarDados() {
   try {
     //pega o valor do input
     const valorInput = campoPesquisa.value;
+    const tokenSalvo = localStorage.getItem(universeToken); //pegando token do index.js 
 
     //enviar o valor do input para o servidor back
     const response = await fetch(
       `http://localhost:3000/search?title=${valorInput}`,
       {
         method: "GET",
+        headers: {
+          authorization: "Bearer " + tokenSalvo,
+        }
       }
     ); 
-
+ 
     const dados = await response.json();
     console.log(dados);
 
