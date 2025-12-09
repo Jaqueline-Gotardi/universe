@@ -11,7 +11,7 @@ const pool = new Pool({
     database : 'universe_db',
     password : process.env.DB_PASSWORD,
     port : 5432,
-})
+}) 
 
 //para que outros arquivos possam usar o pool (minha conexão configurada)
 module.exports = pool; 

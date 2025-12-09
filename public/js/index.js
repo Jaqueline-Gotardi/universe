@@ -201,7 +201,7 @@ const detalheApagarConta = document.getElementById('detalhe-apagar-conta');
          input.classList.remove('erro');
          mensagensErro[index].classList.remove('ok');
      }   
- }); 
+ });  
  return isFormularioValido;
 };  
 

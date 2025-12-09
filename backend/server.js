@@ -129,7 +129,8 @@ app.use(express.urlencoded({extended : true})); //para o express ler dados de fo
 app.use(cors());
 
 // É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
-require('dotenv').config()
+
+require('dotenv').config({path: path.join(__dirname, '../.env')}); //configurando o dontev para ler o arquivo .env 
  
 //importar pool (lá do DB. . .)
 const pool = require('./db_config');
@@ -260,7 +261,7 @@ app.post('/login', async(req, res) => {
             console.log('Usuário não encontrado');
             res.status(401).json({message: 'Credenciais inválidas'});
             return;
-        }
+        } 
 
     } catch(error) { //erro inesperado do servidor
         console.log('Falha ao conectar ao banco de dados, tente novamante mais tarde:', error)
@@ -270,7 +271,8 @@ app.post('/login', async(req, res) => {
 
 
 //ROTA SEARCH (PARA BUSCAR OS DADOS NA API...)
-    app.get('/search', authMiddleware, async(req, res) => {
+    //app.get('/search', authMiddleware, async(req, res) => {
+        app.get('/search', async(req, res) => {
         const title = req.query.title || '';
         const q = title?.trim();
         const isAPOD = /APOD|foto do dia|astronomia/i.test(q) || q.length === 0;
@@ -300,15 +302,23 @@ app.post('/login', async(req, res) => {
                         href: dadosComChave.media_type === 'image' ? dadosComChave.hdurl || dadosComChave.url : dadosComChave.url
                     }];
                     resultadosFinais.push(...resultadosDaApod);
+                    res.json(resultadosFinais);
                 } else {
                     console.log('APOD não retornou dados concretos. Seguindo para a gratuita. . .');
+                    await getNasaImages();
                 }
             } catch (erro) {
                 console.log('Erro ao acessar API APOD (mas seguindo para a API gratuita):', erro);
+                await getNasaImages();
             }
+        } else {
+            //chama a função para buscar images se APOD não for chamado
+            await getNasaImages();
         }
 
         //BUSCAR DADOS NA API GRATUITA. . .
+
+        async function getNasaImages() {
         try {
             console.log('Chamando API NASA Images (Gratuita)...');
             const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${title}`);
@@ -338,9 +348,8 @@ app.post('/login', async(req, res) => {
         } else {
             res.status(404).json({ error: 'Nenhum resultado encontrado em nenhuma das APIs. . .' });
         }
+    }
     });
-
-
 
 
 
