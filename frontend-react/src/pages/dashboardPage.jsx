@@ -2,7 +2,7 @@ import React from "react";
 
 //conteúdo que o roteador vai exibir quando o usuário estiver logado
 
-function DashboardPage() {
+function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
     return (
         <div className="min-h-screen bg-indigo-50 p-8">
             <h1 className="text-4x1 font-extrabold text-indigo-800 mb-6">
