@@ -1,7 +1,5 @@
-import React from "react";
-
 //o contéudo que o roteador vai exibir pra rota /login
-function LoginPage() {
+function LoginPage() { //no react as functions começam com letra Maiúscula
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="p-8 bg-white shadown-x1 roundeb-lg w-full max-w-sm">

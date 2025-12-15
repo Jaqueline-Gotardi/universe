@@ -1,9 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+//import App from './App.jsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importando o roteador
+
+import ProtectRoute from './components/protectRoute.jsx';
 
 //importar as funções
 import LoginPage from './pages/loginPage.jsx'
@@ -25,7 +27,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/app",
-    element: <DashboardPage />,
+    element: (
+      <ProtectRoute>  {/* autentificação */}
+    <DashboardPage/>  {/* conteúdo */}
+    </ProtectRoute>
+    ),
   },
 ]);
 

@@ -1,5 +1,3 @@
-import React from "react";
-
 //conteúdo que o roteador vai exibir quando o usuário estiver logado
 
 function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
