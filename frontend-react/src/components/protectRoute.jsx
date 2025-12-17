@@ -1,3 +1,5 @@
+//esse arquivo é para permitir a entrada do usuário no site (se ele estiver logado), como se fosse uma porta
+
 import useAuth from "../hooks/useAuth";
 import {Navigate} from "react-router-dom";
 
