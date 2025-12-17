@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useAuth = () => {
-
+ 
     //variáveis para guardar os states(estados)
     const [isAuthenticated, setIsAuthenticated] = useState(null);
     const [isLoading, setIsLoading] = useState(true);

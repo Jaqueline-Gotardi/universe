@@ -247,6 +247,7 @@ app.post('/login', async(req, res) => {
 
             const token = jwt.sign(payload, chaveJwt, options) //gera token
 
+            console.log('Login bem sucedido!')
             res.status(200).json({message: 'Login bem-sucedido!', token: token}); //envia token pro front
 
             return;
