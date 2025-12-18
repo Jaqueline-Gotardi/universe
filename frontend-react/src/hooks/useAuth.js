@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AuthContext } from "../../contexts/authContext";
+import { AuthContext } from "../../contexts/contextStore";
 
 const useAuth = () => {
  

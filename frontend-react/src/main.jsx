@@ -6,6 +6,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importando o roteador
 
 import ProtectRoute from './components/protectRoute.jsx';
+import { AuthProvider } from '../contexts/authContext.jsx';
 
 //importar as funções
 import LoginPage from './pages/loginPage.jsx'
@@ -37,6 +38,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+  <AuthProvider>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </AuthProvider>
+  </StrictMode>
 ) 

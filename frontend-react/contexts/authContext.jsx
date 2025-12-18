@@ -1,11 +1,8 @@
 // este arquivo guarda a informação de verificar se o usuário está logado (como se fosse um segurança)
 
 
-import { createContext, useState, useEffect } from "react";
-
-//exportar o authContext para que o useAuth.js saiba de onde pegar os valores de autentificação
-export const AuthContext = createContext();
-
+import { useState, useEffect } from "react";
+import { AuthContext } from "./contextStore";
         
 
 //a função que irá transmitir se o usuário está logado (para o arquivo ProtectRoute.jsx)
