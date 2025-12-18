@@ -12,7 +12,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
                 </div>
             </div>
         </div>
-    ); 
+    );  
 }
 
 export default LoginPage;

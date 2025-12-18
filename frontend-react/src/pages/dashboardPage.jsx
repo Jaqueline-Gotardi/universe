@@ -15,6 +15,6 @@ function DashboardPage() { //nome de componentes/funções em React deve-se come
             </div>
         </div>
     ); 
-}
+} 
 
 export default DashboardPage;

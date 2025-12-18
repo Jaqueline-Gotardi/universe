@@ -4,6 +4,7 @@ import useAuth from "../hooks/useAuth";
 import {Navigate} from "react-router-dom";
 
 function ProtectRoute ({ children }) {
+    //chamar o useAuth, quando o usuário entrar em /app
     const { isLoading, isAuthenticated } = useAuth();
 
     //se estiver carregando...
@@ -12,7 +13,7 @@ function ProtectRoute ({ children }) {
             <div className="min-h-screen -flex items-center justify-center">
                 <h2>Verificando Credenciais. . .</h2>
             </div>
-        )
+        ) 
     } 
 
     //se o usuário não estiver autentificado

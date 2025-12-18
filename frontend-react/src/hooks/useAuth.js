@@ -1,18 +1,41 @@
-import { useState, useEffect } from "react";
+//esse arquivo serve para "ler" oq a central(protectRoute) decidiu (usuário está logado ou não?)
+
+import { useContext } from "react";
 import { AuthContext } from "../../contexts/contextStore";
 
+
+//a função que roda quando o componente é carregado. . .
 const useAuth = () => {
  
+    const context = useContext(AuthContext);
+
+    if (!context) {
+        throw new Error ("useAuth deve ser usado dentro de um AuthProvider");
+    }
+    return context;
+};
+
+export default useAuth;
+
+
+
+
+
+
+
+
+
+
+/* 
+
     //variáveis para guardar os states(estados)
     const [isAuthenticated, setIsAuthenticated] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    //isAuthenticated e isLoading são os valores atuais
-    //setIsAuthenticated e setIsLoading são para atualizar os valores atuais
     
 
 
-    //a função que roda quando o componente é carregado (usa efeito colateral (useEffect) de carregamento . . .
+    
     useEffect(() => {
         const verifyToken = async () => {
             setIsLoading(true); //carregando
@@ -41,5 +64,4 @@ const useAuth = () => {
 
     return { isAuthenticated, isLoading }
 };
-
-export default useAuth;
+ */
