@@ -201,7 +201,7 @@ input.certo {
 }
 
 @keyframes sparkle {
-  from {
+  from { 
     transform: translateY(0);
   }
 

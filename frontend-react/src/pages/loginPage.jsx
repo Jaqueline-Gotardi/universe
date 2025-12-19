@@ -1,4 +1,8 @@
 /* loginPage.jsx (A Recepção): É a entrada do hotel. Se você não tem a chave, é aqui que você precisa se identificar para o sistema te deixar passar. */
+//no React, não se escreve class, mas: className!
+
+//import { useState } from "react";
+import "../style/loginPage.css"
 
 function LoginPage() { //no react as functions começam com letra Maiúscula
     return (
