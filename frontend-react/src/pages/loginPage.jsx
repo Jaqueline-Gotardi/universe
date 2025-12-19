@@ -1,4 +1,5 @@
-//o contéudo que o roteador vai exibir pra rota /login
+/* loginPage.jsx (A Recepção): É a entrada do hotel. Se você não tem a chave, é aqui que você precisa se identificar para o sistema te deixar passar. */
+
 function LoginPage() { //no react as functions começam com letra Maiúscula
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -15,4 +16,4 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
     );  
 }
 
-export default LoginPage;
+export default LoginPage;  

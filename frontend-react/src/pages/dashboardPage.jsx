@@ -1,4 +1,4 @@
-//conteúdo que o roteador vai exibir quando o usuário estiver logado
+/* dashboardPage.jsx (O Quarto VIP / Área Restrita): É o lugar onde o conteúdo real do site acontece. Só chega aqui quem passou pelo Vigia e provou que está autenticado. */
 
 function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
     return (
@@ -17,4 +17,4 @@ function DashboardPage() { //nome de componentes/funções em React deve-se come
     ); 
 } 
 
-export default DashboardPage;
+export default DashboardPage;  

@@ -1,4 +1,4 @@
-//esse arquivo é para permitir a entrada do usuário no site (se ele estiver logado), como se fosse uma porta
+/* protectRoute.jsx (O Vigia do Hotel): É o segurança que fica na porta das rotas proibidas. Ele ouve o Mensageiro e decide: "Tá logado? Pode entrar. Não tá? Volta pro login agora!". */
 
 import useAuth from "../hooks/useAuth";
 import {Navigate} from "react-router-dom";
@@ -9,7 +9,7 @@ function ProtectRoute ({ children }) {
 
     //se estiver carregando...
     if (isLoading) {
-        return (
+        return ( 
             <div className="min-h-screen -flex items-center justify-center">
                 <h2>Verificando Credenciais. . .</h2>
             </div>
@@ -25,4 +25,4 @@ function ProtectRoute ({ children }) {
     return children;
 }
 
-export default ProtectRoute;
+export default ProtectRoute; 

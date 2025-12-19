@@ -1,4 +1,4 @@
-//esse arquivo serve para "ler" oq a central(protectRoute) decidiu (usuário está logado ou não?)
+/* useAuth.js (O Mensageiro): É o "gancho". Ele corre lá na Central, pergunta se o usuário está logado e traz a resposta para quem estiver precisando saber. */
 
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/contextStore";
@@ -17,10 +17,10 @@ const useAuth = () => {
 
 export default useAuth;
 
+ 
 
 
-
-
+ 
 
 
 

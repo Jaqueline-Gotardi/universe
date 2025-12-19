@@ -1,6 +1,5 @@
-// este arquivo guarda a informação de verificar se o usuário está logado (como se fosse um segurança)
-
-
+/* authContext.jsx (A Central / Cérebro): É quem manda de verdade. Ele guarda a informação se você está logada ou não. É o "HD" onde fica gravada a verdade sobre o usuário. */
+ 
 import { useState, useEffect } from "react";
 import { AuthContext } from "./contextStore";
           
