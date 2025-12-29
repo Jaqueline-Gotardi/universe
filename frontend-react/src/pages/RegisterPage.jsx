@@ -1,6 +1,5 @@
 import "../style/cadastro.css"
 import "../style/perfil.css"
-import "../style/reset.css"
 
 function RegisterPage() {
 
