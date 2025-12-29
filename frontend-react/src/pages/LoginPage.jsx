@@ -5,9 +5,15 @@
 import "../style/loginPage.css"
 import { useState } from "react";
 
+
 function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
+
+  function handleLogin(event) {
+  event.preventDefault(); //evita o recarregamento da página
+  console.log("Tentando fazer login com:", email, password);
+}
 
     return (   
         <section className="tela-login" id="tela-login">
@@ -22,7 +28,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
           <h1 className="welcome-title">Bem vindo(a) ao Universe!</h1>
         </div>
  
-        <form className="login-form" id="formulario">
+        <form className="login-form" id="formulario" onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="senha" className="form-label">Senha:</label>
             <input type="password" id="senha" 
