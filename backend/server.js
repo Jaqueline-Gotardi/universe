@@ -120,7 +120,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = require('./middleware'); //importando. . .
-
+ 
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
 //cors é uma biblioteca para o expŕess
 

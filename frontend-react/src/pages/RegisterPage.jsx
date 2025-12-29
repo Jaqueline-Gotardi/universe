@@ -1,29 +1,68 @@
 import "../style/cadastro.css"
 import "../style/perfil.css"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function RegisterPage() {
+  const [ username, setUsername ] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+
+  const navigate = useNavigate("")
+
+  async function handleRegister(event) {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+      },
+      body: JSON.stringify({ username, email, password })
+    })
+
+    if (response.ok) {
+      const data = await response.json()
+      console.log("Cadastro bem sucedido!", data)
+
+      navigate("/login");
+    } else {
+      alert("Falha ao cadastrar")
+    }
+  
+  } catch(error) {
+      alert("Erro de rede: Não foi possível concluir seu cadastro. Tente novamente mais tarde.", error)
+    }
+  }
 
     return (
-<section className="tela-cadastro" id="tela-cadastro">
+<section className="tela-cadastro" id="tela-cadastro" onSubmit={handleRegister}>
     <div className="container-cadastro">
       <h2 className="titulo-secao">Crie sua conta de Agente</h2>
       <form className="form-cadastro" id="form-cadastro">
 
         <div className="campo-input">
           <label htmlFor="nome-cadastro">Nome de Agente</label>
-          <input type="text" id="nome-cadastro" placeholder="Ex: Capitã Estelar"/>
+          <input type="text" id="nome-cadastro" 
+          placeholder="Ex: Capitã Estelar"
+          value={username} onChange={(e) => setUsername(e.target.value)}/>
           <p className="mensagem-erro">* preencha este campo</p>
         </div>
-  
+   
         <div className="campo-input">
           <label htmlFor="email-cadastro">E-mail</label>
-          <input type="email" id="email-cadastro" placeholder="seu-email@universo.com"/>
+          <input type="email" id="email-cadastro" 
+          placeholder="seu-email@universo.com"
+          value={email} onChange={(e) => setEmail(e.target.value)}/>
           <p className="mensagem-erro">* preencha este campo</p>
         </div>
   
         <div className="campo-input">
           <label htmlFor="senha-cadastro">Senha</label>
-          <input type="password" id="senha-cadastro" placeholder="Crie uma senha forte"/>
+          <input type="password" id="senha-cadastro" 
+          placeholder="Crie uma senha forte"
+          value={password} onChange={(e) => setPassword(e.target.value)}/>
           <p className="mensagem-erro">* preencha este campo</p>
         </div>
  
