@@ -12,7 +12,7 @@
   top: 50%;
   right: 10px; 
   transform: translateY(-50%);
-  z-index: 1000;
+  z-index: 1000; 
   padding: 15px 10px;
   border-radius: 20px;
   font-family: 'Orbitron', sans-serif;
@@ -78,7 +78,7 @@
 
 /* ESTILIZAÇÃO DA TELA DE LOGIN */
 .tela-login {
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;

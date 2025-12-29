@@ -5,13 +5,13 @@
     background-repeat: no-repeat;
     min-height: 100vh;
    /*  display: flex; */
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     color: #fff;
     padding: 2rem 1rem;
     box-sizing: border-box;
-}
+} /* essa class parece ser inútil, troquei por tela-cadastro no perfil.css*/
 
 .container-cadastro {
     background: rgba(13, 11, 28, 0.75);

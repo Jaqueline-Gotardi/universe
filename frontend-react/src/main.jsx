@@ -2,20 +2,22 @@
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-//import App from './App.jsx'
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importando o roteador
 
 import ProtectRoute from './components/protectRoute.jsx';
 import { AuthProvider } from '../contexts/authContext.jsx';
 
 //importar as funções
-import LoginPage from './pages/loginPage.jsx'
-import DashboardPage from './pages/dashboardPage.jsx'
+import LoginPage from './pages/LoginPage.jsx'
+import DashboardPage from './pages/DashboardPage.jsx'
+import RegisterPage from './pages/RegisterPage.jsx';
+
+//importar o css 
+import "../src/style/reset.css"
+import "../src/style/globals.css"
 
 //configurando o roteador
-const router = createBrowserRouter([
+const router = createBrowserRouter([ 
   {
     path: "/", //rota raiz
     element: <LoginPage />, //layout principal ou o redirecionador
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
   }, 
   { 
     path: "/register",
-    element: <div>Página de Cadastro</div>,
+    element: <RegisterPage />,
   },
   {
     path: "/app",
