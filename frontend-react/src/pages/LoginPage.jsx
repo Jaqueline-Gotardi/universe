@@ -4,15 +4,23 @@
 //import { useState } from "react";
 import "../style/loginPage.css"
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 
 function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
 
+  const { login } = useAuth();
+  const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
+
   function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
   console.log("Tentando fazer login com:", email, password);
+
+  login(); //atualiza o estado para logado
+  navigate("/app"); //redireciona para o dashboard (a área que só entra quem está logado)
 }
 
     return (   

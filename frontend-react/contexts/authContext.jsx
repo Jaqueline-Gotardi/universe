@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./contextStore";
           
- 
+  
 //a função que irá transmitir se o usuário está logado (para o arquivo ProtectRoute.jsx)
     export function AuthProvider ({ children }) {
         const [ isAuthenticated, setAuthenticated ] = useState(false);
