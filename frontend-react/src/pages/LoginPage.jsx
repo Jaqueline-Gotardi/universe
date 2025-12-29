@@ -15,12 +15,33 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   const { login } = useAuth();
   const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
 
-  function handleLogin(event) {
+  async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
-  console.log("Tentando fazer login com:", email, password);
+  //console.log("Tentando fazer login com:", email, password);
 
-  login(); //atualiza o estado para logado
-  navigate("/app"); //redireciona para o dashboard (a área que só entra quem está logado)
+  try {
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ email, password}),
+      });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log("Login bem sucedido!", data);
+
+      login(); //atualiza o estado para logado
+      navigate("/app"); //redireciona para o dashboard (a área que só entra quem está logado)
+    } else {
+      alert("Falha ao logar: Verifique suas credenciais cósmicas!")
+    }
+
+  } catch(error) {
+    console.log("Erro de rede ao tentar logar:", error);
+    alert("Erro de rede: Não foi possível conectar ao servidor. Tente novamente mais tarde.")
+  }
 }
 
     return (   
