@@ -76,7 +76,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
           <button type="submit" className="btn-primary" id="btn-primary">Entrar</button>
           <p className="cadastro-link">Não tem uma conta? 
-          <NavLink to="/register" id="cadastro-link">Cadastre-se</NavLink>
+          <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink>
           </p>
         </form>
       </div>

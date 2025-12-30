@@ -8,11 +8,18 @@ function RegisterPage() {
   const [ username, setUsername ] = useState("");
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
+  const [ confirmPassword, setConfirmPassword ] = useState("");
 
   const navigate = useNavigate("")
 
   async function handleRegister(event) {
     event.preventDefault();
+
+    //confirmar se a senha digitada é igual a digitada no campo de confirmar senha
+    if (password !== confirmPassword) {
+      alert("Senha espaciais não coincidem!")
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:3000/register", {
@@ -26,6 +33,7 @@ function RegisterPage() {
     if (response.ok) {
       const data = await response.json()
       console.log("Cadastro bem sucedido!", data)
+      alert("Cadastro realizado com sucesso! Faça seu login agora.")
 
       navigate("/login");
     } else {
@@ -61,12 +69,15 @@ function RegisterPage() {
           <label htmlFor="senha-cadastro">Senha</label>
           <input type="password" id="senha-cadastro" 
           placeholder="Crie uma senha forte"
-          value={password} onChange={(e) => setPassword(e.target.value)} required/>
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} required/>
         </div>
  
         <div className="campo-input">
           <label htmlFor="cofirma-senha-cadastro">Confirmar Senha</label>
-          <input type="password" id="cofirma-senha-cadastro" placeholder="Confirme sua senha" required/>
+          <input type="password" id="cofirma-senha-cadastro" placeholder="Confirme sua senha" 
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)} required/>
         </div>
 
         <div className="captcha-container">
