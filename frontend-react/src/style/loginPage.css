@@ -147,7 +147,7 @@
 .mensagem-erro {
   color: #f52e25;
   font-size: 13px;
-  display: none; 
+ /*  display: none;  */ 
 }
 
 .mensagem-erro.ok {

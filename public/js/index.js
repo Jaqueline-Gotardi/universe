@@ -232,7 +232,7 @@ botaoEntrar.addEventListener('click', async (event) => {
 
             const dadosLogin = await response.json();
 
-            if (response.ok) {
+            if (response.ok) { 
 
                 localStorage.setItem(universeToken, dadosLogin.token); //guardando o token na variavel "universeToken"
 

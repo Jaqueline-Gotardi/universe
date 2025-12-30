@@ -2,6 +2,7 @@ import "../style/cadastro.css"
 import "../style/perfil.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function RegisterPage() {
   const [ username, setUsername ] = useState("");
@@ -37,52 +38,49 @@ function RegisterPage() {
   }
 
     return (
-<section className="tela-cadastro" id="tela-cadastro" onSubmit={handleRegister}>
+<section className="tela-cadastro" id="tela-cadastro">
     <div className="container-cadastro">
       <h2 className="titulo-secao">Crie sua conta de Agente</h2>
-      <form className="form-cadastro" id="form-cadastro">
+      <form className="form-cadastro" id="form-cadastro" onSubmit={handleRegister}>
 
         <div className="campo-input">
           <label htmlFor="nome-cadastro">Nome de Agente</label>
           <input type="text" id="nome-cadastro" 
           placeholder="Ex: Capitã Estelar"
-          value={username} onChange={(e) => setUsername(e.target.value)}/>
-          <p className="mensagem-erro">* preencha este campo</p>
+          value={username} onChange={(e) => setUsername(e.target.value)} required/>
         </div>
    
         <div className="campo-input">
           <label htmlFor="email-cadastro">E-mail</label>
           <input type="email" id="email-cadastro" 
           placeholder="seu-email@universo.com"
-          value={email} onChange={(e) => setEmail(e.target.value)}/>
-          <p className="mensagem-erro">* preencha este campo</p>
+          value={email} onChange={(e) => setEmail(e.target.value)} required/>
         </div>
   
         <div className="campo-input">
           <label htmlFor="senha-cadastro">Senha</label>
           <input type="password" id="senha-cadastro" 
           placeholder="Crie uma senha forte"
-          value={password} onChange={(e) => setPassword(e.target.value)}/>
-          <p className="mensagem-erro">* preencha este campo</p>
+          value={password} onChange={(e) => setPassword(e.target.value)} required/>
         </div>
  
         <div className="campo-input">
           <label htmlFor="cofirma-senha-cadastro">Confirmar Senha</label>
-          <input type="password" id="cofirma-senha-cadastro" placeholder="Confirme sua senha"/>
-          <p className="mensagem-erro">* preencha este campo</p>
+          <input type="password" id="cofirma-senha-cadastro" placeholder="Confirme sua senha" required/>
         </div>
 
         <div className="captcha-container">
-          <input type="checkbox" id="nao-sou-robo-cadastro"/>
+          <input type="checkbox" id="nao-sou-robo-cadastro" required/>
           <label htmlFor="nao-sou-robo-cadastro">Eu não sou um robô</label>
-          <p className="mensagem-erro">* Marque esta caixa para continuar</p>
         </div>
   
         <div className="botoes-cadastro">
           <button type="submit" className="btn-cadastrar-conta" id="btn-cadastrar">Criar conta</button>
         </div>
 
-        <p className="link-ja-tem-conta">Já tem uma conta? <a href="#" id="link-login">Faça seu login</a></p>
+        <p className="link-ja-tem-conta">Já tem uma conta? 
+          <NavLink to="/login" id="link-login"> Faça seu login</NavLink>
+        </p>
   
       </form>
     </div>

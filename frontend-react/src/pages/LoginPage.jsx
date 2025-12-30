@@ -6,6 +6,7 @@ import "../style/loginPage.css"
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 function LoginPage() { //no react as functions começam com letra Maiúscula
@@ -18,7 +19,6 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
   //console.log("Tentando fazer login com:", email, password);
-
   try {
     const response = await fetch("http://localhost:3000/login", {
       method: "POST",
@@ -63,8 +63,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
             <input type="password" id="senha" 
             placeholder="Digite sua senha" 
             className="form-input" 
-            value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <p className="mensagem-erro">* preencha este campo</p>
+            value={password} onChange={(e) => setPassword(e.target.value)} required/>
           </div>
 
           <div className="form-group">
@@ -72,12 +71,13 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
             <input type="email" id="email" 
             placeholder="Digite seu email" 
             className="form-input" 
-            value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <p className="mensagem-erro">* preencha este campo</p>
+            value={email} onChange={(e) => setEmail(e.target.value)} required/>
           </div>
 
           <button type="submit" className="btn-primary" id="btn-primary">Entrar</button>
-          <p className="cadastro-link">Não tem uma conta? <a href="#" id="cadastro-link">Cadastre-se</a></p>
+          <p className="cadastro-link">Não tem uma conta? 
+          <NavLink to="/register" id="cadastro-link">Cadastre-se</NavLink>
+          </p>
         </form>
       </div>
     </div>
