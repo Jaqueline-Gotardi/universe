@@ -11,7 +11,6 @@ function DashboardPage() { //nome de componentes/funções em React deve-se come
       <>
       {
         telaAtiva === "inicio" &&
-         /* < WelcomeSection mudarTela = {setAtiva} / > */
          < WelcomeSection onClicarIniciar={() => setAtiva('tela-inicial')} onClicarTutorial={() => setAtiva('tutorial')} />
       }
       
