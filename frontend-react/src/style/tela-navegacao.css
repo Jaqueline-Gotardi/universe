@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     /* background-color: #0f2549; */
     min-height: 100vh;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -17,7 +17,7 @@
 
 .tela-navegacao .barra,
 .tela-menu .barra {
-    justify-content: flex-start;
+    justify-content: flex-start; 
     position: static;
     display: flex;
     margin-top: 20px;

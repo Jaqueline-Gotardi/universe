@@ -64,7 +64,7 @@ function RegisterPage() {
           placeholder="seu-email@universo.com"
           value={email} onChange={(e) => setEmail(e.target.value)} required/>
         </div>
-  
+   
         <div className="campo-input">
           <label htmlFor="senha-cadastro">Senha</label>
           <input type="password" id="senha-cadastro" 

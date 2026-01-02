@@ -4,13 +4,13 @@
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #e0f2f7;
 }
- 
+  
 .guia {
   display: flex;
   flex-direction: column;
