@@ -1,4 +1,9 @@
-function ExplorerMenu() {
+import "../style/tela-menu.css"
+import "../style/tela-navegacao.css"
+import "../style/criadores.css"
+
+
+function ExplorerMenu({onClicarMenu}) {
 
     return (
         <section className="tela-menu" id="menu">
@@ -12,7 +17,7 @@ function ExplorerMenu() {
       <img src="./imagens/lupa.jpg" className="lupa" id="lupa-pesquisa" />
     </div>
     <div class="informacoes-extras">
-      <button type="button" className="btn-cosmic" id="btn-menu">Menu</button>
+      <button type="button" className="btn-cosmic" id="btn-menu" onClick={() => onClicarMenu('menu')}>Menu</button>
     </div>
     <button type="button" className="botao-retorno-home" aria-label="Voltar para a página inicial">
       <img src="./imagens/casinha.png" className="icone-home" alt="Ícone de casa, para retornar ao menu principal" id="btn-voltar-menu" />
@@ -22,4 +27,4 @@ function ExplorerMenu() {
   </section>
     );
 }
-export default ExplorerMenu;
+export default ExplorerMenu; 

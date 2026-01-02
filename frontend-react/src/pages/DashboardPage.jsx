@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import WelcomeSection from "../components/WelcomeSection";
+import MissionTutorial from "../components/MissionTutorial";
+import ExplorerMenu from "../components/ExplorerMenu";
 
 function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
 
@@ -12,6 +14,16 @@ function DashboardPage() { //nome de componentes/funções em React deve-se come
       {
         telaAtiva === "inicio" &&
          < WelcomeSection onClicarIniciar={() => setAtiva('tela-inicial')} onClicarTutorial={() => setAtiva('tutorial')} />
+      }
+
+      {
+        telaAtiva === "tela-inicial" &&
+        < ExplorerMenu onClicarMenu={() => setAtiva('menu')} />
+      }
+
+      {
+       telaAtiva === "tutorial" && 
+         < MissionTutorial onClicarExploracao={() => setAtiva('exploracao')} />
       }
       
    </>

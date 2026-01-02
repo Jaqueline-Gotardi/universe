@@ -1,6 +1,8 @@
+import "../style/tutorial.css"
+
 function MissionTutorial({onClicarExploracao}) {
 
-   
+    
 return (
 <section id="tela-tutorial" className="tela-tutorial">
     <div class="background-overlay"></div>
@@ -48,5 +50,5 @@ return (
     </div>
 </section>
 );
-}
+} 
 export default MissionTutorial;

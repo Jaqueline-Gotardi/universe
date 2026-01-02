@@ -47,10 +47,13 @@
 
 .barra .lupa {
     position: static;
-    width: 20px;
-    height: 20px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50px;
    
-    filter: invert(1) brightness(1.2); 
+    filter: invert(1) brightness(1.2);  
+    cursor: pointer;
+
 }
 /* .tela-navegacao .barra {
     justify-content: flex-start;
