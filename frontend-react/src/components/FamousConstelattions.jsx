@@ -1,0 +1,19 @@
+import { useNavigate } from "react-router-dom";
+
+function FamousConstelattions() {
+
+    const navigate = useNavigate();
+
+    return (
+    <section className="tela-principal" id="constelacoes-famosas">
+    <div class="informacoes-extras">
+      <button type="button" className="btn-cosmic" id="btn-orion">Órion</button>
+      <button type="button" className="btn-cosmic" id="btn-cao-maior">Cão Maior</button>
+      <button type="button" className="btn-cosmic" id="btn-escorpiao">Escorpião</button>
+    </div>
+    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacoes-famosas"
+    onClick={() => navigate("/app/constelattion")}>Voltar</button>
+  </section> 
+    )
+}
+export default FamousConstelattions;

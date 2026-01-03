@@ -18,6 +18,12 @@ import "../src/style/globals.css"
 import MissionTutorial from './components/MissionTutorial.jsx';
 import ExplorerMenu from './components/ExplorerMenu.jsx';
 import WelcomeSection from './components/WelcomeSection.jsx';
+import InfoMenu from './components/InfoMenu.jsx';
+import InfoAstros from './components/InfoAstros.jsx';
+import ConstelletionsMenu from './components/ConstelletionsMenu.jsx';
+import NorthConstelattions from './components/NorthConstelattions.jsx';
+import SouthConstelattions from './components/SouthConstelattions.jsx';
+import FamousConstelattions from './components/FamousConstelattions.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -55,7 +61,27 @@ const router = createBrowserRouter([
       },
       {
         path: "menu",
-        element: <ExplorerMenu />
+        element: <InfoMenu />
+      },
+      {
+        path: "info-astros",
+        element: <InfoAstros />
+      },
+      {
+        path: "constelattion",
+        element: <ConstelletionsMenu />
+      },
+      {
+        path: "hemisferio-norte",
+        element: <NorthConstelattions />
+      },
+      {
+        path: "hemisferio-sul",
+        element: <SouthConstelattions />
+      },
+      {
+        path: "constellations-famous",
+        element: <FamousConstelattions />
       }
     ]
   },
