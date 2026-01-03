@@ -2,8 +2,12 @@ import "../style/tela-principal.css"
 import "../style/globals.css"
 import "../style/informacoes-extras.css"
 
+import { useNavigate } from "react-router-dom";
 
-function WelcomeSection({onClicarIniciar, onClicarTutorial}) { //nome de componentes/funções em React deve-se começar com letras maiúsculas
+function WelcomeSection() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
+
+  const navigate = useNavigate();
+
     return (
     <section className="tela-principal" id="tela-principal-inicial" >
     <div className="text">
@@ -12,11 +16,11 @@ function WelcomeSection({onClicarIniciar, onClicarTutorial}) { //nome de compone
     </div>
     <div className="informacoes-extras">
       <button type="button" className="btn-cosmic" id="btn-iniciar-exploracao" 
-      onClick={() => onClicarIniciar('tela-inicial')}>Iniciar Exploração</button>
+      onClick={() => navigate('/app/exploracao')}>Iniciar Exploração</button>
       
       <button type="button" className="btn-cosmic" 
       id="btn-tutorial" 
-      onClick={() => onClicarTutorial('tutorial')}>Briefing da Nave</button>
+      onClick={() => navigate('/app/tutorial')}>Briefing da Nave</button>
 
     </div> 
   </section> 

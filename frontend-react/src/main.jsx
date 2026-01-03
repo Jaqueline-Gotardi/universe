@@ -15,6 +15,9 @@ import RegisterPage from './pages/RegisterPage.jsx';
 //importar o css 
 import "../src/style/reset.css"
 import "../src/style/globals.css" 
+import MissionTutorial from './components/MissionTutorial.jsx';
+import ExplorerMenu from './components/ExplorerMenu.jsx';
+import WelcomeSection from './components/WelcomeSection.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -37,6 +40,24 @@ const router = createBrowserRouter([
     <DashboardPage/>  {/* conteúdo */}
     </ProtectRoute>
     ),
+    children: [
+      {
+        index: true,
+        element: <WelcomeSection/>
+      },
+      {
+        path: "exploracao",
+        element: <ExplorerMenu />
+      },
+      {
+        path: "tutorial",
+        element: <MissionTutorial />
+      },
+      {
+        path: "menu",
+        element: <ExplorerMenu />
+      }
+    ]
   },
 ]);
 

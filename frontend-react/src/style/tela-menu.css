@@ -55,7 +55,7 @@
     }
 }
 
-/* Celulares pequenos */
+/* Celulares pequenos */ 
 @media (max-width: 420px) {
 .faixa.pesquisa-ativa .informacoes-extras,
   .faixa:not(.pesquisa-ativa) .informacoes-extras {

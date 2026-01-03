@@ -1,11 +1,13 @@
 import "../style/tutorial.css"
+import { useNavigate } from "react-router-dom";
 
-function MissionTutorial({onClicarExploracao}) {
+function MissionTutorial() {
 
+  const navigate = useNavigate();
     
 return (
 <section id="tela-tutorial" className="tela-tutorial">
-    <div class="background-overlay"></div>
+    <div className="background-overlay"></div>
     <div className="container-conteudo">
         <h1 className="titulo-criadores">Uma Jornada que Começou Sob as Estrelas</h1>
         
@@ -24,7 +26,7 @@ return (
           </p>
         </div>
 
-        <img src="./imagens/jovem-e-dog.jpg" alt="Foto ilustrativa de mim e meu cachorro" className="imagem-adaptavel"/>
+        <img src="/imagens/jovem-e-dog.jpg" alt="Foto ilustrativa de mim e meu cachorro" className="imagem-adaptavel"/>
  
         <div className="card">
             <h2 className="titulo-missao">Sua Missão</h2>
@@ -46,7 +48,7 @@ return (
             </ul>
         </div>
         
-        <button type="button" className="botao-iniciar-jornada" id="iniciar-exploracao" onClick={() => onClicarExploracao('exploracao') }>Iniciar Exploração</button>
+        <button type="button" className="botao-iniciar-jornada" id="iniciar-exploracao" onClick={() => navigate('/app/menu') }>Iniciar Exploração</button>
     </div>
 </section>
 );
