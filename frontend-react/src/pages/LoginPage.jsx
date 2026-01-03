@@ -79,7 +79,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
           <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink>
           </p>
         </form>
-      </div>
+      </div> 
     </div>
   </section>
     );  

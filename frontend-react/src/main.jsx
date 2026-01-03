@@ -14,7 +14,7 @@ import RegisterPage from './pages/RegisterPage.jsx';
 
 //importar o css 
 import "../src/style/reset.css"
-import "../src/style/globals.css"
+import "../src/style/globals.css" 
 
 //configurando o roteador
 const router = createBrowserRouter([ 

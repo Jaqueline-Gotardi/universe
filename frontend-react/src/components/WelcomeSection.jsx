@@ -20,7 +20,7 @@ function WelcomeSection({onClicarIniciar, onClicarTutorial}) { //nome de compone
 
     </div> 
   </section> 
-    ); 
+    );  
 } 
 
 export default WelcomeSection;
