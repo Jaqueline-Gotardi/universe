@@ -32,6 +32,7 @@ import Phoenix from './components/Phoenix.jsx';
 import Centaur from './components/Centaur.jsx';
 import Orion from './components/Orion.jsx';
 import GreaterCanis from './components/GreaterCanis.jsx';
+import Scorpion from './components/Scorpion.jsx';
 
 
 //configurando o roteador
@@ -123,6 +124,10 @@ const router = createBrowserRouter([
       {
         path: "greater-canis",
         element: <GreaterCanis />
+      },
+      {
+        path: "scorpion",
+        element: <Scorpion />
       }
     ]
   },
