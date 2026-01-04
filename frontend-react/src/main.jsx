@@ -29,6 +29,8 @@ import LittleDipper from './components/LittleDipper.jsx';
 import Andromeda from './components/Andromeda.jsx';
 import SouthernCross from './components/SouthernCross.jsx';
 import Phoenix from './components/Phoenix.jsx';
+import Centaur from './components/Centaur.jsx';
+import Orion from './components/Orion.jsx';
 
 
 //configurando o roteador
@@ -108,6 +110,14 @@ const router = createBrowserRouter([
       {
         path: "phoenix",
         element: <Phoenix />
+      },
+      {
+        path: "centaur",
+        element: <Centaur />
+      },
+      {
+        path: "orion",
+        element: <Orion />
       }
     ]
   },

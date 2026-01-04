@@ -22,4 +22,4 @@ function ConstelletionsMenu() {
   </section>
     )
 }
-export default ConstelletionsMenu;
+export default ConstelletionsMenu;  

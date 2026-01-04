@@ -14,7 +14,8 @@ function SouthConstelattions() {
       <button type="button" className="btn-cosmic" id="btn-fenix"
       onClick={() => navigate("/app/phoenix")}>Fênix</button>
 
-      <button type="button" className="btn-cosmic" id="btn-centauro">Centauro</button>
+      <button type="button" className="btn-cosmic" id="btn-centauro"
+      onClick={() => navigate("/app/centaur")}>Centauro</button>
 
     </div>
     <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacao-sul" 
