@@ -4,7 +4,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importando o roteador
 
-import ProtectRoute from './components/protectRoute.jsx';
+import ProtectRoute from './components/ProtectRoute.jsx';
 import { AuthProvider } from '../contexts/authContext.jsx';
 
 //importar as funções
@@ -26,6 +26,10 @@ import SouthConstelattions from './components/SouthConstelattions.jsx';
 import FamousConstelattions from './components/FamousConstelattions.jsx';
 import BigDipper from './components/BigDipper.jsx';
 import LittleDipper from './components/LittleDipper.jsx';
+import Andromeda from './components/Andromeda.jsx';
+import SouthernCross from './components/SouthernCross.jsx';
+import Phoenix from './components/Phoenix.jsx';
+
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -92,6 +96,18 @@ const router = createBrowserRouter([
       {
         path: "little-dipper",
         element: <LittleDipper />
+      },
+      {
+        path: "andromeda",
+        element: <Andromeda />
+      },
+      {
+        path: "southern-cross",
+        element: <SouthernCross />
+      },
+      {
+        path: "phoenix",
+        element: <Phoenix />
       }
     ]
   },
