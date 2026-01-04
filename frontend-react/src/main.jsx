@@ -24,6 +24,7 @@ import ConstelletionsMenu from './components/ConstelletionsMenu.jsx';
 import NorthConstelattions from './components/NorthConstelattions.jsx';
 import SouthConstelattions from './components/SouthConstelattions.jsx';
 import FamousConstelattions from './components/FamousConstelattions.jsx';
+import BigDipper from './components/BigDipper.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: "constellations-famous",
         element: <FamousConstelattions />
+      },
+      {
+        path: "big-dipper",
+        element: < BigDipper />
       }
     ]
   },
