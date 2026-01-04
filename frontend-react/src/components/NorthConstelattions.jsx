@@ -11,7 +11,8 @@ function NorthConstelattions() {
       <button type="button" className="btn-cosmic" id="btn-ursa-maior"
       onClick={() => navigate("/app/big-dipper")}>Ursa Maior</button>
 
-      <button type="button" className="btn-cosmic" id="btn-ursa-menor">Ursa Menor</button>
+      <button type="button" className="btn-cosmic" id="btn-ursa-menor"
+      onClick={() => navigate("/app/little-dipper")}>Ursa Menor</button>
 
       <button type="button" className="btn-cosmic" id="btn-andromeda">Andrômeda</button>
 
