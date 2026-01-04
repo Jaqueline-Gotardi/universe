@@ -11,9 +11,11 @@ function FamousConstelattions() {
       <button type="button" className="btn-cosmic" id="btn-orion"
       onClick={() => navigate("/app/orion")}>Órion</button>
 
-      <button type="button" className="btn-cosmic" id="btn-cao-maior">Cão Maior</button>
+      <button type="button" className="btn-cosmic" id="btn-cao-maior"
+      onClick={() => navigate("/app/greater-canis")}>Cão Maior</button>
 
-      <button type="button" className="btn-cosmic" id="btn-escorpiao">Escorpião</button>
+      <button type="button" className="btn-cosmic" id="btn-escorpiao"
+      onClick={() => navigate("/app/scorpion")}>Escorpião</button>
 
     </div>
     <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacoes-famosas"

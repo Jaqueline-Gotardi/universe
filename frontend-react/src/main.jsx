@@ -31,6 +31,7 @@ import SouthernCross from './components/SouthernCross.jsx';
 import Phoenix from './components/Phoenix.jsx';
 import Centaur from './components/Centaur.jsx';
 import Orion from './components/Orion.jsx';
+import GreaterCanis from './components/GreaterCanis.jsx';
 
 
 //configurando o roteador
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
       {
         path: "orion",
         element: <Orion />
+      },
+      {
+        path: "greater-canis",
+        element: <GreaterCanis />
       }
     ]
   },
