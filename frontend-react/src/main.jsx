@@ -61,6 +61,9 @@ import TriangleM33 from './components/TriangleM33.jsx';
 import PlanetaryMenu from './components/PlanetaryMenu.jsx';
 import Sun from './components/Sun.jsx';
 import Mercury from './components/Mercury.jsx';
+import Venus from './components/Venus.jsx';
+import Earth from './components/Earth.jsx';
+import Mars from './components/Mars.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -262,6 +265,18 @@ const router = createBrowserRouter([
       {
         path: "mercury",
         element: <Mercury />
+      },
+      {
+        path: "venus",
+        element: <Venus />
+      },
+      {
+        path: "earth",
+        element: <Earth />
+      },
+      {
+        path: "mars",
+        element: <Mars />
       }
     ]
   },
