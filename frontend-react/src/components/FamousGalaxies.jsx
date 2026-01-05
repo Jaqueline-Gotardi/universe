@@ -8,7 +8,8 @@ function FamousGalaxies() {
     <section className="tela-principal" id="lista-galaxias-famosas">
     <div className="informacoes-extras">
 
-      <button type="button" className="btn-cosmic" data-target="detalhe-via-lactea" id="btn-via-lactea">Via Láctea</button>
+      <button type="button" className="btn-cosmic" data-target="detalhe-via-lactea" id="btn-via-lactea"
+      onClick={() => navigate("/app/milky-way")}>Via Láctea</button>
 
       <button type="button" className="btn-cosmic" data-target="detalhe-andromeda-galaxia" id="btn-galaxia-andromeda">Andrômeda</button>
 

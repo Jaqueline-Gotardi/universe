@@ -55,6 +55,7 @@ import Spiral from './components/Spiral.jsx';
 import Elliptical from './components/Elliptical.jsx';
 import Irregular from './components/Irregular.jsx';
 import FamousGalaxies from './components/FamousGalaxies.jsx';
+import MilkAway from './components/MilkyAway.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -232,6 +233,10 @@ const router = createBrowserRouter([
       }, {
         path: "famous-galaxies",
         element: <FamousGalaxies />
+      },
+      {
+        path: "milky-way",
+        element: <MilkAway />
       }
     ]
   },
