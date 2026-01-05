@@ -33,6 +33,10 @@ import Centaur from './components/Centaur.jsx';
 import Orion from './components/Orion.jsx';
 import GreaterCanis from './components/GreaterCanis.jsx';
 import Scorpion from './components/Scorpion.jsx';
+import InfoEvents from './components/InfoEvents.jsx';
+import Eclipses from './components/Eclipses.jsx';
+import SolarEclipse from './components/SolarEclipse.jsx';
+import LunarEclipse from './components/LunarEclipse.jsx';
 
 
 //configurando o roteador
@@ -128,6 +132,22 @@ const router = createBrowserRouter([
       {
         path: "scorpion",
         element: <Scorpion />
+      },
+      {
+        path: "info-events",
+        element: <InfoEvents />
+      },
+      {
+        path: "eclipses",
+        element: <Eclipses />
+      },
+      {
+        path: "solar-eclipse",
+        element: <SolarEclipse />
+      },
+      {
+        path: "lunar-eclipse",
+        element: <LunarEclipse />
       }
     ]
   },
