@@ -50,6 +50,8 @@ import Comets from './components/Comets.jsx';
 import Supernovas from './components/Supernovas.jsx';
 import StarClusters from './components/StarClusters.jsx';
 import GalaxiesMenu from './components/GalaxiesMenu.jsx';
+import TypeGalaxies from './components/TypeGalaxies.jsx';
+import Spiral from './components/Spiral.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -208,6 +210,14 @@ const router = createBrowserRouter([
       {
         path: "galaxies-menu",
         element: <GalaxiesMenu />
+      },
+      {
+        path: "type-galaxies",
+        element: <TypeGalaxies />
+      },
+      {
+        path: "spiral",
+        element: <Spiral />
       }
     ]
   },

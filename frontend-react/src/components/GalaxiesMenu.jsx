@@ -8,7 +8,8 @@ function Galaxies() {
     <section className="tela-principal" id="tela-galaxias">
     <div className="informacoes-extras">
 
-      <button type="button" className="btn-cosmic" data-target="lista-tipos-galaxias" id="tipos-de-galaxias">Tipos de Galáxias</button>
+      <button type="button" className="btn-cosmic" data-target="lista-tipos-galaxias" id="tipos-de-galaxias"
+      onClick={() => navigate("/app/type-galaxies")}>Tipos de Galáxias</button>
 
       <button type="button" className="btn-cosmic" data-target="lista-galaxias-famosas" id= "galaxias-famosas">Galáxias
         Famosas</button>
@@ -19,4 +20,4 @@ function Galaxies() {
   </section>
     )
 }
-export default Galaxies;    
+export default Galaxies;     
