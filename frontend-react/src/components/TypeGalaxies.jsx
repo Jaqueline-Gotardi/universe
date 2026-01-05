@@ -14,7 +14,8 @@ function TypeGalaxies() {
       <button type="button" className="btn-cosmic" data-target="detalhe-eliptica" id="btn-eliptica"
       onClick={() => navigate("/app/elliptical")}>Elíptica</button>
 
-      <button type="button" className="btn-cosmic" data-target="detalhe-irregular" id="btn-irregular">Irregular</button>
+      <button type="button" className="btn-cosmic" data-target="detalhe-irregular" id="btn-irregular"
+      onClick={() => navigate("/app/irregular")}>Irregular</button>
 
     </div>
     <button type="button" className="botao-opcao-menu botao-voltar" id="btn-voltar-tipos-de-galaxia"
