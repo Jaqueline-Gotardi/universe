@@ -52,6 +52,7 @@ import StarClusters from './components/StarClusters.jsx';
 import GalaxiesMenu from './components/GalaxiesMenu.jsx';
 import TypeGalaxies from './components/TypeGalaxies.jsx';
 import Spiral from './components/Spiral.jsx';
+import Elliptical from './components/Elliptical.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -218,6 +219,10 @@ const router = createBrowserRouter([
       {
         path: "spiral",
         element: <Spiral />
+      },
+      {
+        path: "elliptical",
+        element: <Elliptical />
       }
     ]
   },
