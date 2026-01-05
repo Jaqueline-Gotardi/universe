@@ -11,7 +11,8 @@ function FamousGalaxies() {
       <button type="button" className="btn-cosmic" data-target="detalhe-via-lactea" id="btn-via-lactea"
       onClick={() => navigate("/app/milky-way")}>Via Láctea</button>
 
-      <button type="button" className="btn-cosmic" data-target="detalhe-andromeda-galaxia" id="btn-galaxia-andromeda">Andrômeda</button>
+      <button type="button" className="btn-cosmic" data-target="detalhe-andromeda-galaxia" id="btn-galaxia-andromeda"
+      onClick={() => navigate("/app/andromeda-galaxy")}>Andrômeda</button>
 
       <button type="button" className="btn-cosmic" data-target="detalhe-triangulo" id="btn-triangulo-m33">Triângulo (M33)</button>
 
