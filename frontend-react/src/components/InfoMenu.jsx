@@ -11,7 +11,8 @@ function InfoMenu() {
       <button type="button" className="btn-cosmic" id="btn-informacoes-astronomicas"
       onClick={() => navigate('/app/astros-menu')}>Informações Astronômicas</button>
 
-      <button type="button" className="btn-cosmic" id="btn-informacoes-planetarias">Informações Planetárias</button>
+      <button type="button" className="btn-cosmic" id="btn-informacoes-planetarias"
+      onClick={() => navigate("/app/planetary-menu")}>Informações Planetárias</button>
 
       <button type="button" className="btn-cosmic" id="btn-informacoes-extras">Informações Extras</button>
 
@@ -21,4 +22,4 @@ function InfoMenu() {
   </section> 
     );
 }
-export default InfoMenu;   
+export default InfoMenu;    
