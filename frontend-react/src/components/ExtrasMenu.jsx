@@ -12,7 +12,8 @@ function ExtrasMenu() {
       <button type="button" className="btn-cosmic" id="btn-perfil"
       onClick={() => navigate("/app/profile")}>Perfil</button>
 
-      <button type="button" className="btn-cosmic" id="btn-criadores">Criadores</button>
+      <button type="button" className="btn-cosmic" id="btn-criadores"
+      onClick={() => navigate("/app/creators")}>Criadores</button>
 
       <button type="button" className="btn-cosmic" id="btn-apagar-conta">Apagar conta</button>
 

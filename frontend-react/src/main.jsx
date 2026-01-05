@@ -70,6 +70,8 @@ import Uranus from './components/Uranus.jsx';
 import Neptune from './components/Neptune.jsx';
 import Pluto from './components/Pluto.jsx';
 import ExtrasMenu from './components/ExtrasMenu.jsx';
+import Profile from './components/Profile.jsx';
+import Creators from './components/Creators.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -307,6 +309,14 @@ const router = createBrowserRouter([
       {
         path: "extras-menu",
         element: <ExtrasMenu />
+      },
+      {
+        path: "profile",
+        element: <Profile />
+      },
+      {
+        path: "creators",
+        element: <Creators />
       }
     ]
   },

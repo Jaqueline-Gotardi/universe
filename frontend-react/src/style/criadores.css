@@ -27,7 +27,7 @@
     background-position: center;
     filter: brightness(1) saturate(1);
     min-height: 100vh;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     align-items: center;
     color: #e0f2f7;
