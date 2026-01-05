@@ -15,7 +15,8 @@ function ExtrasMenu() {
       <button type="button" className="btn-cosmic" id="btn-criadores"
       onClick={() => navigate("/app/creators")}>Criadores</button>
 
-      <button type="button" className="btn-cosmic" id="btn-apagar-conta">Apagar conta</button>
+      <button type="button" className="btn-cosmic" id="btn-apagar-conta"
+      onClick={() => navigate("/app/delete-account")}>Apagar conta</button>
 
     </div>
     <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-info-extras"

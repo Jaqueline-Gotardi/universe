@@ -72,6 +72,7 @@ import Pluto from './components/Pluto.jsx';
 import ExtrasMenu from './components/ExtrasMenu.jsx';
 import Profile from './components/Profile.jsx';
 import Creators from './components/Creators.jsx';
+import DeleteAccount from './components/DeleteAccount.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -317,6 +318,10 @@ const router = createBrowserRouter([
       {
         path: "creators",
         element: <Creators />
+      },
+      {
+        path: "delete-account",
+        element: <DeleteAccount />
       }
     ]
   },
