@@ -11,8 +11,8 @@ function Galaxies() {
       <button type="button" className="btn-cosmic" data-target="lista-tipos-galaxias" id="tipos-de-galaxias"
       onClick={() => navigate("/app/type-galaxies")}>Tipos de Galáxias</button>
 
-      <button type="button" className="btn-cosmic" data-target="lista-galaxias-famosas" id= "galaxias-famosas">Galáxias
-        Famosas</button>
+      <button type="button" className="btn-cosmic" data-target="lista-galaxias-famosas" id= "galaxias-famosas"
+      onClick={() => navigate("/app/famous-galaxies")}>Galáxias Famosas</button>
 
     </div>
     <button type="button" className="botao-opcao-menu botao-voltar" id="btn-voltar-galaxias"

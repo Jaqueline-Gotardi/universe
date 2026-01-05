@@ -54,6 +54,7 @@ import TypeGalaxies from './components/TypeGalaxies.jsx';
 import Spiral from './components/Spiral.jsx';
 import Elliptical from './components/Elliptical.jsx';
 import Irregular from './components/Irregular.jsx';
+import FamousGalaxies from './components/FamousGalaxies.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -228,6 +229,9 @@ const router = createBrowserRouter([
       {
         path: "irregular",
         element: <Irregular />
+      }, {
+        path: "famous-galaxies",
+        element: <FamousGalaxies />
       }
     ]
   },
