@@ -26,9 +26,11 @@ import "../style/tela-informacoes-planetarias.css"
       <button type="button" className="btn-cosmic" id="btn-marte"
       onClick={() => navigate("/app/mars")}>Marte</button>
 
-      <button type="button" className="btn-cosmic" id="btn-jupiter">Júpiter</button>
+      <button type="button" className="btn-cosmic" id="btn-jupiter"
+      onClick={() => navigate("/app/jupiter")}>Júpiter</button>
 
-      <button type="button" className="btn-cosmic" id="btn-saturno">Saturno</button>
+      <button type="button" className="btn-cosmic" id="btn-saturno"
+      onClick={() => navigate("/app/saturn")}>Saturno</button>
 
       <button type="button" className="btn-cosmic" id="btn-urano">Urano</button>
 
