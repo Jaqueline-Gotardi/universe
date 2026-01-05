@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function NorthConstelattions() {
+function NorthConstellations() {
 
     const navigate = useNavigate();
 
@@ -19,8 +19,8 @@ function NorthConstelattions() {
 
     </div>
     <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacao-norte"
-    onClick={() => navigate("/app/constelattion")}>Voltar</button>
+    onClick={() => navigate("/app/constellations-menu")}>Voltar</button>
   </section>
     )
 }
-export default NorthConstelattions; 
+export default NorthConstellations; 

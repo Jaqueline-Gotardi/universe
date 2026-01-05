@@ -21,10 +21,10 @@ import ExplorerMenu from './components/ExplorerMenu.jsx';
 import WelcomeSection from './components/WelcomeSection.jsx';
 import InfoMenu from './components/InfoMenu.jsx';
 import AstrosMenu from './components/AstrosMenu.jsx';
-import ConstelletionsMenu from './components/ConstelletionsMenu.jsx';
-import NorthConstelattions from './components/NorthConstelattions.jsx';
-import SouthConstelattions from './components/SouthConstelattions.jsx';
-import FamousConstelattions from './components/FamousConstelattions.jsx';
+import ConstellationsMenu from './components/ConstellationsMenu.jsx';
+import NorthConstellations from './components/NorthConstellations.jsx';
+import SouthConstellations from './components/SouthConstellations.jsx';
+import FamousConstellations from './components/FamousConstellations.jsx';
 import BigDipper from './components/BigDipper.jsx';
 import LittleDipper from './components/LittleDipper.jsx';
 import AndromedaConstellation from './components/AndromedaConstellation.jsx';
@@ -117,20 +117,20 @@ const router = createBrowserRouter([
         element: <AstrosMenu />
       },
       {
-        path: "constelattion",
-        element: <ConstelletionsMenu />
+        path: "constellations-menu",
+        element: <ConstellationsMenu />
       },
       {
         path: "hemisferio-norte",
-        element: <NorthConstelattions />
+        element: <NorthConstellations />
       },
       {
         path: "hemisferio-sul",
-        element: <SouthConstelattions />
+        element: <SouthConstellations />
       },
       {
         path: "constellations-famous",
-        element: <FamousConstelattions />
+        element: <FamousConstellations />
       },
       {
         path: "big-dipper",

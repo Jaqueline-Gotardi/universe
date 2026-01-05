@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function ConstelletionsMenu() {
+function ConstellationsMenu() {
     
     const navigate = useNavigate();
 
@@ -22,4 +22,4 @@ function ConstelletionsMenu() {
   </section>
     )
 }
-export default ConstelletionsMenu;  
+export default ConstellationsMenu;    

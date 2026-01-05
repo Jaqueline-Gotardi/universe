@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-function FamousConstelattions() {
+function FamousConstellations() {
 
     const navigate = useNavigate();
 
     return (
     <section className="tela-principal" id="constelacoes-famosas">
-    <div class="informacoes-extras">
+    <div className="informacoes-extras">
 
       <button type="button" className="btn-cosmic" id="btn-orion"
       onClick={() => navigate("/app/orion")}>Órion</button>
@@ -19,8 +19,8 @@ function FamousConstelattions() {
 
     </div>
     <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacoes-famosas"
-    onClick={() => navigate("/app/constelattion")}>Voltar</button>
+    onClick={() => navigate("/app/constellations-menu")}>Voltar</button>
   </section> 
     )
 }
-export default FamousConstelattions; 
+export default FamousConstellations;  
