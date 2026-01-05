@@ -65,6 +65,10 @@ import Venus from './components/Venus.jsx';
 import Earth from './components/Earth.jsx';
 import Mars from './components/Mars.jsx';
 import Jupiter from './components/Jupiter.jsx';
+import Saturn from './components/Saturn.jsx';
+import Uranus from './components/Uranus.jsx';
+import Neptune from './components/Neptune.jsx';
+import Pluto from './components/Pluto.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -282,6 +286,22 @@ const router = createBrowserRouter([
       {
         path: "jupiter",
         element: <Jupiter />
+      },
+      {
+        path: "saturn",
+        element: <Saturn />
+      },
+      {
+        path: "uranus",
+        element: <Uranus />
+      },
+      {
+        path: "neptune",
+        element: <Neptune />
+      },
+      {
+        path: "pluto",
+        element: <Pluto />
       }
     ]
   },

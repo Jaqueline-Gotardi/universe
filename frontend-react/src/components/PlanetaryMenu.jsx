@@ -32,11 +32,14 @@ import "../style/tela-informacoes-planetarias.css"
       <button type="button" className="btn-cosmic" id="btn-saturno"
       onClick={() => navigate("/app/saturn")}>Saturno</button>
 
-      <button type="button" className="btn-cosmic" id="btn-urano">Urano</button>
+      <button type="button" className="btn-cosmic" id="btn-urano"
+      onClick={() => navigate("/app/uranus")}>Urano</button>
 
-      <button type="button" className="btn-cosmic" id="btn-netuno">Netuno</button>
+      <button type="button" className="btn-cosmic" id="btn-netuno"
+      onClick={() => navigate("/app/neptune")}>Netuno</button>
 
-      <button type="button" className="btn-cosmic" id="btn-plutao">Plutão</button>
+      <button type="button" className="btn-cosmic" id="btn-plutao"
+      onClick={() => navigate("/app/pluto")}>Plutão</button>
     </div>
     </div>
     <button type="button" className="botao-opcao-menu botao-voltar" id="btn-voltar-planetas"
@@ -44,4 +47,4 @@ import "../style/tela-informacoes-planetarias.css"
   </section>
     )
  }
- export default PlanetaryMenu;
+ export default PlanetaryMenu; 
