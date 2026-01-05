@@ -57,6 +57,7 @@ import Irregular from './components/Irregular.jsx';
 import FamousGalaxies from './components/FamousGalaxies.jsx';
 import MilkAway from './components/MilkyAway.jsx';
 import AndromedaGalaxy from './components/AndromedaGalaxy.jsx';
+import TriangleM33 from './components/TriangleM33.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -242,6 +243,10 @@ const router = createBrowserRouter([
       {
         path: "andromeda-galaxy",
         element: <AndromedaGalaxy />
+      },
+      {
+        path: "triangle-m33",
+        element: <TriangleM33 />
       }
     ]
   },
