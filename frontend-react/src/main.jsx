@@ -69,6 +69,7 @@ import Saturn from './components/Saturn.jsx';
 import Uranus from './components/Uranus.jsx';
 import Neptune from './components/Neptune.jsx';
 import Pluto from './components/Pluto.jsx';
+import ExtrasMenu from './components/ExtrasMenu.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -302,6 +303,10 @@ const router = createBrowserRouter([
       {
         path: "pluto",
         element: <Pluto />
+      },
+      {
+        path: "extras-menu",
+        element: <ExtrasMenu />
       }
     ]
   },
