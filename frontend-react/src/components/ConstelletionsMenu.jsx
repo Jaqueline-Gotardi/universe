@@ -18,7 +18,7 @@ function ConstelletionsMenu() {
 
     </div>
     <button type="button" className="botao-voltar" id="btn-voltar-constelacoes"
-    onClick={() => navigate("/app/info-astros")}>Voltar</button>
+    onClick={() => navigate("/app/astros-menu")}>Voltar</button>
   </section>
     )
 }

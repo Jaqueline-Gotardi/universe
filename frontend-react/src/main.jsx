@@ -20,7 +20,7 @@ import MissionTutorial from './components/MissionTutorial.jsx';
 import ExplorerMenu from './components/ExplorerMenu.jsx';
 import WelcomeSection from './components/WelcomeSection.jsx';
 import InfoMenu from './components/InfoMenu.jsx';
-import InfoAstros from './components/InfoAstros.jsx';
+import AstrosMenu from './components/AstrosMenu.jsx';
 import ConstelletionsMenu from './components/ConstelletionsMenu.jsx';
 import NorthConstelattions from './components/NorthConstelattions.jsx';
 import SouthConstelattions from './components/SouthConstelattions.jsx';
@@ -34,14 +34,22 @@ import Centaur from './components/Centaur.jsx';
 import Orion from './components/Orion.jsx';
 import GreaterCanis from './components/GreaterCanis.jsx';
 import Scorpion from './components/Scorpion.jsx';
-import InfoEvents from './components/InfoEvents.jsx';
+import EventsMenu from './components/EventsMenu.jsx';
 import Eclipses from './components/Eclipses.jsx';
 import SolarEclipse from './components/SolarEclipse.jsx';
 import LunarEclipse from './components/LunarEclipse.jsx';
 import MeteorShowers from './components/MeteorShowers.jsx';
 import Perseids from './components/Perseids.jsx';
 import Leonids from './components/Leonids.jsx';
-
+import Geminids from './components/Geminids.jsx';
+import SupermoonAndConjunctions from './components/SupermoonAndConjunctions.jsx';
+import Supermoon from './components/Supermoon.jsx';
+import PlanetaryConjunction from './components/PlanetaryConjunction.jsx';
+import CometsAndOthers from './components/CometsAndOthers.jsx';
+import Comets from './components/Comets.jsx';
+import Supernovas from './components/Supernovas.jsx';
+import StarClusters from './components/StarClusters.jsx';
+import GalaxiesMenu from './components/GalaxiesMenu.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -82,8 +90,8 @@ const router = createBrowserRouter([
         element: <InfoMenu />
       },
       {
-        path: "info-astros",
-        element: <InfoAstros />
+        path: "astros-menu",
+        element: <AstrosMenu />
       },
       {
         path: "constelattion",
@@ -138,8 +146,8 @@ const router = createBrowserRouter([
         element: <Scorpion />
       },
       {
-        path: "info-events",
-        element: <InfoEvents />
+        path: "events-menu",
+        element: <EventsMenu />
       },
       {
         path: "eclipses",
@@ -164,6 +172,42 @@ const router = createBrowserRouter([
       {
         path: "leonids",
         element: <Leonids />
+      },
+      {
+        path: "geminids",
+        element: <Geminids />
+      },
+      {
+        path: "supermoon-and-conjunctions",
+        element: <SupermoonAndConjunctions />
+      },
+      {
+        path: "supermoon",
+        element: <Supermoon />
+      },
+      {
+        path: "planetary-conjunction",
+        element: <PlanetaryConjunction />
+      },
+      {
+        path: "comets-and-others",
+        element: <CometsAndOthers />
+      },
+      {
+        path: "comets",
+        element: <Comets />
+      },
+      {
+        path: "supernovas",
+        element: <Supernovas />
+      },
+      {
+        path: "star-clusters",
+        element: <StarClusters />
+      },
+      {
+        path: "galaxies-menu",
+        element: <GalaxiesMenu />
       }
     ]
   },

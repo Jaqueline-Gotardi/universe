@@ -11,10 +11,10 @@ function InfoAstros() {
       onClick={() => navigate('/app/constelattion')}>Constelações</button>
 
       <button type="button" class="btn-cosmic" id="btn-eventos-astronomicos"
-      onClick={() => navigate('/app/info-events')}>Eventos Astronômicos</button>
+      onClick={() => navigate('/app/events-menu')}>Eventos Astronômicos</button>
 
       <button type="button" class="btn-cosmic" id="btn-galaxias"
-      onClick={() => navigate('/app/galaxy')}>Galáxia</button>
+      onClick={() => navigate('/app/galaxies-menu')}>Galáxia</button>
 
     </div>
     <button type="button" class="botao-voltar" id="btn-voltar-info-astros"
@@ -22,4 +22,4 @@ function InfoAstros() {
   </section>
     ) 
 }
-export default InfoAstros;
+export default InfoAstros;    

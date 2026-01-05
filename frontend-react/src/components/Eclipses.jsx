@@ -16,7 +16,7 @@ function Eclipses() {
 
     </div>
     <button type="button" class="botao-voltar botao-opcao-menu" id="btn-voltar-eclipses"
-    onClick={() => navigate("/app/info-events")}>Voltar</button>
+    onClick={() => navigate("/app/events-menu")}>Voltar</button>
   </section> 
     )
 }

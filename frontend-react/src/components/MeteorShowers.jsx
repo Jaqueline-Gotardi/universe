@@ -14,11 +14,12 @@ function MeteorShowers() {
       <button type="button" className="btn-cosmic" id="btn-leonideas"
       onClick={() => navigate("/app/leonids")}>Leonídeas</button>
 
-      <button type="button" className="btn-cosmic" id="btn-geminideas">Geminídeas</button>
+      <button type="button" className="btn-cosmic" id="btn-geminideas"
+      onClick={() => navigate("/app/geminids")}>Geminídeas</button>
 
     </div>
     <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-chuva-de-meteoros"
-    onClick={() => navigate("/app/info-events")}>Voltar</button>
+    onClick={() => navigate("/app/events-menu")}>Voltar</button>
   </section>
     )
 }
