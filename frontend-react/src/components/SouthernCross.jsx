@@ -14,9 +14,9 @@ import { useNavigate } from "react-router-dom";
     <h3 className="titulo-missao">Constelação de Cruzeiro Do Sul</h3>
     <div className="jornada-projeto">
     <p className="descricao">Embora seja a menor das 88 constelações, o Cruzeiro do Sul (ou Crux) tem uma importância colossal para os exploradores do Hemisfério Sul. Esta pequena e distinta constelação atua como um farol, um guia confiável na escuridão do céu.
-      <br></br>
+      <br />
       Sua principal missão é ajudar a encontrar o Polo Sul Celeste. As duas estrelas na ponta da "cruz" apontam diretamente para o sul, tornando-a uma ferramenta de navegação indispensável, da mesma forma que Polaris é para os navegadores do norte.
-      <br></br>
+      <br />
       Observar o Cruzeiro do Sul é um rito de passagem para qualquer agente especial que explore os céus do Hemisfério Sul. Ela é a prova de que até mesmo os menores agrupamentos de estrelas podem ter a maior utilidade.</p>
     </div>
     </div>

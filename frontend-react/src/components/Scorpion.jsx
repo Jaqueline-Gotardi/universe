@@ -13,11 +13,11 @@ function Scorpion() {
     <h3 className="titulo-missao">Constelação de Escorpião</h3>
     <div className="jornada-projeto">
     <p className="descricao">Escorpião é uma das poucas constelações que realmente se parece com a sua forma. Sua silhueta dramática o torna um alvo perfeito para qualquer explorador.
-      <br></br>
+      <br />
       Antares, o Coração do Escorpião: O centro da constelação é marcado pela estrela supergigante vermelha Antares. Essa estrela colossal e brilhante é um ponto focal para a sua missão de exploração, um verdadeiro farol que guia o seu olhar.
-      <br></br>
+      <br />
       A Forma Distintiva: A silhueta de Escorpião, com sua cauda curva e distinta, é uma de suas características mais fascinantes. Sua forma única e inconfundível faz com que seja fácil de ser identificado e explorado.
-      <br></br>
+      <br />
       Ao explorar Escorpião, você está observando o coração de um gigante cósmico.
       </p>
     </div>

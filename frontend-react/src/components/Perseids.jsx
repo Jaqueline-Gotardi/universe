@@ -16,9 +16,9 @@ function Perseids() {
       <div className="jornada-projeto">
       <p className="descricao">
         As Perseidas são uma das chuvas de meteoros mais populares e visíveis do ano. <strong>Este evento ocorre quando a Terra passa por uma nuvem de detritos deixada pelo Cometa Swift-Tuttle, criando um espetáculo de luz. As Perseidas acontecem anualmente,  são melhor observadas do Hemisfério Norte, com seu pico de atividade na segunda semana de agosto.</strong>
-        <br></br>
+        <br />
         Observar as Perseidas é como assistir a fogos de artifício cósmicos, com rastros de luz riscando o céu noturno. O nome da chuva vem da constelação de Perseu, de onde parecem irradiar, transformando o céu em um palco de luzes.
-        <br></br>
+        <br />
         É uma missão que te convida a testemunhar a beleza da dança cósmica, um espetáculo que nos lembra da constante movimentação e do brilho do nosso sistema solar.
       </p>
     </div>

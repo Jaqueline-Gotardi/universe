@@ -16,9 +16,9 @@ function Supermoon() {
      
       <p className="descricao">
         A Superlua <strong>ocorre quando a Lua atinge sua fase de Lua Cheia no ponto de sua órbita mais próximo da Terra. Isso acontece algumas vezes por ano.</strong>
-        <br></br>
+        <br />
         Durante este fenômeno, a Lua pode parecer 14% maior e 30% mais brilhante do que o normal, oferecendo uma vista espetacular. Observar a Superlua é como testemunhar o nosso satélite mais próximo em toda a sua glória.
-        <br></br>
+        <br />
         É uma missão que te conecta a um fenômeno de pura escala e beleza.
       </p>
     </div>

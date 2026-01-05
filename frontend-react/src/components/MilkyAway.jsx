@@ -15,7 +15,7 @@ function MilkAway() {
       <h3 className="titulo-criadores">Via Láctea</h3>
       <p className="descricao">
         A Via Láctea <strong>é a galáxia espiral onde o nosso Sistema Solar reside.</strong> Ela tem um diâmetro de cerca de 100.000 anos-luz e contém de 100 a 400 bilhões de estrelas, sendo o nosso Sol apenas uma delas. O nosso Sistema Solar está localizado em um dos seus braços espirais, o que nos coloca em um ponto privilegiado para explorar o nosso próprio lar cósmico.
-        <br></br>
+        <br />
         Observar isto te conecta com a sua missão mais importante: desvendar os segredos de nossa própria galáxia.
       </p>
     </div>

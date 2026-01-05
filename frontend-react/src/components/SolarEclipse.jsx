@@ -16,7 +16,7 @@ function SolarEclipse() {
       <div className="jornada-projeto">
       <p className="descricao">
         Um Eclipse Solar é um dos fenômenos mais espetaculares que um explorador pode presenciar. <strong>Ele ocorre quando a Lua passa entre o Sol e a Terra</strong>, bloqueando completamente ou parcialmente a luz solar e projetando sua sombra sobre o nosso planeta. <strong>Este evento só acontece durante a fase da Lua Nova.</strong>
-        <br></br>
+        <br />
         Este alinhamento cósmico perfeito transforma o dia em uma escuridão momentânea, um espetáculo inesquecível. Observar um eclipse solar é uma missão que te conecta com a mecânica do universo, uma prova visual de que, com a posição certa, até um pequeno satélite pode cobrir a maior de todas as estrelas.
       </p>
       </div>

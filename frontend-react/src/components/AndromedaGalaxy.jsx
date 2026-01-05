@@ -15,7 +15,7 @@ function AndromedaGalaxy() {
       <h3 className="titulo-criadores">Galáxia de Andrômeda</h3>
       <p className="descricao">
         A Galáxia de Andrômeda <strong>é nossa vizinha galáctica mais próxima e o objeto mais distante que você pode ver a olho nu.</strong> Localizada a cerca de 2,5 milhões de anos-luz de distância, a luz que vemos hoje dela saiu de lá quando os primeiros ancestrais humanos já caminhavam na Terra. Ela é uma galáxia espiral ainda maior que a nossa, com um diâmetro de 220.000 anos-luz e cerca de 1 trilhão de estrelas.
-        <br></br>
+        <br />
         Observar isto te conecta com uma viagem no tempo e nos prepara para o encontro que acontecerá com a nossa galáxia em bilhões de anos.
       </p>
     </div>

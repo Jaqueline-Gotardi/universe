@@ -15,9 +15,9 @@ function PlanetaryConjunction() {
       <h3 className="titulo-missao">Conjunção Planetária</h3>
       <p className="descricao">
         <strong>Uma conjunção planetária é onde dois ou mais planetas parecem se alinhar e ficar muito próximos no céu noturno</strong>. Embora ainda estejam a milhões de quilômetros de distância, o espetáculo de luz é fascinante. A "Grande Conjunção" de Júpiter e Saturno é um dos exemplos mais famosos e visualmente impressionantes.
-        <br></br>
+        <br />
         Observar uma conjunção é como testemunhar uma dança cósmica, onde os planetas se aproximam em uma coreografia perfeita. É um lembrete visual da vastidão e da precisão do nosso sistema solar, um momento raro que une os gigantes do céu em uma única cena.
-        <br></br>
+        <br />
         Evento que convida os exploradores a se conectar com o movimento e a beleza do nosso universo.
       </p>
     </div>

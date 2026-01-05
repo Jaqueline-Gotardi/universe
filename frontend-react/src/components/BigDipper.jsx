@@ -18,9 +18,9 @@ function BigDipper() {
       <h3 class="titulo-missao">Constelação de Ursa Maior</h3>
       <div className="jornada-projeto">
       <p className="descricao">Uma das constelações mais famosas do céu noturno, a Ursa Maior é facilmente reconhecível pelo seu formato icônico, conhecido como "O Grande Carro". Visível durante todo o ano no Hemisfério Norte, ela é um marco no céu, uma das primeiras formações que qualquer explorador aprende a identificar.
-        <br></br>
+        <br />
         Mas sua importância vai além do seu formato. As duas estrelas na extremidade da "caçarola" do Grande Carro apontam diretamente para Polaris, a Estrela do Norte, na Ursa Menor. Isso faz da Ursa Maior não apenas uma constelação em si, mas um guia para encontrar a estrela que por séculos orientou a navegação em nosso planeta.
-        <br></br>
+        <br />
         Explorar a Ursa Maior é o primeiro passo para se familiarizar com a vastidão do universo. Ela é a porta de entrada para uma jornada de descobertas que se estende por todo o céu.</p>
       </div>
     </div>
