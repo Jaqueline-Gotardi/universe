@@ -10,7 +10,7 @@ function Andromeda() {
     return (
     <section className="tela-eventos-detalhe" id="detalhe-andromeda">
     <div className="space-background">
-      <div className="stars"></div>
+      <div className="stars"></div> 
     </div>
     <div className="info-card">
     <img src="/imagens/andromeda.png" alt="Constelação Andrômeda" class="celestial-image" />

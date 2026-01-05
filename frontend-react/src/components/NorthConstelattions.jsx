@@ -15,7 +15,7 @@ function NorthConstelattions() {
       onClick={() => navigate("/app/little-dipper")}>Ursa Menor</button>
 
       <button type="button" className="btn-cosmic" id="btn-andromeda"
-      onClick={() => navigate("/app/andromeda")}>Andrômeda</button>
+      onClick={() => navigate("/app/andromeda-constellation")}>Andrômeda</button>
 
     </div>
     <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacao-norte"
@@ -23,4 +23,4 @@ function NorthConstelattions() {
   </section>
     )
 }
-export default NorthConstelattions;
+export default NorthConstelattions; 

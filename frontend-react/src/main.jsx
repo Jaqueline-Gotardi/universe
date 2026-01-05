@@ -27,7 +27,7 @@ import SouthConstelattions from './components/SouthConstelattions.jsx';
 import FamousConstelattions from './components/FamousConstelattions.jsx';
 import BigDipper from './components/BigDipper.jsx';
 import LittleDipper from './components/LittleDipper.jsx';
-import Andromeda from './components/Andromeda.jsx';
+import AndromedaConstellation from './components/AndromedaConstellation.jsx';
 import SouthernCross from './components/SouthernCross.jsx';
 import Phoenix from './components/Phoenix.jsx';
 import Centaur from './components/Centaur.jsx';
@@ -123,8 +123,8 @@ const router = createBrowserRouter([
         element: <LittleDipper />
       },
       {
-        path: "andromeda",
-        element: <Andromeda />
+        path: "andromeda-constellation",
+        element: <AndromedaConstellation />
       },
       {
         path: "southern-cross",
