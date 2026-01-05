@@ -11,7 +11,8 @@ function InfoEvents() {
       <button type="button" className="btn-cosmic" id="eclipses"
       onClick={() => navigate("/app/eclipses")}>Eclipses</button>
 
-      <button type="button" className="btn-cosmic" id="chuva-de-meteoros">Chuvas de Meteoros</button>
+      <button type="button" className="btn-cosmic" id="chuva-de-meteoros"
+      onClick={() => navigate("/app/meteor-showers")}>Chuvas de Meteoros</button>
 
       <button type="button" className="btn-cosmic" id="superluas-e-conjuncoes">Superluas e Conjuções</button>
 

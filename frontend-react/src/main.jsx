@@ -15,6 +15,7 @@ import RegisterPage from './pages/RegisterPage.jsx';
 //importar o css 
 import "../src/style/reset.css"
 import "../src/style/globals.css" 
+
 import MissionTutorial from './components/MissionTutorial.jsx';
 import ExplorerMenu from './components/ExplorerMenu.jsx';
 import WelcomeSection from './components/WelcomeSection.jsx';
@@ -37,6 +38,9 @@ import InfoEvents from './components/InfoEvents.jsx';
 import Eclipses from './components/Eclipses.jsx';
 import SolarEclipse from './components/SolarEclipse.jsx';
 import LunarEclipse from './components/LunarEclipse.jsx';
+import MeteorShowers from './components/MeteorShowers.jsx';
+import Perseids from './components/Perseids.jsx';
+import Leonids from './components/Leonids.jsx';
 
 
 //configurando o roteador
@@ -148,6 +152,18 @@ const router = createBrowserRouter([
       {
         path: "lunar-eclipse",
         element: <LunarEclipse />
+      },
+      {
+        path: "meteor-showers",
+        element: <MeteorShowers />
+      },
+      {
+        path: "perseids",
+        element: <Perseids />
+      },
+      {
+        path: "leonids",
+        element: <Leonids />
       }
     ]
   },
