@@ -13,7 +13,7 @@ function LittleDipper() {
         <div className="stars"></div>
         </div>
     <div className="info-card">
-    <img src="/imagens/ursa-menor.png" alt="Constelação Ursa Menor" class="celestial-image" />
+    <img src="/imagens/ursa-menor.png" alt="Constelação Ursa Menor" className="celestial-image" />
     <h3 className="titulo-missao">Constelação de Ursa Menor</h3>
     <div className="jornada-projeto">
     <p className="descricao">Na vastidão do cosmo, a Ursa Menor se destaca não pelo seu brilho intenso, mas pela sua importância inigualável. Esta constelação, embora menos visível que a sua "irmã" maior, atua como um farol para os navegantes e exploradores, guiando-os através da escuridão. 

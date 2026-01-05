@@ -7,7 +7,7 @@ function TypeGalaxies() {
     return (
     <section className="tela-eventos-detalhe" id="detalhe-irregular">
     <div className="space-background">
-      <div class="stars"></div>
+      <div className="stars"></div>
     </div>
    <div className="info-card">
     <img src="/imagens/galaxia-irregular.png" alt="Galáxia Irregular" className="celestial-image" />

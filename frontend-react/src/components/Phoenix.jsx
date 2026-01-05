@@ -9,7 +9,7 @@ function Phoenix() {
       <div className="stars"></div>
     </div>
     <div className="info-card">
-    <img src="/imagens/fenix.png" alt="Constelação Fênix" class="celestial-image" />
+    <img src="/imagens/fenix.png" alt="Constelação Fênix" className="celestial-image" />
     <h3 className="titulo-missao">Constelação de Fênix</h3>
     <div className="jornada-projeto">
     <p className="descricao">No vasto céu do Hemisfério Sul, a constelação Fênix é uma pequena, mas distinta, formação estelar. Nomeada em homenagem a uma figura lendária que representa a renovação, esta constelação foi introduzida no final do século XVI pelo astrônomo Petrus Plancius. 

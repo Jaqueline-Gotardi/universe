@@ -8,7 +8,7 @@ function Uranus() {
     <section className="tela-eventos-detalhe" id="detalhe-urano">
     <div className="aurora-background"></div>
     <div className="info-card" style={{position:"relative", zIndex:"1"}}>
-    <img src="/imagens/urano.png" alt="Urano" class="celestial-image" />
+    <img src="/imagens/urano.png" alt="Urano" className="celestial-image" />
       <h3 className="titulo-missao">Urano</h3>
       <p className="descricao">
         Urano é o sétimo planeta a partir do Sol, um gigante de gelo que se destaca por sua cor azul-esverdeada, causada

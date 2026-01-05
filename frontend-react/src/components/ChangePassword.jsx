@@ -11,23 +11,23 @@ function ChangePassword() {
       <form class="form-trocar-senha">
 
         <div class="campo-input">
-          <label for="senha-atual">Senha Atual</label>
+          <label htmlFor="senha-atual">Senha Atual</label>
           <input type="password" id="senha-atual" placeholder="Digite sua senha atual" />
         </div>
   
         <div class="campo-input">
-          <label for="nova-senha">Nova Senha</label>
+          <label htmlFor="nova-senha">Nova Senha</label>
           <input type="password" id="nova-senha" placeholder="Digite sua nova senha" />
         </div>
   
         <div class="campo-input">
-          <label for="confirmar-nova-senha">Confirmar Nova Senha</label>
+          <label htmlFor="confirmar-nova-senha">Confirmar Nova Senha</label>
           <input type="password" id="confirmar-nova-senha" placeholder="Confirme sua nova senha" />
         </div>
   
         <div class="captcha-container">
           <input type="checkbox" id="nao-sou-robo" />
-          <label for="nao-sou-robo">Eu não sou um robô</label>
+          <label htmlFor="nao-sou-robo">Eu não sou um robô</label>
         </div>
   
         <div class="botoes-edicao">

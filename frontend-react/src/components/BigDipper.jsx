@@ -14,8 +14,8 @@ function BigDipper() {
       <div className="stars"></div>
     </div>
     <div className="info-card">
-      <img src="/imagens/ursa-maior.png" alt="Constelação Ursa Maior" class="celestial-image" />
-      <h3 class="titulo-missao">Constelação de Ursa Maior</h3>
+      <img src="/imagens/ursa-maior.png" alt="Constelação Ursa Maior" className="celestial-image" />
+      <h3 className="titulo-missao">Constelação de Ursa Maior</h3>
       <div className="jornada-projeto">
       <p className="descricao">Uma das constelações mais famosas do céu noturno, a Ursa Maior é facilmente reconhecível pelo seu formato icônico, conhecido como "O Grande Carro". Visível durante todo o ano no Hemisfério Norte, ela é um marco no céu, uma das primeiras formações que qualquer explorador aprende a identificar.
         <br />

@@ -8,7 +8,7 @@ function Mars() {
     <section className="tela-eventos-detalhe" id="detalhe-marte">
     <div className="aurora-background"></div>
     <div className="info-card" style={{position:"relative", zIndex:"1"}}>
-    <img src="/imagens/marte.png" alt="Marte" class="celestial-image" />
+    <img src="/imagens/marte.png" alt="Marte" className="celestial-image" />
       <h3 className="titulo-missao">Marte</h3>
       <p className="descricao">
         Marte é o quarto planeta a partir do Sol e é amplamente conhecido como o "planeta vermelho" por sua coloração

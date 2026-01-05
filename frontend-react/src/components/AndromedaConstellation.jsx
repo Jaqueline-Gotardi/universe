@@ -13,7 +13,7 @@ function Andromeda() {
       <div className="stars"></div> 
     </div>
     <div className="info-card">
-    <img src="/imagens/andromeda.png" alt="Constelação Andrômeda" class="celestial-image" />
+    <img src="/imagens/andromeda.png" alt="Constelação Andrômeda" className="celestial-image" />
     <h3 className="titulo-missao">Constelação de Andrômeda</h3>
     <div className="jornada-projeto">
     <p className="descricao">A constelação de Andrômeda é famosa por abrigar um dos objetos mais fascinantes do nosso céu noturno: a Galáxia de Andrômeda (M31). Para um verdadeiro explorador, este é um alvo de missão prioritário. M31 é a nossa vizinha galáctica mais próxima e, de uma perspectiva na Terra, é o objeto mais distante que pode ser visto a olho nu. <br />

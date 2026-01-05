@@ -7,10 +7,10 @@ function GreaterCanis() {
     return (
     <section className="tela-eventos-detalhe" id="detalhe-cao-maior">
     <div className="space-background">
-        <div class="stars"></div>
+        <div className="stars"></div>
         </div>
     <div className="info-card">
-    <img src="/imagens/cao-maior.png" alt="Constelação Cão Maior" class="celestial-image" />
+    <img src="/imagens/cao-maior.png" alt="Constelação Cão Maior" className="celestial-image" />
     <h3 className="titulo-missao">Constelação de Cão Maior</h3>
     <div className="jornada-projeto">
     <p className="descricao">Cão Maior é uma das constelações mais notáveis do céu, facilmente identificável por seu brilho e sua estrela mais proeminente, um guia perfeito para qualquer explorador.

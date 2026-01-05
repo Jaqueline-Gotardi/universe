@@ -40,11 +40,11 @@ function Profile() {
       </div>
   
       <div id="secao-edicao" style={{display: "none"}}>
-        <form class="form-perfil">
+        <form className="form-perfil">
 
-          <div class="campo-foto-edicao">
+          <div className="campo-foto-edicao">
 
-    <img src="..." alt="Foto de perfil atual" class="foto-perfil-preview" id="foto-perfil-preview-edicao" />
+    <img src="..." alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
     
     <div className="btn-opcoes-perfil">
     <button type="button" id="btn-escolher-avatars">Escolher avatar</button>
@@ -94,17 +94,17 @@ function Profile() {
           </div> 
   
           <div className="campo-input">
-            <label for="nome-agente-edicao">Nome de Agente Espacial</label>
+            <label htmlFor="nome-agente-edicao">Nome de Agente Espacial</label>
             <input type="text" id="nome-agente-edicao" placeholder="Digite seu nome aqui" />
           </div>
   
           <div className="campo-input">
-            <label for="sobre-voce-edicao">Sobre você</label>
+            <label htmlFor="sobre-voce-edicao">Sobre você</label>
             <textarea id="sobre-voce-edicao" placeholder="Conte um pouco sobre sua missão..." rows="3"></textarea>
           </div>
   
           <div className="campo-input">
-            <label for="interesses-edicao">Interesses</label>
+            <label htmlFor="interesses-edicao">Interesses</label>
             <input type="text" id="interesses-edicao" placeholder="Ex: Astronomia" />
           </div>
   

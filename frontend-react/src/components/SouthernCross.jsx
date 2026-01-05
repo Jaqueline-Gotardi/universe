@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
       <div className="stars"></div>
     </div>
     <div className="info-card">
-    <img src="/imagens/cruzeiro-do-sul.png" alt="Constelação Cruzeiro do Sul" class="celestial-image" />
+    <img src="/imagens/cruzeiro-do-sul.png" alt="Constelação Cruzeiro do Sul" className="celestial-image" />
     <h3 className="titulo-missao">Constelação de Cruzeiro Do Sul</h3>
     <div className="jornada-projeto">
     <p className="descricao">Embora seja a menor das 88 constelações, o Cruzeiro do Sul (ou Crux) tem uma importância colossal para os exploradores do Hemisfério Sul. Esta pequena e distinta constelação atua como um farol, um guia confiável na escuridão do céu.

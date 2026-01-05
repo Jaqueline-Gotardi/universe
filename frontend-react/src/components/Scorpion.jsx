@@ -9,7 +9,7 @@ function Scorpion() {
       <div className="stars"></div>
     </div>
     <div className="info-card">
-    <img src="/imagens/escorpiao.png" alt="Constelação Escorpião" class="celestial-image" />
+    <img src="/imagens/escorpiao.png" alt="Constelação Escorpião" className="celestial-image" />
     <h3 className="titulo-missao">Constelação de Escorpião</h3>
     <div className="jornada-projeto">
     <p className="descricao">Escorpião é uma das poucas constelações que realmente se parece com a sua forma. Sua silhueta dramática o torna um alvo perfeito para qualquer explorador.
