@@ -60,6 +60,7 @@ import AndromedaGalaxy from './components/AndromedaGalaxy.jsx';
 import TriangleM33 from './components/TriangleM33.jsx';
 import PlanetaryMenu from './components/PlanetaryMenu.jsx';
 import Sun from './components/Sun.jsx';
+import Mercury from './components/Mercury.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -257,6 +258,10 @@ const router = createBrowserRouter([
       {
         path: "sun",
         element: <Sun />
+      },
+      {
+        path: "mercury",
+        element: <Mercury />
       }
     ]
   },
