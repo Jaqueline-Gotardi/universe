@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 function Profile() {
 
     const navigate = useNavigate();
+
+    //O estado que controla "qual canal está passando"
     const [ activeSection, setActiveSection] = useState("view");
 
     const [userData, setUserData] = useState({
@@ -16,13 +18,15 @@ function Profile() {
     const handleSaveProfile = (e) => {
     e.preventDefault();
     console.log('Dados salvos:', userData);
-    setActiveSection('view');
+    setActiveSection('view'); //Volta para a visualização após salvar
   };
 
     return (
     <section className="tela-perfil" id="tela-perfil-usuario">
     <div className="container-perfil">
   
+
+  {activeSection === "view" && (
       <div className="perfil-visualizacao" id="secao-visualizacao">
         <div className="header-perfil">
           <h2 className="titulo-secao">Perfil de Agente Espacial</h2>
@@ -38,28 +42,30 @@ function Profile() {
           <div className="perfil-info">
             <p className="info-item">
               <span className="label">Nome:</span>
-              <span className="valor" id="perfil-nome">Nome do Agente</span>
+              <span className="valor" id="perfil-nome">{userData.username}</span>
             </p>
             <p className="info-item">
               <span className="label">Sobre mim:</span>
-              <span className="valor" id="perfil-sobre">Conte um pouco sobre você...</span>
+              <span className="valor" id="perfil-sobre">{userData.bio}</span>
             </p>
             <p className="info-item">
               <span className="label">Interesses:</span>
-              <span className="valor" id="perfil-interesses">Ex: Astronomia</span>
+              <span className="valor" id="perfil-interesses">{userData.interests}</span>
             </p>
           </div>
         </div>
         <button type="button" className="botao-voltar" id="btn-voltar-perfil"
         onClick={() => navigate("/app/extras-menu")}>Voltar</button>
       </div>
+  )}
   
-      <div id="secao-edicao" style={{display: "none"}}>
-        <form className="form-perfil">
+  {activeSection === "edit" && (
+      <div id="secao-edicao">
+        <form className="form-perfil" onSubmit={handleSaveProfile}>
 
           <div className="campo-foto-edicao">
-
-    <img src="..." alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
+ 
+    <img src={userData.avatar} alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
     
     <div className="btn-opcoes-perfil">
     <button type="button" id="btn-escolher-avatars">Escolher avatar</button>
@@ -68,7 +74,7 @@ function Profile() {
     
     <input type="file" id="input-foto-perfil-edicao" accept="image/*" style={{display: "none"}} />
 
-    <div className="galeria-agentes-espaciais" id="galeria-agentes-espaciais" style={{display: "none"}}>
+    <div className="galeria-agentes-espaciais" id="galeria-agentes-espaciais" style={{display: "none"}} >
       
       <button type="button" className="btn-fechar-galeria" id="btn-fechar-galeria">X</button>
 
@@ -111,19 +117,20 @@ function Profile() {
           <div className="campo-input">
             <label htmlFor="nome-agente-edicao">Nome de Agente Espacial</label>
             <input type="text" id="nome-agente-edicao" placeholder="Digite seu nome aqui"
-            value={userData.username} />
+            value={userData.username} onChange={(e) => userData({...userData, username: e.target.value})} required />
           </div>
   
           <div className="campo-input">
             <label htmlFor="sobre-voce-edicao">Sobre você</label>
             <textarea id="sobre-voce-edicao" placeholder="Conte um pouco sobre sua missão..." rows="3"
-            value={userData.bio}></textarea>
+            value={userData.bio} onChange={(e) => userData({...userData, bio: e.target.value})} required >
+           </textarea>
           </div>
   
           <div className="campo-input">
             <label htmlFor="interesses-edicao">Interesses</label>
             <input type="text" id="interesses-edicao" placeholder="Ex: Astronomia"
-            value={userData.interests} />
+            value={userData.interests} onChange={(e) => setUserData({...userData, interests: e.target.value})} required />
           </div>
   
           <div className="secao-seguranca">
@@ -143,6 +150,7 @@ function Profile() {
         </form>
 
       </div>
+  )}
     </div>
   </section>
     )

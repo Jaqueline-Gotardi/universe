@@ -29,7 +29,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
       });
 
     if (response.ok) {
-      const data = await response.json();
+      const data = await response.json(); 
       console.log("Login bem sucedido!", data);
 
       login(); //atualiza o estado para logado

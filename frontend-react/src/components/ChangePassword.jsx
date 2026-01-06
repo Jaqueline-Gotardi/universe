@@ -33,7 +33,8 @@ function ChangePassword() {
         <div class="botoes-edicao">
           <button type="submit" class="btn-salvar" id="btn-salvar-senha"
           onClick={() => navigate("/app/profile")}>Salvar Nova Senha</button>
-          <button type="button" class="btn-cancelar" id="btn-cancelar-troca-senha">Cancelar</button>
+          <button type="button" class="btn-cancelar" id="btn-cancelar-troca-senha"
+          onClick={() => navigate("/app/profile")}>Cancelar</button>
         </div>
   
       </form>
