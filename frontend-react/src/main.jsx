@@ -316,10 +316,6 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />
       },
-      /* {
-        path: "edit-profile",
-        element: <Profile />,
-      }, */
       {
         path: "change-password",
         element: <ChangePassword />

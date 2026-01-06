@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 function Profile() {
 
@@ -8,6 +9,7 @@ function Profile() {
     //O estado que controla "qual canal está passando"
     const [ activeSection, setActiveSection ] = useState("view");
     const [ isGalleryOpen, setIsGalleryOpen ] = useState(false);
+    const fileInputRef = useRef(null);
 
     const [userData, setUserData] = useState({
       avatar: '',
@@ -73,10 +75,11 @@ function Profile() {
     <button type="button" id="btn-escolher-avatars"
     onClick={() => setIsGalleryOpen(true)}>Escolher avatar</button>
 
-    <button type="button" id="btn-escolher-galeria">Trocar Foto (Upload)</button>
+    <button type="button" id="btn-escolher-galeria"
+    onClick={() => fileInputRef.current.click()}>Trocar Foto (Upload)</button>
     </div>
     
-    <input type="file" id="input-foto-perfil-edicao" accept="image/*" style={{display: "none"}} />
+    <input type="file" id="input-foto-perfil-edicao" accept="image/*" ref={fileInputRef} style={{display: "none"}} />
 
 
 
