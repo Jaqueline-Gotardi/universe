@@ -1,8 +1,23 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
 
     const navigate = useNavigate();
+    const [ activeSection, setActiveSection] = useState("view");
+
+    const [userData, setUserData] = useState({
+      avatar: '',
+      username: '',
+      bio: '',
+      interests: '',
+  });
+
+    const handleSaveProfile = (e) => {
+    e.preventDefault();
+    console.log('Dados salvos:', userData);
+    setActiveSection('view');
+  };
 
     return (
     <section className="tela-perfil" id="tela-perfil-usuario">
@@ -12,12 +27,12 @@ function Profile() {
         <div className="header-perfil">
           <h2 className="titulo-secao">Perfil de Agente Espacial</h2>
           <button type="button" className="btn-editar-perfil" id="btn-editar-perfil"
-          onClick={() => navigate("/app/edit-profile")}>Editar</button>
+          onClick={() => setActiveSection("edit")}>Editar</button>
         </div> 
   
         <div className="conteudo-perfil">
           <div className="perfil-foto">
-            <img src="/imagens/avatar-padrao.png" alt="Foto de perfil" id="foto-perfil-img" className="foto-perfil" />
+            <img src={userData.avatar} alt="Foto de perfil" id="foto-perfil-img" className="foto-perfil" />
           </div> 
   
           <div className="perfil-info">
@@ -95,26 +110,34 @@ function Profile() {
   
           <div className="campo-input">
             <label htmlFor="nome-agente-edicao">Nome de Agente Espacial</label>
-            <input type="text" id="nome-agente-edicao" placeholder="Digite seu nome aqui" />
+            <input type="text" id="nome-agente-edicao" placeholder="Digite seu nome aqui"
+            value={userData.username} />
           </div>
   
           <div className="campo-input">
             <label htmlFor="sobre-voce-edicao">Sobre você</label>
-            <textarea id="sobre-voce-edicao" placeholder="Conte um pouco sobre sua missão..." rows="3"></textarea>
+            <textarea id="sobre-voce-edicao" placeholder="Conte um pouco sobre sua missão..." rows="3"
+            value={userData.bio}></textarea>
           </div>
   
           <div className="campo-input">
             <label htmlFor="interesses-edicao">Interesses</label>
-            <input type="text" id="interesses-edicao" placeholder="Ex: Astronomia" />
+            <input type="text" id="interesses-edicao" placeholder="Ex: Astronomia"
+            value={userData.interests} />
           </div>
   
           <div className="secao-seguranca">
-            <button type="button" className="btn-troca-senha" id="btn-troca-senha">Trocar senha</button>
+            <button type="button" className="btn-troca-senha" id="btn-troca-senha"
+            onClick={() => navigate("/app/change-password")}>Trocar senha</button>
           </div>
 
           <div className="botoes-edicao">
-            <button type="submit" className="btn-salvar" id="btn-salvar-perfil">Salvar Alterações</button>
-            <button type="button" className="btn-cancelar" id="btn-cancelar-perfil">Cancelar</button>
+
+            <button type="submit" className="btn-salvar" id="btn-salvar-perfil"
+            onClick={() => (setActiveSection("view"))}>Salvar Alterações</button>
+
+            <button type="button" className="btn-cancelar" id="btn-cancelar-perfil"
+            onClick={() => (setActiveSection("view"))}>Cancelar</button>
           </div>
 
         </form>

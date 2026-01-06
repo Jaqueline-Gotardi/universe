@@ -73,6 +73,7 @@ import ExtrasMenu from './components/ExtrasMenu.jsx';
 import Profile from './components/Profile.jsx';
 import Creators from './components/Creators.jsx';
 import DeleteAccount from './components/DeleteAccount.jsx';
+import ChangePassword from './components/ChangePassword.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([ 
@@ -314,6 +315,14 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />
+      },
+      /* {
+        path: "edit-profile",
+        element: <Profile />,
+      }, */
+      {
+        path: "change-password",
+        element: <ChangePassword />
       },
       {
         path: "creators",

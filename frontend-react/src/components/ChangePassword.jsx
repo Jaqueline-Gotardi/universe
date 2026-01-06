@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+ 
 function ChangePassword() {
 
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ function ChangePassword() {
           <label htmlFor="senha-atual">Senha Atual</label>
           <input type="password" id="senha-atual" placeholder="Digite sua senha atual" />
         </div>
-  
+   
         <div class="campo-input">
           <label htmlFor="nova-senha">Nova Senha</label>
           <input type="password" id="nova-senha" placeholder="Digite sua nova senha" />
@@ -31,7 +31,8 @@ function ChangePassword() {
         </div>
   
         <div class="botoes-edicao">
-          <button type="submit" class="btn-salvar" id="btn-salvar-senha">Salvar Nova Senha</button>
+          <button type="submit" class="btn-salvar" id="btn-salvar-senha"
+          onClick={() => navigate("/app/profile")}>Salvar Nova Senha</button>
           <button type="button" class="btn-cancelar" id="btn-cancelar-troca-senha">Cancelar</button>
         </div>
   

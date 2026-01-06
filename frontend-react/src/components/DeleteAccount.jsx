@@ -33,4 +33,4 @@ function DeleteAccount() {
   </section>
     )
 }
-export default DeleteAccount;
+export default DeleteAccount; 
