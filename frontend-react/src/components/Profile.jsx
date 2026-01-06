@@ -6,7 +6,8 @@ function Profile() {
     const navigate = useNavigate();
 
     //O estado que controla "qual canal está passando"
-    const [ activeSection, setActiveSection] = useState("view");
+    const [ activeSection, setActiveSection ] = useState("view");
+    const [ isGalleryOpen, setIsGalleryOpen ] = useState(false);
 
     const [userData, setUserData] = useState({
       avatar: '',
@@ -68,15 +69,22 @@ function Profile() {
     <img src={userData.avatar} alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
     
     <div className="btn-opcoes-perfil">
-    <button type="button" id="btn-escolher-avatars">Escolher avatar</button>
+
+    <button type="button" id="btn-escolher-avatars"
+    onClick={() => setIsGalleryOpen(true)}>Escolher avatar</button>
+
     <button type="button" id="btn-escolher-galeria">Trocar Foto (Upload)</button>
     </div>
     
     <input type="file" id="input-foto-perfil-edicao" accept="image/*" style={{display: "none"}} />
 
-    <div className="galeria-agentes-espaciais" id="galeria-agentes-espaciais" style={{display: "none"}} >
+
+
+    {isGalleryOpen  && (
+    <div className="galeria-agentes-espaciais" id="galeria-agentes-espaciais" >
       
-      <button type="button" className="btn-fechar-galeria" id="btn-fechar-galeria">X</button>
+      <button type="button" className="btn-fechar-galeria" id="btn-fechar-galeria"
+      onClick={() => setIsGalleryOpen(false)}>X</button>
 
       <div className="galeria-grid-avatares">
         <div className="avatar-item">
@@ -112,18 +120,20 @@ function Profile() {
         </div>
         
         </div>  
+        )}
+  
           </div> 
   
           <div className="campo-input">
             <label htmlFor="nome-agente-edicao">Nome de Agente Espacial</label>
             <input type="text" id="nome-agente-edicao" placeholder="Digite seu nome aqui"
-            value={userData.username} onChange={(e) => userData({...userData, username: e.target.value})} required />
+            value={userData.username} onChange={(e) => setUserData({...userData, username: e.target.value})} required />
           </div>
   
           <div className="campo-input">
             <label htmlFor="sobre-voce-edicao">Sobre você</label>
             <textarea id="sobre-voce-edicao" placeholder="Conte um pouco sobre sua missão..." rows="3"
-            value={userData.bio} onChange={(e) => userData({...userData, bio: e.target.value})} required >
+            value={userData.bio} onChange={(e) => setUserData({...userData, bio: e.target.value})} required >
            </textarea>
           </div>
   
