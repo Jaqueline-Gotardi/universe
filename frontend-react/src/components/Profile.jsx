@@ -24,6 +24,14 @@ function Profile() {
     setActiveSection('view'); //Volta para a visualização após salvar
   };
 
+  const handleAvatarSelect = avatarSrc => {
+    setUserData(prevData => ({
+      ...prevData,
+      avatar: avatarSrc,
+    }))
+    console.log("avatar selecionado:")
+  }
+
     return (
     <section className="tela-perfil" id="tela-perfil-usuario">
     <div className="container-perfil">
@@ -82,7 +90,6 @@ function Profile() {
     <input type="file" id="input-foto-perfil-edicao" accept="image/*" ref={fileInputRef} style={{display: "none"}} />
 
 
-
     {isGalleryOpen  && (
     <div className="galeria-agentes-espaciais" id="galeria-agentes-espaciais" >
       
@@ -91,34 +98,34 @@ function Profile() {
 
       <div className="galeria-grid-avatares">
         <div className="avatar-item">
-            <img src="/public/imagens/avatar-phoenix.png" alt="Avatar Phoenix" className="avatar-preview" />
+            <img src="/public/imagens/avatar-phoenix.png" alt="Avatar Phoenix" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-phoenix.png")} />
         </div>
         <div className="avatar-item">
-            <img src="/public/imagens/avatar-apollo.png" alt="Avatar Apollo" className="avatar-preview" />
+            <img src="/public/imagens/avatar-apollo.png" alt="Avatar Apollo" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-apollo.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-luna (1).png" alt="Avatar Luna" className="avatar-preview" />
+          <img src="/public/imagens/avatar-luna (1).png" alt="Avatar Luna" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-luna (1).png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-orion.png" alt="Avatar Orion" className="avatar-preview" />
+          <img src="/public/imagens/avatar-orion.png" alt="Avatar Orion" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens//avatar-orion.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-nova.png" alt="Avatar Nova" className="avatar-preview" />
+          <img src="/public/imagens/avatar-nova.png" alt="Avatar Nova" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens//avatar-nova.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-ace.png" alt="Avatar Ace" className="avatar-preview" />
+          <img src="/public/imagens/avatar-ace.png" alt="Avatar Ace" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens//avatar-ace.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-astra.png" alt="Avatar Astra" className="avatar-preview" />
+          <img src="/public/imagens/avatar-astra.png" alt="Avatar Astra" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-astra.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-nexus.png" alt="Avatar Nexus" className="avatar-preview" />
+          <img src="/public/imagens/avatar-nexus.png" alt="Avatar Nexus" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-nexus.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-stella.png" alt="Avatar Stella" className="avatar-preview" />
+          <img src="/public/imagens/avatar-stella.png" alt="Avatar Stella" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-stella.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-wil.png" alt="Avatar Will" className="avatar-preview" />
+          <img src="/public/imagens/avatar-wil.png" alt="Avatar Will" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-wil.png")} />
         </div>
         </div>
         

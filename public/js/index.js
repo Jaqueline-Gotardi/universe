@@ -1040,7 +1040,7 @@ function atualizarProgresso() {
                 avatar.classList.remove('ativo'); //remover borda
         })
     });
-
+ 
     
     /* VISUALIZAR A FOTO TROCADA */
     const inputFotoPerfil = document.getElementById('input-foto-perfil-edicao');
