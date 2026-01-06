@@ -48,7 +48,7 @@ return (
             </ul>
         </div>
         
-        <button type="button" className="botao-iniciar-jornada" id="iniciar-exploracao" onClick={() => navigate('/app/menu') }>Iniciar Exploração</button>
+        <button type="button" className="botao-iniciar-jornada" id="iniciar-exploracao" onClick={() => navigate('/app/exploracao') }>Iniciar Exploração</button>
     </div>
 </section>
 );

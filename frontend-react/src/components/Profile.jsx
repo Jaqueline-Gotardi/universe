@@ -13,7 +13,7 @@ function Profile() {
           <h2 className="titulo-secao">Perfil de Agente Espacial</h2>
           <button type="button" className="btn-editar-perfil" id="btn-editar-perfil"
           onClick={() => navigate("/app/edit-profile")}>Editar</button>
-        </div>
+        </div> 
   
         <div className="conteudo-perfil">
           <div className="perfil-foto">

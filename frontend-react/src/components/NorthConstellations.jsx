@@ -23,4 +23,4 @@ function NorthConstellations() {
   </section>
     )
 }
-export default NorthConstellations; 
+export default NorthConstellations;  
