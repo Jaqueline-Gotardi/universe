@@ -1076,7 +1076,7 @@ function atualizarProgresso() {
     });
 
 
-    // PEGAR IMG DO FILES E EXIBIR
+    // PEGAR IMG DO FILES E EXIBIR 
     inputFotoPerfil.addEventListener('change', (event) => {
         const arquivo = event.target.files[0];
         if (arquivo) {

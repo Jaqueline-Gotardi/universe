@@ -24,12 +24,30 @@ function Profile() {
     setActiveSection('view'); //Volta para a visualização após salvar
   };
 
-  const handleAvatarSelect = avatarSrc => {
-    setUserData(prevData => ({
-      ...prevData,
+  //se fizer apenas setUserData({ avatar: avatarSrc }), o React vai "apagar" o nome, a bio e os interesses, e vai deixar só o avatar lá dentro 
+  const handleAvatarSelect = avatarSrc => { 
+    setUserData(dataProfile => ({
+      ...dataProfile,    // O ...prevData serve para dizer: "Mantenha tudo o q já existe e mude apenas o avatar 
       avatar: avatarSrc,
     }))
-    console.log("avatar selecionado:")
+    //console.log("avatar selecionado:")
+  }
+
+    const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+
+    if(file) {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        setUserData(dataProfile => ({
+          ...dataProfile,
+          avatar: reader.result,
+        }))
+
+      }
+      reader.readAsDataURL(file);
+    }
   }
 
     return (
@@ -87,8 +105,8 @@ function Profile() {
     onClick={() => fileInputRef.current.click()}>Trocar Foto (Upload)</button>
     </div>
     
-    <input type="file" id="input-foto-perfil-edicao" accept="image/*" ref={fileInputRef} style={{display: "none"}} />
-
+    <input type="file" id="input-foto-perfil-edicao" accept="image/*" ref={fileInputRef} style={{display: "none"}}
+    onChange={(event) => handleFileUpload(event)} />
 
     {isGalleryOpen  && (
     <div className="galeria-agentes-espaciais" id="galeria-agentes-espaciais" >
