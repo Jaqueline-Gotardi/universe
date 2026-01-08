@@ -248,7 +248,8 @@ const router = createBrowserRouter([
       {
         path: "irregular",
         element: <Irregular />
-      }, {
+      }, 
+      {
         path: "famous-galaxies",
         element: <FamousGalaxies />
       },

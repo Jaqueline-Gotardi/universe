@@ -11,6 +11,15 @@ function Profile() {
     const [ isGalleryOpen, setIsGalleryOpen ] = useState(false);
     const fileInputRef = useRef(null);
 
+    //constantes para guardar temporariamente os dados do perfil durante a edição
+    const [ tempUserData, setTempUserData ] = useState({
+      avatar: '',
+      username: '',
+      bio: '',
+      interests: '',
+    })
+
+    //constantes para guardar os dados oficiais do perfil
     const [userData, setUserData] = useState({
       avatar: '',
       username: '',
@@ -18,33 +27,44 @@ function Profile() {
       interests: '',
   });
 
+  //função para salvar os dados do perfil
     const handleSaveProfile = (e) => {
     e.preventDefault();
     console.log('Dados salvos:', userData);
-    setActiveSection('view'); //Volta para a visualização após salvar
+    setActiveSection('view'); //volta para a visualização após salvar
+
+    //atualiza os dados oficiais com os dados temporários
+    /* setTempUserData({
+      avatar: tempUserData.avatar,
+      username: tempUserData.username,
+      bio: tempUserData.bio,
+      interests: tempUserData.interests,
+    }) */
+   setUserData(tempUserData);
   };
 
   //se fizer apenas setUserData({ avatar: avatarSrc }), o React vai "apagar" o nome, a bio e os interesses, e vai deixar só o avatar lá dentro 
   const handleAvatarSelect = avatarSrc => { 
-    setUserData(dataProfile => ({
+    setTempUserData(dataProfile => ({
       ...dataProfile,    // O ...prevData serve para dizer: "Mantenha tudo o q já existe e mude apenas o avatar 
       avatar: avatarSrc,
     }))
     //console.log("avatar selecionado:")
   }
 
+  //função para upload de arquivo
     const handleFileUpload = (event) => {
     const file = event.target.files[0];
 
     if(file) {
       const reader = new FileReader();
 
+      //quando a leitura do arquivo for feita, atualiza o estado com a imagem carregada
       reader.onload = () => {
-        setUserData(dataProfile => ({
+        setTempUserData(dataProfile => ({
           ...dataProfile,
           avatar: reader.result,
         }))
-
       }
       reader.readAsDataURL(file);
     }
@@ -54,13 +74,13 @@ function Profile() {
     <section className="tela-perfil" id="tela-perfil-usuario">
     <div className="container-perfil">
   
-
+  {/* // Seção de visualização do perfil */}
   {activeSection === "view" && (
       <div className="perfil-visualizacao" id="secao-visualizacao">
         <div className="header-perfil">
           <h2 className="titulo-secao">Perfil de Agente Espacial</h2>
           <button type="button" className="btn-editar-perfil" id="btn-editar-perfil"
-          onClick={() => setActiveSection("edit")}>Editar</button>
+          onClick={() => {setActiveSection("edit"); setTempUserData(userData)}}>Editar</button>
         </div> 
   
         <div className="conteudo-perfil">
@@ -88,6 +108,7 @@ function Profile() {
       </div>
   )}
   
+  {/* // Seção de edição do perfil */}
   {activeSection === "edit" && (
       <div id="secao-edicao">
         <form className="form-perfil" onSubmit={handleSaveProfile}>
@@ -108,6 +129,8 @@ function Profile() {
     <input type="file" id="input-foto-perfil-edicao" accept="image/*" ref={fileInputRef} style={{display: "none"}}
     onChange={(event) => handleFileUpload(event)} />
 
+
+{/* // Galeria de Avatares */}
     {isGalleryOpen  && (
     <div className="galeria-agentes-espaciais" id="galeria-agentes-espaciais" >
       
@@ -149,26 +172,30 @@ function Profile() {
         
         </div>  
         )}
-  
+
           </div> 
   
           <div className="campo-input">
             <label htmlFor="nome-agente-edicao">Nome de Agente Espacial</label>
             <input type="text" id="nome-agente-edicao" placeholder="Digite seu nome aqui"
-            value={userData.username} onChange={(e) => setUserData({...userData, username: e.target.value})} required />
-          </div>
+            value={tempUserData.username} 
+            onChange={(e) => setTempUserData({...tempUserData, username: e.target.value})}
+             />
+          </div> 
   
           <div className="campo-input">
             <label htmlFor="sobre-voce-edicao">Sobre você</label>
             <textarea id="sobre-voce-edicao" placeholder="Conte um pouco sobre sua missão..." rows="3"
-            value={userData.bio} onChange={(e) => setUserData({...userData, bio: e.target.value})} required >
+            value={tempUserData.bio} 
+            onChange={(e) => setTempUserData({...tempUserData, bio: e.target.value})} >
            </textarea>
           </div>
   
           <div className="campo-input">
             <label htmlFor="interesses-edicao">Interesses</label>
             <input type="text" id="interesses-edicao" placeholder="Ex: Astronomia"
-            value={userData.interests} onChange={(e) => setUserData({...userData, interests: e.target.value})} required />
+            value={tempUserData.interests} 
+            onChange={(e) => setTempUserData({...tempUserData, interests: e.target.value})} />
           </div>
   
           <div className="secao-seguranca">
@@ -178,11 +205,10 @@ function Profile() {
 
           <div className="botoes-edicao">
 
-            <button type="submit" className="btn-salvar" id="btn-salvar-perfil"
-            onClick={() => (setActiveSection("view"))}>Salvar Alterações</button>
+            <button type="submit" className="btn-salvar" id="btn-salvar-perfil">Salvar Alterações</button>
 
             <button type="button" className="btn-cancelar" id="btn-cancelar-perfil"
-            onClick={() => (setActiveSection("view"))}>Cancelar</button>
+            onClick={() => setActiveSection("view")}>Cancelar</button>
           </div>
 
         </form>
