@@ -33,14 +33,7 @@ function Profile() {
     console.log('Dados salvos:', userData);
     setActiveSection('view'); //volta para a visualização após salvar
 
-    //atualiza os dados oficiais com os dados temporários
-    /* setTempUserData({
-      avatar: tempUserData.avatar,
-      username: tempUserData.username,
-      bio: tempUserData.bio,
-      interests: tempUserData.interests,
-    }) */
-   setUserData(tempUserData);
+   setUserData(tempUserData); //pegando os dados temporários e jogando no oficial
   };
 
   //se fizer apenas setUserData({ avatar: avatarSrc }), o React vai "apagar" o nome, a bio e os interesses, e vai deixar só o avatar lá dentro 
@@ -115,7 +108,7 @@ function Profile() {
 
           <div className="campo-foto-edicao">
  
-    <img src={userData.avatar} alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
+    <img src={tempUserData.avatar} alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
     
     <div className="btn-opcoes-perfil">
 
