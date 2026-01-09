@@ -19,7 +19,7 @@ function Profile() {
     const [ isGalleryOpen, setIsGalleryOpen ] = useState(false);
     const fileInputRef = useRef(null);
 
-    //constantes para guardar temporariamente os dados do perfil durante a edição
+    //constante para guardar temporariamente os dados do perfil durante a edição
     const [ tempUserData, setTempUserData ] = useState({
       avatar: '',
       username: '',
@@ -39,15 +39,16 @@ function Profile() {
     const handleSaveProfile = (e) => {
     e.preventDefault();
     console.log('Dados salvos:', userData);
-    setActiveSection('view'); //volta para a visualização após salvar
 
-   setUserData(tempUserData); //pegando os dados temporários e jogando no oficial
+    setUserData(tempUserData); //pegando os dados temporários e jogando no oficial
+    setIsGalleryOpen(false),
+    setActiveSection('view'); //volta para a visualização após salvar
   };
 
   //se fizer apenas setUserData({ avatar: avatarSrc }), o React vai "apagar" o nome, a bio e os interesses, e vai deixar só o avatar lá dentro 
   const handleAvatarSelect = avatarSrc => { 
-    setTempUserData(dataProfile => ({
-      ...dataProfile,    // O ...prevData serve para dizer: "Mantenha tudo o q já existe e mude apenas o avatar 
+    setTempUserData(prev => ({
+      ...prev,    // O ...prevData serve para dizer: "Mantenha tudo o q já existe e mude apenas o avatar 
       avatar: avatarSrc,
     }))
     //console.log("avatar selecionado:")
@@ -71,6 +72,21 @@ function Profile() {
     }
   }
 
+  //função para remover a foto de perfil (voltar ao avatar padrão)
+  const handleRemovePhoto = () => {
+    setTempUserData(prev => ({
+      ...prev,
+      avatar: default_avatar,
+    }))
+  } 
+
+  //função para cancelar as edições de perfil
+   const handleCancelEdit = () => {
+        setTempUserData(userData); 
+        setIsGalleryOpen(false), //fechar galeria
+        setActiveSection("view");//trocar seção
+    };
+
     return (
     <section className="tela-perfil" id="tela-perfil-usuario">
     <div className="container-perfil">
@@ -81,26 +97,26 @@ function Profile() {
         <div className="header-perfil">
           <h2 className="titulo-secao">Perfil de Agente Espacial</h2>
           <button type="button" className="btn-editar-perfil" id="btn-editar-perfil"
-          onClick={() => {setActiveSection("edit"); setTempUserData(userData)}}>Editar</button>
+          onClick={() => {setTempUserData(userData); setActiveSection("edit")}}>Editar</button>
         </div> 
   
         <div className="conteudo-perfil">
           <div className="perfil-foto">
-            <img src={userData.avatar} alt="Foto de perfil" id="foto-perfil-img" className="foto-perfil" />
+            <img src={userData.avatar || default_avatar} alt="Foto de perfil" id="foto-perfil-img" className="foto-perfil" />
           </div> 
   
           <div className="perfil-info">
             <p className="info-item">
               <span className="label">Nome:</span>
-              <span className="valor" id="perfil-nome">{userData.username}</span>
+              <span className="valor" id="perfil-nome">{userData.username || "Agente sem nome"}</span>
             </p>
             <p className="info-item">
               <span className="label">Sobre mim:</span>
-              <span className="valor" id="perfil-sobre">{userData.bio}</span>
+              <span className="valor" id="perfil-sobre">{userData.bio || "Sem bio definida"}</span>
             </p>
             <p className="info-item">
               <span className="label">Interesses:</span>
-              <span className="valor" id="perfil-interesses">{userData.interests}</span>
+              <span className="valor" id="perfil-interesses">{userData.interests || "Sem informação"}</span>
             </p>
           </div>
         </div>
@@ -114,9 +130,19 @@ function Profile() {
       <div id="secao-edicao">
         <form className="form-perfil" onSubmit={handleSaveProfile}>
 
-          <div className="campo-foto-edicao">
+          <div className="campo-foto-edicao relative w-32 h-32 mb-4">
  
     <img src={tempUserData.avatar} alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
+
+    <button id="botao-de-resetar-avatar" type="button" 
+    className="absolute -top-4 right-2 bg-red-600 hover:bg-red-700 p-2 rounded-full shadow-lg transition-transform hover:scale-110 active:scale-95 z-30 border-4 border[#0f172a] z-100"
+    onClick={handleRemovePhoto}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        <line x1="10" y1="11" x2="10" y2="17"></line>
+        <line x1="14" y1="11" x2="14" y2="17"></line>
+        </svg>
+        </button>
     
     <div className="btn-opcoes-perfil">
 
@@ -206,10 +232,11 @@ function Profile() {
 
           <div className="botoes-edicao">
 
-            <button type="submit" className="btn-salvar" id="btn-salvar-perfil">Salvar Alterações</button>
+            <button type="submit" className="btn-salvar" id="btn-salvar-perfil" 
+            onClick={handleSaveProfile}>Salvar Alterações</button>
 
             <button type="button" className="btn-cancelar" id="btn-cancelar-perfil"
-            onClick={() => setActiveSection("view")}>Cancelar</button>
+            onClick={handleCancelEdit}>Cancelar</button>
           </div>
 
         </form>
