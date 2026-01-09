@@ -16,7 +16,7 @@ function ChangePassword() {
         </div>
    
         <div class="campo-input">
-          <label htmlFor="nova-senha">Nova Senha</label>
+          <label htmlFor="nova-senha">Nova Senha</label> 
           <input type="password" id="nova-senha" placeholder="Digite sua nova senha" />
         </div>
   

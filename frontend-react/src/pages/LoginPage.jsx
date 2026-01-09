@@ -81,7 +81,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
         </form>
       </div> 
     </div>
-  </section>
+  </section> 
     );  
 }
 

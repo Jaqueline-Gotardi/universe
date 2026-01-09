@@ -167,34 +167,34 @@ function Profile() {
 
       <div className="galeria-grid-avatares">
         <div className="avatar-item">
-            <img src="/public/imagens/avatar-phoenix.png" alt="Avatar Phoenix" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-phoenix.png")} />
+            <img src="/public/imagens/avatar-phoenix.png" alt="Avatar Phoenix" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-phoenix.png")} />
         </div>
         <div className="avatar-item">
-            <img src="/public/imagens/avatar-apollo.png" alt="Avatar Apollo" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-apollo.png")} />
+            <img src="/public/imagens/avatar-apollo.png" alt="Avatar Apollo" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-apollo.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-luna (1).png" alt="Avatar Luna" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-luna (1).png")} />
+          <img src="/public/imagens/avatar-luna (1).png" alt="Avatar Luna" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-luna (1).png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-orion.png" alt="Avatar Orion" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens//avatar-orion.png")} />
+          <img src="/public/imagens/avatar-orion.png" alt="Avatar Orion" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-orion.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-nova.png" alt="Avatar Nova" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens//avatar-nova.png")} />
+          <img src="/public/imagens/avatar-nova.png" alt="Avatar Nova" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-nova.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-ace.png" alt="Avatar Ace" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens//avatar-ace.png")} />
+          <img src="/public/imagens/avatar-ace.png" alt="Avatar Ace" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-ace.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-astra.png" alt="Avatar Astra" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-astra.png")} />
+          <img src="/public/imagens/avatar-astra.png" alt="Avatar Astra" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-astra.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-nexus.png" alt="Avatar Nexus" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-nexus.png")} />
+          <img src="/public/imagens/avatar-nexus.png" alt="Avatar Nexus" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-nexus.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-stella.png" alt="Avatar Stella" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-stella.png")} />
+          <img src="/public/imagens/avatar-stella.png" alt="Avatar Stella" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-stella.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-wil.png" alt="Avatar Will" className="avatar-preview" onClick={() => handleAvatarSelect("/public/imagens/avatar-wil.png")} />
+          <img src="/public/imagens/avatar-wil.png" alt="Avatar Will" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-wil.png")} />
         </div>
         </div>
         

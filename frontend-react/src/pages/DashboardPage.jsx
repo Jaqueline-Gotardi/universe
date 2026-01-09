@@ -2,16 +2,21 @@
 
 //import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import SoundTrack from "../components/SoundTrack";
 
 function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
 
     return (
-      <>
-      <Outlet /> {/* //renderiza os componentes filhos conforme as rotas definidas no main.jsx */}
+      <div>
+
+      <main>
+      <Outlet /> {/*renderiza os componentes filhos conforme as rotas definidas no main.jsx */}
+      </main>
+
+      <SoundTrack />
+      </div>
       
-      
-   </>
     ); 
 } 
 
-export default DashboardPage;  
+export default DashboardPage;   

@@ -25,6 +25,6 @@ function WelcomeSection() { //nome de componentes/funções em React deve-se com
     </div> 
   </section> 
     );  
-} 
+}  
 
 export default WelcomeSection;
