@@ -188,8 +188,8 @@
 }
 
 .foto-perfil-preview {
-    width: 120px;
-    height: 120px;
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
     border: 3px solid #763bdb;
     box-shadow: 0 0 15px rgba(118, 59, 219, 0.8);
@@ -197,7 +197,7 @@
     margin-bottom: 0.5rem;
 }
 
-.label-foto img {
+.label-foto img { 
     cursor: pointer;
     font-size: 1rem;
     /* color: #fff; */
@@ -213,6 +213,11 @@
     transition: all 0.3s ease;
     border: none;
     border-radius: 5px;
+}
+
+#btn-escolher-avatars,
+#btn-escolher-galeria {
+    margin: 1px;
 }
 
 .campo-input label {

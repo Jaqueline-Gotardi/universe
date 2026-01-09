@@ -135,14 +135,15 @@ function Profile() {
     <img src={tempUserData.avatar} alt="Foto de perfil atual" className="foto-perfil-preview" id="foto-perfil-preview-edicao" />
 
     <button id="botao-de-resetar-avatar" type="button" 
-    className="absolute -top-4 right-2 bg-red-600 hover:bg-red-700 p-2 rounded-full shadow-lg transition-transform hover:scale-110 active:scale-95 z-30 border-4 border[#0f172a] z-100"
+    className="absolute -top-4 right-8 bg-red-600 hover:bg-red-700 p-2 rounded-full shadow-lg transition-transform hover:scale-110 active:scale-95 border-4 border-[#0f172a] z-[100]"
     onClick={handleRemovePhoto}>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
         <line x1="10" y1="11" x2="10" y2="17"></line>
         <line x1="14" y1="11" x2="14" y2="17"></line>
-        </svg>
-        </button>
+    </svg>
+</button>
+
     
     <div className="btn-opcoes-perfil">
 
