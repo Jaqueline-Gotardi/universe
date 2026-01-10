@@ -10,6 +10,41 @@ const song = [
   { title: "Sinfonia do vazio Estelar", src: "/musicas/universe-space-sounds-3595.mp3"}
 ]; 
 
+const SoundTrack = () => { //SoundTrack deve ser maíscula pq vai virar uma "tag" na tela. O React EXIGE assim para não confundir com <div>, <span>, etc. . .
+  const [ isPlaying, setIsPlaying ] = useState(false);
+  const [ showBar, setShowBar ] = useState(false); //controla a visibilidade da barra musical
+  const [ currentTrack, setCurrentTrack ] = useState(0); //índice da música
+  const [ progress, setProgress ] = useState(0);
+  const audioRef = useRef(null); //valor inicial (ganho q segura o player de áudio)
+  const barRef = useRef(null); //gancho q segura a barra de progresso desenhada na tela
+
+  //só executa quando as dependências mudam (são efeitos colaterais)
+  useEffect(() => {
+    const audio = audioRef.current; //aúdio atual
+    if(!audio) return;
+
+    const updateProgress = () => {
+      if (audio.duration) {
+        setProgress((audio.currentTime / audio.duration) * 100); //calcular progresso da música
+      }
+    };
+
+    const handleEnded = () => { //quando a música acabar, toca a próxima
+      nextTrack();
+    };
+
+    audio.addEventListener('timeupdate', updateProgress);
+    audio.addEventListener('ended', handleEnded);
+
+    return () => {
+      audio.removeEventListener('timeupdate', updateProgress);
+      audio.removeEventListener('ended', handleEnded);
+    };
+  },
+  [currentTrack]
+);
+}
+
 
 function SoundTrack() {
 
