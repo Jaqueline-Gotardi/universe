@@ -133,13 +133,26 @@ const SoundTrack = () => {
       {/* referencia áudio, acessa a variável de músicas, o índice, e exibe o áudio com suas informações (title). Preload => pré-carregamento */}
       <audio ref={audioRef} src={songs[currentTrack].src} preload="metadata" />
 
-      <button onClick={handleIconClick} />
+      <button onClick={handleIconClick}
+      style={{
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          zIndex: 50,
+          cursor: 'pointer',
+          background: 'transparent',
+          border: 'none',
+          outline: 'none',
+          animation: isPlaying ? 'spin-slow 8s linear infinite' : 'none',
+        }}
+        aria-label="Abrir player de música">
+        
       <svg
         width="56"
         height="56"
-        viewBox="0 0 56 56"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 56 56" /* espaço de "desenho" */
+        fill="none" /* preenchimento do círculo */
+        xmlns="http://www.w3.org/2000/svg" /* para identificar que oq tem na tag <svg> é código SVG e não uma tag html*/
         style={{
           filter:
             "drop-shadow(0 0 12px rgba(139, 92, 246, 0.5)) drop-shadow(0 0 24px rgba(99, 102, 241, 0.3))",
@@ -151,13 +164,17 @@ const SoundTrack = () => {
       cx="28"
       cy="28"
       r="26"
-      stroke="url(#cosmicGradient)"
-      strokeWidth="1.5"
+      stroke="url(#cosmicGradient)" /* cor da borda */
+      strokeWidth="1.5" /* largura da borda */
       opacity="0.6"
       style={{
         animation: isPlaying ? 'pulse-ring 2s ease-in-out infinite' : 'none',
       }}
       />
+      </button>
+
+      <circle cx="28" cy="28" r="20" fill="url(#nebulaCore)" />
+      <circle cx="28" cy="28" r="14" fill="url(#innerCosmic)" opacity="0.8" />
 
 
 
