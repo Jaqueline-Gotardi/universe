@@ -86,8 +86,32 @@ const prevTrack = () => {
   setProgress(0);
 };
 
+//quando o usuário clicar fora do ícone...
+useEffect(() => {
+  const handleClickOutside = (e) => {
+    if (barRef.current  //se a barra existe na tela
+      && 
+      !barRef.current.contains(e.target)) { //verificar se o lugar clicado NÃO está dentro da barra
+      setShowBar(false); //aí esconde a barra musical
+    }
+  };
+
+  //se a barra está aberta, coloca o vigia na tela
+  if (showBar) {
+    document.addEventListener('click',handleClickOutside)
+  }
+
+  //remover o vigia quando a barra musical fecha
+return () => {
+  document.removeEventListener('click', handleClickOutside);
+}}, [showBar]); //esse efeito depende do estado da barra musical
+
+
+
+
 
 }
+
 
 
 function SoundTrack() {
