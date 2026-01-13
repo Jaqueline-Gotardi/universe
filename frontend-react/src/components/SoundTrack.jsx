@@ -153,58 +153,109 @@ const SoundTrack = () => {
           height="56"
           viewBox="0 0 56 56" /* espaço de "desenho" */
           fill="none" /* preenchimento do círculo */
-          xmlns="http://www.w3.org/2000/svg" /* para identificar que oq tem na tag <svg> é código SVG e não uma tag html*/
+          xmlns="http://www.w3.org/2000/svg" /*para identificar que oq tem na tag <svg> é código SVG e não uma tag html*/
           style={{
             filter:
               "drop-shadow(0 0 12px rgba(139, 92, 246, 0.5)) drop-shadow(0 0 24px rgba(99, 102, 241, 0.3))",
             transition: "transform 0.3s ease",
           }}
         >
+          <circle /* contorno cósmico */
+            cx="28"
+            cy="28"
+            r="26"
+            stroke="url(#cosmicGradient)" /* cor da borda */
+            strokeWidth="1.5" /* largura da borda */
+            opacity="0.6"
+            style={{
+              animation: isPlaying
+                ? "pulse-ring 2s ease-in-out infinite"
+                : "none",
+            }}
+          />
 
-        <circle /* contorno cósmico */
-          cx="28"
-          cy="28"
-          r="26"
-          stroke="url(#cosmicGradient)" /* cor da borda */
-          strokeWidth="1.5" /* largura da borda */
-          opacity="0.6"
-          style={{
-            animation: isPlaying
-              ? "pulse-ring 2s ease-in-out infinite"
-              : "none",
-          }}
-        />
+          {/* as duas bolinhas (circle) centrais do ícone musical */}
+          <circle cx="28" cy="28" r="20" fill="url(#nebulaCore)" />
+          <circle
+            cx="28"
+            cy="28"
+            r="14"
+            fill="url(#innerCosmic)"
+            opacity="0.8"
+          />
 
-{/* as duas bolinhas (circle) centrais */}
-      <circle cx="28" cy="28" r="20" fill="url(#nebulaCore)" /> 
-      <circle cx="28" cy="28" r="14" fill="url(#innerCosmic)" opacity="0.8" />
+          {/* ondas sonoras  do ícone da nota musical*/}
+          <path /* => caminho */
+            d="M35 22C37.5 24 39 26.5 39 28.5C39 30.5 37.5 33 35 35" /* forma geométrica do caminho */
+            stroke="url(#waveGradient)" /*cor da borda */
+            strokeWidth="2" /* largura da borda */
+            strokeLinecap="round" /* a forma que as pontas do caminho serão renderizadas (redondo)*/
+            opacity={isPlaying ? 1 : 0.4}
+            style={{
+              animation: isPlaying ? "wave 1.5s ease-in-out infinite" : "none",
+            }}
+          />
+          <path
+            d="M38 19C41.5 22 44 25 44 28.5C44 32 41.5 35 38 38"
+            stroke="url(#waveGradient)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            opacity={isPlaying ? 0.7 : 0.2}
+            style={{
+              animation: isPlaying
+                ? "wave-delayed 1.5s ease-in-out infinite 0.3s" /* a onda começa com atraso, para criar profundidade em contraste com a outra */
+                : "none",
+            }}
+          />
+          {/* </svg> */}
+          {/* </button> */}
 
-      {/* ondas sonoras */}
-      <path /* => caminho */
-        d="M35 22C37.5 24 39 26.5 39 28.5C39 30.5 37.5 33 35 35" /* forma geométrica do caminho */
-        stroke="url(#waveGradient)" /*cor da borda */
-        strokeWidth="2" /* largura da borda */
-        strokeLinecap="round" /* a forma que as pontas do caminho serão renderizadas (redondo)*/
-        opacity={isPlaying ? 1 : 0.4}
-        style={{
-          animation: isPlaying 
-          ? "wave 1.5s ease-in-out infinite" 
-          : "none",
-        }}
-      />
-      <path /* onda sonoras */
-        d="M38 19C41.5 22 44 25 44 28.5C44 32 41.5 35 38 38"
-        stroke="url(#waveGradient)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        opacity={isPlaying ? 0.7 : 0.2}
-        style={{
-          animation: isPlaying
-            ? "wave-delayed 1.5s ease-in-out infinite 0.3s" /* a onda começa com atraso, para criar profundidade */
-            : "none",
-        }}
-      />
-      </svg>
+          {/* forma "a cabeça" do ícone da nota musical */}
+          <path
+            d="M26 32V22L32 20V30"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round" /* define a forma (redonda) do encontro com as duas linhas */
+            opacity="0.9"
+          />
+
+          {/* forma o círculo (ponta) do ícone da nota musical */}
+          <circle cx="24" cy="32" r="3" fill="white" opacity="0.9" />
+          <circle cx="30" cy="30" r="3" fill="white" opacity="0.9" />
+
+          {/* Estrelas */}
+          <circle cx="18" cy="18" r="1" fill="white" opacity="0.8" />
+          <circle cx="40" cy="15" r="0.8" fill="white" opacity="0.6" />
+          <circle cx="14" cy="35" r="0.6" fill="white" opacity="0.7" />
+
+          {/* estilizações*/}
+          <defs>
+            {/* offeset define a distância, onde a cor deve estar posicionada, assim, criamos um efeito de transição */}
+            <linearGradient id="cosmicGradient" x1="0" y1="0" x2="56" y2="56">
+              <stop offset="0%" stopColor="#a855f7" />
+              <stop offset="50%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#0ea5e9" />
+            </linearGradient>
+
+            <radialGradient id="nebulaCore" cx="0.3" cy="0.3" r="0.8">
+              <stop offset="0%" stopColor="#1e1b4b" />
+              <stop offset="40%" stopColor="#312e81" />
+              <stop offset="70%" stopColor="#4c1d95" />
+              <stop offset="100%" stopColor="#0f172a" />
+            </radialGradient>
+
+            <radialGradient id="innerCosmic" cx="0.5" cy="0.5" r="0.6">
+              <stop offset="0%" stopColor="#818cf8" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#4c1d95" stopOpacity="0.2" />
+            </radialGradient>
+
+            <linearGradient id="waveGradient" x1="35" y1="22" x2="44" y2="35">
+              <stop offset="0%" stopColor="#c4b5fd" />
+              <stop offset="100%" stopColor="#60a5fa" />
+            </linearGradient>
+          </defs>
+        </svg>
       </button>
     </>
   );
