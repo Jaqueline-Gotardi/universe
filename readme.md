@@ -73,17 +73,13 @@ OBS: Abra o *index.html* do frontend no navegador (Github Pages ou Live Server) 
 
 ---
 
-## 🖌️ Melhorias Recentes
+## 🖌️ Implementações Recentes (Sprint Jan/2026)
 
-1. **Arquitetura de Backend (Node.js/Express):** Implementação de servidor local para consumo e proteção de chaves de API.
-
-2. **Integração APOD + Images:** Sistema que agrega dados da Imagem do Dia (com tratamento para Imagem/Vídeo) e resultados da busca.
-
-3. **Resiliência:** Lógica de fallback para garantir o funcionamento do Front-end mesmo com falha na API principal.
-
-4. **Layout Dinâmico e Responsividade:** Quando a pesquisa é exibida, os elementos do Front-end (menu, barra) mudam o layout e a animação de fundo é ativada.
-   
-5. **Módulo de Perfil e UX**: Implementação completa do módulo de edição com Galeria de Avatares. Lógica de Gestão de Estado para os botões Salvar/Cancelar garantindo que a interface sempre resete para o último estado válido.
+Nesta última semana, o foco foi a **"Faxina de UI"** e a robustez da **Lógica de Interface**:
+- **Player Musical Customizado**: Implementação de trilha sonora com lógica de `loop`, `auto-play` e controle de visibilidade da barra de áudio (fechamento ao clicar fora).
+- **Gestão de Perfil Avançada**: Lógica de rascunho (temporary state) para edição de perfil, garantindo que os dados originais só sejam alterados após a confirmação do usuário.
+- **Refatoração para SVG**: Substituição de imagens externas por SVGs internos para ícones como a "Lixeira" e "Avatar Padrão", otimizando o carregamento.
+- **Ajustes de UX**: Implementação de fechamento automático de galerias e reset de avatares para uma navegação mais intuitiva.
 
 ---
 
@@ -101,26 +97,35 @@ Durante o desenvolvimento, aprimorei habilidades como:
 - Tratamento de Erros: Implementação de try/catch e lógica de fallback para garantir a integridade da aplicação.
 - Além disso, aprendi muito sobre **design de interface**, **consistência visual** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 🌠
 - Gestão de Estado de UI: Lógica complexa de salvamento e reset de dados em formulários (Módulo de Perfil).
+- A migração para o React me ensinou que **organização é clareza**. Lidar com conceitos como `props`, `state` e renderização condicional tem sido uma experiência deliciosa!
 
 ---
 
-## 💭 Próximas Explorações (apenas idéias)  
+## 🗺️ Roadmap de Exploração (Próximos Passos)
 
-Planejo incluir:  
-- Integração com **banco de dados**; 
-- Simulação **3D interativa**; 
+O Universe é um organismo vivo e a missão continua com as seguintes metas:
 
+1.  **Conexão com Firebase**: Migrar os dados temporários para o **Firestore** e implementar autenticação real.
+2.  **Animação de Splash Screen**: Criar uma tela de entrada (radar com barra de progresso) para preparar a imersão do agente.
+3.  **Sistema de Notificações (Toasts)**: Substituir alertas simples por notificações amigáveis.
+4.  **Página 404 Espacial**: Criar uma tela de "Agente Perdido no Espaço" para rotas não encontradas.
+5.  **Agent Badge**: Componente fixo no canto inferior exibindo o avatar e nome do usuário em todas as telas.
+   
 Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínuo, 1% melhor por dia. 💙  
 
 ---
 
-## 🛠️ Tecnologias Utilizadas  
+## 🌠 Evolução e Tecnologias  
 
-- **HTML5**: Estrutura e semântica;
-- **CSS3**: Estilo, animações e tema neon espacial; 
-- **JavaScript (puro)**: Lógica, interatividade e controle das telas;  
-- **Lovart IA**: Geração de imagens do universo;
-- **Node.Js + Express**: Para Backend local;
+O que antes era um site desenvolvido com JS puro, hoje está evoluindo para uma aplicação **Single Page Application (SPA)** moderna e escalável.
+
+### 🛠️ Stack Tecnológica 
+- **React**: Core da aplicação, utilizando Hooks como `useState`, `useEffect` e `useRef` para controle refinado de estados e ciclos de vida.
+- **React Router Dom**: Gestão de rotas e navegação fluida entre os componentes da missão.
+- **Node.js & Express**: Backend local para consumo seguro e tratamento de falhas das APIs da NASA.
+- **SVG Dinâmico**: Ícones customizados via código XML para máxima performance e flexibilidade de estilo.
+- **HTML5 & CSS3**: Estilização imersiva com tema espacial e foco em responsividade.
+
 ---
 
 ## 🌌 Acesse o Projeto Aqui  
