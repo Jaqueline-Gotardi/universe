@@ -144,7 +144,9 @@ const SoundTrack = () => {
           background: "transparent",
           border: "none",
           outline: "none",
-          animation: isPlaying ? "spin-slow 8s linear infinite" : "none",
+          animation: isPlaying 
+          ? "spin-slow 8s linear infinite" 
+          : "none",
         }}
         aria-label="Abrir player de música"
       >
@@ -195,7 +197,7 @@ const SoundTrack = () => {
               animation: isPlaying ? "wave 1.5s ease-in-out infinite" : "none",
             }}
           />
-          <path
+          <path 
             d="M38 19C41.5 22 44 25 44 28.5C44 32 41.5 35 38 38"
             stroke="url(#waveGradient)"
             strokeWidth="1.5"
@@ -207,11 +209,11 @@ const SoundTrack = () => {
                 : "none",
             }}
           />
-          {/* </svg> */}
-          {/* </button> */}
+        {/* </svg> */}
+      {/* </button> */}
 
-          {/* forma "a cabeça" do ícone da nota musical */}
-          <path
+{/* forma "a cabeça" do ícone da nota musical */}
+      <path
             d="M26 32V22L32 20V30"
             stroke="white"
             strokeWidth="2"
@@ -223,8 +225,8 @@ const SoundTrack = () => {
           {/* forma o círculo (ponta) do ícone da nota musical */}
           <circle cx="24" cy="32" r="3" fill="white" opacity="0.9" />
           <circle cx="30" cy="30" r="3" fill="white" opacity="0.9" />
-
-          {/* Estrelas */}
+          
+           {/* Estrelas */} 
           <circle cx="18" cy="18" r="1" fill="white" opacity="0.8" />
           <circle cx="40" cy="15" r="0.8" fill="white" opacity="0.6" />
           <circle cx="14" cy="35" r="0.6" fill="white" opacity="0.7" />
@@ -237,19 +239,19 @@ const SoundTrack = () => {
               <stop offset="50%" stopColor="#6366f1" />
               <stop offset="100%" stopColor="#0ea5e9" />
             </linearGradient>
-
+            
             <radialGradient id="nebulaCore" cx="0.3" cy="0.3" r="0.8">
               <stop offset="0%" stopColor="#1e1b4b" />
               <stop offset="40%" stopColor="#312e81" />
               <stop offset="70%" stopColor="#4c1d95" />
               <stop offset="100%" stopColor="#0f172a" />
             </radialGradient>
-
+            
             <radialGradient id="innerCosmic" cx="0.5" cy="0.5" r="0.6">
               <stop offset="0%" stopColor="#818cf8" stopOpacity="0.6" />
               <stop offset="100%" stopColor="#4c1d95" stopOpacity="0.2" />
             </radialGradient>
-
+            
             <linearGradient id="waveGradient" x1="35" y1="22" x2="44" y2="35">
               <stop offset="0%" stopColor="#c4b5fd" />
               <stop offset="100%" stopColor="#60a5fa" />
@@ -257,6 +259,41 @@ const SoundTrack = () => {
           </defs>
         </svg>
       </button>
+
+
+{/* Barra Musical  */}
+      <div /* conteiner da barra musical */
+        ref={barRef}
+        onClick={(e) => e.stopPropagation()} /* para o clique, evita q a lógica de fechar a barra musical (ao clicar no vazio) seja acionada por engano */
+        style={{
+          position: 'fixed',
+          bottom: '80px',
+          right: '24px',
+          zIndex: 40,
+          transition: 'all 0.5s ease-out',
+          opacity: showBar ? 1 : 0,
+          transform: showBar ? 'translateY(0)' : 'translateY(16px)',
+          pointerEvents: showBar ? 'auto' : 'none',
+        }}
+      >
+        <div /* define o quanto a música já tocou */
+          style={{
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.95) 50%, rgba(15, 23, 42, 0.95) 100%)',
+            backdropFilter: 'blur(24px)', /* intensidade do embaçado */
+            WebkitBackdropFilter: 'blur(24px)', /* compatibilidade com outros navegadores baseados em webkit */
+            borderRadius: '16px',
+            padding: '16px',
+            minWidth: '280px',
+            border: '1px solid rgba(139, 92, 246, 0.2)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+          }}
+        />
+        </div>
+
+
+
+
+
     </>
   );
 };
