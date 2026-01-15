@@ -322,11 +322,38 @@ const SoundTrack = () => {
                 margin: "2px 0 0 0",
               }}
             >
-              {currentTrack + 1} / {songs.length}
-              {/* mostrar o índice da música atual/ quantos índices são */}
+              {currentTrack + 1} / {songs.length} {/* mostrar o índice da música atual / quantos índices são */}
             </p>
           </div>
+
+
+          {/* Barra de progresso */}
+          <div style={{
+            width: "100%",
+            backgroundColor: "rgba(255,255,255,0.1)",
+            height: "4px",
+            borderRadius: "50px",
+            marginBottom: "16px",
+            overflow: "hidden",
+          }}
+          >
+            <div style={{
+              height: "100%",
+              backgroundColor: "linear-gradiente(to right, #a78bfa, #22d3ee)",
+              borderRadius: "16px",
+              transition: "width 0.2s ease",
+              width: `${progress}%`,
+            }}>
+            </div>
+          </div>
+
+
+
+
         </div>
+
+
+
       </div>
     </>
   );
