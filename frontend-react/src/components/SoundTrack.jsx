@@ -339,16 +339,89 @@ const SoundTrack = () => {
           >
             <div style={{
               height: "100%",
-              backgroundColor: "linear-gradiente(to right, #a78bfa, #22d3ee)",
+              backgroundColor: "linear-gradient(to right, #a78bfa, #22d3ee)",
               borderRadius: "16px",
               transition: "width 0.2s ease",
               width: `${progress}%`,
             }}>
             </div>
           </div>
+          
+
+          {/* Controles */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "30px",
+          }}>
 
 
+          {/* Voltar música */}
+          <button onClick={prevTrack}
+          style={{
+            background: "transparent",
+            cursor: "pointer",
+            transition: "all 0.2s ease",
+            border: "none",
+            color: "white",
+          }}
+          aria-label="Voltar música"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z" />
+            </svg>
+          </button>
 
+
+          {/* Pausar/Reproduzir */}
+          <button onClick={togglePlay}
+          style={{
+            width: "48px",
+            height: "48px",
+            borderRadius: "50%",
+            border: "none",
+            background: "linear-gradient(to bottom right, #8b5cf6, #4f46e5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center", 
+            cursor: "pointer",
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            color: "white",
+
+          }}
+          aria-label={isPlaying ? "Pausar" : "Reproduzir"}
+          >
+            { isPlaying ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7L8 5z" />
+              </svg>
+            )}
+
+          </button>
+
+
+          {/* Passar música */}
+          <button onClick={nextTrack}
+          style={{
+            background: "transparent",
+            cursor: "pointer",
+            transition: "all 0.2s ease",
+            border: "none",
+            color: "white",
+          }}
+          aria-label="Passar música"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 18l8.5-6L6 6v12zm10 0V6h2v12h-2z" />
+            </svg>
+          </button>
+
+          </div>
 
         </div>
 
