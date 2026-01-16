@@ -37,6 +37,38 @@ const SoundTrack = () => {
   const audioRef = useRef(null); //valor inicial (gancho q segura o player de áudio)
   const barRef = useRef(null); //gancho q segura a barra de progresso desenhada na tela
 
+  //passar uma música
+  const nextTrack = () => {
+    //muda o índice da música e prossegue para a próxima
+    setCurrentTrack((prev) => (prev + 1) % songs.length); //usam % tracks.length para criar um loop
+    setProgress(0); //se muda a música, reseta o progresso
+  };
+
+  //voltar uma música
+  const prevTrack = () => {
+    setCurrentTrack((prev) => (prev - 1 + songs.length) % songs.length);
+    setProgress(0);
+  };
+
+  //alternador do play
+  const togglePlay = () => {
+    if (!audioRef.current) return; //retorna se não for o áudio atual
+
+    //mas, se o áudio atual estiver tocando:
+    if (isPlaying) {
+      audioRef.current.pause(); //pode pausar
+    } else {
+      audioRef.current.play().catch(() => {}); //e tocar
+    }
+    setIsPlaying(!isPlaying); //senão, o estado da música muda (não está tocando!)
+  };
+
+  //quando o ícone musical for clicado, a barra musical é exibida/ou escondida (é um alternador)
+  const handleIconClick = (e) => {
+    e.stopPropagation(); //trava o clique para não afetar oq está atrás
+    setShowBar((prev) => !prev); //prev é o valor anterior do estado, (!prev) inverte esse valor
+  };
+
   //só executa quando as dependências mudam (são efeitos colaterais)
   useEffect(() => {
     const audio = audioRef.current; //áudio atual
@@ -63,47 +95,18 @@ const SoundTrack = () => {
   }, [currentTrack]);
 
   //esse useEffect é para garantir q se a música mudar, o novo áudio vai tocar, caso o player estiver no modo "tocando"
-  useEffect(
-    () => {
-      //se o audio atual estiver tocando (playing), ele é pego
-      if (audioRef.current && isPlaying) {
-        audioRef.current.play().catch(() => {});
+  useEffect(() => {
+    //se o audio atual estiver tocando (playing), ele é pego
+    if (audioRef.current) {
+      audioRef.current.load()
+
+      if (isPlaying) {
+        audioRef.current.play().catch((err) => console.log("Aguardando...:", err));
       }
-    },
-    [currentTrack] //índice da música que foi pêga
-  );
-
-  //alternador do play
-  const togglePlay = () => {
-    if (!audioRef.current) return; //retorna se não for o áudio atual
-
-    //mas, se o áudio atual estiver tocando:
-    if (isPlaying) {
-      audioRef.current.pause(); //pode pausar
-    } else {
-      audioRef.current.play().catch(() => {}); //e tocar
     }
-    setIsPlaying(!isPlaying); //senão, o estado da música muda (não está tocando!)
-  };
-
-  //quando o ícone musical for clicado, a barra musical é exibida/ou escondida (é um alternador)
-  const handleIconClick = (e) => {
-    e.stopPropagation(); //trava o clique para não afetar oq está atrás
-    setShowBar((prev) => !prev); //prev é o valor anterior do estado, (!prev) inverte esse valor
-  };
-
-  //passar uma música
-  const nextTrack = () => {
-    //muda o índice da música e prossegue para a próxima
-    setCurrentTrack((prev) => (prev + 1) % songs.length); //usam % tracks.length para criar um loop
-    setProgress(0); //se muda a música, reseta o progresso
-  };
-
-  //voltar uma música
-  const prevTrack = () => {
-    setCurrentTrack((prev) => (prev - 1 + songs.length) % songs.length);
-    setProgress(0);
-  };
+     [currentTrack]
+  },
+ ); //índice da música que foi pêga;
 
   //quando o usuário clicar fora do ícone...
   useEffect(() => {
@@ -144,7 +147,9 @@ const SoundTrack = () => {
           background: "transparent",
           border: "none",
           outline: "none",
-          animation: isPlaying ? "spin-slow 8s linear infinite" : "none",
+          animation: isPlaying ? 
+          "spin-slow 8s linear infinite"  /* rotação do ícone musical */
+          : "none",
         }}
         aria-label="Abrir player de música"
       >
@@ -169,7 +174,7 @@ const SoundTrack = () => {
             opacity="0.6"
             style={{
               animation: isPlaying
-                ? "pulse-ring 2s ease-in-out infinite"
+                ? "pulse-ring 2s ease-in-out infinite" /* efeito de pulsação no fundo do ícone musical */
                 : "none",
             }}
           />
@@ -192,7 +197,9 @@ const SoundTrack = () => {
             strokeLinecap="round" /* a forma que as pontas do caminho serão renderizadas (redondo)*/
             opacity={isPlaying ? 1 : 0.4}
             style={{
-              animation: isPlaying ? "wave 1.5s ease-in-out infinite" : "none",
+              animation: isPlaying ? 
+              "wave 1.5s ease-in-out infinite"  /* animação das barras de frequência sonora */
+              : "none",
             }}
           />
           <path
@@ -207,8 +214,6 @@ const SoundTrack = () => {
                 : "none",
             }}
           />
-          {/* </svg> */}
-          {/* </button> */}
 
           {/* forma "a cabeça" do ícone da nota musical */}
           <path
@@ -322,111 +327,151 @@ const SoundTrack = () => {
                 margin: "2px 0 0 0",
               }}
             >
-              {currentTrack + 1} / {songs.length} {/* mostrar o índice da música atual / quantos índices são */}
+              {currentTrack + 1} / {songs.length}{" "}
+              {/* mostrar o índice da música atual / quantos índices são */}
             </p>
           </div>
 
-
           {/* Barra de progresso */}
-          <div style={{
-            width: "100%",
-            backgroundColor: "rgba(255,255,255,0.1)",
-            height: "4px",
-            borderRadius: "50px",
-            marginBottom: "16px",
-            overflow: "hidden",
-          }}
+          <div
+            style={{
+              width: "100%",
+              backgroundColor: "rgba(255,255,255,0.1)",
+              height: "4px",
+              borderRadius: "50px",
+              marginBottom: "16px",
+              overflow: "hidden",
+            }}
           >
-            <div style={{
-              height: "100%",
-              backgroundColor: "linear-gradient(to right, #a78bfa, #22d3ee)",
-              borderRadius: "16px",
-              transition: "width 0.2s ease",
-              width: `${progress}%`,
-            }}>
-            </div>
+            <div
+              style={{
+                height: "100%",
+                backgroundColor: "linear-gradient(to right, #a78bfa, #22d3ee)",
+                borderRadius: "16px",
+                transition: "width 0.2s ease",
+                width: `${progress}%`,
+              }}
+            ></div>
           </div>
-          
 
           {/* Controles */}
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "30px",
-          }}>
-
-
-          {/* Voltar música */}
-          <button onClick={prevTrack}
-          style={{
-            background: "transparent",
-            cursor: "pointer",
-            transition: "all 0.2s ease",
-            border: "none",
-            color: "white",
-          }}
-          aria-label="Voltar música"
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "30px",
+            }}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z" />
-            </svg>
-          </button>
-
-
-          {/* Pausar/Reproduzir */}
-          <button onClick={togglePlay}
-          style={{
-            width: "48px",
-            height: "48px",
-            borderRadius: "50%",
-            border: "none",
-            background: "linear-gradient(to bottom right, #8b5cf6, #4f46e5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center", 
-            cursor: "pointer",
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-            color: "white",
-
-          }}
-          aria-label={isPlaying ? "Pausar" : "Reproduzir"}
-          >
-            { isPlaying ? (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+            {/* Voltar música */}
+            <button
+              onClick={prevTrack}
+              style={{
+                background: "transparent",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                border: "none",
+                color: "white",
+              }}
+              aria-label="Voltar música"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z" />
               </svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7L8 5z" />
+            </button>
+
+            {/* Pausar/Reproduzir */}
+            <button
+              onClick={togglePlay}
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                border: "none",
+                background:
+                  "linear-gradient(to bottom right, #8b5cf6, #4f46e5)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
+                boxShadow:
+                  "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                color: "white",
+              }}
+              aria-label={isPlaying ? "Pausar" : "Reproduzir"}
+            >
+              {isPlaying ? (
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                </svg>
+              ) : (
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M8 5v14l11-7L8 5z" />
+                </svg>
+              )}
+            </button>
+
+            {/* Passar música */}
+            <button
+              onClick={nextTrack}
+              style={{
+                background: "transparent",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                border: "none",
+                color: "white",
+              }}
+              aria-label="Passar música"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M6 18l8.5-6L6 6v12zm10 0V6h2v12h-2z" />
               </svg>
-            )}
-
-          </button>
-
-
-          {/* Passar música */}
-          <button onClick={nextTrack}
-          style={{
-            background: "transparent",
-            cursor: "pointer",
-            transition: "all 0.2s ease",
-            border: "none",
-            color: "white",
-          }}
-          aria-label="Passar música"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6 18l8.5-6L6 6v12zm10 0V6h2v12h-2z" />
-            </svg>
-          </button>
-
+            </button>
           </div>
-
         </div>
 
-
-
+        {/* Animação do ícone musical */}
+        <style>{`
+        @keyframes spin-slow { 
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse-ring {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        @keyframes wave {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 1; }
+        }
+        
+        @keyframes wave-delayed {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.7; }
+        }
+      `}</style> 
       </div>
     </>
   );
