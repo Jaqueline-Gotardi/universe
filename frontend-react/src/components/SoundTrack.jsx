@@ -4,27 +4,27 @@ import { useState, useRef, useEffect } from "react";
 const songs = [
   {
     title: "Conexão cósmica: Frequênica 639Hz",
-    src: "/musicas/639-hz-solfeggio-frequency-connect-with-higher-self-spiritual-music-160725.mp3",
+    src: "/musicas/frequencia-cosmica.mp3",
   },
   {
     title: "Ecos do Espaço Profundo",
-    src: "/musicas/69-spazio-ufo-universo-stelle-328185.mp3",
+    src: "/musicas/espaco-profundo.mp3",
   },
   {
     title: "Meditação na Nebulosa",
-    src: "/musicas/calm-space-music-312291.mp3",
+    src: "/musicas/meditacao.mp3",
   },
   {
     title: "Pulsares e Galáxias distantes",
-    src: "/musicas/calm-space-music-312291.mp3",
+    src: "/musicas/pulsares.mp3",
   },
   {
     title: "O canto dos Planetas",
-    src: "/musicas/universe-planet-cosmic-galaxy-music-263133.mp3",
+    src: "/musicas/canto-planetas.mp3",
   },
   {
     title: "Sinfonia do vazio Estelar",
-    src: "/musicas/universe-space-sounds-3595.mp3",
+    src: "/musicas/vazio-estelar.mp3",
   },
 ];
 
@@ -69,7 +69,7 @@ const SoundTrack = () => {
     setShowBar((prev) => !prev); //prev é o valor anterior do estado, (!prev) inverte esse valor
   };
 
-  //só executa quando as dependências mudam (são efeitos colaterais)
+  //só executa quando as dependências mudam (efeito para atualizar o progresso)
   useEffect(() => {
     const audio = audioRef.current; //áudio atual
     if (!audio) return;
@@ -94,19 +94,18 @@ const SoundTrack = () => {
     };
   }, [currentTrack]);
 
-  //esse useEffect é para garantir q se a música mudar, o novo áudio vai tocar, caso o player estiver no modo "tocando"
+  //esse useEffect é para carregar e dar play ao mudar de música
   useEffect(() => {
     //se o audio atual estiver tocando (playing), ele é pego
     if (audioRef.current) {
-      audioRef.current.load()
-
+      audioRef.current.load();
       if (isPlaying) {
-        audioRef.current.play().catch((err) => console.log("Aguardando...:", err));
+        audioRef.current
+          .play()
+          .catch((err) => console.log("Aguardando...:", err));
       }
     }
-     [currentTrack]
-  },
- ); //índice da música que foi pêga;
+  }, [currentTrack, isPlaying]); //índice da música que foi pêga para tocá-la;
 
   //quando o usuário clicar fora do ícone...
   useEffect(() => {
@@ -134,7 +133,7 @@ const SoundTrack = () => {
   return (
     <>
       {/* referencia áudio, acessa a variável de músicas, o índice, e exibe o áudio com suas informações (title). Preload => pré-carregamento */}
-      <audio ref={audioRef} src={songs[currentTrack].src} preload="metadata" />
+      <audio ref={audioRef} src={songs[currentTrack].src} preload="auto" />
 
       <button
         onClick={handleIconClick}
@@ -147,9 +146,9 @@ const SoundTrack = () => {
           background: "transparent",
           border: "none",
           outline: "none",
-          animation: isPlaying ? 
-          "spin-slow 8s linear infinite"  /* rotação do ícone musical */
-          : "none",
+          animation: isPlaying
+            ? "spin-slow 8s linear infinite" /* rotação do ícone musical */
+            : "none",
         }}
         aria-label="Abrir player de música"
       >
@@ -197,9 +196,9 @@ const SoundTrack = () => {
             strokeLinecap="round" /* a forma que as pontas do caminho serão renderizadas (redondo)*/
             opacity={isPlaying ? 1 : 0.4}
             style={{
-              animation: isPlaying ? 
-              "wave 1.5s ease-in-out infinite"  /* animação das barras de frequência sonora */
-              : "none",
+              animation: isPlaying
+                ? "wave 1.5s ease-in-out infinite" /* animação das barras de frequência sonora */
+                : "none",
             }}
           />
           <path
@@ -346,7 +345,7 @@ const SoundTrack = () => {
             <div
               style={{
                 height: "100%",
-                backgroundColor: "linear-gradient(to right, #a78bfa, #22d3ee)",
+                background: "linear-gradient(to right, #a78bfa, #22d3ee)",
                 borderRadius: "16px",
                 transition: "width 0.2s ease",
                 width: `${progress}%`,
@@ -471,7 +470,7 @@ const SoundTrack = () => {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.7; }
         }
-      `}</style> 
+      `}</style>
       </div>
     </>
   );
