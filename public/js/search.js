@@ -36,8 +36,15 @@ lupaPesquisa.addEventListener('click', () => {
 }); */
 
 
+
+
+
+
+
+
+
 /* LIGANDO API COM BACKEND LOCAL: */
-const campoPesquisa = document.getElementById("campo-pesquisa");
+/* const campoPesquisa = document.getElementById("campo-pesquisa");
 const lupaPesquisa = document.getElementById("lupa-pesquisa");
 const exibicaoDaPesquisa = document.getElementById("exibicao-da-pesquisa");
 const mostrarPesquisa = document.getElementById("mostrar-pesquisa");
@@ -55,10 +62,6 @@ async function enviarDados() {
         method: "GET"
         }
     ); 
-
-    /* method: "GET",
-        headers: {
-          authorization: "Bearer " + tokenSalvo, */
  
     const dados = await response.json();
     console.log(dados);
@@ -139,7 +142,7 @@ async function enviarDados() {
     mostrarPesquisa.innerHTML = htmlResultados;
 
 
-    /* PARA EXIBIR A PESQUISA EMBAIXO E COLOCAR O MENU, BARRA DE PESQUISA E A CASINHA EM LINHA HORIZONTAL */
+    //PARA EXIBIR A PESQUISA EMBAIXO E COLOCAR O MENU, BARRA DE PESQUISA E A CASINHA EM LINHA HORIZONTAL 
     const bgMenu = document.querySelector('.background-menu');
     const faixa = document.getElementById('faixa');
     if (resultado.length > 0) { //se a pesquisa for maior que 0 (se tiver termos)
@@ -172,6 +175,6 @@ campoPesquisa.addEventListener("keydown", (e) => {
   }
 });
 
-/* PORQUE A API NÃO TAVA FUNCIONANDO:
-         o Node estava bloqueado de fazer conexões HTTPS externas, algo estava impedindo o acesso (pode ser o IPv6, proxy, firewall, ou bloqueio na porta 443). */
-//primeira suspeita: bloqueamento no cors, servidor node rodando na porta 3000 e o live server rodando meu frontend na porta 5001, por isso dava conflito! 
+//PORQUE A API NÃO TAVA FUNCIONANDO:
+         //o Node estava bloqueado de fazer conexões HTTPS externas, algo estava impedindo o acesso (pode ser o IPv6, proxy, firewall, ou bloqueio na porta 443). 
+//primeira suspeita: bloqueamento no cors, servidor node rodando na porta 3000 e o live server rodando meu frontend na porta 5001, por isso dava conflito!  */
