@@ -76,7 +76,7 @@ import DeleteAccount from './components/DeleteAccount.jsx';
 import ChangePassword from './components/ChangePassword.jsx';
 
 //configurando o roteador
-const router = createBrowserRouter([ 
+const router = createBrowserRouter([  
   {
     path: "/", //rota raiz
     element: <LoginPage />, //layout principal ou o redirecionador
@@ -114,7 +114,7 @@ const router = createBrowserRouter([
         element: <InfoMenu />
       },
       {
-        path: "astros-menu",
+        path: "astros-menu", 
         element: <AstrosMenu />
       },
       {

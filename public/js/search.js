@@ -61,7 +61,7 @@ async function enviarDados() {
       {
         method: "GET"
         }
-    ); 
+    );  
  
     const dados = await response.json();
     console.log(dados);

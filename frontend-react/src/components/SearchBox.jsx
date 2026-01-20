@@ -1,128 +1,101 @@
-import { useState } from "react";
+import React from "react";
 
+//componente responsável pela construção do input de pesquisar no universo
 
-function SearchBox() {
-  const [ field, setField ] = useState("");
-  const [ searchField, setSearchField ] = useState(false);
-  const [ showSearch, setShowSearch ] = useState([])
+const SearchBox = ({ 
+  searchQuery, setSearchQuery, 
+  onSearch, 
+  isLoading }) => {
 
+  return (
+    <div className="search-box-wrapper">
+      <input
+        type="text"
+        value={searchQuery} //buscar termo pesquisado
+        onChange={(e) => setSearchQuery(e.target.value)} //mudar a pesquisa com base em toda letra digitada na busca correspondente
+        onKeyDown={(e) => e.key === "Enter" && onSearch()} //pesquisar quando clicar Enter no teclado
+        placeholder="Pesquisar no Universo. . ."
+        id="campo-pesquisa"
+        className="input-universo"
+      />
 
-  async function sendData(event) {
-    event.preventDefault();
+      <button 
+      type="button" 
+      onClick={onSearch}
+      className="botao-lupa"
+      disabled={isLoading}
+      aria-label="Pesquisar pela lupa"
+      >
+        {isLoading ? (
+          <svg className="spinner-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="10" strokeDasharray="31.4 31.4" />
+          </svg>
+        ) : (
+          <svg className="lupa-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        )}
+      </button>
 
-    try {
-      const valueInput = `${field}`;
+      <style> {`
+      .search-box-wrapper {
+      display: flex;
+      align-items: center;
+      background: rgba(10, 10, 30, 0.6);
+      border: 1px solid rgba(6, 182, 212, 0.5);
+      border-radius: 50px;
+      padding: 5px 20px;
+      max-width: 500px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      }
+      .search-box-wrapper:focus-within {
+      border-color: #8b5cf6;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+      }
+      .input-universo {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 10px;
+      outline: none;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 15px;
+      }
+      .input-universo::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+      }
+      .botao-lupa {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      border: none;
+      color: #06b6d4;
+      padding: 5px;
+      transition: transform 0.2s;
+      cursor: pointer;
+      }
+      .botao-lupa:hover {
+      transform: scale(1.2);
+      color: #8b5cf6;
+      }
+      .spinner-svg, .lupa-svg {
+      width: 22px;
+      height: 22px;
+      } 
+      .spinner-svg {
+      animation: rotate 1s linear infinite;
+      }
+      @keyframes rotate {
+      100% {transform: rotate(360deg);}
+      }
+      `}
+      </style>
+    </div>
+  );
+};
 
-      const response = await fetch(`http://localhost:3000/search?title=${valueInput}`,
-        {
-          method: "GET"
-        }
-      );
-
-      const data = await response.json();
-      console.log("Buscando no Universo...", data)
-
-
-    //PARA EXIBIR A PESQUISA SE O CAMPO FOR PREENCHIDO
-    const results = data;
-    let htmlResultados = "";
-    if (results.length === 0) {
-      setShowSearch(data)
-    }  
-
-  } catch(error) {
-    console.log("Dados não disponível:", error);
-    alert("Erro ao buscar na API. Tente novamente mais tarde")
-    }
-
-    const apodItem = results.find(item => item.source === 'APOD');
-    const outrosItens = results.filter(item => item.source === 'IMAGES');
-    
-    
-    if (apodItem) {
-      let mediaHTML = '';
-
-      //verificar se é vídeo ou imagem
-      const isVideo = apodItem.href.includes('youtube.com') || apodItem.href.includes('vimeo.com');
-    
-    }
-  }
-  
-
-    return (
-      <div>
-        {isVideo ? 
-        embedUrl = apodItem.href.replace('watch?v=' , 'embed/')
-        :
-        <iframe className= "media-apod, width:100%, height=400, src=${embedUrl}, frameborder=0, allowfullscreen style=border-radius:8px;" />
-        :
-        <img className="media-apod, src=${apodItem.href}
-        alt=${apodItem.title}" style="border-radius:8px;" />;
-    }
-
-      setShowSearch(data) 
-      <div className= "resultado-item" 
-      style= "padding: 40px; border: 2px solid #adb5db; border-radius: 10px; margin-bottom: 30px;">
-      <h2 style= "font-family: Orbitron; color: #abd5db;">🌌Imagem do dia (APOD)🌌</h2>
-      <h3 style= "font-family: Orbitron">{apodItem.title}</h3>
-      <p style= "font-family: Space mono"><strong>📅 Data:</strong>{apodItem.date_created}</p>
-      {mediaHTML}
-      <p style= "font-family: Space mono"><strong>📍 Localização:</strong>{apodItem.location}</p>
-      <p style= "font-family: Space mono; max-width: 800px; width: 90%; margin: 20px auto;"><strong>📝 Descrição:</strong>{apodItem.description} </p>
-      </div>
-      <br />;    
-        )
-      </div>
-    )
-    } 
-    //verificar se tem itens na API IMAGES
-    if (outrosItens.length > 0) {
-      outrosItens.forEach((item => {
-      setShowSearch(data) 
-      <div className= "resultado-item" style= "padding: 40px;">
-      <h3 style= "font-family: Orbitron">{item.title}</h3>
-      </br>
-      <p style= "font-family: Space mono"><strong>📅 Data:</strong>{item.date_created}</p>
-      <p style= "font-family: Space mono"><strong>📍 Localização:</strong>{item.location}</p>
-      <p style= "font-family: Space mono; max-width: 500px; width: 90%; margin: 0 auto;"><strong>📝 Descrição:</strong>{item.description}</p>
-      <img src="{item.href}" alt="{item.title}" style="border-radius: 8px;" />
-      </br>
-      </div>
-
-      setShowSearch(data)
-
-
-      })
-    )};
 export default SearchBox;
-
-
-
-
-
-    /* //PARA EXIBIR A PESQUISA EMBAIXO E COLOCAR O MENU, BARRA DE PESQUISA E A CASINHA EM LINHA HORIZONTAL 
-    const bgMenu = document.querySelector('.background-menu');
-    const faixa = document.getElementById('faixa');
-    if (resultado.length > 0) { //se a pesquisa for maior que 0 (se tiver termos)
-    document.getElementById('tela-login').style.display = 'none';
-    document.querySelector('.faixa').classList.add('pesquisa-ativa'); //exibindo pesquisa
-    bgMenu.classList.add('ativa');
-    bgMenu.querySelectorAll('.background-menu, .menu-bg, .stars-menu, .planets-menu').forEach(el => el.classList.add('ativa'));
-  } else {
-    document.querySelector('.faixa').classList.remove('pesquisa-ativa');
-    bgMenu.classList.remove('ativa');
-    bgMenu.querySelectorAll('.background-menu, .menu-bg, .stars-menu, .planets-menu').forEach(el => el.classList.remove('ativa'));
-    faixa.classList.remove('pesquisa-ativa');
-  } 
- 
-
-
-lupaPesquisa.addEventListener("click", () => {
-  enviarDados(); //chama a função a cada click na tecla Enter
-});
-
-campoPesquisa.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    enviarDados(); //chama a função a cada click na lupa da barra de pesquisa
-  }
-}); */
