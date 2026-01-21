@@ -1,6 +1,6 @@
-import React from "react";
-
 //componente responsável pela construção do input de pesquisar no universo
+
+import React from "react";
 
 const SearchBox = ({ 
   searchQuery, setSearchQuery, 
