@@ -317,10 +317,11 @@ function ExplorerMenu() {
       {/* modal/janela do zoom dos card quando clicados/selecionados */}
       {selectedCard && ( //se um dos card for selecionado...
         <div className="modal-overlay" onClick={() => setSelectedCard(null)}>
-          <div className="modal-janela" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-window" onClick={(e) => e.stopPropagation()}>
             <button className="fechar-btn" onClick={() => setSelectedCard(null)}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
               </svg>
             </button>
             <div className="modal-body">
@@ -747,6 +748,98 @@ function ExplorerMenu() {
         overflow: hidden; 
         white-space: nowrap; /* reduzir o espaco q texto ocupa */
         text-overflow: ellipsis; /* adiciona "..." quando o texto ultrapassar o tamanho do card */
+        }
+
+        .modal-overlay { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        position: fixed; 
+        inset: 0; 
+        background: rgba(0,0,0,0.95); 
+        z-index: 1000; /* deixa o modal por cima de todos os outros elementos */
+        padding: 20px; 
+        backdrop-filter: blur(10px); /* borra as imagens no fundo */
+        }
+
+        .modal-window { 
+        background: #050508; 
+        border: 1px solid #333; 
+        width: 100%; 
+        max-width: 1100px; 
+        border-radius: 30px; 
+        position: relative; 
+        overflow: hidden; 
+        }
+
+        .fechar-btn { 
+        position: absolute; 
+        top: 20px; 
+        right: 20px; 
+        background: none; 
+        border: none; 
+        cursor: pointer; 
+        z-index: 10; 
+        }
+
+        .modal-body { 
+        display: flex; 
+        height: 600px; 
+        }
+
+        .modal-media { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        background: black; 
+        flex: 1.3; 
+        }
+
+        .modal-media img { 
+        max-width: 100%; 
+        max-height: 100%; 
+        object-fit: contain; /* garante q a img inteira fique visível e mantenha sua proporção original */
+        }
+
+        .modal-desc { 
+        display: flex; 
+        flex-direction: column; 
+        flex: 1; 
+        padding: 50px; 
+        }
+
+        .modal-desc h2 { 
+        color: #06b6d4; 
+        font-size: 2rem; 
+        margin: 0; 
+        }
+
+        .scroller { 
+        flex: 1; 
+        overflow-y: auto; 
+        margin: 20px 0; 
+        padding-right: 15px; 
+        color: #aaa; 
+        line-height: 1.7; 
+        }
+
+        @media (max-width: 850px) {
+          .modal-body { 
+          flex-direction: column; 
+          height: auto; 
+          max-height: 90vh; 
+          overflow-y: auto; 
+          }
+          .modal-media { 
+          height: 300px; 
+          }
+          .titulo-flutuante { 
+          font-size: 2.8rem; 
+          }
+          .svg-foguete { 
+          width: 40px; 
+          height: 40px; 
+          }
         }
       `}</style>
     </div>
