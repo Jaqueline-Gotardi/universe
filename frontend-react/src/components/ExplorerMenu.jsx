@@ -339,6 +339,79 @@ function ExplorerMenu() {
         </div>
       )}
 
+
+      <style>{`
+       /* para a animação de carregamento */ 
+        .loading-overlay-intergalactico {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 50px 0;
+          animation: fadeIn 0.5s ease;
+        }
+
+        .scanner-container {
+          position: relative;
+          width: 200px;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+
+        .scanner-line {
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background: #06b6d4;
+          box-shadow: 0 0 15px #06b6d4;
+          animation: scanVertical 2s infinite ease-in-out; /* animação de escaneamento quando a busca estiver carregando */
+          z-index: 2;
+        }
+
+        .radar-circles {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+
+        .radar-circles span {
+          width: 12px;
+          height: 12px;
+          background: #8b5cf6;
+          border-radius: 50%;
+          animation: radarPulse 1s infinite alternate; /* pulsação das bolinhas de carregamento */
+        }
+
+        .radar-circles span:nth-child(2) { animation-delay: 0.2s; background: #06b6d4; }
+        .radar-circles span:nth-child(3) { animation-delay: 0.4s; background: #ec4899; }
+
+        .texto-sintonizando {
+          font-family: 'Space Mono', monospace;
+          color: #06b6d4;
+          font-size: 1.2rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          animation: blinkText 1.5s infinite; /* animação que muda a contraste do texto de forma suave */
+        }
+
+        @keyframes scanVertical {
+          0%, 100% { transform: translateY(-40px); }
+          50% { transform: translateY(40px); }
+        }
+
+        @keyframes radarPulse {
+          from { transform: scale(1); opacity: 1; box-shadow: 0 0 0px #8b5cf6; }
+          to { transform: scale(1.5); opacity: 0.5; box-shadow: 0 0 20px #8b5cf6; }
+        }
+
+        @keyframes blinkText {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
+        }
+      `}</style>
     </div>
   );
 }
