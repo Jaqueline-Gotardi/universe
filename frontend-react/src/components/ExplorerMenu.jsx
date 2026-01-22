@@ -298,7 +298,7 @@ function ExplorerMenu() {
         {/* estrutura e estilização para as outras pesquisas (sem ser apod) */}
         {!isLoading && otherResults.length > 0 && (
           <div className="galeria-universo">
-            {otherResults.map((item, idx) => ( //idx é a abreviaçãod e index
+            {otherResults.map((item, idx) => ( //idx é a abreviação de index
               <div key={idx} className="card-universo" onClick={() => setSelectedCard(item)}> {/* card selecionado/clicado */}
                 <div className="imagem-wrap">
                   <img src={item.href} alt={item.title} loading="lazy" />
@@ -665,6 +665,88 @@ function ExplorerMenu() {
 
         .container-principal { 
         padding: 120px 5% 50px; 
+        }
+
+        .alerta-cosmico { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+        background: rgba(248, 113, 113, 0.1); 
+        border: 1px solid #f87171; 
+        color: #f87171; 
+        padding: 15px 30px; 
+        border-radius: 15px; 
+        width: fit-content; --> /* conteúdo adequado */
+        margin: 0 auto 30px; 
+        animation: slideDown 0.4s ease; 
+        }
+
+        @keyframes slideDown { 
+        from { transform: translateY(-20px); opacity: 0;} 
+        to { transform: translateY(0); opacity: 1; } 
+        }
+
+        .galeria-universo { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+        gap: 30px; 
+        }
+
+        .card-universo { 
+        background: rgba(255, 255, 255, 0.05); 
+        border: 1px solid rgba(255,255,255,0.1); 
+        border-radius: 20px; 
+        overflow: hidden;  /* impede a img de ficar fora do card */
+        cursor: pointer; 
+        transition: 0.4s ease; 
+        }
+
+        .card-universo:hover { 
+        transform: translateY(-10px); 
+        border-color: #8b5cf6; 
+        box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+        }
+
+        .imagem-wrap { 
+        position: relative; 
+        height: 220px; 
+        }
+
+        .imagem-wrap img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; /* --> expande a img, não deixa ela "achatada" */
+        }
+
+        .hover-info { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        position: absolute; 
+        background: rgba(139, 92, 246, 0.4); 
+        inset: 0; 
+        opacity: 0; 
+        transition: 0.3s; 
+        font-weight: bold; 
+        letter-spacing: 2px; 
+        }
+
+        .card-universo:hover 
+        .hover-info { 
+        opacity: 1; 
+        }
+
+        .info-txt { 
+        padding: 20px; 
+        }
+
+        .info-txt h3 { 
+        margin: 0; 
+        font-size: 1.1rem; 
+        color: #06b6d4; 
+        overflow: hidden; 
+        white-space: nowrap; /* reduzir o espaco q texto ocupa */
+        text-overflow: ellipsis; /* adiciona "..." quando o texto ultrapassar o tamanho do card */
         }
       `}</style>
     </div>
