@@ -434,6 +434,29 @@ function ExplorerMenu() {
            margin: 0;
         }
 
+        /* estilização do box "Dica de Explorador" */
+        .card-instrucao-inicial {
+          margin-top: 40px;
+          background: rgba(139, 92, 246, 0.1);
+          border: 1px dashed rgba(139, 92, 246, 0.5);
+          padding: 20px 30px;
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          max-width: 600px;
+          animation: slideUp 0.8s ease;
+        }
+
+        .card-instrucao-inicial .icon-tip { font-size: 1.5rem; }
+        .card-instrucao-inicial p { margin: 0; font-size: 1rem; color: #cbd5e1; }
+        .card-instrucao-inicial span { color: #fbbf24; font-weight: bold; }
+
+        @keyframes slideUp { 
+        from { transform: translateY(30px); opacity: 0; } 
+        to { transform: translateY(0); opacity: 1; } }
+
+        
       `}</style>
     </div>
   );
