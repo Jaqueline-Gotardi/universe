@@ -223,9 +223,11 @@ function ExplorerMenu() {
           >
             {/* título de destaque especial */}
             <div className="titulo-destaque-nasa">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="#fbbf24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                <h2>IMAGEM DO DIA • DESTAQUE ESPECIAL DA NASA</h2>
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="#fbbf24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
             </div>
 
             <div
@@ -411,6 +413,27 @@ function ExplorerMenu() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }
         }
+
+        /* estilização para a pesquisa da APOD */
+        .titulo-destaque-nasa {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           gap: 15px;
+           margin-bottom: 30px;
+           animation: slideDown 0.6s ease;
+        }
+
+        .titulo-destaque-nasa h2 {
+           font-family: 'Orbitron', sans-serif;
+           color: #fbbf24;
+           font-size: 1.4rem;
+           letter-spacing: 4px;
+           text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+           text-align: center;
+           margin: 0;
+        }
+
       `}</style>
     </div>
   );
