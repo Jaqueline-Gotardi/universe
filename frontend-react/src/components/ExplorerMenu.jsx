@@ -434,6 +434,13 @@ function ExplorerMenu() {
            margin: 0;
         }
 
+        .apod-container-hover:hover {
+          transform: translateY(-8px);
+          border-color: #8b5cf6 !important;
+          box-shadow: 0 25px 80px rgba(139, 92, 246, 0.3);
+        }
+        .apod-img-zoom:hover { transform: scale(1.03); }
+
         /* estilização do box "Dica de Explorador" */
         .card-instrucao-inicial {
           margin-top: 40px;
@@ -454,8 +461,10 @@ function ExplorerMenu() {
 
         @keyframes slideUp { 
         from { transform: translateY(30px); opacity: 0; } 
-        to { transform: translateY(0); opacity: 1; } }
+        to { transform: translateY(0); opacity: 1; } 
+        }
 
+        /* Estilos Originais Mantidos */
         
       `}</style>
     </div>
