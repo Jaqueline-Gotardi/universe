@@ -180,7 +180,7 @@ function ExplorerMenu() {
 
         {/* tela de carregamento inicial: só ativa se não houver carregamento, resultados ou erro  */}
         {!isLoading && results.length === 0 && !errorMsg && ( //se não estiver carregando, e se não tiver erros, então. . .
-          <div className="hero-universo-ajustado">
+          <div className="hero-universo">
             <div className="container-titulo-flutuante">
               <svg className="svg-foguete" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
@@ -439,7 +439,7 @@ function ExplorerMenu() {
           border-color: #8b5cf6 !important;
           box-shadow: 0 25px 80px rgba(139, 92, 246, 0.3);
         }
-          
+
         .apod-img-zoom:hover { 
         transform: scale(1.03); 
         }
@@ -459,13 +459,24 @@ function ExplorerMenu() {
           animation: slideUp 0.8s ease;
         }
 
-        .card-instrucao-inicial .icon-tip { font-size: 1.5rem; }
-        .card-instrucao-inicial p { margin: 0; font-size: 1rem; color: #cbd5e1; }
-        .card-instrucao-inicial span { color: #fbbf24; font-weight: bold; }
-
         @keyframes slideUp { 
         from { transform: translateY(30px); opacity: 0; } 
         to { transform: translateY(0); opacity: 1; } 
+        }
+
+        .card-instrucao-inicial .icon-tip { 
+        font-size: 1.5rem; 
+        }
+
+        .card-instrucao-inicial p { 
+        margin: 0; 
+        font-size: 1rem; 
+        color: #cbd5e1; 
+        }
+
+        .card-instrucao-inicial span { 
+        color: #fbbf24; 
+        font-weight: bold; 
         }
 
 
@@ -498,13 +509,95 @@ function ExplorerMenu() {
         50% { opacity: 1; transform: scale(1.3); } 
         }
 
-
         @keyframes commet-animation { 
         0% { transform: translateX(0) translateY(0) rotate(-15deg); opacity: 0; } 
         5% { opacity: 1; } 
         15% { transform: translateX(-120vw) translateY(50vh) rotate(-15deg); opacity: 0; } 
-        100% { transform: translateX(-120vw) translateY(50vh) rotate(-15deg); opacity: 0; 
-        } 
+        100% { transform: translateX(-120vw) translateY(50vh) rotate(-15deg); opacity: 0; } 
+        }
+
+        .hero-universo { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        margin-top: 80px; 
+        /* perspective: 1000px;  */
+        }
+
+        .container-titulo-flutuante { 
+        display: flex; 
+        align-items: center; 
+        gap: 15px; 
+        animation: flutuarTitulo 4s ease-in-out infinite; 
+        }
+
+        @keyframes flutuarTitulo { 
+        0%, 100% { transform: translateY(0) rotate(0deg); } 
+        50% { transform: translateY(-20px) rotate(1deg); } 
+        }
+
+        .titulo-flutuante { 
+        display: flex; 
+        align-items: center; 
+        font-size: 4.5rem; 
+        font-weight: 900; 
+        background: linear-gradient(to right, #06b6d4, #8b5cf6, #ec4899); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        text-transform: uppercase; 
+        letter-spacing: -2px; 
+        margin: 0; 
+        filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.3)); 
+        }
+
+        .svg-foguete { 
+        width: 60px; 
+        height: 60px; 
+        filter: drop-shadow(0 0 15px #06b6d4); 
+        transform: rotate(-15deg); 
+        animation: vibrarFoguete 0.5s infinite alternate; 
+        }
+
+        @keyframes vibrarFoguete { 
+        from { transform: rotate(-15deg) translate(0, 0); } 
+        to { transform: rotate(-15deg) translate(2px, -2px); } 
+        }
+
+        .svg-estrela { 
+        width: 35px; 
+        height: 35px; 
+        margin-left: 10px; 
+        filter: drop-shadow(0 0 10px #8b5cf6); 
+        animation: brilhoEstrela 2s infinite alternate; 
+        }
+
+        @keyframes brilhoEstrela { 
+        from { transform: scale(1); filter: brightness(1); } 
+        to { transform: scale(1.3); filter: brightness(1.5) drop-shadow(0 0 15px #8b5cf6); } 
+        }
+
+        .descricao-cosmica { 
+        font-size: 1.4rem; 
+        color: #cbd5e1; 
+        max-width: 700px; 
+        margin-top: 20px; 
+        line-height: 1.6; 
+        font-style: italic; 
+        font-family: 'Space Mono', 
+        monospace; animation: flutuarDescricao 5s ease-in-out infinite; 
+        }
+
+        .descricao-cosmica span { 
+        color: #06b6d4; 
+        font-weight: bold; 
+        text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); 
+        }
+
+        @keyframes flutuarDescricao { 
+        0%, 100% { transform: translateY(0); opacity: 0.8; }
+        50% { transform: translateY(-10px); opacity: 1; } 
         }
       `}</style>
     </div>
