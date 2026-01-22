@@ -144,7 +144,7 @@ function ExplorerMenu() {
           <button className="btn-menu-principal" onClick={() => navigate('/app/menu')}>
             MENU
           </button>
-          <button className="btn-home-circulo" onClick={() => navigate('/app')}>
+          <button className="btn-home" onClick={() => navigate('/app')}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
               <polyline points="9 22 9 12 15 12 15 22"/> {/* construção da porta do ícone da casinha */}
@@ -154,7 +154,7 @@ function ExplorerMenu() {
       </header>
 
       {/* conteúdo principal */}
-      <main className="espaco-principal">
+      <main className="container-principal">
         
         {/* mensagem de carregamento personalizada, bloqueia interação enquanto a busca ocorre */}
         {isLoading && (
@@ -598,6 +598,73 @@ function ExplorerMenu() {
         @keyframes flutuarDescricao { 
         0%, 100% { transform: translateY(0); opacity: 0.8; }
         50% { transform: translateY(-10px); opacity: 1; } 
+        }
+
+        .faixa-topo { 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 80px; 
+        padding: 0 5%; 
+        background: rgba(0,0,0,0.4); 
+        backdrop-filter: blur(15px); 
+        z-index: 100; 
+        border-bottom: 1px solid rgba(6, 182, 212, 0.2); 
+        }
+
+        .container-busca {  /* --> do input de busca */
+        display: flex; 
+        justify-content: center;
+        flex: 1;  
+        }
+
+        .botoes-navegacao { 
+        display: flex; 
+        align-items: center; 
+        gap: 20px; 
+        }
+
+        .btn-menu-principal { 
+        background: rgba(6, 182, 212, 0.1); 
+        border: 1px solid #06b6d4; 
+        color: #06b6d4; 
+        padding: 8px 25px; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        font-weight: bold; 
+        transition: 0.3s; 
+        }
+
+        .btn-menu-principal:hover { 
+        background: #06b6d4; 
+        color: white; 
+        box-shadow: 0 0 15px #06b6d4; 
+        }
+
+        .btn-home { 
+        background: white; 
+        border: none; 
+        width: 45px; 
+        height: 45px; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        color: #0a0a25; 
+        cursor: pointer; 
+        transition: 0.3s; 
+        }
+
+        .btn-home:hover { 
+        transform: rotate(15deg) scale(1.1); 
+        }
+
+        .container-principal { 
+        padding: 120px 5% 50px; 
         }
       `}</style>
     </div>
