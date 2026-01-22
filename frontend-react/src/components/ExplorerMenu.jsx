@@ -114,7 +114,7 @@ function ExplorerMenu() {
               top: star.top,
               width: star.size,
               height: star.size,
-              animation: `twinkle ${star.duration}s infinite ease-in-out ${star.delay}s`,
+              animation: `star-animation ${star.duration}s infinite ease-in-out ${star.delay}s`,
             }}
           />
         ))}
@@ -124,7 +124,7 @@ function ExplorerMenu() {
             className="comet-trail"
             style={{
               top: comet.top,
-              animation: `shootingStar ${comet.duration}s infinite linear ${comet.delay}s`,
+              animation: `commet-animation ${comet.duration}s infinite linear ${comet.delay}s`,
             }}
           />
         ))}
@@ -439,7 +439,11 @@ function ExplorerMenu() {
           border-color: #8b5cf6 !important;
           box-shadow: 0 25px 80px rgba(139, 92, 246, 0.3);
         }
-        .apod-img-zoom:hover { transform: scale(1.03); }
+          
+        .apod-img-zoom:hover { 
+        transform: scale(1.03); 
+        }
+
 
         /* estilização do box "Dica de Explorador" */
         .card-instrucao-inicial {
@@ -464,8 +468,44 @@ function ExplorerMenu() {
         to { transform: translateY(0); opacity: 1; } 
         }
 
-        /* Estilos Originais Mantidos */
-        
+
+        /* estilização de elementos gerais */
+        .cosmic-engine { /* plano de fundo galático */
+        position: fixed; 
+        inset: 0; 
+        background: radial-gradient(circle at center, #0a0a25 0%, #020205 100%); /* equilibrar a cor de fundo */
+        z-index: -1; 
+        }
+
+        .star-field { 
+        position: absolute; 
+        background: white; 
+        border-radius: 50%; 
+        box-shadow: 0 0 5px white; 
+        }
+
+        .comet-trail { 
+        position: absolute; 
+        right: -100px; 
+        width: 100px; 
+        height: 5px; 
+        background: linear-gradient(to right, transparent, white); 
+        opacity: 0; 
+        }
+
+        @keyframes star-animation { 
+        0%, 100% { opacity: 0.3; transform: scale(1); } 
+        50% { opacity: 1; transform: scale(1.3); } 
+        }
+
+
+        @keyframes commet-animation { 
+        0% { transform: translateX(0) translateY(0) rotate(-15deg); opacity: 0; } 
+        5% { opacity: 1; } 
+        15% { transform: translateX(-120vw) translateY(50vh) rotate(-15deg); opacity: 0; } 
+        100% { transform: translateX(-120vw) translateY(50vh) rotate(-15deg); opacity: 0; 
+        } 
+        }
       `}</style>
     </div>
   );
