@@ -425,6 +425,11 @@ function ExplorerMenu() {
            animation: slideDown 0.6s ease;
         }
 
+        @keyframes slideDown { 
+        from { transform: translateY(-20px); opacity: 0;} 
+        to { transform: translateY(0); opacity: 1; } 
+        }
+
         .titulo-destaque-nasa h2 {
            font-family: 'Orbitron', sans-serif;
            color: #fbbf24;
@@ -524,7 +529,6 @@ function ExplorerMenu() {
         justify-content: center; 
         text-align: center; 
         margin-top: 80px; 
-        /* perspective: 1000px;  */
         }
 
         .container-titulo-flutuante { 
@@ -680,11 +684,6 @@ function ExplorerMenu() {
         width: fit-content; --> /* conteúdo adequado */
         margin: 0 auto 30px; 
         animation: slideDown 0.4s ease; 
-        }
-
-        @keyframes slideDown { 
-        from { transform: translateY(-20px); opacity: 0;} 
-        to { transform: translateY(0); opacity: 1; } 
         }
 
         .galeria-universo { 
