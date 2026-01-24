@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
-body { 
-    height: 100vh; 
+body {
+    height: 100vh;
 }
 
-section { 
-    display: none; 
-} 
+section {
+    display: none;
+}
 
 section.selecionado {
     display: flex;
@@ -28,8 +28,105 @@ section.selecionado {
 }
 
 
+
+
+
+/* Plano de fundo animado */
+.cosmic-engine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #0a0a25 0%, #020205 100%);
+}
+
+.star-field {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px white;
+}
+
+.comet-trail {
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    left: -100px;
+    background: linear-gradient(to right, white, transparent);
+    opacity: 0;
+    box-shadow: 0 0 30px 2px blue;
+}
+
+@keyframes star-animation {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes commet-animation {
+    0% {
+        left: 110%; 
+        transform: translateY(0) rotate(-15deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        left: -110%; 
+        transform: translateY(100vh) rotate(-15deg);
+        opacity: 0;
+    }
+}
+
+
+
+
+/* Para deixar o texto com aspecto flutuante */
+.container-titulo-flutuante { 
+        animation: flutuarTitulo 4s ease-in-out infinite; 
+        }
+
+         @keyframes flutuarTitulo { 
+        0%, 100% { transform: translateY(0) rotate(0deg); } 
+        50% { transform: translateY(-20px) rotate(1deg); } 
+        }
+
+        .titulo-flutuante { 
+        display: flex; 
+        align-items: center; 
+        font-weight: 900; 
+        background: linear-gradient(to right, #06b6d4, #8b5cf6, #ec4899); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        text-transform: uppercase; 
+        letter-spacing: -1px; 
+        margin: 0; 
+        filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.3)); 
+        }
+
+        .container-titulo-flutuante p {
+            background: linear-gradient(to left, #3bb3c9, #9b99a0, #ff0080); 
+            -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent;
+        animation: paragrafo infinite;
+        }
+
+
 /* Telas menores, como tablets */
 @media (max-width: 768px) {
+
     /* Ajustes gerais para botões e fontes */
     .btn-primary,
     .btn-cosmic {
@@ -119,6 +216,7 @@ section.selecionado {
 
 /* Telas de celulares */
 @media (max-width: 480px) {
+
     /* Ajustes gerais */
     body {
         font-size: 14px;
@@ -279,16 +377,20 @@ section.selecionado {
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
+
     #detalhe-apagar-conta .container-conteudo {
         margin-top: 0;
         gap: 15px;
     }
+
     #detalhe-apagar-conta .astronauta img {
         max-height: 150px;
     }
+
     #detalhe-apagar-conta .painel-confirmacao {
         padding: 15px;
     }
+
     #detalhe-apagar-conta .botao-retorno-home {
         margin-top: 20px;
     }
@@ -316,7 +418,7 @@ section.selecionado {
         font-size: 14px;
     }
 
-    .text h2 { 
+    .text h2 {
         font-size: 18px;
     }
 
@@ -348,12 +450,13 @@ section.selecionado {
     .mensagem-persuasiva {
         font-size: 0.9em;
     }
-} 
+}
 
 @media (max-width: 340px) {
     .login-container {
         max-width: 500px;
     }
+
     .login-form {
         width: 125%;
     }

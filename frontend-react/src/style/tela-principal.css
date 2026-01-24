@@ -1,5 +1,5 @@
 .tela-principal {
-  background-image: url('../imagens/Fundo_Universo_Puro_Escuro-fotor-enhance-2025091323703.jpg');
+  /* background-image: url('../imagens/Fundo_Universo_Puro_Escuro-fotor-enhance-2025091323703.jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,9 +29,13 @@
 
 .text h2 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 2.2rem;
+  font-weight: bold; 
 }
+
+.text p {
+  font-size: 1.1rem;
+ }
 
 .intro-text p {
   font-size: 16px;
