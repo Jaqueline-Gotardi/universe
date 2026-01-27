@@ -1,5 +1,5 @@
 .tela-tutorial {
-    background-image: url('../imagens/tela-criadores.jpg');
+    /* background-image: url('../imagens/tela-criadores.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@
     font-family: 'Orbitron', sans-serif;
     font-size: 1.8rem;
     color: #e0f2f7;
-    text-shadow: 0 0 8px #e0f2f7;
+    
     margin-bottom: 20px;
     text-align: center;
 }

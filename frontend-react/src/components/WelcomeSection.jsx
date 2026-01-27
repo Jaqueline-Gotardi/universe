@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../style/tela-principal.css";
@@ -10,6 +10,7 @@ function WelcomeSection() {
   //nome de componentes/funções em React deve-se começar com letras maiúsculas
 
   const navigate = useNavigate();
+  const [hoveredButton, setHoveredButton] = useState(null);
 
   const cosmicBackground = useMemo(() => {
     const stars = Array.from({ length: 150 }, (_, i) => ({
@@ -75,32 +76,89 @@ function WelcomeSection() {
           ),
         )}
       </div>
-      <div className="text container-titulo-flutuante" style={{ position: "relative", zIndex: 1 }}>
-        <h2 className="titulo-flutuante">O que vamos explorar hoje?</h2>
-        <p>Selecione seu destino</p>
-      </div>
+
       <div
-        className="informacoes-extras"
+        className="text container-titulo-flutuante"
         style={{ position: "relative", zIndex: 1 }}
       >
+        <h2 className="titulo-flutuante" style={{marginBottom: "50px"}}>O que vamos explorar hoje?</h2>
+        <p>Selecione seu destino</p>
+      </div>
+      <div style={styles.buttonContainer}>
+        {/* Botão Iniciar Exploração */}
         <button
-          type="button"
-          className="btn-cosmic"
-          id="btn-iniciar-exploracao"
+          style={{
+            ...styles.cosmicButton,
+            ...(hoveredButton === "exploracao" ? styles.buttonHovered : {}),
+            background:
+              hoveredButton === "exploracao"
+                ? "linear-gradient(135deg, rgba(6, 182, 212, 0.4) 0%, rgba(59, 130, 246, 0.5) 100%)"
+                : "linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.25) 100%)",
+            borderColor:
+              hoveredButton === "exploracao"
+                ? "#06b6d4"
+                : "rgba(6, 182, 212, 0.5)",
+            boxShadow:
+              hoveredButton === "exploracao"
+                ? "0 0 40px rgba(6, 182, 212, 0.5), inset 0 0 30px rgba(6, 182, 212, 0.2), 0 10px 40px rgba(0, 0, 0, 0.3)"
+                : "0 0 20px rgba(6, 182, 212, 0.2), inset 0 0 20px rgba(6, 182, 212, 0.1)",
+            transform:
+              hoveredButton === "exploracao"
+                ? "translateY(-5px) scale(1.02)"
+                : "translateY(0) scale(1)",
+          }}
           onClick={() => navigate("/app/exploracao")}
+          onMouseEnter={() => setHoveredButton("exploracao")}
+          onMouseLeave={() => setHoveredButton(null)}
         >
-          Iniciar Exploração
+          <div style={styles.buttonIconWrapper}>
+            <span style={styles.buttonMainIcon}>🛸</span>
+            <div style={styles.buttonIconGlow} />
+          </div>
+          <div style={styles.buttonTextWrapper}>
+            <span style={styles.buttonTitle}>INICIAR EXPLORAÇÃO</span>
+            <span style={styles.buttonSubtitle}>
+              Navegue pelo universo NASA
+            </span>
+          </div>
+          <span style={styles.buttonArrow}>→</span>
         </button>
 
+        {/* Botão Briefing */}
         <button
-          type="button"
-          className="btn-cosmic"
-          id="btn-tutorial"
+          style={{
+            ...styles.cosmicButton,
+            ...(hoveredButton === "tutorial" ? styles.buttonHovered : {}),
+            background:
+              hoveredButton === "tutorial"
+                ? "linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(236, 72, 153, 0.4) 100%)"
+                : "linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(236, 72, 153, 0.2) 100%)",
+            borderColor:
+              hoveredButton === "tutorial"
+                ? "#a855f7"
+                : "rgba(168, 85, 247, 0.5)",
+            boxShadow:
+              hoveredButton === "tutorial"
+                ? "0 0 40px rgba(168, 85, 247, 0.5), inset 0 0 30px rgba(168, 85, 247, 0.2), 0 10px 40px rgba(0, 0, 0, 0.3)"
+                : "0 0 20px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(168, 85, 247, 0.1)",
+            transform:
+              hoveredButton === "tutorial"
+                ? "translateY(-5px) scale(1.02)"
+                : "translateY(0) scale(1)",
+          }}
           onClick={() => navigate("/app/tutorial")}
+          onMouseEnter={() => setHoveredButton("tutorial")}
+          onMouseLeave={() => setHoveredButton(null)}
         >
-          Briefing da Nave
+
+          <div style={styles.buttonTextWrapper}>
+            <span style={styles.buttonTitle}>BRIEFING DA NAVE</span>
+            <span style={styles.buttonSubtitle}>Conheça nossa missão</span>
+          </div>
+          <span style={{ ...styles.buttonArrow, color: "#a855f7" }}>→</span>
         </button>
       </div>
+
     </section>
   );
 }

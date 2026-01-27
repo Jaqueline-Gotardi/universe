@@ -5,7 +5,7 @@ function InfoMenu() {
     const navigate = useNavigate();
 
     return (
-    <section className="tela-principal" id="informacoes-do-menu">
+    <section  className="tela-principal" id="informacoes-do-menu">
     <div className="informacoes-extras">
 
       <button type="button" className="btn-cosmic" id="btn-informacoes-astronomicas"
