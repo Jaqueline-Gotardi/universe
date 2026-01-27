@@ -218,11 +218,92 @@ function WelcomeSection() {
         )}
       </div>
 
+      {/* bolinha espacial */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "-30px",
+          /* padding: "40px 20px", */
+          animation: "fade-in 0.8s ease-out",
+        }}
+      >
+        <div
+          style={{
+            position: "relative",
+            width: "180px",
+            height: "180px",
+            marginBottom: "35px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              border: "1px solid rgba(139, 92, 246, 0.3)",
+              borderRadius: "50%",
+              animation: "orbit-spin 20s linear infinite",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "-5px",
+                left: "50%",
+                width: "10px",
+                height: "10px",
+                background: "#8b5cf6",
+                borderRadius: "50%",
+                boxShadow: "0 0 15px #8b5cf6",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              inset: "25px",
+              border: "1px solid rgba(6, 182, 212, 0.3)",
+              borderRadius: "50%",
+              animation: "orbit-spin 15s linear infinite reverse",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                bottom: "-5px",
+                left: "50%",
+                width: "8px",
+                height: "8px",
+                background: "#06b6d4",
+                borderRadius: "50%",
+                boxShadow: "0 0 12px #06b6d4",
+              }}
+            />
+          </div>
+          {/* Centro */}
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              fontSize: "60px",
+              animation: "float 4s ease-in-out infinite",
+            }}
+          >
+            🪐
+          </div>
+        </div>
+      </div>
+
       <div
         className="text container-titulo-flutuante"
         style={{ position: "relative", zIndex: 1 }}
       >
-        <h2 className="titulo-flutuante" style={{marginBottom: "50px"}}>O que vamos explorar hoje?</h2>
+        <h2 className="titulo-flutuante" style={{ marginBottom: "50px" }}>
+          O que vamos explorar hoje?
+        </h2>
         <p>Selecione seu destino</p>
       </div>
       <div style={styles.buttonContainer}>
