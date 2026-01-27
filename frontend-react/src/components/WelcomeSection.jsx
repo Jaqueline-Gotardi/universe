@@ -76,7 +76,7 @@ function WelcomeSection() {
           ),
         )}
       </div>
-
+            
       <div
         className="text container-titulo-flutuante"
         style={{ position: "relative", zIndex: 1 }}
@@ -124,6 +124,13 @@ function WelcomeSection() {
           <span style={styles.buttonArrow}>→</span>
         </button>
 
+        {/* Separador decorativo */}
+        <div style={styles.separator}>
+          <div style={styles.separatorLine} />
+          <span style={styles.separatorIcon}>⭐</span>
+          <div style={styles.separatorLine} />
+        </div>
+
         {/* Botão Briefing */}
         <button
           style={{
@@ -150,7 +157,22 @@ function WelcomeSection() {
           onMouseEnter={() => setHoveredButton("tutorial")}
           onMouseLeave={() => setHoveredButton(null)}
         >
-
+          <div
+            style={{
+              ...styles.buttonIconWrapper,
+              background:
+                "radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%)",
+            }}
+          >
+            <span style={styles.buttonMainIcon}>📋</span>
+            <div
+              style={{
+                ...styles.buttonIconGlow,
+                background:
+                  "radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%)",
+              }}
+            />
+          </div>
           <div style={styles.buttonTextWrapper}>
             <span style={styles.buttonTitle}>BRIEFING DA NAVE</span>
             <span style={styles.buttonSubtitle}>Conheça nossa missão</span>
