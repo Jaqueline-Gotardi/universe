@@ -32,6 +32,147 @@ function WelcomeSection() {
     return { stars, comets };
   }, []);
 
+  const styles = {
+    buttonContainer: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+      width: "100%",
+      maxWidth: "420px",
+      padding: "30px",
+      background:
+        "linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%)",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      borderRadius: "24px",
+      backdropFilter: "blur(20px)",
+      boxShadow:
+        "0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+    },
+
+    cosmicButton: {
+      display: "flex",
+      alignItems: "center",
+      gap: "15px",
+      padding: "18px 24px",
+      fontFamily: "'Orbitron', sans-serif",
+      color: "#ffffff",
+      border: "2px solid",
+      borderRadius: "16px",
+      cursor: "pointer",
+      transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+      textAlign: "left",
+      position: "relative",
+      overflow: "hidden",
+    },
+
+    buttonHovered: {},
+
+    buttonIconWrapper: {
+      position: "relative",
+      width: "50px",
+      height: "50px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background:
+        "radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%)",
+      borderRadius: "12px",
+      flexShrink: 0,
+    },
+
+    buttonMainIcon: {
+      fontSize: "28px",
+      position: "relative",
+      zIndex: 1,
+    },
+
+    buttonIconGlow: {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      background:
+        "radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)",
+      borderRadius: "12px",
+      animation: "portalPulse 2s ease-in-out infinite",
+    },
+
+    buttonTextWrapper: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      gap: "4px",
+    },
+
+    buttonTitle: {
+      fontSize: "15px",
+      fontWeight: 600,
+      letterSpacing: "2px",
+    },
+
+    buttonSubtitle: {
+      fontFamily: "'Space Mono', monospace",
+      fontSize: "11px",
+      color: "rgba(255, 255, 255, 0.5)",
+      letterSpacing: "1px",
+    },
+
+    buttonArrow: {
+      fontSize: "24px",
+      color: "#06b6d4",
+      fontWeight: 300,
+      transition: "transform 0.3s ease",
+    },
+
+    separator: {
+      display: "flex",
+      alignItems: "center",
+      gap: "15px",
+      padding: "5px 0",
+    },
+
+    separatorLine: {
+      flex: 1,
+      height: "1px",
+      background:
+        "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
+    },
+
+    separatorIcon: {
+      fontSize: "12px",
+      color: "rgba(255, 255, 255, 0.4)",
+      animation: "sparkle 3s ease-in-out infinite",
+    },
+
+    bottomDecoration: {
+      marginTop: "40px",
+      position: "relative",
+    },
+
+    orbitingDots: {
+      display: "flex",
+      gap: "8px",
+      animation: "subtitleFloat 3s ease-in-out infinite",
+    },
+
+    orbitDot1: {
+      color: "#06b6d4",
+      fontSize: "6px",
+      animation: "sparkle 2s ease-in-out infinite",
+    },
+
+    orbitDot2: {
+      color: "#a855f7",
+      fontSize: "8px",
+      animation: "sparkle 2s ease-in-out infinite 0.3s",
+    },
+
+    orbitDot3: {
+      color: "#ec4899",
+      fontSize: "6px",
+      animation: "sparkle 2s ease-in-out infinite 0.6s",
+    },
+  };
+
   return (
     <section
       className="tela-principal"
@@ -76,7 +217,7 @@ function WelcomeSection() {
           ),
         )}
       </div>
-            
+
       <div
         className="text container-titulo-flutuante"
         style={{ position: "relative", zIndex: 1 }}
