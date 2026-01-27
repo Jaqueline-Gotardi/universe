@@ -335,7 +335,7 @@ function ExplorerMenu() {
                 </div>
                 <div className="modal-footer">
                   <span>Data do Registro: {selectedCard.date_created}</span>
-                </div>
+                </div> 
               </div>
             </div>
           </div>
@@ -648,6 +648,7 @@ function ExplorerMenu() {
         background: #06b6d4; 
         color: white; 
         box-shadow: 0 0 15px #06b6d4; 
+        transform: scale(1.1);
         }
 
         .btn-home { 
