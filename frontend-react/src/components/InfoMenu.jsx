@@ -1,9 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { useMemo } from "react";
+import { Router, useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
 
 function InfoMenu() {
 
     const navigate = useNavigate();
+    const [ hoveredIndex, setHoveredIndex ] = useState(null);
+
+    const menuItems = [
+      {id: "astros", label: "Informações Astronômicas", route: "/app/astros-menu", icon: "✨" },
+      {id: "planetas", label: "Informações Planetárias", route: "/app/planetary-menu", icon: "🪐"},
+      {id: "extras", label: "Informações Extras", route: "/app/extras-menu", icon: "🛰️"},
+    ]
 
     const cosmicBackground = useMemo(() => {
         const stars = Array.from({ length: 180 }, (_, i) => ({
@@ -21,13 +28,98 @@ function InfoMenu() {
           top: `${Math.random() * 55}%`,
           delay: Math.random() * 30,
           duration: Math.random() * 5 + 8,
-        }));
+        }))
         return { stars, comets };
-      }, []);
+      
+      }, [])
+      
+  const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "100vh",
+    padding: "20px",
+    position: "relative",
+    zIndex: 10,
+  },
 
+  title: {
+    fontFamily: "'Orbitron', sans-serif",
+    fontSize: "clamp(20px, 3vw, 28px)",
+    fontWeight: 700,
+    color: "#ffffff",
+    marginBottom: "30px",
+    textAlign: "center",
+    textShadow: "0 0 20px rgba(168, 85, 247, 0.5)",
+    letterSpacing: "2px",
+  },
+
+  card: {
+    position: "relative",
+    background: "rgba(100, 80, 150, 0.15)",
+    border: "2px solid rgba(6, 182, 212, 0.3)",
+    borderRadius: "24px",
+    padding: "30px",
+    backdropFilter: "blur(15px)",
+    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(168, 85, 247, 0.05)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
+    minWidth: "340px",
+    maxWidth: "450px",
+    animation: "cardFloat 6s ease-in-out infinite",
+  },
+  menuButton: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "12px",
+    padding: "18px 30px",
+    fontFamily: "'Orbitron', sans-serif",
+    fontSize: "15px",
+    fontWeight: 600,
+    letterSpacing: "2px",
+    textTransform: "uppercase",
+    color: "#ffffff",
+    background: "linear-gradient(135deg, rgba(88, 28, 135, 0.6) 0%, rgba(126, 34, 206, 0.4) 100%)",
+    border: "2px solid rgba(168, 85, 247, 0.5)",
+    borderRadius: "14px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 20px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(168, 85, 247, 0.1)",
+    textShadow: "0 0 10px rgba(168, 85, 247, 0.5)",
+  },
+
+  menuButtonHover: {
+    transform: "translateY(-3px) scale(1.02)",
+    boxShadow: "0 8px 30px rgba(168, 85, 247, 0.4), inset 0 0 30px rgba(168, 85, 247, 0.2)",
+    borderColor: "rgba(168, 85, 247, 0.8)",
+    background: "linear-gradient(135deg, rgba(126, 34, 206, 0.7) 0%, rgba(168, 85, 247, 0.5) 100%)",
+  },
+
+  buttonIcon: {
+    fontSize: "15px",
+  },
+
+  buttonLabel: {
+    flex: 1,
+    textAlign: "center",
+  },
+}
+    
     return (
-    <section className="tela-principal" id="informacoes-do-menu">
+    <section className="tela-principal" id="informacoes-do-menu"
+    style={{
+        position: "relative",
+        minHeight: "100vh",
+        color: "white",
+        overflowX: "hidden",
+      }}>
 
+        {/* Estilização para o plano de fundo galáctico */}
       <div className="cosmic-engine">
         {cosmicBackground.stars.map(
           (
@@ -62,19 +154,38 @@ function InfoMenu() {
         )}
       </div>
 
-    <div className="informacoes-extras">
+    <div className="informacoes-extras" style={styles.card}>
+      {/* <div style={styles.cardGlow} /> */}
 
-      <button type="button" className="btn-cosmic" id="btn-informacoes-astronomicas"
-      onClick={() => navigate('/app/astros-menu')}>Informações Astronômicas</button>
+        {menuItems.map((item, index) => (
+          <button 
+          type="button" 
+          className="btn-cosmic" id="btn-informacoes-astronomicas"
+          key={item.id}
+          style={{
+            ...styles.menuButton,
+            ...hoveredIndex === index ? styles.menuButtonHover : {},
+      }}
+      onClick={() => navigate(item.route)}
+      onMouseEnter={() => setHoveredIndex(index)}
+      onMouseLeave={() => setHoveredIndex(null)}
+      >
+       <span>{item.icon}</span>
+       <span style={styles.buttonLabel}>{item.label}</span> 
+        
+        </button>
+        ))}
 
-      <button type="button" className="btn-cosmic" id="btn-informacoes-planetarias"
+      {/* <button type="button" className="btn-cosmic" id="btn-informacoes-planetarias"
       onClick={() => navigate("/app/planetary-menu")}>Informações Planetárias</button>
 
       <button type="button" className="btn-cosmic" id="btn-informacoes-extras"
-      onClick={() => navigate("/app/extras-menu")}>Informações Extras</button>
+      onClick={() => navigate("/app/extras-menu")}>Informações Extras</button> */}
 
     </div>
+
     <button type="button" className="botao-voltar" id="btn-voltar-info-menu"
+    style={{zIndex: "1"}}
     onClick={() => navigate('/app/exploracao')}>Voltar</button>
   </section> 
     );
