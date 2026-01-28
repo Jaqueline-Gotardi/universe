@@ -4,13 +4,12 @@ import { useState, useMemo } from "react";
 function InfoMenu() {
 
     const navigate = useNavigate();
-    const [ hoveredIndex, setHoveredIndex ] = useState(null);
+    const [ hoveredIndex ] = useState(null);
 
     const menuItems = [
       {id: "astros", label: "Informações Astronômicas", route: "/app/astros-menu", icon: "✨" },
       {id: "planetas", label: "Informações Planetárias", route: "/app/planetary-menu", icon: "🪐"},
-      {id: "extras", label: "Informações Extras", route: "/app/extras-menu", icon: "🛰️"},
-      
+      {id: "extras", label: "Informações Extras", route: "/app/extras-menu", icon: "🛰️"}, 
     ]
 
     const cosmicBackground = useMemo(() => {
@@ -35,17 +34,6 @@ function InfoMenu() {
       }, [])
       
   const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "100vh",
-    padding: "20px",
-    position: "relative",
-    zIndex: 10,
-  },
-
   title: {
     fontFamily: "'Orbitron', sans-serif",
     fontSize: "clamp(20px, 3vw, 28px)",
@@ -55,8 +43,8 @@ function InfoMenu() {
     textAlign: "center",
     textShadow: "0 0 20px rgba(168, 85, 247, 0.5)",
     letterSpacing: "2px",
+    zIndex: "1",
   },
-
   card: {
     position: "relative",
     background: "rgba(100, 80, 150, 0.15)",
@@ -84,32 +72,25 @@ function InfoMenu() {
     fontWeight: 600,
     letterSpacing: "2px",
     textTransform: "uppercase",
-    color: "#ffffff",
+    color: "#ffffff", 
     background: "linear-gradient(135deg, rgba(88, 28, 135, 0.6) 0%, rgba(126, 34, 206, 0.4) 100%)",
-    border: "2px solid rgba(168, 85, 247, 0.5)",
+    border: "2px solid #ffffff",
     borderRadius: "14px",
     cursor: "pointer",
     transition: "all 0.3s ease",
     boxShadow: "0 4px 20px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(168, 85, 247, 0.1)",
     textShadow: "0 0 10px rgba(168, 85, 247, 0.5)",
   },
-
   menuButtonHover: {
     transform: "translateY(-3px) scale(1.02)",
     boxShadow: "0 8px 30px rgba(168, 85, 247, 0.4), inset 0 0 30px rgba(168, 85, 247, 0.2)",
     borderColor: "rgba(168, 85, 247, 0.8)",
     background: "linear-gradient(135deg, rgba(126, 34, 206, 0.7) 0%, rgba(168, 85, 247, 0.5) 100%)",
   },
-
-  buttonIcon: {
-    fontSize: "15px",
-  },
-
   buttonLabel: {
     flex: 1,
     textAlign: "center",
   },
-
   backButton: {
     marginTop: "30px",
     padding: "15px 50px",
@@ -128,8 +109,7 @@ function InfoMenu() {
     zIndex: "1",
   }, 
 }
-    
-    return (
+   return (
     <section className="tela-principal" id="informacoes-do-menu"
     style={{
         position: "relative",
@@ -173,6 +153,8 @@ function InfoMenu() {
         )}
       </div>
 
+      <h2 style={styles.title}>Centro de Exploração</h2>
+
     <div className="informacoes-extras" style={styles.card}>
       {/* <div style={styles.cardGlow} /> */}
 
@@ -186,8 +168,13 @@ function InfoMenu() {
             ...hoveredIndex === index ? styles.menuButtonHover : {},
       }}
       onClick={() => navigate(item.route)}
-      onMouseEnter={() => setHoveredIndex(index)}
-      onMouseLeave={() => setHoveredIndex(null)}
+      /* onMouseEnter={() => setHoveredIndex(index)} */
+      onMouseEnter={(e) => {
+        e.target.style.borderColor = "#a747e2";
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.borderColor = "#ffffff";
+      }}
       >
        <span>{item.icon}</span>
        <span style={styles.buttonLabel}>{item.label}</span> 
@@ -219,6 +206,14 @@ function InfoMenu() {
       }}>      
       Voltar
       </button>
+
+      <style>{`
+      @keyframes cardFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      }
+      `}
+      </style>
 
   </section> 
     );
