@@ -156,7 +156,6 @@ function InfoMenu() {
       <h2 style={styles.title}>Centro de Exploração</h2>
 
     <div className="informacoes-extras" style={styles.card}>
-      {/* <div style={styles.cardGlow} /> */}
 
         {menuItems.map((item, index) => (
           <button 
@@ -168,7 +167,6 @@ function InfoMenu() {
             ...hoveredIndex === index ? styles.menuButtonHover : {},
       }}
       onClick={() => navigate(item.route)}
-      /* onMouseEnter={() => setHoveredIndex(index)} */
       onMouseEnter={(e) => {
         e.target.style.borderColor = "#a747e2";
       }}
@@ -178,15 +176,8 @@ function InfoMenu() {
       >
        <span>{item.icon}</span>
        <span style={styles.buttonLabel}>{item.label}</span> 
-        
         </button>
         ))}
-
-      {/* <button type="button" className="btn-cosmic" id="btn-informacoes-planetarias"
-      onClick={() => navigate("/app/planetary-menu")}>Informações Planetárias</button>
-
-      <button type="button" className="btn-cosmic" id="btn-informacoes-extras"
-      onClick={() => navigate("/app/extras-menu")}>Informações Extras</button> */}
 
     </div>
 
