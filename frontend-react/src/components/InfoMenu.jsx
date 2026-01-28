@@ -10,6 +10,7 @@ function InfoMenu() {
       {id: "astros", label: "Informações Astronômicas", route: "/app/astros-menu", icon: "✨" },
       {id: "planetas", label: "Informações Planetárias", route: "/app/planetary-menu", icon: "🪐"},
       {id: "extras", label: "Informações Extras", route: "/app/extras-menu", icon: "🛰️"},
+      
     ]
 
     const cosmicBackground = useMemo(() => {
@@ -108,6 +109,24 @@ function InfoMenu() {
     flex: 1,
     textAlign: "center",
   },
+
+  backButton: {
+    marginTop: "30px",
+    padding: "15px 50px",
+    fontFamily: "'Orbitron', sans-serif",
+    fontSize: "14px",
+    fontWeight: 600,
+    letterSpacing: "3px",
+    color: "#ffffff",
+    background: "linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.4) 100%)",
+    border: "2px solid rgba(168, 85, 247, 0.5)",
+    borderRadius: "50px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 5px 25px rgba(168, 85, 247, 0.3)",
+    textShadow: "0 0 10px rgba(168, 85, 247, 0.5)",
+    zIndex: "1",
+  }, 
 }
     
     return (
@@ -184,9 +203,23 @@ function InfoMenu() {
 
     </div>
 
-    <button type="button" className="botao-voltar" id="btn-voltar-info-menu"
-    style={{zIndex: "1"}}
-    onClick={() => navigate('/app/exploracao')}>Voltar</button>
+    <button 
+    type="button"
+    className="botao-voltar"
+    id="btn-voltar-info-menu"
+    style={styles.backButton}
+    onClick={() => navigate('/app/exploracao')}
+    onMouseEnter={(e) => {
+      e.target.style.transform = "scale(1.05)";
+      e.target.style.boxShadow = "0 0 30px rgba(168, 85, 247, 0.5)";
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.transform = "scale(1)";
+      e.target.style.boxShadow = "0 5px 25px rgba(168, 85, 247, 0.3)";
+      }}>      
+      Voltar
+      </button>
+
   </section> 
     );
 }
