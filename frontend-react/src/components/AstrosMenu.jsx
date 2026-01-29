@@ -3,9 +3,9 @@ import CosmicBackground from "./CosmicBackground";
 import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-import { astrosMenu } from "../data/menuData";
+import { menuAstros } from "../data/menuData";
 
-const MenuPrincipalPage = () => {
+const AstrosMenu = () => {
   const navigate = useNavigate();
 
   return (
@@ -15,11 +15,11 @@ const MenuPrincipalPage = () => {
       <main>
         <CosmicCard
         title="✨ Exploração espacial"
-        items={astrosMenu}
+        items={menuAstros}
         onBack={() => navigate("/app/menu")}
          />
       </main>
     </div>
   )
 }
-export default MenuPrincipalPage;
+export default AstrosMenu;

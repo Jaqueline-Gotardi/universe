@@ -8,11 +8,10 @@ const CosmicCard = ({ items, title, onBack }) => {
   return (
 
     <div style={styles.container}>
-
-        { title && (
-            <h2 style={styles.title}>{title}</h2>
+      { title && (
+        <h2 style={styles.title}>{title}</h2>
         )}
-
+        
     <div className="informacoes-extras" style={styles.card}>
 
         {items.map((item, index) => (

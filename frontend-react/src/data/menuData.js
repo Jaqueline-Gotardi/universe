@@ -4,7 +4,7 @@ export const menuPrincipal = [
     { id: "extras", label: "Informações Extras", route: "/app/extras-menu", icon: "🛰️"}, 
 ];
 
-export const astrosMenu = [
+export const menuAstros = [
     { id: "constelações", label: "Constelações", route: "/app/constellations-menu", icon: "⭐"},
     { id: "eventos-astronomicos", label: "Eventos Astronômicos", route: "/app/events-menu", icon: "🌑"},
     { id: "galaxias", label: "Galáxias", route: "/app/galaxies-menu", icon: "🌌"},

@@ -1,4 +1,35 @@
-import { Router, useNavigate } from "react-router-dom";
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
+import { useNavigate } from "react-router-dom";
+
+import { menuPrincipal } from "../data/menuData";
+
+const InfoMenu = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
+
+      <main>
+        <CosmicCard
+        title="🛰️🌌 Centro de Exploração"
+        items={menuPrincipal}
+        onBack={() => navigate("/app/exploracao")}
+         />
+      </main>
+    </div>
+  )
+}
+export default InfoMenu;
+
+
+
+
+
+
+/* import { Router, useNavigate } from "react-router-dom";
 import { useState, useMemo } from "react";
 
 function InfoMenu() {
@@ -118,7 +149,7 @@ function InfoMenu() {
         overflowX: "hidden",
       }}>
 
-        {/* Estilização para o plano de fundo galáctico */}
+        {/* Estilização para o plano de fundo galáctico *
       <div className="cosmic-engine">
         {cosmicBackground.stars.map(
           (
@@ -211,4 +242,4 @@ function InfoMenu() {
   </section> 
     );
 }
-export default InfoMenu;      
+export default InfoMenu;       */
