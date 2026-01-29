@@ -1,26 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function NorthConstellations() {
+import { hemisferioNorte } from "../data/menuData";
 
-    const navigate = useNavigate();
+const ConstellationsMenu = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="constelacoes-norte">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-ursa-maior"
-      onClick={() => navigate("/app/big-dipper")}>Ursa Maior</button>
-
-      <button type="button" className="btn-cosmic" id="btn-ursa-menor"
-      onClick={() => navigate("/app/little-dipper")}>Ursa Menor</button>
-
-      <button type="button" className="btn-cosmic" id="btn-andromeda"
-      onClick={() => navigate("/app/andromeda-constellation")}>Andrômeda</button>
-
+      <main>
+        <CosmicCard
+        title="✨ Hemisfério Norte"
+        items={hemisferioNorte}
+        onBack={() => navigate("/app/constellations-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacao-norte"
-    onClick={() => navigate("/app/constellations-menu")}>Voltar</button>
-  </section>
-    )
+  )
 }
-export default NorthConstellations;  
+export default ConstellationsMenu;
