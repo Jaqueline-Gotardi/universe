@@ -40,3 +40,8 @@ export const eventosAstronomicos = [
     { id: "superluas-e-conjuncoes", label: "Superlua e Conjunções", route: "/app/supermoon-and-conjunctions", icon: "🪐"},   
     { id: "cometas-e-outros", label: "Cometas e outros", route: "/app/comets-and-others", icon: "☄️"},
 ]
+
+export const eclipses = [
+    { id: "eclipse-solar", label: "Eclipse Solar", route: "/app/solar-eclipse", icon: "🌕"},
+    { id: "eclipse-lunar", label: "Eclipse Lunar", route: "/app/lunar-eclipse", icon: "🌑"},
+]

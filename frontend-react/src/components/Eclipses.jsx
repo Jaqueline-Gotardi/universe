@@ -1,23 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function Eclipses() {
+import { eclipses } from "../data/menuData";
 
-    const navigate = useNavigate();
+const Eclipses = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="lista-eclipses">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-eclipse-solar"
-      onClick={() => navigate("/app/solar-eclipse")}>Eclipse Solar</button>
-
-      <button type="button" className="btn-cosmic" id="btn-eclipse-lunar"
-      onClick={() => navigate("/app/lunar-eclipse")}>Eclipse Lunar</button>
-
+      <main>
+        <CosmicCard
+        title="🌕🌑 Eclipses"
+        items={eclipses}
+        onBack={() => navigate("/app/events-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-eclipses"
-    onClick={() => navigate("/app/events-menu")}>Voltar</button>
-  </section> 
-    )
+  )
 }
-export default Eclipses; 
+export default Eclipses;
