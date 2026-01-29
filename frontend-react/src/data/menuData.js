@@ -5,7 +5,7 @@ export const menuPrincipal = [
 ];
 
 export const astrosMenu = [
-    { id: "constelações", label: "Constelações", route: "/app/constellations-menu", icon: ""},
-    { id: "eventos-astronomicos", label: "Eventos Astronômicos", route: "/app/events-menu", icon: ""},
-    { id: "galaxias", label: "Galáxias", route: "/app/galaxies-menu", icon: ""},
+    { id: "constelações", label: "Constelações", route: "/app/constellations-menu", icon: "⭐"},
+    { id: "eventos-astronomicos", label: "Eventos Astronômicos", route: "/app/events-menu", icon: "🌑"},
+    { id: "galaxias", label: "Galáxias", route: "/app/galaxies-menu", icon: "🌌"},
 ]

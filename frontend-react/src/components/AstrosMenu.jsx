@@ -1,25 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
-function InfoAstros() {
 
-    const navigate = useNavigate();
+import { astrosMenu } from "../data/menuData";
 
-    return (
-    <section className="tela-principal" id="tela-info-astros">
-    <div className="informacoes-extras"> 
+const MenuPrincipalPage = () => {
+  const navigate = useNavigate();
 
-      <button type="button"  className="btn-cosmic" id="btn-constelacoes"
-      onClick={() => navigate('/app/constellations-menu')}>Constelações</button>
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-eventos-astronomicos"
-      onClick={() => navigate('/app/events-menu')}>Eventos Astronômicos</button>
-
-      <button type="button" className="btn-cosmic" id="btn-galaxias"
-      onClick={() => navigate('/app/galaxies-menu')}>Galáxia</button>
-
+      <main>
+        <CosmicCard
+        title="✨ Exploração espacial"
+        items={astrosMenu}
+        onBack={() => navigate("/app/menu")}
+         />
+      </main>
     </div>
-    <button type="button" className="botao-voltar" id="btn-voltar-info-astros"
-    onClick={() => navigate('/app/menu')}>Voltar</button>
-  </section>
-    ) 
+  )
 }
-export default InfoAstros;      
+export default MenuPrincipalPage;

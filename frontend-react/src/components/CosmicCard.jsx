@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const CosmicCard = ({ items, title, onBack }) => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
     const [ hoveredIndex ] = useState(null);
         
   return (

@@ -9,7 +9,7 @@ const CosmicBackground = () => {
       top: Math.random() * 100,
       size: Math.random() * 2 + 1,
       duration: Math.random() * 3 + 2,
-      delay: Math.random() * 5, //atraso
+      delay: Math.random() * 4, //atraso
     }));
   }, []);
   //}, []);
@@ -21,7 +21,7 @@ const CosmicBackground = () => {
       top: Math.random() * 55,
       delay: Math.random() * 30,
       duration: Math.random() * 5 + 8,
-    }));
+    }))
   }, []);
 
   const styles = {
@@ -29,7 +29,7 @@ const CosmicBackground = () => {
     position: "absolute",
     borderRadius: "50%",
     backgroundColor: "#ffffff",
-    boxShadow: "0 0 6px 2px rgba(255, 255, 255, 0.4)",
+    boxShadow: "0 0 5px white",
     animation: "twinkle 3s ease-in-out infinite",
   },
 
@@ -46,6 +46,7 @@ const CosmicBackground = () => {
 }
 
   return (
+
     <div className="cosmic-engine">
 
       {/* animação para as estrelas */}
@@ -76,6 +77,7 @@ const CosmicBackground = () => {
             }}
           />
         ))}
+        
 
       <style> {`
       .cosmic-engine { /* plano de fundo galático */
