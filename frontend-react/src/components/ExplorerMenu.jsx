@@ -499,7 +499,7 @@ function ExplorerMenu() {
         background: white; 
         border-radius: 50%; 
         box-shadow: 0 0 5px white; 
-        }
+        } 
 
         .comet-trail { 
         position: absolute; 

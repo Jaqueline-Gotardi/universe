@@ -22,4 +22,4 @@ function InfoAstros() {
   </section>
     ) 
 }
-export default InfoAstros;     
+export default InfoAstros;      

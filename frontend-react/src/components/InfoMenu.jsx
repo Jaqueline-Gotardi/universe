@@ -169,9 +169,11 @@ function InfoMenu() {
       onClick={() => navigate(item.route)}
       onMouseEnter={(e) => {
         e.target.style.borderColor = "#a747e2";
+        e.target.style.boxShadow = "0 0 15px #A020F0";
       }}
       onMouseLeave={(e) => {
         e.target.style.borderColor = "#ffffff";
+        e.target.style.boxShadow = "0 4px 20px rgba(168, 85, 247, 0.2)";
       }}
       >
        <span>{item.icon}</span>
