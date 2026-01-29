@@ -1,26 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function CometsAndOthers() {
+import { cometasEOutros } from "../data/menuData";
 
-    const navigate = useNavigate();
+const CometsAndOthers = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="lista-cometas-outros">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-cometas"
-      onClick={() => navigate("/app/comets")}>Cometas</button>
-
-      <button type="button" className="btn-cosmic" id="btn-supernovas"
-      onClick={() => navigate("/app/supernovas")}>Supernovas</button>
-
-      <button type="button" className="btn-cosmic" id="btn-agrupamentos-estrelares"
-      onClick={() => navigate("/app/star-clusters")}>Agrupamentos Estelares</button>
-
+      <main>
+        <CosmicCard
+        title="☄️ Cometas e outros"
+        items={cometasEOutros}
+        onBack={() => navigate("/app/events-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-cometas-e-outros"
-    onClick={() => navigate("/app/events-menu")}>Voltar</button>
-  </section>
-    )
+  )
 }
-export default CometsAndOthers; 
+export default CometsAndOthers;

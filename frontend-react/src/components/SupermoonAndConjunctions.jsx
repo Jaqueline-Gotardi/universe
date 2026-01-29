@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { superluasEConjuncoes } from "../data/menuData";
 
-const SuperluasEConjuncoes = () => {
+const SupermoonAndConjuncoes = () => {
   const navigate = useNavigate();
 
   return (
@@ -22,4 +22,4 @@ const SuperluasEConjuncoes = () => {
     </div>
   )
 }
-export default SuperluasEConjuncoes;
+export default SupermoonAndConjuncoes;

@@ -19,5 +19,5 @@ function Galaxies() {
     onClick={() => navigate("/app/astros-menu")}>Voltar</button>
   </section>
     )
-}
+} 
 export default Galaxies;     

@@ -6,7 +6,7 @@ export const menuPrincipal = [
 
 export const menuAstros = [
     { id: "constelações", label: "Constelações", route: "/app/constellations-menu", icon: "⭐"},
-    { id: "eventos-astronomicos", label: "Eventos Astronômicos", route: "/app/events-menu", icon: "🌑"},
+    { id: "eventos-astronomicos", label: "Eventos Astronômicos", route: "/app/events-menu", icon: "🔭"},
     { id: "galaxias", label: "Galáxias", route: "/app/galaxies-menu", icon: "🌌"},
 ]
 
@@ -55,4 +55,15 @@ export const chuvasDeMeteoros = [
 export const superluasEConjuncoes = [
     { id: "superlua", label: "Superlua", route: "/app/supermoon", icon: "🌝"},
     { id: "conjuncao-planetaria", label: "Conjução Planetária", route: "/app/planetary-conjunction", icon: "⚛️"},   
+]
+
+export const cometasEOutros = [
+    { id: "cometas", label: "Cometas", route: "/app/comets", icon: "☄️"},
+    { id: "supernovas", label: "Supernovas", route: "/app/supernovas", icon: "💥"}, 
+    { id: "agrupamentos-estelares", label: "Agrupamentos Estelares", route: "/app/star-clusters", icon: "🌌"}, 
+]
+
+export const menuGalaxias = [
+    { id: "tipos-de-galaxias", label: "Tipos de Galáxias", route: "/app/type-galaxies", icon: "☄️"},
+    { id: "galaxias-famosas", label: "Galáxias Famosas", route: "/app/famous-galaxies", icon: "💥"}, 
 ]
