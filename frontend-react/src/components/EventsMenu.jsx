@@ -1,29 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function InfoEvents() {
+import { eventosAstronomicos } from "../data/menuData";
 
-    const navigate = useNavigate();
+const EventsMenu = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="tela-eventos-astronomicos">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="eclipses"
-      onClick={() => navigate("/app/eclipses")}>Eclipses</button>
-
-      <button type="button" className="btn-cosmic" id="chuva-de-meteoros"
-      onClick={() => navigate("/app/meteor-showers")}>Chuvas de Meteoros</button>
-
-      <button type="button" className="btn-cosmic" id="superluas-e-conjuncoes"
-      onClick={() => navigate("/app/supermoon-and-conjunctions")}>Superluas e Conjuções</button>
-
-      <button type="button" className="btn-cosmic" id="cometas-e-outros"
-      onClick={() => navigate("/app/comets-and-others")}>Cometas e Outros</button>
-
+      <main>
+        <CosmicCard
+        title="🔭 Eventos Astronômicos"
+        items={eventosAstronomicos}
+        onBack={() => navigate("/app/astros-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-eventos-astronomicos"
-    onClick={() => navigate("/app/astros-menu")}>Voltar</button>
-  </section> 
-    )
-} 
-export default InfoEvents; 
+  )
+}
+export default EventsMenu;

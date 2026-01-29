@@ -33,3 +33,10 @@ export const constelacaoFamosas = [
     { id: "cao-maior", label: "Cão Maior", route: "/app/greater-canis", icon: "🐕"},
     { id: "escorpiao", label: "Escorpião", route: "/app/scorpion", icon: "🦂"},   
 ]
+
+export const eventosAstronomicos = [
+    { id: "eclipses", label: "Eclipses", route: "/app/eclipses", icon: "🌕🌑"},
+    { id: "chuvas-de-meteoros", label: "Chuvas de Meteoros", route: "/app/meteor-showers", icon: "🌠"},
+    { id: "superluas-e-conjuncoes", label: "Superlua e Conjunções", route: "/app/supermoon-and-conjunctions", icon: "🪐"},   
+    { id: "cometas-e-outros", label: "Cometas e outros", route: "/app/comets-and-others", icon: "☄️"},
+]
