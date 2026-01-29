@@ -64,6 +64,6 @@ export const cometasEOutros = [
 ]
 
 export const menuGalaxias = [
-    { id: "tipos-de-galaxias", label: "Tipos de Galáxias", route: "/app/type-galaxies", icon: "☄️"},
-    { id: "galaxias-famosas", label: "Galáxias Famosas", route: "/app/famous-galaxies", icon: "💥"}, 
+    { id: "tipos-de-galaxias", label: "Tipos de Galáxias", route: "/app/type-galaxies", icon: "🌌"},
+    { id: "galaxias-famosas", label: "Galáxias Famosas", route: "/app/famous-galaxies", icon: "🔭"}, 
 ]
