@@ -10,7 +10,7 @@ export const menuAstros = [
     { id: "galaxias", label: "Galáxias", route: "/app/galaxies-menu", icon: "🌌"},
 ]
 
-export const menuConstellations = [
+export const menuConstelacao = [
     { id: "hemisferio-norte", label: "Hemisfério Norte", route: "/app/hemisferio-norte", icon: "🧭"},
     { id: "hemisferio-sul", label: "Hemisfério Sul", route: "/app/hemisferio-sul", icon: "🌍"},
     { id: "hemisferio-principal", label: "As famosas", route: "/app/constellations-famous", icon: "🌟"},
@@ -26,4 +26,10 @@ export const hemisferioSul = [
     { id: "cruzeiro-do-sul", label: "Cruzeiro Do Sul", route: "/app/southern-cross", icon: "✝️"},
     { id: "fenix", label: "Fênix", route: "/app/phoenix", icon: "🐦‍🔥"},
     { id: "centauro", label: "Centauro", route: "/app/centaur", icon: "🏹"},   
+]
+
+export const constelacaoFamosas = [
+    { id: "orion", label: "Órion", route: "/app/orion", icon: "🏹"},
+    { id: "cao-maior", label: "Cão Maior", route: "/app/greater-canis", icon: "🐕"},
+    { id: "escorpiao", label: "Escorpião", route: "/app/scorpion", icon: "🦂"},   
 ]

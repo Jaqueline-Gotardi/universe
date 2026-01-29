@@ -1,26 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function FamousConstellations() {
+import { constelacaoFamosas } from "../data/menuData";
 
-    const navigate = useNavigate();
+const ConstellationsMenu = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="constelacoes-famosas">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-orion"
-      onClick={() => navigate("/app/orion")}>Órion</button>
-
-      <button type="button" className="btn-cosmic" id="btn-cao-maior"
-      onClick={() => navigate("/app/greater-canis")}>Cão Maior</button>
-
-      <button type="button" className="btn-cosmic" id="btn-escorpiao"
-      onClick={() => navigate("/app/scorpion")}>Escorpião</button>
-
+      <main>
+        <CosmicCard
+        title="🌟 As Famosas"
+        items={constelacaoFamosas}
+        onBack={() => navigate("/app/constellations-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacoes-famosas"
-    onClick={() => navigate("/app/constellations-menu")}>Voltar</button>
-  </section> 
-    )
+  )
 }
-export default FamousConstellations;  
+export default ConstellationsMenu;
