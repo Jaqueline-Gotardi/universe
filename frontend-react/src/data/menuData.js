@@ -17,7 +17,13 @@ export const menuConstellations = [
 ]
 
 export const hemisferioNorte = [
-    { id: "ursa maior", label: "Ursa maior", route: "/app/big-dipper", icon: "🐻"},
-    { id: "ursa menor", label: "Ursa Menor", route: "/app/little-dipper", icon: "🐻"},
+    { id: "ursa-maior", label: "Ursa maior", route: "/app/big-dipper", icon: "🐻"},
+    { id: "ursa-menor", label: "Ursa Menor", route: "/app/little-dipper", icon: "🐻"},
     { id: "andromêda", label: "Andromêda", route: "/app/andromeda-constellation", icon: "🌀"},
+]
+
+export const hemisferioSul = [
+    { id: "cruzeiro-do-sul", label: "Cruzeiro Do Sul", route: "/app/southern-cross", icon: "✝️"},
+    { id: "fenix", label: "Fênix", route: "/app/phoenix", icon: "🐦‍🔥"},
+    { id: "centauro", label: "Centauro", route: "/app/centaur", icon: "🏹"},   
 ]

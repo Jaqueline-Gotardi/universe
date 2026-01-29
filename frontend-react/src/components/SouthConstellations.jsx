@@ -1,26 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function SouthConstellations() {
+import { hemisferioSul } from "../data/menuData";
 
-    const navigate = useNavigate();
+const ConstellationsMenu = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="constelacoes-sul">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-cruzeiro-do-sul"
-      onClick={() => navigate("/app/southern-cross")}>Cruzeiro do Sul</button>
-
-      <button type="button" className="btn-cosmic" id="btn-fenix"
-      onClick={() => navigate("/app/phoenix")}>Fênix</button>
-
-      <button type="button" className="btn-cosmic" id="btn-centauro"
-      onClick={() => navigate("/app/centaur")}>Centauro</button>
-
+      <main>
+        <CosmicCard
+        title="🌍 Hemisfério Sul"
+        items={hemisferioSul}
+        onBack={() => navigate("/app/constellations-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-constelacao-sul" 
-    onClick={() => navigate("/app/constellations-menu")}>Voltar</button>
-  </section>  
-    )
+  )
 }
-export default SouthConstellations; 
+export default ConstellationsMenu;

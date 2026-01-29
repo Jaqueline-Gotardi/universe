@@ -14,7 +14,7 @@ const ConstellationsMenu = () => {
 
       <main>
         <CosmicCard
-        title="✨ Constelações"
+        title="⭐ Constelações"
         items={menuConstellations}
         onBack={() => navigate("/app/astros-menu")}
         />

@@ -14,7 +14,7 @@ const AstrosMenu = () => {
 
       <main>
         <CosmicCard
-        title="✨ Exploração espacial"
+        title="✨ Informações Astronômicas"
         items={menuAstros}
         onBack={() => navigate("/app/menu")}
          />

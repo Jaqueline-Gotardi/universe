@@ -14,7 +14,7 @@ const ConstellationsMenu = () => {
 
       <main>
         <CosmicCard
-        title="✨ Hemisfério Norte"
+        title="🧭 Hemisfério Norte"
         items={hemisferioNorte}
         onBack={() => navigate("/app/constellations-menu")}
         />
