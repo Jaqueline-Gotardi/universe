@@ -1,26 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function MeteorShowers() {
+import { chuvasDeMeteoros } from "../data/menuData";
 
-    const navigate = useNavigate();
+const MeteorShowers = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="lista-chuvas-de-meteoros">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-perseidas"
-      onClick={() => navigate("/app/perseids")}>Perseidas</button>
-
-      <button type="button" className="btn-cosmic" id="btn-leonideas"
-      onClick={() => navigate("/app/leonids")}>Leonídeas</button>
-
-      <button type="button" className="btn-cosmic" id="btn-geminideas"
-      onClick={() => navigate("/app/geminids")}>Geminídeas</button>
-
+      <main>
+        <CosmicCard
+        title="🌠 Chuvas de Meteoros"
+        items={chuvasDeMeteoros}
+        onBack={() => navigate("/app/events-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-chuva-de-meteoros"
-    onClick={() => navigate("/app/events-menu")}>Voltar</button>
-  </section>
-    )
+  )
 }
 export default MeteorShowers;

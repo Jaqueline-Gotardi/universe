@@ -45,3 +45,9 @@ export const eclipses = [
     { id: "eclipse-solar", label: "Eclipse Solar", route: "/app/solar-eclipse", icon: "🌕"},
     { id: "eclipse-lunar", label: "Eclipse Lunar", route: "/app/lunar-eclipse", icon: "🌑"},
 ]
+
+export const chuvasDeMeteoros = [
+    { id: "perseidas", label: "Perseidas", route: "/app/perseids", icon: "⚔️"},
+    { id: "leonideas", label: "Leonídeas", route: "/app/leonids", icon: "🦁"},
+    { id: "geminideas", label: "Geminídeas", route: "/app/geminids", icon: "♊"},  
+]
