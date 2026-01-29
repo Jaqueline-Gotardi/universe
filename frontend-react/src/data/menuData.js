@@ -51,3 +51,8 @@ export const chuvasDeMeteoros = [
     { id: "leonideas", label: "Leonídeas", route: "/app/leonids", icon: "🦁"},
     { id: "geminideas", label: "Geminídeas", route: "/app/geminids", icon: "♊"},  
 ]
+
+export const superluasEConjuncoes = [
+    { id: "superlua", label: "Superlua", route: "/app/supermoon", icon: "🌝"},
+    { id: "conjuncao-planetaria", label: "Conjução Planetária", route: "/app/planetary-conjunction", icon: "⚛️"},   
+]

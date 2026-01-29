@@ -1,23 +1,25 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function SupermoonAndConjunctions() {
+import { superluasEConjuncoes } from "../data/menuData";
 
-    const navigate = useNavigate();
+const SuperluasEConjuncoes = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-principal" id="lista-superluas-conjuncoes">
-    <div className="informacoes-extras">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-superlua"
-      onClick={() => navigate('/app/supermoon')}>Superlua</button>
-
-      <button type="button" className="btn-cosmic" id="btn-conjuncao-planetaria"
-      onClick={() => navigate("/app/planetary-conjunction")}>Conjunção Planetária</button>
-
+      <main>
+        <CosmicCard
+        title="🪐 Superlua e Conjunções"
+        items={superluasEConjuncoes}
+        onBack={() => navigate("/app/events-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-superluas-e-conjuncoes"
-    onClick={() => navigate("/app/events-menu")}>Voltar</button>
-  </section>
-    )
+  )
 }
-export default SupermoonAndConjunctions;  
+export default SuperluasEConjuncoes;
