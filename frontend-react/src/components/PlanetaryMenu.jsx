@@ -1,50 +1,30 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-import "../style/tela-informacoes-planetarias.css"
+import { menuPlanetas } from "../data/menuData";
 
- function PlanetaryMenu() {
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
+const PlanetaryMenu = () => {
+  const navigate = useNavigate();
 
-    return (
-    <section className="tela-planetas" id="tela-info-planetas">
-    <div className="info-planetas">
-    <div className="informacoes-dos-planetas">
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-      <button type="button" className="btn-cosmic" id="btn-sol"
-      onClick={() => navigate("/app/sun")}>Sol</button>
-
-      <button type="button" className="btn-cosmic" id="btn-mercurio"
-      onClick={() => navigate("/app/mercury")}>Mercúrio</button>
-
-      <button type="button" className="btn-cosmic" id="btn-venus"
-      onClick={() => navigate("/app/venus")}>Vênus</button>
-
-      <button type="button" className="btn-cosmic" id="btn-terra"
-      onClick={() => navigate("/app/earth")}>Terra</button>
-
-      <button type="button" className="btn-cosmic" id="btn-marte"
-      onClick={() => navigate("/app/mars")}>Marte</button>
-
-      <button type="button" className="btn-cosmic" id="btn-jupiter"
-      onClick={() => navigate("/app/jupiter")}>Júpiter</button>
-
-      <button type="button" className="btn-cosmic" id="btn-saturno"
-      onClick={() => navigate("/app/saturn")}>Saturno</button>
-
-      <button type="button" className="btn-cosmic" id="btn-urano"
-      onClick={() => navigate("/app/uranus")}>Urano</button>
-
-      <button type="button" className="btn-cosmic" id="btn-netuno"
-      onClick={() => navigate("/app/neptune")}>Netuno</button>
-
-      <button type="button" className="btn-cosmic" id="btn-plutao"
-      onClick={() => navigate("/app/pluto")}>Plutão</button>
+      <main>
+        <CosmicCard
+        title="🪐 Planetas"
+        items={menuPlanetas} 
+        onBack={() => navigate("/app/planetary-information")}
+        />
+      </main>
     </div>
-    </div>
-    <button type="button" className="botao-opcao-menu botao-voltar" id="btn-voltar-planetas"
-    onClick={() => navigate("/app/menu")}>Voltar</button>
-  </section>
-    )
- }
- export default PlanetaryMenu; 
+  )
+}
+export default PlanetaryMenu;
+
+{/* <button type="button" className="btn-cosmic" id="btn-sol"
+      onClick={() => navigate("/app/sun")}>Sol</button> */}

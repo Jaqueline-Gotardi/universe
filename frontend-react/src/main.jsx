@@ -58,7 +58,14 @@ import FamousGalaxies from './components/FamousGalaxies.jsx';
 import MilkAway from './components/MilkyAway.jsx';
 import AndromedaGalaxy from './components/AndromedaGalaxy.jsx';
 import TriangleM33 from './components/TriangleM33.jsx';
+
+import PlanetaryInformation from './components/PlanetaryInformation.jsx';
 import PlanetaryMenu from './components/PlanetaryMenu.jsx';
+
+
+
+
+
 import Sun from './components/Sun.jsx';
 import Mercury from './components/Mercury.jsx';
 import Venus from './components/Venus.jsx';
@@ -266,6 +273,10 @@ const router = createBrowserRouter([
         element: <TriangleM33 />
       },
       {
+        path: "planetary-information",
+        element: <PlanetaryInformation />
+      },
+      {
         path: "planetary-menu",
         element: <PlanetaryMenu />
       },
@@ -330,7 +341,7 @@ const router = createBrowserRouter([
         element: <DeleteAccount />
       }
     ]
-  },
+  }, 
 ]);
 
 createRoot(document.getElementById('root')).render(
