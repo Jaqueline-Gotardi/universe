@@ -67,3 +67,9 @@ export const menuGalaxias = [
     { id: "tipos-de-galaxias", label: "Tipos de Galáxias", route: "/app/type-galaxies", icon: "🌌"},
     { id: "galaxias-famosas", label: "Galáxias Famosas", route: "/app/famous-galaxies", icon: "🔭"}, 
 ]
+
+export const tiposDeGalaxias = [
+    { id: "espiral", label: "Espiral", route: "/app/spiral", icon: ""},
+    { id: "eliptica", label: "Elíptica", route: "/app/elliptical", icon: ""}, 
+    { id: "irregular", label: "Irregular", route: "/app/irregular", icon: ""}, 
+]
