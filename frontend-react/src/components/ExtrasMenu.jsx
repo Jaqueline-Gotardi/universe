@@ -13,7 +13,7 @@ const ExtrasMenu = () => {
 
       <main>
         <CosmicCard
-        title="Extras"
+        title="📂 Extras"
         items={menuExtras}
         onBack={() => navigate("/app/menu")}
         />
