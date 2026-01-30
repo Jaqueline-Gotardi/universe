@@ -73,3 +73,9 @@ export const tiposDeGalaxias = [
     { id: "eliptica", label: "Elíptica", route: "/app/elliptical", icon: ""}, 
     { id: "irregular", label: "Irregular", route: "/app/irregular", icon: ""}, 
 ]
+
+export const galaxiasFamosas = [
+    { id: "via-lactea", label: "Via Láctea", route: "/app/milky-way", icon: ""},
+    { id: "andromeda", label: "Andromêda", route: "/app/andromeda-galaxy", icon: ""}, 
+    { id: "triangulo(m33)", label: "Triângulo (M33)", route: "/app/triangle-m33", icon: ""}, 
+]

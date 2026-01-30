@@ -1,26 +1,24 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function FamousGalaxies() {
+import { galaxiasFamosas } from "../data/menuData";
+const FamousGalaxies = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-    return (
-    <section className="tela-principal" id="lista-galaxias-famosas">
-    <div className="informacoes-extras">
-
-      <button type="button" className="btn-cosmic" data-target="detalhe-via-lactea" id="btn-via-lactea"
-      onClick={() => navigate("/app/milky-way")}>Via Láctea</button>
-
-      <button type="button" className="btn-cosmic" data-target="detalhe-andromeda-galaxia" id="btn-galaxia-andromeda"
-      onClick={() => navigate("/app/andromeda-galaxy")}>Andrômeda</button>
-
-      <button type="button" className="btn-cosmic" data-target="detalhe-triangulo" id="btn-triangulo-m33"
-      onClick={() => navigate("/app/triangle-m33")}>Triângulo (M33)</button>
-
+      <main>
+        <CosmicCard
+        title="🔭 Galáxias Famosas"
+        items={galaxiasFamosas}
+        onBack={() => navigate("/app/galaxies-menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-opcao-menu botao-voltar" id="btn-voltar-galaxias-famosas"
-    onClick={() => navigate("/app/galaxies-menu")}>Voltar</button>
-  </section>
-    )
+  )
 }
 export default FamousGalaxies;
