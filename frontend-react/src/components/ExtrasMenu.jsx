@@ -1,30 +1,27 @@
+import React from "react";
+import CosmicBackground from "./CosmicBackground";
+import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-function ExtrasMenu() {
+import { menuExtras } from "../data/menuData";
+const MenuExtras = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  return (
+    <div style={{position: "relative", minHeight: "100vh"}}>
+      <CosmicBackground />
 
-    return (
-    <section className="tela-principal" id="tela-info-extras"
-    style={{justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
-    <div className="informacoes-extras">
-
-      <button type="button" className="btn-cosmic" id="btn-perfil"
-      onClick={() => navigate("/app/profile")}>Perfil</button>
-
-      <button type="button" className="btn-cosmic" id="btn-criadores"
-      onClick={() => navigate("/app/creators")}>Criadores</button>
-
-      <button type="button" className="btn-cosmic" id="btn-apagar-conta"
-      onClick={() => navigate("/app/delete-account")}>Apagar conta</button>
-
+      <main>
+        <CosmicCard
+        title="Extras"
+        items={menuExtras}
+        onBack={() => navigate("/app/menu")}
+        />
+      </main>
     </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-info-extras"
-    onClick={() => navigate("/app/menu")}>Voltar</button>
-  </section> 
-    )
+  )
 }
-export default ExtrasMenu;
+export default MenuExtras;
 
 
-/* outra coisa interessante no react: quando vamos colocar propriedades do css, como "justify-content", deve-se escrever juntos e não com "-" no meio */
+/* outra coisa interessante no react: quando vamos colocar propriedades do css, como "justify-content", deve-se escrever juntos e não com "-" no meio */ 

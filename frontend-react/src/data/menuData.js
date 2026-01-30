@@ -1,7 +1,7 @@
 export const menuPrincipal = [
     { id: "astros", label: "Informações Astronômicas", route: "/app/astros-menu", icon: "✨" },
     { id: "planetas", label: "Informações Planetárias", route: "/app/planetary-menu", icon: "🪐"},
-    { id: "extras", label: "Informações Extras", route: "/app/extras-menu", icon: "🛰️"}, 
+    { id: "extras", label: "Informações Extras", route: "/app/extras-menu", icon: ""}, 
 ];
 
 export const menuAstros = [
@@ -68,6 +68,9 @@ export const menuGalaxias = [
     { id: "galaxias-famosas", label: "Galáxias Famosas", route: "/app/famous-galaxies", icon: "🔭"}, 
 ]
 
+
+
+
 export const tiposDeGalaxias = [
     { id: "espiral", label: "Espiral", route: "/app/spiral", icon: ""},
     { id: "eliptica", label: "Elíptica", route: "/app/elliptical", icon: ""}, 
@@ -78,4 +81,10 @@ export const galaxiasFamosas = [
     { id: "via-lactea", label: "Via Láctea", route: "/app/milky-way", icon: ""},
     { id: "andromeda", label: "Andromêda", route: "/app/andromeda-galaxy", icon: ""}, 
     { id: "triangulo(m33)", label: "Triângulo (M33)", route: "/app/triangle-m33", icon: ""}, 
+]
+
+export const menuExtras = [
+    { id: "perfil", label: "Perfil", route: "/app/profile", icon: ""},
+    { id: "criadores", label: "Criadores", route: "/app/creators", icon: ""}, 
+    { id: "apagar-conta", label: "Apagar conta", route: "/app/delete-account", icon: ""}, 
 ]
