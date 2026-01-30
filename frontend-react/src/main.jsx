@@ -60,6 +60,7 @@ import AndromedaGalaxy from './components/AndromedaGalaxy.jsx';
 import TriangleM33 from './components/TriangleM33.jsx';
 
 import PlanetaryInformation from './components/PlanetaryInformation.jsx';
+import SolarSystem from './components/SolarSystem.jsx';
 import PlanetaryMenu from './components/PlanetaryMenu.jsx';
 
 
@@ -275,6 +276,10 @@ const router = createBrowserRouter([
       {
         path: "planetary-information",
         element: <PlanetaryInformation />
+      },
+      {
+        path: "sistema-solar",
+        element: <SolarSystem />
       },
       {
         path: "planetary-menu",

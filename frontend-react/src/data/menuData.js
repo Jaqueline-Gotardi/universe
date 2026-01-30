@@ -85,7 +85,7 @@ export const galaxiasFamosas = [
 
 
 export const informacoesPlanetarias = [
-    { id: "sistema-solar", label: "Sistema Solar", route: "", icon: "☀️"},
+    { id: "sistema-solar", label: "Sistema Solar", route: "/app/sistema-solar", icon: "☀️"},
     { id: "planetas", label: "Planetas", route: "/app/planetary-menu", icon: "🪐"}, 
     { id: "luas-e-satelites", label: "Luas e Satélites", route: "", icon: "🌙"}, 
 ]

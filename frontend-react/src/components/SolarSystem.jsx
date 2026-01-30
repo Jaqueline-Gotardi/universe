@@ -3,9 +3,9 @@ import CosmicBackground from "./CosmicBackground";
 import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-import { informacoesPlanetarias } from "../data/menuData";
+import { menuSistemaSolar } from "../data/menuData";
 
-const PlanetaryInformation = () => {
+const SolarSystem = () => {
   const navigate = useNavigate();
 
   return (
@@ -14,12 +14,12 @@ const PlanetaryInformation = () => {
 
       <main>
         <CosmicCard
-        title="🪐 Informações Planetárias"
-        items={informacoesPlanetarias}
-        onBack={() => navigate("/app/menu")}
+        title="☀️ Sistema Solar"
+        items={menuSistemaSolar}
+        onBack={() => navigate("/app/planetary-information")}
         />
       </main>
     </div>
   )
 }
-export default PlanetaryInformation;
+export default SolarSystem;
