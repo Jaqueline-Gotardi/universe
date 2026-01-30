@@ -22,4 +22,4 @@ const PlanetaryInformation = () => {
     </div>
   )
 }
-export default PlanetaryInformation;
+export default PlanetaryInformation; 

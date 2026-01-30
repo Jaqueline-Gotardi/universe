@@ -80,46 +80,6 @@ export const galaxiasFamosas = [
     { id: "triangulo(m33)", label: "Triângulo (M33)", route: "/app/triangle-m33", icon: "📐"}, 
 ]
 
-
-
-
-
-export const informacoesPlanetarias = [
-    { id: "sistema-solar", label: "Sistema Solar", route: "/app/sistema-solar", icon: "☀️"},
-    { id: "planetas", label: "Planetas", route: "/app/planetary-menu", icon: "🪐"}, 
-    { id: "luas-e-satelites", label: "Luas e Satélites", route: "", icon: "🌙"}, 
-]
-
-export const menuSistemaSolar = [
-    { id: "conteudo-principal", label: "Conteúdo Principal", route: "", icon: "📖"},
-    { id: "curiosidades", label: "Curiosidades", route: "", icon: "💡"},
-    { id: "visual", label: "Visual", route: "", icon: "🔭"},
-]
-
-export const menuPlanetas = [
-    { id: "mercurio", label: "Mercúrio", route: "/app/mercury", icon: "☄️"},
-    { id: "venus", label: "Vênus", route: "/app/venus", icon: "🌅"}, 
-    { id: "terra", label: "Terra", route: "/app/earth", icon: "🌍"},
-    { id: "marte", label: "Marte", route: "/app/mars", icon: "🔴"}, 
-    { id: "jupiter", label: "Júpiter", route: "/app/jupiter", icon: "🌌"}, 
-    { id: "saturno", label: "Saturno", route: "/app/saturn", icon: "🪐"},
-    { id: "urano", label: "Urano", route: "/app/uranus", icon: "💎"}, 
-    { id: "netuno", label: "Netuno", route: "/app/neptune", icon: "🔱"}, 
-    { id: "plutao", label: "Plutão", route: "/app/pluto", icon: "❄️"}, 
-]
-
-export const menuLuasESatelites = [
-    { id: "nossa-lua", label: "Nossa Lua", route: "", icon: "🌑"},
-    { id: "luas-famosas", label: "Luas famosas", route: "", icon: "☄️"},
-    { id: "satelites-artificiais", label: "Satélites Artificiais", route: "", icon: "🛰️"},
-]
-
-
-
-
-
-
-
 export const menuExtras = [
     { id: "perfil", label: "Perfil", route: "/app/profile", icon: "👤"},
     { id: "criadores", label: "Criadores", route: "/app/creators", icon: "🚀"}, 
