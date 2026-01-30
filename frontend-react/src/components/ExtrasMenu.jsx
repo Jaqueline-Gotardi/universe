@@ -4,7 +4,7 @@ import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
 import { menuExtras } from "../data/menuData";
-const MenuExtras = () => {
+const ExtrasMenu = () => {
   const navigate = useNavigate();
 
   return (
@@ -21,7 +21,7 @@ const MenuExtras = () => {
     </div>
   )
 }
-export default MenuExtras;
+export default ExtrasMenu;
 
 
 /* outra coisa interessante no react: quando vamos colocar propriedades do css, como "justify-content", deve-se escrever juntos e não com "-" no meio */ 

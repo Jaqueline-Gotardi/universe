@@ -17,7 +17,7 @@ const CosmicCard = ({ items, title, onBack }) => {
         {items.map((item, index) => (
           <button 
           type="button" 
-          className="btn-cosmic" id="btn-informacoes-astronomicas"
+          className="btn-cosmic"  id="btn-informacoes-astronomicas"
           key={item.id}
           style={{
             ...styles.menuButton,

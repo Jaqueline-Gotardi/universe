@@ -1,15 +1,18 @@
 import { useNavigate } from "react-router-dom";
- 
+import CosmicBackground from "./CosmicBackground";
+
 function ChangePassword() {
 
     const navigate = useNavigate();
 
     return (
     <section class="secao-trocar-senha" id="secao-trocar-senha" >
+      <CosmicBackground />
+      
     <div class="container-perfil">
       <h2 class="titulo-secao">Alterar Senha de Acesso</h2>
       <form class="form-trocar-senha">
-
+ 
         <div class="campo-input">
           <label htmlFor="senha-atual">Senha Atual</label>
           <input type="password" id="senha-atual" placeholder="Digite sua senha atual" />

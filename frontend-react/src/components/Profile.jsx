@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
+import CosmicBackground from "./CosmicBackground";
+
 //avatar padrão em construído em código SVG
 const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
@@ -9,7 +11,7 @@ const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
   <path d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM12 7C13.6569 7 15 8.34315 15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10C9 8.34315 10.3431 7 12 7ZM12 17.2C10.1 17.2 8.4 16.3 7.3 14.9C7.3 13.3 10.4 12.4 12 12.4C13.6 12.4 16.7 13.3 16.7 14.9C15.6 16.3 13.9 17.2 12 17.2Z" fill="#94a3b8"/>
 </svg>
 `)}`;
- 
+  
 function Profile() {
 
     const navigate = useNavigate();
@@ -87,8 +89,30 @@ function Profile() {
         setActiveSection("view");//trocar seção
     };
 
+    const styles = {
+    backButton: {
+    marginTop: "30px",
+    padding: "15px 50px",
+    fontFamily: "'Orbitron', sans-serif",
+    fontSize: "14px",
+    fontWeight: 600,
+    letterSpacing: "3px",
+    color: "#ffffff",
+    background: "linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.4) 100%)",
+    border: "2px solid rgba(168, 85, 247, 0.5)",
+    borderRadius: "50px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 5px 25px rgba(168, 85, 247, 0.3)",
+    textShadow: "0 0 10px rgba(168, 85, 247, 0.5)",
+    zIndex: "1",
+  }
+}
+
     return (
     <section className="tela-perfil" id="tela-perfil-usuario">
+
+      <CosmicBackground />
     <div className="container-perfil">
   
   {/* // Seção de visualização do perfil */}
@@ -120,8 +144,24 @@ function Profile() {
             </p>
           </div>
         </div>
-        <button type="button" className="botao-voltar" id="btn-voltar-perfil"
-        onClick={() => navigate("/app/extras-menu")}>Voltar</button>
+        {/* <button type="button" className="botao-voltar" id="btn-voltar-perfil"
+        onClick={() => navigate("/app/extras-menu")}>Voltar</button> */}
+        <button 
+    type="button"
+    className="botao-voltar"
+    id="btn-voltar-info-menu"
+    style={styles.backButton}
+    onClick={() => navigate("/app/extras-menu")}
+    onMouseEnter={(e) => {
+      e.target.style.transform = "scale(1.05)";
+      e.target.style.boxShadow = "0 0 30px rgba(168, 85, 247, 0.5)";
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.transform = "scale(1)";
+      e.target.style.boxShadow = "0 5px 25px rgba(168, 85, 247, 0.3)";
+      }}>      
+      Voltar
+      </button>
       </div>
   )}
   

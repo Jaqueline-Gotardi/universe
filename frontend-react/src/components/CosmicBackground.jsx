@@ -78,7 +78,7 @@ const CosmicBackground = () => {
           />
         ))}
         
-
+ 
       <style> {`
       .cosmic-engine { /* plano de fundo galático */
       position: fixed; 

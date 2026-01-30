@@ -71,6 +71,7 @@ export const menuGalaxias = [
 
 
 
+
 export const tiposDeGalaxias = [
     { id: "espiral", label: "Espiral", route: "/app/spiral", icon: ""},
     { id: "eliptica", label: "Elíptica", route: "/app/elliptical", icon: ""}, 
