@@ -1,9 +1,3 @@
-export const informacoesPlanetarias = [
-    { id: "sistema-solar", label: "Sistema Solar", route: "/app/sistema-solar", description: "Estrutura e componentes", icon: "☀️"},
-    { id: "planetas", label: "Planetas", route: "/app/planetary-menu", description: "Os 8 planetas do sistema solar", icon: "🪐"}, 
-    { id: "luas-e-satelites", label: "Luas e Satélites", route: "", description: "Satélites naturais", icon: "🌙"}, 
-]
-
 export const menuSistemaSolar = [
     { id: "sol", label: "O Sol", icon: "☀️", route: "/conteudo/sol", color: "#FFD700" },
     { id: "cinturao-asteroides", label: "Cinturão de Asteroides", icon: "☄️", route: "/conteudo/cinturao-asteroides", color: "#A0522D" },
