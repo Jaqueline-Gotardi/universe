@@ -215,29 +215,7 @@ export const galaxiasFamosas = [
   },
 ];
 
-export const informacoesPlanetarias = [
-  {
-    id: "sistema-solar",
-    label: "Sistema Solar",
-    route: "/app/sistema-solar",
-    description: "Estrutura e componentes",
-    icon: "☀️",
-  },
-  {
-    id: "planetas",
-    label: "Planetas",
-    route: "/app/planetary-menu",
-    description: "Os 8 planetas do sistema solar",
-    icon: "🪐",
-  },
-  {
-    id: "luas-e-satelites",
-    label: "Luas e Satélites",
-    route: "",
-    description: "Satélites naturais",
-    icon: "🌙",
-  },
-];
+
 
 export const menuExtras = [
   { id: "perfil", label: "Perfil", route: "/app/profile", icon: "👤" },
@@ -486,83 +464,5 @@ export const conteudos = {
     descricao: `A Galáxia do Triângulo é a terceira maior da nossa família de galáxias e uma das maiores fábricas de estrelas do universo local. Ela é uma galáxia espiral menor e compacta, com um diâmetro de cerca de 60.000 anos-luz e cerca de 40 bilhões de estrelas. Sua alta taxa de nascimento de novas estrelas a torna um dos alvos mais fascinantes para a sua missão de exploração.
 
     Observar isto te conecta com o universo em ação, criando e evoluindo diante de seus olhos.`,
-  },
-
-  "sol": {
-    titulo: "O sol",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "cinturiao-de-asteroides": {
-    titulo: "Cinturião de Asteroides",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "cinturiao-de-kuiper": {
-    titulo: "Cinturião de Kuiper",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "nuvem-de-oort": {
-    titulo: "Nuvem de Oort",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "planetas-anoes": {
-    titulo: "Planetas Anões",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "lua(terra)": {
-    titulo: "Lua (Terra)",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "Io(jupiter)": {
-    titulo: "Io (Júpiter)",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "europa(jupiter)": {
-    titulo: "Europa (Júpiter)",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "ganimedes(jupiter)": {
-    titulo: "Ganimedes (Júpiter)",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "calisto(jupiter)": {
-    titulo: "Calisto (Júpiter)",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "tita(saturno)": {
-    titulo: "Titã (Saturno)",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "encelado(terra)": {
-    titulo: "Encélado (Saturno)",
-    imagem: "",
-    descricao: ``,
-  },
-
-  "tritao(netuno)": {
-    titulo: "Tritão (Netuno)",
-    imagem: "",
-    descricao: ``,
   },
 };
