@@ -3,7 +3,7 @@ import CosmicBackground from "./CosmicBackground";
 import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-import { menuPlanetas } from "../data/menuData";
+import { menuPlanetas } from "../data/planetaryData";
 
 //import "../style/tela-informacoes-planetarias.css"
 

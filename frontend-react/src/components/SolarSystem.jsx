@@ -3,7 +3,7 @@ import CosmicBackground from "./CosmicBackground";
 import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-import { menuSistemaSolar } from "../data/menuData";
+import { menuSistemaSolar } from "../data/planetaryData";
 
 const SolarSystem = () => {
   const navigate = useNavigate();
