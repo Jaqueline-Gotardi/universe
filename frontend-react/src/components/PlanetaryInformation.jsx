@@ -55,11 +55,340 @@ const PlanetaryInformation = () => {
   const handleItemClick = (route) => {
     navigate(route);
   };
-  
+
+  const styles = {
+    container: {
+      minHeight: "100vh",
+      width: "100%",
+      background: "#050505",
+      position: "relative",
+      overflow: "hidden",
+    },
+    backgroundLayer: {
+      position: "absolute",
+      inset: 0,
+      overflow: "hidden",
+    },
+    star: {
+      position: "absolute",
+      borderRadius: "50%",
+      background: "#ffffff",
+      boxShadow: "0 0 6px #ffffff, 0 0 12px #00ffff",
+      animation: "twinkle 3s ease-in-out infinite",
+      pointerEvents: "none",
+    },
+    orbitalRing1: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      width: "600px",
+      height: "600px",
+      border: "1px solid rgba(138, 43, 226, 0.2)",
+      borderRadius: "50%",
+      transform: "translate(-50%, -50%) rotateX(75deg)",
+      animation:
+        "ringRotate 30s linear infinite, orbitPulse 5s ease-in-out infinite",
+      pointerEvents: "none",
+    },
+    orbitalRing2: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      width: "800px",
+      height: "800px",
+      border: "1px solid rgba(0, 255, 255, 0.15)",
+      borderRadius: "50%",
+      transform: "translate(-50%, -50%) rotateX(75deg)",
+      animation: "ringRotate 45s linear infinite reverse, orbitPulse 7s ease-in-out infinite",
+      pointerEvents: "none",
+    },
+    orbitalRing3: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      width: "1000px",
+      height: "1000px",
+      border: "1px solid rgba(255, 107, 107, 0.1)",
+      borderRadius: "50%",
+      transform: "translate(-50%, -50%) rotateX(75deg)",
+      animation: "ringRotate 60s linear infinite, orbitPulse 9s ease-in-out infinite",
+      pointerEvents: "none",
+    },
+    content: {
+      position: "relative",
+      zIndex: 10,
+      padding: "40px 20px",
+      maxWidth: "1200px",
+      margin: "0 auto",
+    },
+    header: {
+      textAlign: "center",
+      marginBottom: "50px",
+    },
+    backButton: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "8px",
+      padding: "12px 24px",
+      background: "rgba(255, 107, 107, 0.1)",
+      border: "1px solid rgba(255, 107, 107, 0.3)",
+      borderRadius: "30px",
+      color: "#ff6b6b",
+      fontSize: "14px",
+      fontFamily: "'Orbitron', sans-serif",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      marginBottom: "30px",
+      backdropFilter: "blur(10px)",
+    },
+    titleContainer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "20px",
+      marginBottom: "15px",
+    },
+    sparkleIcon: {
+      color: "#00ffff",
+      filter: "drop-shadow(0 0 10px #00ffff)",
+    },
+    mainTitle: {
+      fontSize: "clamp(28px, 5vw, 48px)",
+      fontFamily: "'Orbitron', sans-serif",
+      fontWeight: "700",
+      margin: 0,
+      letterSpacing: "3px",
+    },
+    subtitle: {
+      fontSize: "16px",
+      color: "rgba(255, 255, 255, 0.6)",
+      fontFamily: "'Space Mono', monospace",
+      margin: 0,
+    },
+    categoriesContainer: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+      gap: "30px",
+      padding: "20px",
+    },
+    categoryCard: {
+      position: "relative",
+      background: "rgba(10, 10, 30, 0.8)",
+      border: "1px solid rgba(138, 43, 226, 0.3)",
+      borderRadius: "24px",
+      padding: "40px 30px",
+      textAlign: "center",
+      cursor: "pointer",
+      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+      backdropFilter: "blur(20px)",
+      overflow: "hidden",
+      animation: "glowPulse 4s ease-in-out infinite, borderGlow 3s ease-in-out infinite",
+    },
+    categoryGlow: {
+      position: "absolute",
+      top: "-50%",
+      left: "-50%",
+      width: "200%",
+      height: "200%",
+      background: "radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 50%)",
+      pointerEvents: "none",
+    },
+    categoryIcon: {
+      fontSize: "64px",
+      marginBottom: "20px",
+      display: "block",
+      filter: "drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))",
+    },
+    categoryLabel: {
+      fontSize: "24px",
+      fontFamily: "'Orbitron', sans-serif",
+      fontWeight: "600",
+      color: "#ffffff",
+      marginBottom: "10px",
+      textShadow: "0 0 20px rgba(138, 43, 226, 0.5)",
+    },
+    categoryDescription: {
+      fontSize: "14px",
+      fontFamily: "'Space Mono', monospace",
+      color: "rgba(255, 255, 255, 0.6)",
+      marginBottom: "20px",
+    },
+    categoryArrow: {
+      fontSize: "24px",
+      color: "#00ffff",
+      transition: "transform 0.3s ease",
+      textShadow: "0 0 10px #00ffff",
+    },
+    subItemsContainer: {
+      padding: "20px",
+    },
+    subHeader: {
+      display: "flex",
+      alignItems: "center",
+      gap: "20px",
+      marginBottom: "40px",
+      flexWrap: "wrap",
+    },
+    subBackButton: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      padding: "10px 20px",
+      background: "rgba(138, 43, 226, 0.1)",
+      border: "1px solid rgba(138, 43, 226, 0.3)",
+      borderRadius: "20px",
+      color: "#8a2be2",
+      fontSize: "13px",
+      fontFamily: "'Orbitron', sans-serif",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      backdropFilter: "blur(10px)",
+    },
+    subTitle: {
+      fontSize: "28px",
+      fontFamily: "'Orbitron', sans-serif",
+      fontWeight: "600",
+      color: "#ffffff",
+      margin: 0,
+      background: "linear-gradient(90deg, #00ffff, #8a2be2)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text",
+    },
+    subItemsGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+      gap: "20px",
+    },
+    subItem: {
+      position: "relative",
+      background: "rgba(10, 10, 30, 0.7)",
+      border: "1px solid rgba(0, 255, 255, 0.2)",
+      borderRadius: "20px",
+      padding: "30px 20px",
+      textAlign: "center",
+      cursor: "pointer",
+      transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)", //controla a curva de velocidade da animação
+      backdropFilter: "blur(15px)",
+      overflow: "hidden",
+    },
+    itemGlow: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      width: "150%",
+      height: "150%",
+      transform: "translate(-50%, -50%)",
+      pointerEvents: "none",
+      opacity: 0.5,
+    },
+    itemIcon: {
+      fontSize: "48px",
+      marginBottom: "15px",
+      display: "block",
+      position: "relative",
+      zIndex: 1,
+      filter: "drop-shadow(0 0 15px rgba(255, 255, 255, 0.4))",
+    },
+    itemLabel: {
+      fontSize: "14px",
+      fontFamily: "'Orbitron', sans-serif",
+      fontWeight: "500",
+      color: "#ffffff",
+      position: "relative",
+      zIndex: 1,
+      textShadow: "0 0 10px rgba(0, 255, 255, 0.3)",
+    },
+    itemBorder: {
+      position: "absolute",
+      inset: 0,
+      borderRadius: "20px",
+      border: "2px solid transparent",
+      transition: "border-color 0.3s ease",
+      pointerEvents: "none", //se o usuário cliclar em um botão q está atrás de algo, esse botão ainda iŕa fazer sua devida função!
+      },
   };
   return (
   <div style={styles.container}>
-
+  <style>{`
+    @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    }
+       
+    @keyframes nebulaPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+    }    
+        
+    @keyframes floatUp {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    }
+        
+    @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), inset 0 0 20px rgba(138, 43, 226, 0.1); }
+    50% { box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), inset 0 0 30px rgba(138, 43, 226, 0.2); }
+    }
+        
+    @keyframes borderGlow {
+    0%, 100% { border-color: rgba(138, 43, 226, 0.5); }
+    50% { border-color: rgba(0, 255, 255, 0.8); }
+    }
+        
+    @keyframes iconFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.1); }
+    }
+        
+    @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+    }
+        
+    @keyframes ringRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+    }
+        
+    @keyframes orbitPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    }
+    
+    .category-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(138, 43, 226, 0.5), 0 0 100px rgba(0, 255, 255, 0.2);
+    }
+        
+    .category-card:hover .category-icon {
+    animation: iconFloat 1s ease-in-out infinite;
+    }
+        
+    .sub-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+    }
+        
+    .sub-item:hover .item-icon {
+    animation: iconFloat 0.8s ease-in-out infinite;
+    }
+    
+    .back-button:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+    }
+        
+    .main-title {
+    background: linear-gradient(90deg, #00ffff, #8a2be2, #ff6b6b, #00ffff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+    }
+    `}
+  </style>
   <div style={styles.backgroundLayer}>
     {/* Estrelas */}
     {stars.map((star) => (
@@ -181,5 +510,6 @@ const PlanetaryInformation = () => {
   </div>
   </div>
   );
+};
 
 export default PlanetaryInformation;
