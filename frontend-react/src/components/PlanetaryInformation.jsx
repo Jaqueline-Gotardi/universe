@@ -130,11 +130,13 @@ const PlanetaryInformation = () => {
       alignItems: "center",
       gap: "8px",
       padding: "12px 24px",
-      background: "rgba(255, 107, 107, 0.1)",
-      border: "1px solid rgba(255, 107, 107, 0.3)",
+      background: "linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.4) 100%)",
       borderRadius: "30px",
-      color: "#ff6b6b",
+      border: "2px solid rgba(168, 85, 247, 0.5)",
+      color: "#ffffff",
       fontSize: "14px",
+      fontWeight: 600,
+      boxShadow: "0 5px 25px rgba(168, 85, 247, 0.3)",textShadow: "0 0 10px rgba(168, 85, 247, 0.5)",
       fontFamily: "'Orbitron', sans-serif",
       cursor: "pointer",
       transition: "all 0.3s ease",
@@ -375,8 +377,8 @@ const PlanetaryInformation = () => {
     }
     
     .back-button:hover {
-    transform: translateX(-5px);
-    box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(168, 85, 247, 0.3);
     }
         
     .main-title {
@@ -390,7 +392,7 @@ const PlanetaryInformation = () => {
     `}
   </style>
   <div style={styles.backgroundLayer}>
-    {/* Estrelas */}
+    {/* Estrelas */} 
     {stars.map((star) => (
       <div
       key={`star-${star.id}`}

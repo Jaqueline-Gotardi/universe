@@ -19,8 +19,8 @@ function Mercury() {
       </p>
     </div>
     <button type="button" className="botao-voltar-planeta" id="btn-voltar-mercurio"
-    onClick={() => navigate("/app/planetary-menu")}>Voltar</button>
+    onClick={() => navigate("/app/planetary-information")}>Voltar</button>
   </section>
     )
 }
-export default Mercury;
+export default Mercury; 

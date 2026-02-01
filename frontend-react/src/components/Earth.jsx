@@ -24,7 +24,7 @@ function Earth() {
       </p>
     </div>
     <button type="button" className="botao-voltar-planeta" id="btn-voltar-terra"
-    onClick={() => navigate("/app/planetary-menu")}>Voltar</button>
+    onClick={() => navigate("/app/planetary-information")}>Voltar</button>
   </section>
     )
 }

@@ -19,7 +19,7 @@ function Uranus() {
       </p>
     </div>
     <button type="button" className="botao-voltar-planeta" id="btn-voltar-urano"
-    onClick={() => navigate("/app/planetary-menu")}>Voltar</button>
+    onClick={() => navigate("/app/planetary-information")}>Voltar</button>
   </section>
     )
 }

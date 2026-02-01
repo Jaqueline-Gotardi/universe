@@ -20,7 +20,7 @@ function Saturn() {
       </p>
     </div>
     <button type="button" className="botao-voltar-planeta" id="btn-voltar-saturno"
-    onClick={() => navigate("/app/planetary-menu")}>Voltar</button>
+    onClick={() => navigate("/app/planetary-information")}>Voltar</button>
   </section>
     )
 }

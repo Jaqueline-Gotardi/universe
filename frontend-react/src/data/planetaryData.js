@@ -1,17 +1,17 @@
 export const informacoesPlanetarias = [
   {
-    id: "sistema-solar",
-    label: "Sistema Solar",
-    route: "/app/sistema-solar",
-    description: "Estrutura e componentes",
-    icon: "☀️",
-  },
-  {
     id: "planetas",
     label: "Planetas",
     route: "/app/planetary-menu",
     description: "Os 8 planetas do sistema solar",
     icon: "🪐",
+  },
+  {
+    id: "sistema-solar",
+    label: "Sistema Solar",
+    route: "/app/sistema-solar",
+    description: "Estrutura e componentes",
+    icon: "☀️",
   },
   {
     id: "luas-e-satelites",

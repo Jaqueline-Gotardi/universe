@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import CosmicBackground from "./CosmicBackground";
 import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ const PlanetaryMenu = () => {
     </div>
   )
 }
-export default PlanetaryMenu;
+export default PlanetaryMenu; */
 
 {/* <button type="button" className="btn-cosmic" id="btn-sol"
       onClick={() => navigate("/app/sun")}>Sol</button> */}

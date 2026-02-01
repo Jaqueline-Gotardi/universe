@@ -20,7 +20,7 @@ function Mars() {
       </p>
     </div>
     <button type="button" className="botao-voltar-planeta" id="btn-voltar-marte"
-    onClick={() => navigate("/app/planetary-menu")}>Voltar</button>
+    onClick={() => navigate("/app/planetary-information")}>Voltar</button>
   </section>
     )
 }

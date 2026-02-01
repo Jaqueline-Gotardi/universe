@@ -22,7 +22,7 @@ function Jupiter() {
       </p>
     </div>
     <button type="button" className="botao-voltar-planeta" id="btn-voltar-jupiter"
-    onClick={() => navigate("/app/planetary-menu")}>Voltar</button>
+    onClick={() => navigate("/app/planetary-information")}>Voltar</button>
   </section>
     )
 }

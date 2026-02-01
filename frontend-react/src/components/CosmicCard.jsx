@@ -38,7 +38,7 @@ const CosmicCard = ({ items, title, onBack }) => {
         </button>
         ))}
 
-    </div>
+    </div> 
 
     <button 
     type="button"
