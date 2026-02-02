@@ -60,7 +60,7 @@ import AndromedaGalaxy from './components/AndromedaGalaxy.jsx';
 import TriangleM33 from './components/TriangleM33.jsx';
 
 import PlanetaryInformation from './components/PlanetaryInformation.jsx';
-import SolarSystem from './components/SolarSystem.jsx';
+/* import SolarSystem from './components/SolarSystem.jsx'; */
 /* import PlanetaryMenu from './components/PlanetaryMenu.jsx'; */
 
 
@@ -82,6 +82,8 @@ import CinturaoAsteroides from './components/CinturaoAsteroides.jsx';
 import CinturaoKuiper from './components/CinturaoKuiper.jsx';
 import OortCloud from './components/OortCloud.jsx';
 import DwartPlanets from './components/DwartPlanets.jsx';
+
+import Moon from './components/Moon.jsx';
 
 import ExtrasMenu from './components/ExtrasMenu.jsx';
 import Profile from './components/Profile.jsx';
@@ -283,10 +285,10 @@ const router = createBrowserRouter([
         path: "planetary-information",
         element: <PlanetaryInformation />
       },
-      {
+      /* {
         path: "sistema-solar",
         element: <SolarSystem />
-      },
+      }, */
       /* {
         path: "planetary-menu",
         element: <PlanetaryMenu />
@@ -346,6 +348,10 @@ const router = createBrowserRouter([
       {
         path: "planetas-anoes",
         element: <DwartPlanets />
+      },
+      {
+        path: "lua",
+        element: <Moon />
       },
       {
         path: "extras-menu",

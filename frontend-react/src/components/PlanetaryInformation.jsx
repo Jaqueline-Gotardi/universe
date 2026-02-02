@@ -31,14 +31,14 @@ const PlanetaryInformation = () => {
         return menuPlanetas;
       case "sistema-solar":
         return menuSistemaSolar;
-      case "luas-satelites":
+      case "luas-e-satelites": //nome do id do botao (definido em planetaryData.js)
         return menuLuasESatelites;
       default:
         return [];
     }
   };
 
-  //fazer a busca pelo id
+  //fazer a busca pelo id 
   const getCategoryTitle = () => {
     const category = informacoesPlanetarias.find((c) => c.id === activeCategory,
   );
@@ -473,7 +473,7 @@ const PlanetaryInformation = () => {
       style={styles.subBackButton}
       onClick={handleBackToCategories}
       >
-      <ArrowLeft size={18} />
+      <ArrowLeft size={18} /> 
       <span>Voltar</span>
       </button>
       <h2 style={styles.subTitle}>{getCategoryTitle()}</h2>

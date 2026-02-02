@@ -1,11 +1,11 @@
-import React from "react";
+/* import React from "react";
 import CosmicBackground from "./CosmicBackground";
 import CosmicCard from "./CosmicCard";
 import { useNavigate } from "react-router-dom";
 
-import { menuSistemaSolar } from "../data/planetaryData";
+import { menuLuasESatelites } from "../data/planetaryData";
 
-const SolarSystem = () => {
+const MoonsAndSatellites = () => {
   const navigate = useNavigate();
 
   return (
@@ -14,12 +14,12 @@ const SolarSystem = () => {
 
       <main>
         <CosmicCard
-        title="☀️ Sistema Solar"
-        items={menuSistemaSolar}
+        title="🌙 Luas e Satélites"
+        items={menuLuasESatelites}
         onBack={() => navigate("/app/planetary-information")}
         />
       </main>
     </div>
   )
 }
-export default SolarSystem;  
+export default MoonsAndSatellites;  */
