@@ -77,6 +77,12 @@ import Saturn from './components/Saturn.jsx';
 import Uranus from './components/Uranus.jsx';
 import Neptune from './components/Neptune.jsx';
 import Pluto from './components/Pluto.jsx';
+
+import CinturaoAsteroides from './components/CinturaoAsteroides.jsx';
+import CinturaoKuiper from './components/CinturaoKuiper.jsx';
+import OortCloud from './components/OortCloud.jsx';
+import DwartPlanets from './components/DwartPlanets.jsx';
+
 import ExtrasMenu from './components/ExtrasMenu.jsx';
 import Profile from './components/Profile.jsx';
 import Creators from './components/Creators.jsx';
@@ -292,7 +298,7 @@ const router = createBrowserRouter([
       {
         path: "mercury",
         element: <Mercury />
-      },
+      }, 
       {
         path: "venus",
         element: <Venus />
@@ -324,6 +330,22 @@ const router = createBrowserRouter([
       {
         path: "pluto",
         element: <Pluto />
+      },
+      {
+        path: "cinturao-asteroides",
+        element: <CinturaoAsteroides />
+      },
+      {
+        path: "cinturao-kuiper",
+        element: <CinturaoKuiper />
+      },
+      {
+        path: "nuvem-oort",
+        element: <OortCloud />
+      },
+      {
+        path: "planetas-anoes",
+        element: <DwartPlanets />
       },
       {
         path: "extras-menu",

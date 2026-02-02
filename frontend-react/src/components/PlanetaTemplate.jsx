@@ -9,7 +9,7 @@ export const PlanetaTemplate = ({planetaId}) => {
 
   const cornerStyle = {
     position: "absolute",
-    width: "30px", 
+    width: "30px",  
     height: "30px",
     animation: "borderGlow 2s ease-in-out infinite",
   }

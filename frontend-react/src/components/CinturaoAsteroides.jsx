@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import CosmicBackground from "./CosmicBackground";
 import { PlanetaTemplate } from "./PlanetaTemplate";
 
-const Sun = () => {
-  const navigate = useNavigate(); 
+const CinturaoAsteroides = () => {
+  const navigate = useNavigate();
 
   return (
     <div style={{position: "relative", minHeight: "100vh"}}>
@@ -11,11 +11,11 @@ const Sun = () => {
 
       <main>
         <PlanetaTemplate
-        planetaId= "sol"
+        planetaId= "cinturao-de-asteroides"
         onBack={() => navigate("/app/constellations-menu")}
         />
       </main>
     </div>
   )
 }
-export default Sun; 
+export default CinturaoAsteroides; 

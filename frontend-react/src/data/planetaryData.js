@@ -27,35 +27,35 @@ export const menuSistemaSolar = [
     id: "sol",
     label: "O Sol",
     icon: "☀️",
-    route: "/conteudo/sol",
+    route: "/app/sun",
     color: "#FFD700",
   },
   {
     id: "cinturao-asteroides",
     label: "Cinturão de Asteroides",
     icon: "☄️",
-    route: "/conteudo/cinturao-asteroides",
+    route: "/app/cinturao-asteroides",
     color: "#A0522D",
   },
   {
     id: "cinturao-kuiper",
     label: "Cinturão de Kuiper",
     icon: "💫",
-    route: "/conteudo/cinturao-kuiper",
+    route: "/app/cinturao-kuiper",
     color: "#708090",
   },
   {
     id: "nuvem-oort",
     label: "Nuvem de Oort",
     icon: "🌌",
-    route: "/conteudo/nuvem-oort",
+    route: "/app/nuvem-oort",
     color: "#483D8B",
   },
   {
     id: "planetas-anoes",
     label: "Planetas Anões",
     icon: "⚫",
-    route: "/conteudo/planetas-anoes",
+    route: "/app/planetas-anoes",
     color: "#696969",
   },
 ];
@@ -205,7 +205,7 @@ export const conteudosPlanetarios = {
     Netuno possui 16 luas conhecidas, sendo Tritão a maior e mais interessante. Tritão é uma das luas mais frias do Sistema Solar e é geologicamente ativa, com gêiseres que expelem nitrogênio. Curiosamente, Tritão orbita Netuno na direção oposta à rotação do planeta.`,
   },
 
-  "sol": {
+  sol: {
     titulo: "O sol - Nossa Estrela",
     imagem: "/imagens/sol.png",
     descricao: `O Sol é a estrela no centro do nosso Sistema Solar. É uma esfera quase perfeita de plasma quente, com um diâmetro de cerca de 1,4 milhão de quilômetros - 109 vezes o diâmetro da Terra.
@@ -217,7 +217,7 @@ export const conteudosPlanetarios = {
 
   "cinturao-de-asteroides": {
     titulo: "Cinturão de Asteroides",
-    imagem: "/imagens/cinturiao-de-asteroides.png",
+    imagem: "/imagens/cinturao-de-asteroides.png",
     descricao: `Localizado na vasta região entre as órbitas de Marte e Júpiter, o Cinturião de Asteroides é um disco circunestelar composto por milhões de corpos rochosos e metálicos. Apesar da grande quantidade de objetos, a massa total do cinturião é apenas cerca de 4% da massa da Lua terrestre.
 
     Os objetos variam desde minúsculos grãos de poeira até o planeta anão Ceres, que detém um terço da massa de todo o cinturião. Ao contrário das representações em filmes, o espaço entre os asteroides é imenso, permitindo que sondas espaciais o atravessem sem colisões.
@@ -227,7 +227,7 @@ export const conteudosPlanetarios = {
 
   "cinturao-de-kuiper": {
     titulo: "Cinturão de Kuiper",
-    imagem: "/imagens/cinturiao-de-kuiper.png",
+    imagem: "/imagens/cinturao-de-kuiper.png",
     descricao: `O Cinturião de Kuiper é uma região gelada que se estende além da órbita de Netuno, aproximadamente de 30 a 50 unidades astronómicas do Sol. É semelhante ao cinturião de asteroides, mas é muito maior — 20 vezes mais largo e até 200 vezes mais massivo.
 
     Esta região é composta maioritariamente por corpos gelados, formados por "gelos" voláteis como metano, amoníaco e água. É o lar de muitos planetas anões, incluindo Plutão, Haumea e Makemake.
