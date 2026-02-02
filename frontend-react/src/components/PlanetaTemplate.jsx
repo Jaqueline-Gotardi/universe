@@ -6,6 +6,13 @@ export const PlanetaTemplate = () => {
 
   if (!conteudo) return <div>Carregando. . .</div>;
 
+  const cornerStyle = {
+    position: "absolute",
+    width: "30px",
+    height: "30px",
+    animation: "borderGlow 2s ease-in-out infinite",
+  }
+
   const styles = {
     container: {
       minHeight: "100vh",
@@ -40,54 +47,42 @@ export const PlanetaTemplate = () => {
     },
 
     cornerTopLeft: {
-      position: "absolute",
-      top: "-2px",
-      right: "-2px",
-      width: "30px",
-      height: "30px",
-      borderTop: "3px solid #06b6d4",
-      borderRight: "3px solid #06b6d4",
-      borderRadius: "0 24px 0 0",
-      animation: "borderGlow 3s ease-in-out infinite",
-      animationDelay: "0.5s",
+      ...cornerStyle,
+     top: "-2px",
+     left: "-2px",
+     borderTop: "3px solid #06b6d4",
+     borderLeft: "3px solid #06b6d4",
+     borderRadius: "24px 0 0 0",
+     animationDelay: "0.2s",
     },
 
     cornerTopRight: {
-      position: "absolute",
+      ...cornerStyle,
       top: "-2px",
       right: "-2px",
-      width: "30px",
-      height: "30px",
       borderTop: "3px solid #06b6d4",
       borderRight: "3px solid #06b6d4",
       borderRadius: "0 24px 0 0",
-      animation: "borderGlow 3s ease-in-out infinite",
       animationDelay: "0.5s",
     },
 
     cornerBottomLeft: {
-      position: "absolute",
+      ...cornerStyle,
       bottom: "-2px",
       left: "-2px",
-      width: "30px",
-      height: "30px",
       borderBottom: "3px solid #06b6d4",
       borderLeft: "3px solid #06b6d4",
       borderRadius: "0 0 0 24px",
-      animation: "borderGlow 3s ease-in-out infinite",
       animationDelay: "1s",
     },
 
     cornerBottomRight: {
-      position: "absolute",
+      ...cornerStyle,
       bottom: "-2px",
       right: "-2px",
-      width: "30px",
-      height: "30px",
       borderBottom: "3px solid #06b6d4",
       borderRight: "3px solid #06b6d4",
       borderRadius: "0 0 24px 0",
-      animation: "borderGlow 3s ease-in-out infinite",
       animationDelay: "1.5s",
     },
 
@@ -111,7 +106,7 @@ export const PlanetaTemplate = () => {
       boxShadow:
         "0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(6, 182, 212, 0.1)",
       overflow: "hidden",
-      animation: "imageFloat 5s ease-in-out infinite",
+      animation: "imageFloat 3s ease-in-out infinite",
     },
 
     imageElement: {
@@ -192,7 +187,6 @@ export const PlanetaTemplate = () => {
           {/* Imagem/Ícone */}
           <div style={styles.imageContainer}>
             <div style={styles.imagePlaceholder}>
-              {/* <img style={styles.imageIcon} src={conteudo.imagem}></img> */}
               <img
                 src={conteudo.imagem}
                 alt={conteudo.titulo}
@@ -232,21 +226,15 @@ export const PlanetaTemplate = () => {
         </button>
       </div>
       <style>{`
-    /* @keyframes floatUp {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.6; }
-    90% { opacity: 0.6; }
-    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-    } */
-
     @keyframes imageFloat {
     0%, 100% { transform: translateY(0) scale(1); }
     50% { transform: translateY(-8px) scale(1.02); }
     }
 
     @keyframes borderGlow {
-    0%, 100% { opacity: 0.5; }
+    0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
+    100% { box-shadow: 0 0 45px rgba(6, 182, 212, 0.7), 0 0 30px rgba(6, 182, 212, 0.5); }
     }
 
     @keyframes titleGlow {
