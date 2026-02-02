@@ -24,7 +24,7 @@ const PlanetaryMenu = () => {
     </div>
   )
 }
-export default PlanetaryMenu; */
+export default PlanetaryMenu;  */
 
 {/* <button type="button" className="btn-cosmic" id="btn-sol"
       onClick={() => navigate("/app/sun")}>Sol</button> */}

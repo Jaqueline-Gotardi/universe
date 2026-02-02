@@ -44,7 +44,7 @@ const CosmicCard = ({ items, title, onBack }) => {
     type="button"
     className="botao-voltar"
     id="btn-voltar-info-menu"
-    style={styles.backButton}
+    style={styles.backButton} 
     onClick={onBack}
     onMouseEnter={(e) => {
       e.target.style.transform = "scale(1.05)";

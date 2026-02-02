@@ -3,7 +3,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importando o roteador
-
+ 
 import ProtectRoute from './components/ProtectRoute.jsx';
 import { AuthProvider } from '../contexts/authContext.jsx';
 
@@ -61,7 +61,7 @@ import TriangleM33 from './components/TriangleM33.jsx';
 
 import PlanetaryInformation from './components/PlanetaryInformation.jsx';
 import SolarSystem from './components/SolarSystem.jsx';
-import PlanetaryMenu from './components/PlanetaryMenu.jsx';
+/* import PlanetaryMenu from './components/PlanetaryMenu.jsx'; */
 
 
 
@@ -281,10 +281,10 @@ const router = createBrowserRouter([
         path: "sistema-solar",
         element: <SolarSystem />
       },
-      {
+      /* {
         path: "planetary-menu",
         element: <PlanetaryMenu />
-      },
+      }, */
       {
         path: "sun",
         element: <Sun />

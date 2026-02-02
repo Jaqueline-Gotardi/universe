@@ -438,7 +438,7 @@ const PlanetaryInformation = () => {
       <p style={styles.subtitle}>
         Explore os mistérios do nosso Sistema Solar
         </p>
-  </div>
+  </div> 
 
    {/* Categorias e subItens */}
   {!activeCategory ? (
