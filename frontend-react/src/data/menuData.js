@@ -215,8 +215,6 @@ export const galaxiasFamosas = [
   },
 ];
 
-
-
 export const menuExtras = [
   { id: "perfil", label: "Perfil", route: "/app/profile", icon: "👤" },
   { id: "criadores", label: "Criadores", route: "/app/creators", icon: "🚀" },
