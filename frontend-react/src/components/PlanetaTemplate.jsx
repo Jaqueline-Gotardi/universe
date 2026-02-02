@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { conteudosPlanetarios } from "../data/planetaryData";
-export const PlanetaTemplate = () => {
+export const PlanetaTemplate = ({planetaId}) => {
   const navigate = useNavigate();
-  const conteudo = conteudosPlanetarios.mercurio;
+  const conteudo =  conteudosPlanetarios[planetaId];
+  
 
   if (!conteudo) return <div>Carregando. . .</div>;
 
   const cornerStyle = {
     position: "absolute",
-    width: "30px",
+    width: "30px", 
     height: "30px",
     animation: "borderGlow 2s ease-in-out infinite",
   }
@@ -22,7 +23,7 @@ export const PlanetaTemplate = () => {
       justifyContent: "center",
       alignItems: "center",
     },
-
+ 
     content: {
       position: "relative",
       zIndex: 10,
@@ -41,8 +42,7 @@ export const PlanetaTemplate = () => {
       borderRadius: "24px",
       padding: "40px 35px",
       backdropFilter: "blur(15px)",
-      boxShadow:
-        "0 15px 50px rgba(0, 0, 0, 0.5), inset 0 0 80px rgba(168, 85, 247, 0.05)",
+      boxShadow: "0 15px 50px rgba(0, 0, 0, 0.5), inset 0 0 80px rgba(168, 85, 247, 0.05)",
       width: "100%",
     },
 
@@ -95,16 +95,14 @@ export const PlanetaTemplate = () => {
 
     imagePlaceholder: {
       width: "200px",
-      height: "180px",
-      background:
-        "linear-gradient(135deg, rgba(30, 20, 70, 0.8) 0%, rgba(10, 5, 30, 0.9) 100%)",
+      height: "192px",
+      background: "linear-gradient(135deg, rgba(30, 20, 70, 0.8) 0%, rgba(10, 5, 30, 0.9) 100%)",
       border: "2px solid rgba(6, 182, 212, 0.5)",
       borderRadius: "16px",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      boxShadow:
-        "0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(6, 182, 212, 0.1)",
+      boxShadow: "0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(6, 182, 212, 0.1)",
       overflow: "hidden",
       animation: "imageFloat 3s ease-in-out infinite",
     },
@@ -123,8 +121,7 @@ export const PlanetaTemplate = () => {
       transform: "translate(-50%, -50%)",
       width: "150%",
       height: "150%",
-      background:
-        "radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 60%)",
+      background: "radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 60%)",
       filter: "blur(30px)",
       pointerEvents: "none",
     },
@@ -162,8 +159,7 @@ export const PlanetaTemplate = () => {
       fontWeight: 600,
       letterSpacing: "3px",
       color: "#ffffff",
-      background:
-        "linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(139, 92, 246, 0.5) 100%)",
+      background: "linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(139, 92, 246, 0.5) 100%)",
       border: "2px solid rgba(168, 85, 247, 0.6)",
       borderRadius: "50px",
       cursor: "pointer",

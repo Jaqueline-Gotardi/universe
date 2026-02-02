@@ -11,12 +11,11 @@ const Mercury = () => {
 
       <main>
         <PlanetaTemplate
-        title="Mercúrio"
-        items={Mercury}
+        planetaId= "mercurio"
         onBack={() => navigate("/app/constellations-menu")}
         />
       </main>
     </div>
   )
 }
-export default Mercury; 
+export default Mercury;   
