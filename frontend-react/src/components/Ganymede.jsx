@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import CosmicBackground from "./CosmicBackground";
 import { PlanetaTemplate } from "./PlanetaTemplate";
 
-const Moon = () => {
+const Ganymede = () => {
   const navigate = useNavigate();
 
   return (
@@ -11,11 +11,11 @@ const Moon = () => {
 
       <main>
         <PlanetaTemplate
-        planetaId= "lua"
-        onBack={() => navigate("/app/constellations-menu")}
+        planetaId= "ganimedes(jupiter)"
+        onBack={() => navigate("/app/constellations-menu")} 
         />
       </main>
     </div>
   )
 }
-export default Moon;  
+export default Ganymede;  

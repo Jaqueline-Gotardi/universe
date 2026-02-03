@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import CosmicBackground from "./CosmicBackground";
 import { PlanetaTemplate } from "./PlanetaTemplate";
 
-const Moon = () => {
+const Io = () => {
   const navigate = useNavigate();
 
   return (
@@ -11,11 +11,11 @@ const Moon = () => {
 
       <main>
         <PlanetaTemplate
-        planetaId= "lua"
+        planetaId= "io(jupiter)"
         onBack={() => navigate("/app/constellations-menu")}
         />
       </main>
     </div>
   )
 }
-export default Moon;  
+export default Io;  

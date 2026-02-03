@@ -112,7 +112,7 @@ export const menuLuasESatelites = [
     id: "tita",
     label: "Titã (Saturno)",
     icon: "🟠",
-    route: "/app/tita",
+    route: "/app/titan",
     color: "#FF8C00",
   },
   {
@@ -297,7 +297,7 @@ export const conteudosPlanetarios = {
 
   "calisto(jupiter)": {
     titulo: "Calisto (Júpiter)",
-    imagem: "/imagens/calisto",
+    imagem: "/imagens/calisto.png",
     descricao: `Calisto é o objeto com mais crateras de impacto em todo o Sistema Solar. A sua superfície de gelo e rocha é extremamente antiga e não mostra sinais de processos geológicos como vulcanismo ou tectónica de placas.
 
     Devido à sua distância de Júpiter, Calisto sofre menos influência de radiação e forças de maré do que as outras luas galileanas, tornando a sua superfície geologicamente "morta" há biliões de anos.
@@ -305,7 +305,7 @@ export const conteudosPlanetarios = {
     É considerada uma cápsula do tempo, preservando o registo visual dos impactos que ocorreram durante o início da formação do sistema planetário.`,
   },
 
-  "tita": {
+  "titan": {
     titulo: "Titã - A Lua com Atmosfera",
     imagem: "/imagens/tita.png",
     descricao: `Titã é a maior lua de Saturno e a segunda maior do Sistema Solar. É a única lua conhecida com uma atmosfera densa e a única além da Terra onde lagos e mares de líquido foram descobertos.

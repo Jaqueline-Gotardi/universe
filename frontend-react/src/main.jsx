@@ -84,6 +84,13 @@ import OortCloud from './components/OortCloud.jsx';
 import DwartPlanets from './components/DwartPlanets.jsx';
 
 import Moon from './components/Moon.jsx';
+import Io from './components/Io.jsx';
+import Europe from './components/Europe.jsx';
+import Ganymede from './components/Ganymede.jsx';
+import Calisto from './components/Calisto.jsx';
+import Titan from './components/Titan.jsx';
+import Enceladus from './components/Enceladus.jsx';
+import Triton from './components/Triton.jsx';
 
 import ExtrasMenu from './components/ExtrasMenu.jsx';
 import Profile from './components/Profile.jsx';
@@ -352,6 +359,34 @@ const router = createBrowserRouter([
       {
         path: "lua",
         element: <Moon />
+      },
+      {
+        path: "io",
+        element: <Io />
+      },
+      {
+        path: "europa",
+        element: <Europe />
+      },
+      {
+        path: "ganimedes",
+        element: <Ganymede />
+      },
+      {
+        path: "calisto",
+        element: <Calisto />
+      },
+      {
+        path: "titan",
+        element: <Titan />
+      },
+      {
+        path: "enceladus",
+        element: <Enceladus />
+      },
+      {
+        path: "tritao",
+        element: <Triton />
       },
       {
         path: "extras-menu",
