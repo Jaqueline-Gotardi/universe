@@ -228,7 +228,7 @@ export const menuExtras = [
 
 
 
-export const conteudos = {
+export const conteudosAstronomicos = {
   "ursa-maior": {
     titulo: "Constelação de Ursa Maior",
     imagem: "/imagens/ursa-maior.png",
@@ -463,4 +463,4 @@ export const conteudos = {
 
     Observar isto te conecta com o universo em ação, criando e evoluindo diante de seus olhos.`,
   },
-};
+}; 

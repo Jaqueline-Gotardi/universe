@@ -18,4 +18,4 @@ const Earth = () => {
     </div>
   )
 }
-export default Earth; 
+export default Earth;  

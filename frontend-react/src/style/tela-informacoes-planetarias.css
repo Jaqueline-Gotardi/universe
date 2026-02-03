@@ -48,7 +48,8 @@
 }
 
 .tela-eventos-detalhe {
-    background-color: #1a1a3e;
+    /* background-color: #1a1a3e; */
+    background: radial-gradient(circle at center, #0a0a25 0%, #020205 100%);
     position: relative;
 }
 
@@ -66,7 +67,7 @@
     background-repeat: no-repeat;
     opacity: 0.8;
     animation: bgPulse 20s ease-in-out infinite alternate;
-  }
+  } 
    
   @keyframes bgPulse {
     0% { transform: scale(1); }

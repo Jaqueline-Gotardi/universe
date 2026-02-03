@@ -1,15 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { conteudosPlanetarios } from "../data/planetaryData";
+import { conteudosAstronomicos } from "../data/menuData";
+
 export const PlanetaTemplate = ({planetaId}) => {
   const navigate = useNavigate();
-  const conteudo =  conteudosPlanetarios[planetaId];
+  const conteudo =  conteudosPlanetarios[planetaId] || conteudosAstronomicos[planetaId];
   
 
   if (!conteudo) return <div>Carregando. . .</div>;
 
   const cornerStyle = {
     position: "absolute",
-    width: "30px",  
+    width: "30px",   
     height: "30px",
     animation: "borderGlow 2s ease-in-out infinite",
   }
@@ -60,7 +62,7 @@ export const PlanetaTemplate = ({planetaId}) => {
       ...cornerStyle,
       top: "-2px",
       right: "-2px",
-      borderTop: "3px solid #06b6d4",
+      borderTop: "3px solid #06b6d4", 
       borderRight: "3px solid #06b6d4",
       borderRadius: "0 24px 0 0",
       animationDelay: "0.5s",
@@ -203,9 +205,7 @@ export const PlanetaTemplate = ({planetaId}) => {
               </p>
             ))}
           </div>
-        </div>
-
-        {/* Botão voltar */}
+          {/* Botão voltar */}
         <button
           style={styles.backButtonCard}
           onClick={() => navigate(-1)}
@@ -220,6 +220,9 @@ export const PlanetaTemplate = ({planetaId}) => {
         >
           VOLTAR
         </button>
+        </div>
+
+        
       </div>
       <style>{`
     @keyframes imageFloat {
