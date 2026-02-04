@@ -89,19 +89,35 @@ export const hemisferioSul = [
     route: "/app/southern-cross",
     icon: "✝️",
   },
-  { id: "fenix", label: "Fênix", route: "/app/phoenix", icon: "🐦‍🔥" },
-  { id: "centauro", label: "Centauro", route: "/app/centaur", icon: "🏹" },
+  { id: "fenix",
+    label: "Fênix", 
+    route: "/app/phoenix", 
+    icon: "🐦‍🔥" 
+  },
+  { id: "centauro", 
+    label: "Centauro", 
+    route: "/app/centaur", 
+    icon: "🏹" 
+  },
 ];
 
 export const constelacaoFamosas = [
-  { id: "orion", label: "Órion", route: "/app/orion", icon: "🏹" },
+  { id: "orion", 
+    label: "Órion", 
+    route: "/app/orion", 
+    icon: "🏹" 
+  },
   {
     id: "cao-maior",
     label: "Cão Maior",
     route: "/app/greater-canis",
     icon: "🐕",
   },
-  { id: "escorpiao", label: "Escorpião", route: "/app/scorpion", icon: "🦂" },
+  { id: "escorpiao", 
+    label: "Escorpião", 
+    route: "/app/scorpion", 
+    icon: "🦂" 
+  },
 ];
 
 export const eventosAstronomicos = [
@@ -374,7 +390,7 @@ export const conteudosAstronomicos = {
     É uma missão que te conecta a um fenômeno de pura escala e beleza.`,
   },
 
-  "connjuncao-planetaria": {
+  "conjuncao-planetaria": {
     titulo: "Conjunção Planetária",
     imagem: "/imagens/conjuncao.png",
     descricao: `Uma conjunção planetária é onde dois ou mais planetas parecem se alinhar e ficar muito próximos no céu noturno. Embora ainda estejam a milhões de quilômetros de distância, o espetáculo de luz é fascinante. A "Grande Conjunção" de Júpiter e Saturno é um dos exemplos mais famosos e visualmente impressionantes.

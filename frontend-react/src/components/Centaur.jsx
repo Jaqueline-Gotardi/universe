@@ -1,30 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Centaur() {
-    const navigate = useNavigate();
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-centauro">
+
+const Centaur = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-centauro" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-    <div className="info-card">
-    <img src="/imagens/centauro.png" alt="Constelação Centauro" class="celestial-image" />
-    <h3 className="titulo-missao">Constelação de Centauro</h3>
-    <div className="jornada-projeto">
-    <p className="descricao">Centauro é uma das maiores e mais brilhantes constelações do Hemisfério Sul, servindo como um guia majestoso para os exploradores. Ela não é apenas notável por seu tamanho, mas por abrigar dois dos objetos mais fascinantes do nosso céu.
-      <br />
-      Alpha Centauri: Esta é a estrela mais importante para qualquer agente espacial, pois se trata do sistema estelar mais próximo do nosso Sol. Ela é nossa vizinha imediata, um destino de exploração prioritário no futuro da humanidade.
-      <br />
-      Omega Centauri: A constelação também abriga o maior aglomerado globular da Via Láctea. Este aglomerado é uma densa esfera de estrelas antigas, contendo milhões de sóis em um espaço relativamente pequeno, um espetáculo de luz para se maravilhar.
-      <br />
-      Observar Centauro é uma missão que te conecta a dois extremos do universo: o ponto mais próximo de nós e uma das maiores concentrações de estrelas em nossa própria galáxia.
-      </p>
-    </div>
-  </div> 
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-centauro"
-    onClick={() => navigate("/app/hemisferio-sul")}>Voltar</button>
+      </div> 
+      
+      <main className="container-centaur">
+       <style>{`
+        .container-centaur img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "centauro"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
 export default Centaur;

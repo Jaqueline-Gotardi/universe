@@ -1,27 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Elliptical() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-eliptica">
+const Elliptical = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-eliptica" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-   <div className="info-card">
-    <img src="/imagens/galaxia-eliptica.png" alt="Galáxia Elíptica" className="celestial-image" />
-    
-      <h3 className="titulo-criadores">Galáxia Elíptica</h3>
-      <p className="descricao">
-        Galáxias elípticas <strong>são galáxias com formas que variam de esféricas a ovais, compostas em sua maioria por estrelas antigas.</strong> Elas não possuem os braços espirais ou o disco de gás, o que significa que a formação de novas estrelas já cessou. As maiores delas, contendo trilhões de estrelas, são as galáxias mais massivas e antigas do universo.
-        <br />
-        Observar isto te conecta com a história de estrelas antigas e maduras que formam os vastos e calmos impérios do cosmos.
-      </p>
-    </div>
-    <button type="button" className="botao-opcao-menu botao-voltar" id="btn-voltar-eliptica"
-    onClick={() => navigate("/app/type-galaxies")}>Voltar</button>
+      </div> 
+      
+      <main className="container-eliptica">
+       <style>{`
+        .container-eliptica img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "eliptica"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
 export default Elliptical;

@@ -55,7 +55,7 @@ import Spiral from './components/Spiral.jsx';
 import Elliptical from './components/Elliptical.jsx';
 import Irregular from './components/Irregular.jsx';
 import FamousGalaxies from './components/FamousGalaxies.jsx';
-import MilkAway from './components/MilkyAway.jsx';
+import MilkyWay from './components/MilkyWay.jsx';
 import AndromedaGalaxy from './components/AndromedaGalaxy.jsx';
 import TriangleM33 from './components/TriangleM33.jsx';
 
@@ -278,7 +278,7 @@ const router = createBrowserRouter([
       },
       {
         path: "milky-way",
-        element: <MilkAway />
+        element: <MilkyWay />
       },
       {
         path: "andromeda-galaxy",

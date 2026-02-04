@@ -1,26 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function TriangleM33() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-triangulo">
+const TriangleM33 = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-triangulo" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-    <div className="info-card">
-    <img src="/imagens/galaxia-triangulo.png" alt="Galáxia do Triângulo (M33)" className="celestial-image" />
-      <h3 className="titulo-criadores">Galáxia do Triângulo (M33)</h3>
-      <p className="descricao">
-        A Galáxia do Triângulo <strong>é a terceira maior da nossa família de galáxias e uma das maiores fábricas de estrelas do universo local.</strong> Ela é uma galáxia espiral menor e compacta, com um diâmetro de cerca de 60.000 anos-luz e cerca de 40 bilhões de estrelas. Sua alta taxa de nascimento de novas estrelas a torna um dos alvos mais fascinantes para a sua missão de exploração.
-        <br />
-        Observar isto te conecta com o universo em ação, criando e evoluindo diante de seus olhos.
-      </p>
-    </div>
-    <button type="button" className="botao-opcao-menu botao-voltar" id="btn-voltar-triangulo"
-    onClick={() => navigate("/app/famous-galaxies")}>Voltar</button>
+      </div> 
+      
+      <main className="container-triangulo">
+       <style>{`
+        .container-triangulo img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "triangulo-m33"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
 export default TriangleM33;

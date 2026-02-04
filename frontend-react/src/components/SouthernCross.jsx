@@ -1,28 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
- function SouthernCross() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-cruzeiro-do-sul">
+const SouthernCross = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-cruzeiro-do-sul" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-    <div className="info-card">
-    <img src="/imagens/cruzeiro-do-sul.png" alt="Constelação Cruzeiro do Sul" className="celestial-image" />
-    <h3 className="titulo-missao">Constelação de Cruzeiro Do Sul</h3>
-    <div className="jornada-projeto">
-    <p className="descricao">Embora seja a menor das 88 constelações, o Cruzeiro do Sul (ou Crux) tem uma importância colossal para os exploradores do Hemisfério Sul. Esta pequena e distinta constelação atua como um farol, um guia confiável na escuridão do céu.
-      <br />
-      Sua principal missão é ajudar a encontrar o Polo Sul Celeste. As duas estrelas na ponta da "cruz" apontam diretamente para o sul, tornando-a uma ferramenta de navegação indispensável, da mesma forma que Polaris é para os navegadores do norte.
-      <br />
-      Observar o Cruzeiro do Sul é um rito de passagem para qualquer agente especial que explore os céus do Hemisfério Sul. Ela é a prova de que até mesmo os menores agrupamentos de estrelas podem ter a maior utilidade.</p>
-    </div>
-    </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-cruzeiro-do-sul"
-    onClick={() => navigate("/app/hemisferio-sul")}>Voltar</button>
+      </div> 
+      
+      <main className="container-southernCross">
+       <style>{`
+        .container-southernCross img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "cruzeiro-do-sul"
+        />
+        </main>
+        
   </section>
-    )
- }
+  )
+}
 export default SouthernCross;

@@ -1,31 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Perseids() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-perseidas">
+const Perseids = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-perseidas" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
-        <div className="stars"></div>
-        </div>
-   <div className="info-card">
-    <img src="/imagens/chuva-de-meteoros-perseidas.png" alt="Chuva de Meteoros Perseidas" className="celestial-image" />
-    
-      <h3 className="titulo-missao">Chuva de Meteoros Perseidas</h3>
-      <div className="jornada-projeto">
-      <p className="descricao">
-        As Perseidas são uma das chuvas de meteoros mais populares e visíveis do ano. <strong>Este evento ocorre quando a Terra passa por uma nuvem de detritos deixada pelo Cometa Swift-Tuttle, criando um espetáculo de luz. As Perseidas acontecem anualmente,  são melhor observadas do Hemisfério Norte, com seu pico de atividade na segunda semana de agosto.</strong>
-        <br />
-        Observar as Perseidas é como assistir a fogos de artifício cósmicos, com rastros de luz riscando o céu noturno. O nome da chuva vem da constelação de Perseu, de onde parecem irradiar, transformando o céu em um palco de luzes.
-        <br />
-        É uma missão que te convida a testemunhar a beleza da dança cósmica, um espetáculo que nos lembra da constante movimentação e do brilho do nosso sistema solar.
-      </p>
-    </div>
-    </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-perseida"
-    onClick={() => navigate("/app/meteor-showers")}>Voltar</button>
+      <div className="stars"></div>
+      </div> 
+      
+      <main className="container-perseids">
+       <style>{`
+        .container-perseids img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "perseidas"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
-export default Perseids; 
+export default Perseids;

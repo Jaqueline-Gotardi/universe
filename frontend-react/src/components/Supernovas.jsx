@@ -1,30 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Supernovas() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-supernovas">
+const Supernovas = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-supernovas" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div> 
-   <div className="info-card">
-    <img src="/imagens/supernovas.png" alt="Supernovas" className="celestial-image" />
-    
-      <h3 className="titulo-missao">Supernovas</h3>
-      <p className="descricao">
-        Supernovas são os eventos mais poderosos e luminosos do universo. Elas <strong>marcam o fim catastrófico da vida de estrelas extremamente massivas, que entram em colapso e explodem com uma força inimaginável. Essa explosão pode brilhar mais do que uma galáxia inteira, sendo visível a bilhões de anos-luz de distância.</strong>
-        <br />
-        Além de seu brilho, as supernovas são as forjas cósmicas que criam e espalham elementos pesados pelo universo. Elementos como o ferro, o ouro e a prata são criados durante essas explosões e então lançados no cosmos, se dispersando pela vastidão do espaço.
-        <br />
-        Observá-la te conecta com o ciclo da vida e morte de uma estrela, um evento que nos lembra que do brilho final pode surgir a semente de novas criações.
-      </p>
-    
-    </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-supernovas"
-    onClick={() => navigate("/app/comets-and-others")}>Voltar</button>
+      </div> 
+      
+      <main className="container-supernovas">
+       <style>{`
+        .container-supernovas img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "supernovas"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
 export default Supernovas;

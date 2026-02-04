@@ -4,17 +4,17 @@ import { PlanetaTemplate } from "./PlanetaTemplate";
 //import "../style/tela-informacoes-planetarias.css"
 
 
-const LunarEclipse = () => {
+const MilkyWay = () => {
   return (
   
-  <section className="tela-eventos-detalhe" id="detalhe-eclipse-lunar" style={{position: "relative", minHeight: "100vh"}}>
+  <section className="tela-eventos-detalhe" id="detalhe-via-lactea" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
       </div> 
       
-      <main className="container-lunarEclipse">
+      <main className="container-milky-way">
        <style>{`
-        .container-lunarEclipse img {
+        .container-milky-way img {
         width: 100%; 
         max-width: 800px;       
         transform: scale(1.1);      
@@ -32,11 +32,11 @@ const LunarEclipse = () => {
         </style>
 
        <PlanetaTemplate
-        planetaId= "eclipse-lunar"
+        planetaId= "via-lactea"
         />
         </main>
         
   </section>
   )
 }
-export default LunarEclipse;
+export default MilkyWay;

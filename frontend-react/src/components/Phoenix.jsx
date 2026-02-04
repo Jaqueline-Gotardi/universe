@@ -1,27 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Phoenix() {
-    const navigate = useNavigate();
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-fenix">
+
+const Phoenix = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-fenix" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-    <div className="info-card">
-    <img src="/imagens/fenix.png" alt="Constelação Fênix" className="celestial-image" />
-    <h3 className="titulo-missao">Constelação de Fênix</h3>
-    <div className="jornada-projeto">
-    <p className="descricao">No vasto céu do Hemisfério Sul, a constelação Fênix é uma pequena, mas distinta, formação estelar. Nomeada em homenagem a uma figura lendária que representa a renovação, esta constelação foi introduzida no final do século XVI pelo astrônomo Petrus Plancius. 
-        <br />
-      A Fênix, com suas estrelas, simboliza a capacidade de ressurgir e continuar a jornada. É um lembrete para todos os exploradores de que, mesmo em meio à escuridão, a luz da descoberta está sempre presente.
-      <br />
-      Observar a Fênix no céu noturno é uma missão que convida a uma reflexão sobre a capacidade de seguir em frente, uma história de perseverança contada pelas estrelas para os verdadeiros agentes espaciais.</p>
-    </div>
-  </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-fenix"
-    onClick={() => navigate("/app/hemisferio-sul")}>Voltar</button>
+      </div> 
+      
+      <main className="container-phoenix">
+       <style>{`
+        .container-phoenix img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "fenix"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
 export default Phoenix;

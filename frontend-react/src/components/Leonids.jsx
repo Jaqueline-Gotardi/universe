@@ -1,31 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Leonids() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-leonideas">
+const Leonids = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-leonideas" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-   <div className="info-card">
-    <img src="/imagens/chuva-de-meteoros-leonideas.png" alt="Chuva de Meteoros Leonídeas" className="celestial-image" />
-    
-      <h3 className="titulo-missao">Chuva de Meteoros Leonídeas</h3>
-      <div className="jornada-projeto">
-      <p className="descricao">
-        Prepare-se para uma missão de alta velocidade. As Leônidas são uma das chuvas de meteoros mais notáveis, conhecidas pela sua velocidade impressionante. <strong>Elas ocorrem quando a Terra passa pela trilha de detritos deixada pelo Cometa Tempel-Tuttle. Elas são melhor observadas do Hemisfério Norte, com seu pico de atividade em meados de novembro.</strong>
-        <br />
-        Observar as Leônidas é como testemunhar uma tempestade de partículas cósmicas, um espetáculo de luz que risca o céu noturno. O nome da chuva vem da constelação de Leão, de onde parecem irradiar, dando a sensação de que os próprios leões do céu estão deixando sua marca.
-        <br />
-        É uma missão que te convida a testemunhar a beleza da dança cósmica, um espetáculo que nos lembra da constante movimentação e do brilho do nosso sistema solar.
-      </p>
-   </div>
-    </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-leonidea" 
-    onClick={() => navigate("/app/meteor-showers")}>Voltar</button>
+      </div> 
+      
+      <main className="container-leonids">
+       <style>{`
+        .container-leonids img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "leonideas"
+        />
+        </main>
+        
   </section>
-    )
-} 
+  )
+}
 export default Leonids;

@@ -1,29 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Comets() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-cometas">
+const Comets = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-cometas" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-   <div className="info-card">
-    <img src="/imagens/cometas.png" alt="Cometas" className="celestial-image" />
-      <h3 className="titulo-missao">Cometas</h3>
-      <p className="descricao">
-        Os cometas são objetos fascinantes, verdadeiras "bolas de neve sujas" compostas por gelo, poeira e rocha. <strong>Eles viajam por longas órbitas a partir das regiões mais frias e distantes do nosso sistema solar. O espetáculo de um cometa acontece quando ele se aproxima do Sol e o calor faz com que seu gelo evapore, criando uma vasta atmosfera e uma cauda brilhante de gás e poeira.</strong>
-        <br />
-        A cauda de um cometa pode se estender por milhões de quilômetros, sempre apontando na direção oposta ao Sol. Eles são mensageiros das partes mais primitivas do nosso sistema solar, um lembrete de sua origem gelada.
-        <br />
-        Observá-los te conecta a um pedaço de história cósmica em movimento, um verdadeiro viajante que nos visita de tempos em tempos.
-      </p>
-    
-    </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-cometas"
-    onClick={() => navigate("/app/comets-and-others")}>Voltar</button>
+      </div> 
+      
+      <main className="container-cometas">
+       <style>{`
+        .container-cometas img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "cometas"
+        />
+        </main>
+        
   </section>
-    )
-} 
+  )
+}
 export default Comets;

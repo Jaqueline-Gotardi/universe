@@ -1,31 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function GreaterCanis() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-    <section className="tela-eventos-detalhe" id="detalhe-cao-maior">
+const GreaterCanis = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-cao-maior" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
-        <div className="stars"></div>
-        </div>
-    <div className="info-card">
-    <img src="/imagens/cao-maior.png" alt="Constelação Cão Maior" className="celestial-image" />
-    <h3 className="titulo-missao">Constelação de Cão Maior</h3>
-    <div className="jornada-projeto">
-    <p className="descricao">Cão Maior é uma das constelações mais notáveis do céu, facilmente identificável por seu brilho e sua estrela mais proeminente, um guia perfeito para qualquer explorador.
-      <br />
-      Sirius: O maior destaque desta constelação é Sirius, a estrela mais brilhante do nosso céu noturno. Sua intensidade luminosa a torna um farol no nosso céu, um ponto de referência confiável para um agente espacial.
-      <br />
-      A Conexão com Órion: Sua localização, logo abaixo do gigante Órion, o Caçador, torna o Cão Maior um dos alvos mais fáceis de serem encontrados. Acompanhar Órion em sua missão noturna te leva diretamente a este poderoso cão estelar.
-      <br />
-      Ao explorar Cão Maior, você está seguindo a luz da estrela mais brilhante de nossa galáxia.
-      </p>
-    </div>
-  </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-cao-maior"
-    onClick={() => navigate("/app/constellations-famous")}>Voltar</button>
+      <div className="stars"></div>
+      </div> 
+      
+      <main className="container-greaterCanis">
+       <style>{`
+        .container-greaterCanis img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "cao-maior"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
 export default GreaterCanis;

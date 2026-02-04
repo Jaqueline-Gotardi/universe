@@ -1,30 +1,42 @@
-import { useNavigate } from "react-router-dom";
+import { PlanetaTemplate } from "./PlanetaTemplate"; 
 
-function Orion() {
+//import "../style/eventos-astronomicos.css"
+//import "../style/tela-informacoes-planetarias.css"
 
-    const navigate = useNavigate();
 
-    return (
-        <section className="tela-eventos-detalhe" id="detalhe-orion">
+const Orion = () => {
+  return (
+  
+  <section className="tela-eventos-detalhe" id="detalhe-orion" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">
       <div className="stars"></div>
-    </div>
-    <div className="info-card">
-    <img src="/imagens/orion.jpg" alt="Constelação Órion" className="celestial-image" />
-    <h3 className="titulo-missao">Constelação de Órion</h3>
-    <div className="jornada-projeto">
-    <p className="descricao">Órion, o Caçador, é uma das constelações mais famosas e fáceis de reconhecer no céu. Sua forma imponente é um guia perfeito para qualquer explorador.
-      <br />
-      O Cinturão de Órion: Formado por três estrelas em linha reta, o cinturão de Órion é o ponto de partida ideal para localizar outras estrelas e constelações.
-      <br />
-      Berçário de Estrelas: Logo abaixo do cinturão, está a Nebulosa de Órion, um espetacular berçário onde novas estrelas estão nascendo. É um dos objetos mais incríveis que se pode ver a olho nu.
-      <br />
-      Ao explorar Órion, você está olhando para o berço de futuras estrelas.</p>
-    </div>
-    </div>
-    <button type="button" className="botao-voltar botao-opcao-menu" id="btn-voltar-orion"
-    onClick={() => navigate("/app/constellations-famous")}>Voltar</button>
+      </div> 
+      
+      <main className="container-orion">
+       <style>{`
+        .container-orion img {
+        width: 100%; 
+        max-width: 800px;       
+        transform: scale(1.1);      
+        transition: all 0.3s ease;
+        object-fit: contain;
+        margin: 0px; 
+        border-radius: 25px;
+        }
+        @media (max-width: 768px) {
+        .container-big-dipper img {
+        width: 100%;
+        transform: scale(1);
+        }
+        `}
+        </style>
+
+       <PlanetaTemplate
+        planetaId= "orion"
+        />
+        </main>
+        
   </section>
-    )
+  )
 }
 export default Orion;
