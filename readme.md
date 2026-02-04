@@ -5,8 +5,6 @@
 O **Universe** é um projeto que nasceu lá em 2022, como um protótipo escolar simples feito em HTML, CSS e PowerPoint para agrupar desenhos da tela. Inicialmente, o tema dele era focado totalmente em algo moderno + pegada infantil, até que neste ano (2025) decidi refazê-lo por conta própria, focando em mais funcionalidades e adotando um desing moderno.  
 Hoje, ele evoluiu para um **site completo, interativo e moderno**, desenvolvido com **HTML, CSS e JavaScript puro e Node.js**, trazendo uma experiência única de exploração pelo espaço. 🌌  
 
-![preview](public/imagens/tela-responsive.png)
-
 ---
 
 ## 🌠 Sobre o Projeto  
@@ -125,13 +123,7 @@ O que antes era um site desenvolvido com JS puro, hoje está evoluindo para uma 
 - **Node.js & Express**: Backend local para consumo seguro e tratamento de falhas das APIs da NASA.
 - **SVG Dinâmico**: Ícones customizados via código XML para máxima performance e flexibilidade de estilo.
 - **HTML5 & CSS3**: Estilização imersiva com tema espacial e foco em responsividade.
-
----
-
-## 🌌 Acesse o Projeto Aqui  
-
-👉 **[Explorar o Universe aqui](https://jaqueline-gotardi.github.io/projeto-universe/)**  
-
+  
 ---
 
 ## 💙 Créditos e Inspiração  
