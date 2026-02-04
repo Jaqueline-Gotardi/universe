@@ -51,7 +51,7 @@ API_KEY=SUA_CHAVE_AQUI
 
 3. Entre na pasta do backend:
 ```bash
-cd projeto-universe/backend
+cd projeto-universe-oficial/backend
 ```
 
 4. Instale as dependências:
@@ -64,10 +64,17 @@ npm install
 node server.js
 ```
 
-6. O servidor vai iniciar em:
-```http://localhost:3000```
+6. Entre na pasta do frontend:
+```bash
+cd projeto-universe-oficial/frontend-react
+```
 
-OBS: Abra o *index.html* do frontend no navegador (Github Pages ou Live Server) para que ele se conecte ao servidor local.
+7. E rode no terminal:
+```bash
+npm run dev
+```
+
+OBS: Abra o link disponível e pronto!
 
 ---
 
