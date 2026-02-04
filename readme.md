@@ -98,11 +98,11 @@ Durante o desenvolvimento, aprimorei habilidades como:
 - Navegação dinâmica entre seções;  
 - Lógica condicional com `if`;    
 - Criação de telas conectadas por JavaScript;  
-- Desenvolvimento Full Stack Júnior: Conexão entre Front-end (JavaScript) e Back-end (Node.js/Express).
+- Conexão entre Front-end (JavaScript) e Back-end (Node.js/Express).
 - Tratamento de Erros: Implementação de try/catch e lógica de fallback para garantir a integridade da aplicação.
-- Além disso, aprendi muito sobre **design de interface**, **consistência visual** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 🌠
-- Gestão de Estado de UI: Lógica complexa de salvamento e reset de dados em formulários (Módulo de Perfil).
-- A migração para o React me ensinou que **organização é clareza**. Lidar com conceitos como `props`, `state` e renderização condicional tem sido uma experiência deliciosa!
+- Aprendendo muito sobre **design de interface** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 🌠
+- Gestão de Estado de UI: Lógica de salvamento e reset de dados em formulários (Módulo de Perfil).
+- A migração para o React tem me ensinado que **organização é clareza**. Lidar com conceitos como `props`, `state` e renderização condicional tem sido uma experiência deliciosa!
 
 ---
 
@@ -122,7 +122,7 @@ Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínu
 
 ## 🌠 Evolução e Tecnologias  
 
-O que antes era um site desenvolvido com JS puro, hoje está evoluindo para uma aplicação **Single Page Application (SPA)** moderna e escalável.
+O que antes era um site desenvolvido com JS, hoje está evoluindo para uma aplicação **Single Page Application (SPA)** moderna e escalável.
 
 ### 🛠️ Stack Tecnológica 
 - **React**: Core da aplicação, utilizando Hooks como `useState`, `useEffect` e `useRef` para controle refinado de estados e ciclos de vida.
