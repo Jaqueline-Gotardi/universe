@@ -3,7 +3,7 @@
 💙 **“Explorar o desconhecido é o primeiro passo para criar algo incrível.”**
 
 O **Universe** é um projeto que nasceu lá em 2022, como um protótipo escolar simples feito em HTML, CSS e PowerPoint para agrupar desenhos da tela. Inicialmente, o tema dele era focado totalmente em algo moderno + pegada infantil, até que neste ano (2025) decidi refazê-lo por conta própria, focando em mais funcionalidades e adotando um desing moderno.  
-Hoje, ele evoluiu para um **site completo, interativo e moderno**, desenvolvido com **HTML, CSS e JavaScript puro e Node.js**, trazendo uma experiência única de exploração pelo espaço. 🌌  
+Hoje, ele evoluiu para um **site completo, interativo e moderno**, onde agora está sendo desenvolvido em **React**, trazendo uma experiência única de exploração pelo espaço. 🌌  
 
 ---
 
