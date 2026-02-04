@@ -2,10 +2,8 @@
 
 💙 **“Explorar o desconhecido é o primeiro passo para criar algo incrível.”**
 
-O **Universe** é um projeto que nasceu lá em 2022, como um protótipo escolar simples feito em HTML, CSS e PowerPoint para agrupar desenhos da tela. Inicialmente, o tema dele era focado totalmente em algo moderno + pegada infantil, até que neste ano (2025) decidi refazê-lo por conta própria, focando em mais funcionalidades e adotando um desing moderno.  
-Hoje, ele evoluiu para um **site completo, interativo e moderno**, desenvolvido com **HTML, CSS e JavaScript puro e Node.js**, trazendo uma experiência única de exploração pelo espaço. 🌌  
-
-![preview](public/imagens/tela-responsive.png)
+O **Universe** é um projeto que nasceu lá em 2022, como um protótipo escolar simples feito em HTML, CSS e PowerPoint para agrupar desenhos da tela. Inicialmente, o tema dele era focado totalmente em algo moderno + pegada infantil, até que no ano de 2025 decidi refazê-lo por conta própria, focando em mais funcionalidades e adotando um desing moderno com cara de Universo de verdade.  
+Hoje, ele está evoluindo para um **site completo, interativo e moderno**, onde está sendo desenvolvido em **React**, trazendo uma experiência única de exploração pelo espaço. 🌌  
 
 ---
 
@@ -53,7 +51,7 @@ API_KEY=SUA_CHAVE_AQUI
 
 3. Entre na pasta do backend:
 ```bash
-cd projeto-universe/backend
+cd projeto-universe-oficial/backend
 ```
 
 4. Instale as dependências:
@@ -66,10 +64,17 @@ npm install
 node server.js
 ```
 
-6. O servidor vai iniciar em:
-```http://localhost:3000```
+6. Entre na pasta do frontend:
+```bash
+cd projeto-universe-oficial/frontend-react
+```
 
-OBS: Abra o *index.html* do frontend no navegador (Github Pages ou Live Server) para que ele se conecte ao servidor local.
+7. E rode no terminal:
+```bash
+npm run dev
+```
+
+OBS: Abra o link disponível e pronto!
 
 ---
 
@@ -125,13 +130,7 @@ O que antes era um site desenvolvido com JS puro, hoje está evoluindo para uma 
 - **Node.js & Express**: Backend local para consumo seguro e tratamento de falhas das APIs da NASA.
 - **SVG Dinâmico**: Ícones customizados via código XML para máxima performance e flexibilidade de estilo.
 - **HTML5 & CSS3**: Estilização imersiva com tema espacial e foco em responsividade.
-
----
-
-## 🌌 Acesse o Projeto Aqui  
-
-👉 **[Explorar o Universe aqui](https://jaqueline-gotardi.github.io/projeto-universe/)**  
-
+  
 ---
 
 ## 💙 Créditos e Inspiração  
