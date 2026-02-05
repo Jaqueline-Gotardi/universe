@@ -2,10 +2,8 @@
 
 💙 **“Explorar o desconhecido é o primeiro passo para criar algo incrível.”**
 
-O **Universe** é um projeto que nasceu lá em 2022, como um protótipo escolar simples feito em HTML, CSS e PowerPoint para agrupar desenhos da tela. Inicialmente, o tema dele era focado totalmente em algo moderno + pegada infantil, até que neste ano (2025) decidi refazê-lo por conta própria, focando em mais funcionalidades e adotando um desing moderno.  
-Hoje, ele evoluiu para um **site completo, interativo e moderno**, desenvolvido com **HTML, CSS e JavaScript puro e Node.js**, trazendo uma experiência única de exploração pelo espaço. 🌌  
-
-![preview](public/imagens/tela-responsive.png)
+O **Universe** é um projeto que nasceu lá em 2022, como um protótipo escolar simples feito em HTML, CSS e PowerPoint para agrupar desenhos da tela. Inicialmente, o tema dele era focado totalmente em algo moderno + pegada infantil, até que no ano de 2025 decidi refazê-lo por conta própria, focando em mais funcionalidades e adotando um desing moderno com cara de Universo de verdade.  
+Hoje, ele está evoluindo para um **site completo, interativo e moderno**, onde está sendo desenvolvido em **React**, trazendo uma experiência única de exploração pelo espaço. 🌌  
 
 ---
 
@@ -152,10 +150,6 @@ VALUES ('nome', 'email@exemplo.com', '$2a$10$...HASH...');
 
 ---
 
-
-
----
-
 ## 🖌️ Implementações Recentes (Sprint Jan/2026)
 
 Nesta última semana, o foco foi a **"Faxina de UI"** e a robustez da **Lógica de Interface**:
@@ -200,7 +194,7 @@ Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínu
 
 ## 🌠 Evolução e Tecnologias  
 
-O que antes era um site desenvolvido com JS puro, hoje está evoluindo para uma aplicação **Single Page Application (SPA)** moderna e escalável.
+O que antes era um site desenvolvido com JS, hoje está evoluindo para uma aplicação **Single Page Application (SPA)** moderna e escalável.
 
 ### 🛠️ Stack Tecnológica 
 - **React**: Core da aplicação, utilizando Hooks como `useState`, `useEffect` e `useRef` para controle refinado de estados e ciclos de vida.
@@ -208,12 +202,6 @@ O que antes era um site desenvolvido com JS puro, hoje está evoluindo para uma 
 - **Node.js & Express**: Backend local para consumo seguro e tratamento de falhas das APIs da NASA.
 - **SVG Dinâmico**: Ícones customizados via código XML para máxima performance e flexibilidade de estilo.
 - **HTML5 & CSS3**: Estilização imersiva com tema espacial e foco em responsividade.
-
----
-
-## 🌌 Acesse o Projeto Aqui  
-
-👉 **[Explorar o Universe aqui](https://jaqueline-gotardi.github.io/projeto-universe/)**  
 
 ---
 
