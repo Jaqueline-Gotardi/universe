@@ -21,7 +21,7 @@ export const informacoesPlanetarias = [
     icon: "🌙",
   },
 ];
-
+ 
 export const menuSistemaSolar = [
   {
     id: "sol",

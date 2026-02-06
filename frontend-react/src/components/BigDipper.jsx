@@ -13,7 +13,7 @@ const BigDipper = () => {
       </div> 
       
       <main className="container-big-dipper">
-       <style>{`
+       <style>{` 
         .container-big-dipper img {
         width: 100%; 
         max-width: 800px;       

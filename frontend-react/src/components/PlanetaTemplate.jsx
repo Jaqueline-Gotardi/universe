@@ -189,9 +189,10 @@ export const PlanetaTemplate = ({planetaId}) => {
                 src={conteudo.imagem}
                 alt={conteudo.titulo}
                 style={styles.imageElement}
+                loading="lazy"
               />
             </div>
-            <div style={styles.imageGlow} />
+            <div style={styles.imageGlow} /> 
           </div>
 
           {/* Título */}
@@ -203,7 +204,7 @@ export const PlanetaTemplate = ({planetaId}) => {
               <p key={index} style={styles.paragraph}>
                 {paragrafo}
               </p>
-            ))}
+            ))} 
           </div>
           {/* Botão voltar */}
         <button
