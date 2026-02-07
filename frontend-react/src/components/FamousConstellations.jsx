@@ -22,4 +22,4 @@ const ConstellationsMenu = () => {
     </div>
   )
 }
-export default ConstellationsMenu;
+export default ConstellationsMenu; 
