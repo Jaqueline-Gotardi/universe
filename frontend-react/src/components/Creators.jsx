@@ -137,7 +137,6 @@ const Creators = () => {
       left: "-50%",
       background: "radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 50%)",
       pointerEvents: "none", //evita o impedimento do clique nos elementos do card
-      animation: "cardGlow 3s ease-in-out infinite",
     },
 
     cardDecoration1: {
@@ -169,13 +168,13 @@ const Creators = () => {
 
     avatarDecoration: {
       position: "absolute",
-      width: "150px",
-      height: "150px",
-      top: "-5px",
-      left: "-5px",
+      width: "155px",
+      height: "155px",
+      top: "-8px",
+      left: "-8px",
       borderRadius: "50%",
-      border: "2px dashed rgba(139, 92, 246, 0.5)",
-      animation: "rotate 20s linear infinite",
+      border: "2px dashed rgba(139, 92, 246, 0.5)", //dashed -> tracejado
+      animation: "rotate 18s linear infinite",
     },
 
     avatar: {
@@ -294,14 +293,14 @@ const Creators = () => {
               <div style={styles.cardDecoration1} />
               <div style={styles.cardDecoration2} />
 
+              
               <div style={styles.containerAvatar}>
-                <div style={styles.avatarDecoration}>
+                <div style={styles.avatarDecoration} />
                 <img 
                   src={criador.avatar} 
                   alt={criador.nome} 
                   style={styles.avatar} 
                 />
-                </div>
                 </div>
 
                 {/* dados dos criadores */}
@@ -311,19 +310,32 @@ const Creators = () => {
 
                 {/* links das redes sociais */}
                 <div style={styles.socialLinks}>
-                  <a href={criador.github} style={styles.socialLink}>
+                  <a href={criador.github} style={styles.socialLink} className="efeito-hover-icons">
                     <Github size={20} />
                   </a>
-                  <a href={criador.linkedin} style={styles.socialLink}>
+                  <a href={criador.linkedin} style={styles.socialLink} className="efeito-hover-icons">
                     <Linkedin size={20} />
                     </a>
-                    <a href={criador.email} style={styles.socialLink}>
+                    <a href={criador.email} style={styles.socialLink} className="efeito-hover-icons">
                       <Mail size={20} />
                     </a>
                 </div>
               </div>
             
           ))}
+
+          <style>
+            {`
+            .efeito-hover-icons:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.7)
+            }
+
+            @keyframes rotate {
+            from { transform: translate(1%, 1%) rotate(0deg);}
+            to { transform: translate(1%, 1%) rotate(360deg);}}
+            `}
+          </style>
         </div>
 
   
