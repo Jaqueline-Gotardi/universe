@@ -13,31 +13,31 @@ const Creators = () => {
     {
       id: 1,
       nome: "Jaqueline Gotardi",
-      cargo: "Fundadora e Líder do Universe",
-      bio: "a definir...",
-      avatar: "/imagens/lua.png",
+      cargo: "Fundadora e CEO do Universe",
+      bio: "Criadora do Universe, responsável por toda a transição tecnológica para React e pela nova identidade visual do ecossistema. No Universe, minha missão é unir estética e performance em uma experiência espacial única.",
+      avatar: "/imagens/lua.pn",
       github: "https://github.com/Jaqueline-Gotardi",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/jaqueline-gotardi-833454365/",
       email: "jaquelineribeirogotardi@gmail.com"
     },
     {
       id: 2,
       nome: "Giliany Silva",
-      cargo: "Co-Fundadora do protótipo original (2022)",
-      bio: "a definir...",
-      avatar: "/imagens/lua.png",
+      cargo: "Co-fundadora do Protótipo original (2022)",
+      bio: "Co-autora da ideia original em 2022. Fundamental na concepção do primeiro protótipo que deu origem a esta jornada pelo cosmos. Acredito que as melhores ideias nascem da colaboração e da vontade de criar algo novo do zero.",
+      avatar: "/imagens/lua.pn",
       github: "",
-      linkedin: "",
-      email: "..."
+      linkedin: "", 
+      email: "gilianysilva@gmail.com"
     },
     {
       id: 3,
       nome: "Grazielle Martins",
-      cargo: "Colaboradora do projeto",
-      bio: "a definir...",
-      avatar: "/imagens/lua.png",
+      cargo: "Desenvolvedora Assistente",
+      bio: "Desenvolvedora colaboradora, focada na otimização final e suporte técnico para o lançamento da nova versão. Minha motivação é garantir que cada linha de código contribua para um sistema robusto e sem falhas.",
+      avatar: "/imagens/lua.pn",
       github: "https://github.com/grazielle-marttdev",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/grazielle-martins-557b61334/",
       email: "gzassuncaomartins@gmail.com"
     }
   ]
@@ -111,8 +111,8 @@ const Creators = () => {
     criadoresGrid:{
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-      gap: "40px",
-      maxWidth: "900px",
+      gap: "25px",
+      maxWidth: "1200px",
       width: "100%",
       padding: "0 20px",
     }, 
@@ -310,18 +310,23 @@ const Creators = () => {
 
                 {/* links das redes sociais */}
                 <div style={styles.socialLinks}>
-                  <a href={criador.github} style={styles.socialLink} className="efeito-hover-icons">
+                  {criador.github && criador.github !== "..." && (
+                    <a href={criador.github} style={styles.socialLink} className="efeito-hover-icons" target="_blank" rel="noreferrer">
                     <Github size={20} />
                   </a>
-                  <a href={criador.linkedin} style={styles.socialLink} className="efeito-hover-icons">
+                  )}
+                  {criador.linkedin && criador.linkedin !== "..." && (
+                    <a href={criador.linkedin} style={styles.socialLink} className="efeito-hover-icons" target="_blank" rel="noreferrer">
                     <Linkedin size={20} />
                     </a>
+                  )}
+                  {criador.email && criador.email !== "..." && (
                     <a href={criador.email} style={styles.socialLink} className="efeito-hover-icons">
                       <Mail size={20} />
                     </a>
+                  )}
                 </div>
               </div>
-            
           ))}
 
           <style>
@@ -337,79 +342,8 @@ const Creators = () => {
             `}
           </style>
         </div>
-
-  
-
-
-    {/* <section className="tela-criadores" id="detalhe-criadores">
-  <div className="background-overlay"></div>
-  <h1 className="titulo-criadores">Agentes Especiais do Projeto</h1>
-  <div className="container-criadores">
-    
-    <div className="card">
-      <div className="imagem-perfil">
-        <img src="" alt="Foto de Perfil de Giliany" />
-      </div>
-      <div className="informacoes-perfil">
-        <h2 className="nome-criador">Giliany Do Carmo</h2>
-        <p className="role-projeto">Líder do Protótipo Original (2022)</p>
-        <ul className="contribuicoes">
-          <li>
-            <span className="marcador-neon"></span>
-            Líder da criação do protótipo original do projeto em 2022 (tema infantil), como uma atividade escolar.
-          </li>
-          <li>
-            <span className="marcador-neon"></span>
-            Desenvolveu a estrutura de design e UI/UX do protótipo infantil.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div className="card">
-      <div className="imagem-perfil">
-        <img src="/imagens/jaque.jpg" alt="Foto de Perfil de Jaqueline" />
-      </div>
-      <div className="informacoes-perfil">
-        <h2 className="nome-criador">Jaqueline Gotardi</h2>
-        <p className="role-projeto">Líder do Protótipo e Designer (2025)</p>
-        <ul className="contribuicoes">
-          <li>
-            <span className="marcador-neon"></span>
-            Liderou a criação do protótipo original do projeto em 2022 (tema infantil), como uma atividade escolar.
-          </li>
-          <li>
-            <span className="marcador-neon"></span>
-            Liderou a evolução do design, transformando a estética original para uma interface moderna e profissional.
-          </li>
-          <li>
-            <span className="marcador-neon"></span>
-            Atualmente responsável pela codificação e implementação de novas funcionalidades.
-          </li>
-        </ul>
-      </div>
-    </div> 
-  </div>  
+        
   <button 
-    type="button"
-    className="botao-voltar"
-    id="btn-voltar-info-menu"
-    style={styles.backButton} 
-    onClick={() => navigate("/app/extras-menu")}
-    onMouseEnter={(e) => {
-      e.target.style.transform = "scale(1.05)";
-      e.target.style.boxShadow = "0 0 30px rgba(168, 85, 247, 0.5)";
-    }}
-    onMouseLeave={(e) => {
-      e.target.style.transform = "scale(1)";
-      e.target.style.boxShadow = "0 5px 25px rgba(168, 85, 247, 0.3)";
-      }}>      
-      Voltar
-      </button>
-</section> */}
-
-
-<button 
     type="button"
     className="botao-voltar"
     id="btn-voltar-info-menu"
