@@ -14,7 +14,7 @@ function Creators() {
     
     <div className="card">
       <div className="imagem-perfil">
-        <img src="/imagens/Giliany.jpg" alt="Foto de Perfil de Giliany" />
+        <img src="/imagens/giliany.jpg" alt="Foto de Perfil de Giliany" />
       </div>
       <div className="informacoes-perfil">
         <h2 className="nome-criador">Giliany Do Carmo</h2>

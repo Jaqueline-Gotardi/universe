@@ -213,7 +213,7 @@ function Profile() {
             <img src="/public/imagens/avatar-apollo.png" alt="Avatar Apollo" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-apollo.png")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-luna (1).png" alt="Avatar Luna" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-luna (1).png")} />
+          <img src="/public/imagens/avatar-luna.png" alt="Avatar Luna" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-luna.png")} />
         </div>
         <div className="avatar-item">
           <img src="/public/imagens/avatar-orion.png" alt="Avatar Orion" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-orion.png")} />

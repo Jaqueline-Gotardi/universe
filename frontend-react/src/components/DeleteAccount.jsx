@@ -10,7 +10,7 @@ function DeleteAccount() {
     <section className="tela-apagar-conta" id="detalhe-apagar-conta">
     <div className="container-conteudo">
       <figure className="astronauta">
-        <img src="/imagens/nauta-triste.png" alt="Astronauta triste, pensando em você" />
+        <img src="/imagens/astronauta-triste.png" alt="Astronauta triste, pensando em você" />
       </figure>
       <div className="painel-confirmacao">
         <p className="mensagem-persuasiva">Atenção, Agente Espacial. Sua jornada de exploração está em risco de ser
