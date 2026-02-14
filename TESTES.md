@@ -4,7 +4,7 @@
 Validar os fluxos de criação de conta e autentificação para garantir a integridade e segurança do acesso ao sistema.
 
 ## 🛠️ Tecnologias e Ferramentas
-- **Ferramenta de API:** Postman
+- **Ferramenta:** Postman
 - **Banco de Dados:** DBeaver para validação SQL
 - **Documentação:** Markdown
 - **Ambiente:** Localhost:3000
@@ -81,7 +81,7 @@ Validar os fluxos de criação de conta e autentificação para garantir a integ
 - **Evidência:** ![Login Erro](./docs/test-evidence/04-login-erro.png)
 
 ## 🗄️ Validação de Persistência (SQL)
-- **Processo:** Após o resultado obtido nos casos de teste(CT-01, CT-02, CT-03, CT-04), foi realizada uma consulta no banco de dados para garantir que o registro dos dados.
+- **Processo:** Após o resultado obtido nos casos de teste(CT-01, CT-02, CT-03, CT-04), foi realizada uma consulta no banco de dados para garantir o registro dos dados em todos os casos.
 - **Ferramenta:** DBeaver.
 - **Evidência:** ![Dados Dbeaver](./docs/test-evidence/dados-dbeaver.png)
 
