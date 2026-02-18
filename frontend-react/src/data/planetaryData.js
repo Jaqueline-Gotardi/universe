@@ -134,7 +134,7 @@ export const menuLuasESatelites = [
 export const conteudosPlanetarios = {
   mercurio: {
     titulo: "Mercúrio",
-    imagem: "/imagens/mercurio.png",
+    imagem: "/imagens/mercurio.webp",
     descricao: `Mercúrio é o menor planeta do Sistema Solar e o mais próximo do Sol. Com um diâmetro de apenas 4.879 km, ele é apenas ligeiramente maior que a nossa Lua.
     
     Apesar de sua proximidade com o Sol, Mercúrio não é o planeta mais quente (esse título pertence a Vênus). No entanto, Mercúrio experimenta as maiores variações de temperatura do Sistema Solar, oscilando entre -180°C à noite e 430°C durante o dia.
@@ -143,7 +143,7 @@ export const conteudosPlanetarios = {
   },
   venus: {
     titulo: "Vênus - A Estrela da Manhã",
-    imagem: "/imagens/venus.png",
+    imagem: "/imagens/venus.webp",
     descricao: `Vênus é o segundo planeta a partir do Sol e é frequentemente chamado de "planeta irmão" da Terra devido ao seu tamanho similar. No entanto, as semelhanças param por aí.
 
     Vênus possui a atmosfera mais densa de todos os planetas rochosos, composta principalmente de dióxido de carbono com nuvens de ácido sulfúrico. Essa atmosfera cria um efeito estufa extremo, tornando Vênus o planeta mais quente do Sistema Solar, com temperaturas na superfície de cerca de 465°C.
@@ -152,7 +152,7 @@ export const conteudosPlanetarios = {
   },
   terra: {
     titulo: "Terra - Nosso Lar Azul",
-    imagem: "/imagens/terra.png",
+    imagem: "/imagens/terra.webp",
     descricao: `A Terra é o terceiro planeta a partir do Sol e o único conhecido por abrigar vida. Com uma idade de aproximadamente 4,5 bilhões de anos, nosso planeta tem condições únicas que permite a vida.
 
     A Terra possui uma atmosfera rica em nitrogênio e oxigênio, um campo magnético protetor e água líquida em abundância (os três ingredientes essenciais para a vida como a conhecemos).
@@ -161,7 +161,7 @@ export const conteudosPlanetarios = {
   },
   marte: {
     titulo: "Marte - O Planeta Vermelho",
-    imagem: "/imagens/marte.png",
+    imagem: "/imagens/marte.webp",
     descricao: `Marte é o quarto planeta do Sistema Solar e tem fascinado a humanidade por séculos. Sua cor avermelhada, visível mesmo a olho nu, é causada pelo óxido de ferro (ferrugem) em sua superfície.
 
     Marte abriga as maiores estruturas geológicas conhecidas no Sistema Solar: o Monte Olimpo, um vulcão com 22 km de altura (quase três vezes a altura do Everest), e o Valles Marineris, um sistema de cânions de 4.000 km de extensão.
@@ -170,7 +170,7 @@ export const conteudosPlanetarios = {
   },
   jupiter: {
     titulo: "Júpiter - O Gigante Gasoso",
-    imagem: "/imagens/jupiter.png",
+    imagem: "/imagens/jupiter.webp",
     descricao: `Júpiter é o maior planeta do Sistema Solar, com uma massa 2,5 vezes maior que todos os outros planetas combinados. Se Júpiter fosse oco, mais de 1.300 Terras caberiam dentro dele.
 
     O planeta é famoso pela Grande Mancha Vermelha, uma tempestade anticiclônica que existe há pelo menos 400 anos. Essa tempestade é tão grande que poderia engolir a Terra inteira.
@@ -179,7 +179,7 @@ export const conteudosPlanetarios = {
   },
   saturno: {
     titulo: "Saturno - O Senhor dos Anéis",
-    imagem: "/imagens/saturno.png",
+    imagem: "/imagens/saturno.webp",
     descricao: `Saturno é o sexto planeta do Sistema Solar e é instantaneamente reconhecível por seu espetacular sistema de anéis. Embora outros gigantes gasosos também possuam anéis, nenhum se compara à magnificência dos anéis de Saturno.
 
     Os anéis são compostos principalmente de partículas de gelo, variando em tamanho de grãos de areia a blocos do tamanho de casas. Surpreendentemente, apesar de se estenderem por centenas de milhares de quilômetros, os anéis têm apenas cerca de 10 metros de espessura.
@@ -188,7 +188,7 @@ export const conteudosPlanetarios = {
   },
   urano: {
     titulo: "Urano - O Planeta Deitado",
-    imagem: "/imagens/urano.png",
+    imagem: "/imagens/urano.webp",
     descricao: `Urano é o sétimo planeta do Sistema Solar e possui uma característica única: ele gira de lado! Seu eixo de rotação está inclinado em aproximadamente 98 graus, possivelmente resultado de uma colisão com um objeto do tamanho da Terra bilhões de anos atrás.
 
     Urano é classificado como um "gigante de gelo", pois sua composição inclui água, metano e amônia em formas de gelo de alta pressão. A cor azul-esverdeada do planeta é causada pelo metano em sua atmosfera.
@@ -197,7 +197,7 @@ export const conteudosPlanetarios = {
   },
   netuno: {
     titulo: "Netuno - O Gigante Azul",
-    imagem: "/imagens/netuno.png",
+    imagem: "/imagens/netuno.webp",
     descricao: `Netuno é o oitavo e mais distante planeta do Sistema Solar, localizado a cerca de 4,5 bilhões de quilômetros do Sol. Um ano em Netuno equivale a 165 anos terrestres.
 
     O planeta possui os ventos mais fortes do Sistema Solar, atingindo velocidades de até 2.100 km/h. Sua atmosfera apresenta tempestades massivas, incluindo a Grande Mancha Escura, similar à Grande Mancha Vermelha de Júpiter.
@@ -207,7 +207,7 @@ export const conteudosPlanetarios = {
 
   sol: {
     titulo: "O sol - Nossa Estrela",
-    imagem: "/imagens/sol.png",
+    imagem: "/imagens/sol.webp",
     descricao: `O Sol é a estrela no centro do nosso Sistema Solar. É uma esfera quase perfeita de plasma quente, com um diâmetro de cerca de 1,4 milhão de quilômetros - 109 vezes o diâmetro da Terra.
 
     No núcleo do Sol, a temperatura atinge 15 milhões de graus Celsius, onde reações de fusão nuclear convertem hidrogênio em hélio, liberando enormes quantidades de energia. O Sol converte cerca de 600 milhões de toneladas de hidrogênio em hélio a cada segundo.
@@ -217,7 +217,7 @@ export const conteudosPlanetarios = {
 
   "cinturao-de-asteroides": {
     titulo: "Cinturão de Asteroides",
-    imagem: "/imagens/cinturao-de-asteroides.png",
+    imagem: "/imagens/cinturao-de-asteroides.webp",
     descricao: `Localizado na vasta região entre as órbitas de Marte e Júpiter, o Cinturião de Asteroides é um disco circunestelar composto por milhões de corpos rochosos e metálicos. Apesar da grande quantidade de objetos, a massa total do cinturião é apenas cerca de 4% da massa da Lua terrestre.
 
     Os objetos variam desde minúsculos grãos de poeira até o planeta anão Ceres, que detém um terço da massa de todo o cinturião. Ao contrário das representações em filmes, o espaço entre os asteroides é imenso, permitindo que sondas espaciais o atravessem sem colisões.
@@ -227,7 +227,7 @@ export const conteudosPlanetarios = {
 
   "cinturao-de-kuiper": {
     titulo: "Cinturão de Kuiper",
-    imagem: "/imagens/cinturao-de-kuiper.png",
+    imagem: "/imagens/cinturao-de-kuiper.webp",
     descricao: `O Cinturião de Kuiper é uma região gelada que se estende além da órbita de Netuno, aproximadamente de 30 a 50 unidades astronómicas do Sol. É semelhante ao cinturião de asteroides, mas é muito maior — 20 vezes mais largo e até 200 vezes mais massivo.
 
     Esta região é composta maioritariamente por corpos gelados, formados por "gelos" voláteis como metano, amoníaco e água. É o lar de muitos planetas anões, incluindo Plutão, Haumea e Makemake.
@@ -237,7 +237,7 @@ export const conteudosPlanetarios = {
 
   "nuvem-de-oort": {
     titulo: "Nuvem de Oort",
-    imagem: "/imagens/nuvem-de-oort.png",
+    imagem: "/imagens/nuvem-de-oort.webp",
     descricao: `A Nuvem de Oort é uma gigantesca camada esférica teórica que marca o limite externo do Sistema Solar. Estendendo-se por quase um ano-luz do Sol, ela é composta por milhares de milhões de objetos gelados que se movem em órbitas muito lentas.
 
     Enquanto o Cinturião de Kuiper é um disco plano, a Nuvem de Oort envolve todo o sistema como uma bolha. É considerada a reserva de cometas de longo período, que podem levar milhares de anos para completar uma única volta ao redor do Sol.
@@ -247,7 +247,7 @@ export const conteudosPlanetarios = {
 
   "planetas-anoes": {
     titulo: "Planetas Anões",
-    imagem: "/imagens/planetas-anoes.png",
+    imagem: "/imagens/planetas-anoes.webp",
     descricao: `Um planeta anão é um corpo celeste que orbita o Sol e tem massa suficiente para que a sua própria gravidade o mantenha numa forma quase esférica, mas que, ao contrário dos oito planetas principais, não "limpou" a vizinhança da sua órbita.
 
     Atualmente, a União Astronómica Internacional reconhece cinco planetas anões: Ceres, Plutão, Haumea, Makemake e Éris. Ceres localiza-se no cinturião de asteroides, enquanto os outros estão no Cinturião de Kuiper ou no disco disperso.
@@ -257,7 +257,7 @@ export const conteudosPlanetarios = {
 
   "lua": {
     titulo: "A Lua - Nosso Satélite Natural",
-    imagem: "/imagens/lua.png",
+    imagem: "/imagens/lua.webp",
     descricao: `A Lua é o único satélite natural da Terra e o quinto maior satélite do Sistema Solar. Com um diâmetro de 3.474 km, ela é aproximadamente um quarto do tamanho da Terra.
 
     A Lua é o único corpo celeste além da Terra que humanos já visitaram. Entre 1969 e 1972, doze astronautas caminharam em sua superfície durante as missões Apollo.
@@ -267,7 +267,7 @@ export const conteudosPlanetarios = {
 
   "io(jupiter)": {
     titulo: "Io (Júpiter)",
-    imagem: "/imagens/io.png",
+    imagem: "/imagens/io.webp",
     descricao: `Io é o corpo geologicamente mais ativo do Sistema Solar, com centenas de vulcões ativos que expelem lava de silicato e plumas de enxofre a centenas de quilómetros de altura. Esta atividade extrema é causada pelo "aquecimento de maré".
 
     Situada entre a poderosa gravidade de Júpiter e a influência das luas Europa e Ganimedes, Io é constantemente "esmagada" e esticada internamente, gerando um calor imenso que derrete as suas rochas subterrâneas.
@@ -277,7 +277,7 @@ export const conteudosPlanetarios = {
 
   "europa(jupiter)": {
     titulo: "Europa (Júpiter)",
-    imagem: "/imagens/europa.png",
+    imagem: "/imagens/europa.webp",
     descricao: `Europa é um dos mundos mais fascinantes para a astrobiologia. Sob uma crosta de gelo de quilómetros de espessura, acredita-se que exista um oceano global de água líquida salgada, mantido aquecido por forças de maré.
 
     A superfície de Europa é extremamente lisa e coberta por fissuras e riscos, sugerindo que o gelo flutua e se move sobre um interior líquido. Cientistas estimam que Europa possa conter duas vezes mais água do que todos os oceanos da Terra combinados.
@@ -287,7 +287,7 @@ export const conteudosPlanetarios = {
 
   "ganimedes(jupiter)": {
     titulo: "Ganimedes (Júpiter)",
-    imagem: "/imagens/ganimedes.png",
+    imagem: "/imagens/ganimedes.webp",
     descricao: `Ganimedes é a maior lua do Sistema Solar, sendo inclusive maior do que o planeta Mercúrio (embora tenha menos massa). É o único satélite natural conhecido por possuir o seu próprio campo magnético gerado internamente.
 
     A sua superfície apresenta dois tipos de terreno: regiões escuras e antigas, densamente crateradas, e regiões mais claras e jovens, cortadas por sulcos e cumes. 
@@ -297,7 +297,7 @@ export const conteudosPlanetarios = {
 
   "calisto(jupiter)": {
     titulo: "Calisto (Júpiter)",
-    imagem: "/imagens/calisto.png",
+    imagem: "/imagens/calisto.webp",
     descricao: `Calisto é o objeto com mais crateras de impacto em todo o Sistema Solar. A sua superfície de gelo e rocha é extremamente antiga e não mostra sinais de processos geológicos como vulcanismo ou tectónica de placas.
 
     Devido à sua distância de Júpiter, Calisto sofre menos influência de radiação e forças de maré do que as outras luas galileanas, tornando a sua superfície geologicamente "morta" há biliões de anos.
@@ -307,7 +307,7 @@ export const conteudosPlanetarios = {
 
   "titan": {
     titulo: "Titã - A Lua com Atmosfera",
-    imagem: "/imagens/tita.png",
+    imagem: "/imagens/tita.webp",
     descricao: `Titã é a maior lua de Saturno e a segunda maior do Sistema Solar. É a única lua conhecida com uma atmosfera densa e a única além da Terra onde lagos e mares de líquido foram descobertos.
 
     A atmosfera de Titã é composta principalmente de nitrogênio, com metano e outros hidrocarbonetos. Na superfície, lagos de metano e etano líquido cobrem regiões polares, criando um ciclo hidrológico similar ao da Terra, mas com hidrocarbonetos em vez de água.
@@ -317,7 +317,7 @@ export const conteudosPlanetarios = {
 
   "encelado(saturno)": {
     titulo: "Encélado (Saturno)",
-    imagem: "/imagens/encelado.png",
+    imagem: "/imagens/encelado.webp",
     descricao: `Encélado é uma pequena lua gelada de Saturno que se tornou uma das maiores prioridades da exploração espacial. A sonda Cassini descobriu géiseres gigantescos de vapor de água e partículas de gelo a serem expelidos do seu pólo sul.
 
     Estas plumas vêm de um oceano de água líquida localizado sob a crosta gelada. As partículas expelidas são tão abundantes que formam o anel E de Saturno.
@@ -327,7 +327,7 @@ export const conteudosPlanetarios = {
 
   "tritao(netuno)": {
     titulo: "Tritão (Netuno)",
-    imagem: "/imagens/tritao.png",
+    imagem: "/imagens/tritao.webp",
     descricao: `Tritão é a maior lua de Netuno e um dos lugares mais frios do Sistema Solar, com temperaturas de superfície próximas do zero absoluto (-235°C). É a única grande lua que orbita o seu planeta em sentido contrário à rotação deste (órbita retrógrada).
 
     Esta característica sugere que Tritão não se formou ao redor de Netuno, mas foi um objeto do Cinturião de Kuiper capturado pela gravidade do planeta há biliões de anos.

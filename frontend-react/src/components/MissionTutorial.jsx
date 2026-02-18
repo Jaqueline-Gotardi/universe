@@ -209,7 +209,7 @@ return (
           </p>
         </div>
 
-        <img src="/imagens/ilustration.png" alt="Foto ilustrativa de mim e meu cachorro" className="imagem-adaptavel"/>
+        <img src="/imagens/ilustracao-menina-e-cao.webp" alt="Foto ilustrativa de mim e meu cachorro" className="imagem-adaptavel"/>
  
         <div className="card" style={styles.missionCard}>
             <h2 className="titulo-missao" style={styles.missionTitle}>
