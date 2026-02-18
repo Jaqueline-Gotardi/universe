@@ -14,7 +14,7 @@ function Creators() {
     
     <div className="card">
       <div className="imagem-perfil">
-        <img src="/imagens/giliany.jpg" alt="Foto de Perfil de Giliany" />
+        <img src="/imagens/giliany.webp" alt="Foto de Perfil de Giliany" />
       </div>
       <div className="informacoes-perfil">
         <h2 className="nome-criador">Giliany Do Carmo</h2>
@@ -34,7 +34,7 @@ function Creators() {
 
     <div className="card">
       <div className="imagem-perfil">
-        <img src="/imagens/jaque.jpg" alt="Foto de Perfil de Jaqueline" />
+        <img src="/imagens/jaque.webp" alt="Foto de Perfil de Jaqueline" />
       </div>
       <div className="informacoes-perfil">
         <h2 className="nome-criador">Jaqueline Gotardi</h2>
@@ -57,7 +57,7 @@ function Creators() {
     </div> 
   </div>
   <button type="button" className="botao-retorno-home" aria-label="Voltar para a página inicial" onClick={() => navigate("/app/extras-menu")}>
-    <img src="/imagens/casinha.png" className="icone-home" alt="Ícone de casa, para retornar ao menu principal" id="btn-voltar-criadores" />
+    <img src="/imagens/casinha.webp" className="icone-home" alt="Ícone de casa, para retornar ao menu principal" id="btn-voltar-criadores" />
   </button>
 </section>
     )

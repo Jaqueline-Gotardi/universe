@@ -10,7 +10,7 @@ function DeleteAccount() {
     <section className="tela-apagar-conta" id="detalhe-apagar-conta">
     <div className="container-conteudo">
       <figure className="astronauta">
-        <img src="/imagens/astronauta-triste.png" alt="Astronauta triste, pensando em você" />
+        <img src="/imagens/astronauta-triste.webp" alt="Astronauta triste, pensando em você" />
       </figure>
       <div className="painel-confirmacao">
         <p className="mensagem-persuasiva">Atenção, Agente Espacial. Sua jornada de exploração está em risco de ser
@@ -28,7 +28,7 @@ function DeleteAccount() {
     </div>
     <button type="button" className="botao-retorno-home" aria-label="Voltar para a página inicial" 
     onClick={() => navigate("/app/extras-menu")}>
-      <img src="/imagens/casinha.png" className="icone-home" alt="Ícone de casa, para retornar ao menu principal" id="btn-voltar-apagar-conta" />
+      <img src="/imagens/casinha.webp" className="icone-home" alt="Ícone de casa, para retornar ao menu principal" id="btn-voltar-apagar-conta" />
     </button> 
   </section>
     )
