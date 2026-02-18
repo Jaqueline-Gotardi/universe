@@ -53,7 +53,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
     <div className="content-wrapper">
       <div className="login-container">
         <div className="welcome-section">
-          <img src="./imagens/astronaut-hero.png" alt="Astronauta" className="astronaut-hero"/>
+          <img src="./imagens/astronauta-hero.webp" alt="Astronauta" className="astronaut-hero"/>
           <h1 className="welcome-title">Bem vindo(a) ao Universe!</h1>
         </div>
  

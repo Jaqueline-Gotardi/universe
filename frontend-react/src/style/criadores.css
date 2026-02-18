@@ -22,7 +22,7 @@
 }
 
 .tela-criadores {
-    /* background-image: url('../imagens/tela-criadores.jpg'); */
+    background-image: url('../imagens/tela-criadores.webp');
     background-size: cover;
     background-position: center;
     filter: brightness(1) saturate(1);

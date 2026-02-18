@@ -207,34 +207,34 @@ function Profile() {
 
       <div className="galeria-grid-avatares">
         <div className="avatar-item">
-            <img src="/public/imagens/avatar-phoenix.png" alt="Avatar Phoenix" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-phoenix.png")} />
+            <img src="/imagens/avatar-phoenix.webp" alt="Avatar Phoenix" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-phoenix.webp")} />
         </div>
         <div className="avatar-item">
-            <img src="/public/imagens/avatar-apollo.png" alt="Avatar Apollo" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-apollo.png")} />
+            <img src="/imagens/avatar-apollo.webp" alt="Avatar Apollo" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-apollo.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-luna (1).png" alt="Avatar Luna" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-luna (1).png")} />
+          <img src="/imagens/avatar-luna.webp" alt="Avatar Luna" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-luna.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-orion.png" alt="Avatar Orion" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-orion.png")} />
+          <img src="/imagens/avatar-orion.webp" alt="Avatar Orion" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-orion.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-nova.png" alt="Avatar Nova" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-nova.png")} />
+          <img src="/imagens/avatar-nova.webp" alt="Avatar Nova" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-nova.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-ace.png" alt="Avatar Ace" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-ace.png")} />
+          <img src="/imagens/avatar-ace.webp" alt="Avatar Ace" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens//avatar-ace.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-astra.png" alt="Avatar Astra" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-astra.png")} />
+          <img src="/imagens/avatar-astra.webp" alt="Avatar Astra" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-astra.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-nexus.png" alt="Avatar Nexus" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-nexus.png")} />
+          <img src="/imagens/avatar-nexus.webp" alt="Avatar Nexus" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-nexus.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-stella.png" alt="Avatar Stella" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-stella.png")} />
+          <img src="/imagens/avatar-stella.webp" alt="Avatar Stella" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-stella.webp")} />
         </div>
         <div className="avatar-item">
-          <img src="/public/imagens/avatar-wil.png" alt="Avatar Will" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-wil.png")} />
+          <img src="/imagens/avatar-wil.webp" alt="Avatar Will" className="avatar-preview" onClick={() => handleAvatarSelect("/imagens/avatar-wil.webp")} />
         </div>
         </div>
         

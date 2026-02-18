@@ -15,7 +15,7 @@ const Creators = () => {
       nome: "Jaqueline Gotardi",
       cargo: "Fundadora e CEO do Universe",
       bio: "Criadora do Universe, responsável por toda a transição tecnológica para React e pela nova identidade visual do ecossistema. No Universe, minha missão é unir estética e performance em uma experiência espacial única.",
-      avatar: "/imagens/jaque.jpg",
+      avatar: "/imagens/jaque.webp",
       github: "https://github.com/Jaqueline-Gotardi",
       linkedin: "https://www.linkedin.com/in/jaqueline-gotardi-833454365/",
       email: "jaquelineribeirogotardi@gmail.com"
@@ -25,7 +25,7 @@ const Creators = () => {
       nome: "Giliany Silva",
       cargo: "Co-fundadora do Protótipo original (2022)",
       bio: "Co-autora da ideia original em 2022. Fundamental na concepção do primeiro protótipo que deu origem a esta jornada pelo cosmos. Acredito que as melhores ideias nascem da colaboração e da vontade de criar algo novo do zero.",
-      avatar: "/imagens/Giliany.jpg",
+      avatar: "/imagens/giliany.webp",
       github: "",
       linkedin: "", 
       email: "gilianysilva@gmail.com"
@@ -35,7 +35,7 @@ const Creators = () => {
       nome: "Grazielle Martins",
       cargo: "Desenvolvedora Assistente",
       bio: "Desenvolvedora colaboradora, focada na otimização final e suporte técnico para o lançamento da nova versão. Minha motivação é garantir que cada linha de código contribua para um sistema robusto e sem falhas.",
-      avatar: "/imagens/grazi.jpg",
+      avatar: "/imagens/grazielle.webp",
       github: "https://github.com/grazielle-marttdev",
       linkedin: "https://www.linkedin.com/in/grazielle-martins-557b61334/",
       email: "gzassuncaomartins@gmail.com"
