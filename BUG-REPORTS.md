@@ -46,4 +46,4 @@ line: '638' ```
 - **Response (201 Created):** ```{ "message": "Usuário cadastrado com sucesso!" }```
 
 - **Evidências:** ![Cadastro sucesso](./docs/test-evidence/07.0-cadastro-ursername-formatoImg.png) 
-![Cadastro sucesso](./docs/test-evidence/07.1-cadastro-username-formato-numerico.png) 
+![Cadastro sucesso](./docs/test-evidence/07.1-cadastro-username-formato-numerico.png)  
