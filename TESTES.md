@@ -7,7 +7,7 @@ Validar os fluxos de criação de conta e autentificação para garantir a integ
 - **Ferramenta:** Postman
 - **Banco de Dados:** DBeaver para validação SQL
 - **Documentação:** Markdown
-- **Ambiente:** Localhost:3000
+- **Ambiente:** Localhost:3000 
 
 ## 🚀 Metodologia
 - **Nível de Teste:** Integração (Backend + Banco de dados)
