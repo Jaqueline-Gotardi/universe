@@ -2,14 +2,14 @@
 
 ## 🎯 Objetivo: Validar limite de caracteres, formatação de email e integridade do username para garantir que os dados salvos no BD sejam seguros.
 
-### 1. [Cadastro] - Erro de 500 ao enviar username > 50 caracteres
+### BUG-01: [Cadastro] - Erro de 500 ao enviar username > 50 caracteres
 
 - **Severidade:** Crítico (O servidor cai)
 - **Prioridade:** Alta
 - **Ambiente:** Postman
 - **Descrição:** O campo username só aceita nomes com limite de 50 caracteres, e não exibe uma mensagem de erro.
-- **Passos para Reproduzir:** 1. Selecionar o método Post com o caminho: “http://localhost:3000/register” 2. Selecionar no Body username com 51 caracteres 3. Clicar em “Send”
-- **Resultado Esperado:** Mensagem: “Limite de caracteres atingido!” com status 400 Bad Request.
+- **Passos para Reproduzir:** 1. Realizar a requisição POST no endpoint /register, 2. No corpo (body) da requisição, enviar Json com username contendo 51 caracteres, 3. Clicar em “Send”,
+- **Resultado Esperado:** Mensagem: “Limite de caracteres atingido!” com status 400 (Bad Request).
 - **Resultado Obtido:** A mensagem “Erro interno no servidor. Tente novamente mais tarde” com status 500.
 - **Log do Erro (Stack Trace):**  ```
 Erro ao inserir dados no banco: error: value too long for type character varying(50)
@@ -19,31 +19,43 @@ severity: 'ERROR',
 file: 'varchar.c',
 line: '638' ```
 
-- **Evidências:** ![Cadastro Erro](./docs/test-evidence/05-cadastro-limite-caracteres.png) 
+- **Evidência:** ![Cadastro Erro](./docs/test-evidence/05-limite-caracteres.png) 
 
-### 2. [Cadastro] – Falha na validação do formato do Email (aceita apenas domínio)
+### BUG-02. [Cadastro] – Falha na validação do formato de e-mail (regEx inválida)
 
 - **Severidade:** Alta (pois irá impedir uma futura recuperação de senha, caso seja preciso)
 - **Prioridade:** Alta
 - **Ambiente:** Postman
-- **Descrição:** O e-mail está sendo aceito apenas como “@gmail.com”
-- **Passos para Reproduzir:** 1. Definir o método como Post. 2. Inserir “http://localhost:3000/register”, 3. Ir no body e digitar no “e-mail”: “@gmail.com”, 4. Clicar em “Send”
+- **Descrição:** O sistema permite o cadastro de e-mail contendo apenas o domínio (ex:“@gmail.com”), o que dificulta uma possível recuperação de senha no futuro. 
+- **Passos para Reproduzir:** 1. Definir o método como Post no endpoint /register, 2. No corpo (body) da requisição, enviar Json no “e-mail”: “@gmail.com”, 3. Clicar em “Send”
 - **Resultado Esperado:** Um aviso: “Defina um e-mail válido”, com status 422 (formato inválido de email)
 - **Resultado Obtido:** A mensagem: “Usuário cadastrado com sucesso”, com status 201.
 - **Response (201 Created):** ```{ "message": "Usuário cadastrado com sucesso!" }```
 
-- **Evidências:** ![Cadastro Sucesso](./docs/test-evidence/06-cadastro-formato-email.png) 
+- **Evidência:** ![Cadastro Sucesso](./docs/test-evidence/06-cadastro-formato-email.png) 
 
-### 3. [Cadastro] – Username sendo aceito como formato de imagem e caracteres especiais
+### BUG-03. [Cadastro] – Username sendo aceito com 100% de caracteres especiais
 
-- **Severidade:** Menor
+- **Severidade:** Média
 - **Prioridade:** Média
 - **Ambiente:** Postman
-- **Descrição:** O username está sendo aceito como um formato de foto, exemplo: “Jaque.png/jpge”
-- **Passos para Reproduzir:** 1. Selecionar o método Post, 2. Inserir o caminho “http://localhost:3000/register”, 3. Escrever em username: “Jaque.png”, 4. Clicar em “Send”
-- **Resultado Esperado:** Uma mensagem: “Só aceitamos nomes válidos” e validar apenas nomes alfanúmericos.
+- **Descrição:** O username está sendo aceito com caracteres especiais e símbolos, permitindo "nomes" inválidos ou potencialmente perigosos (scripts).
+- **Passos para Reproduzir:** 1. Definir o método como Post no endpoint /register, 2. No corpo (body) da requisição, enviar Json com "username": "teste-#%&*", 3. Clicar em “Send”
+- **Resultado Esperado:** O servidor retorna status 400, com a mensagem: “Username deve conter apenas caracteres alfanúmericos!” 
 - **Resultado Obtido:** A mensagem ”Usuário cadastrado com sucesso”, com status 201.
 - **Response (201 Created):** ```{ "message": "Usuário cadastrado com sucesso!" }```
 
-- **Evidências:** ![Cadastro sucesso](./docs/test-evidence/07.0-cadastro-ursername-formatoImg.png) 
-![Cadastro sucesso](./docs/test-evidence/07.1-cadastro-username-formato-numerico.png)  
+- **Evidência:** ![Cadastro sucesso](./docs/test-evidence/07.0-cadastro-username-formato-numerico.png)  
+
+### BUG-04. [Cadastro] – Username sendo aceito como extensão de arquivo
+
+- **Severidade:** Baixa
+- **Prioridade:** Baixa
+- **Ambiente:** Postman
+- **Descrição:** O sistema permite que o username contenha extensões de arquivos,(ex: .png, .jpg), o que futuramente pode causar confusão com upload de fotos.
+- **Passos para Reproduzir:** 1. Definir o método como Post no endpoint /register, 2. No corpo (body) da requisição, enviar Json com "username": "teste.png", 3. Clicar em “Send”
+- **Resultado Esperado:** O servidor retorna status 400, com a mensagem: “Username deve conter apenas caracteres alfanúmericos!” 
+- **Resultado Obtido:** A mensagem ”Usuário cadastrado com sucesso”, com status 201.
+- **Response (201 Created):** ```{ "message": "Usuário cadastrado com sucesso!" }```
+
+- **Evidência:** ![Cadastro sucesso](./docs/test-evidence/07.1-cadastro-ursername-formatoImg.png)  
