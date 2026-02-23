@@ -58,13 +58,6 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
         </div>
  
         <form className="login-form" id="formulario" onSubmit={handleLogin}>
-          <div className="form-group">
-            <label htmlFor="senha" className="form-label">Senha:</label>
-            <input type="password" id="senha" 
-            placeholder="Digite sua senha" 
-            className="form-input" 
-            value={password} onChange={(e) => setPassword(e.target.value)} required/>
-          </div>
 
           <div className="form-group">
             <label htmlFor="email" className="form-label">Email:</label>
@@ -72,6 +65,14 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
             placeholder="Digite seu email" 
             className="form-input" 
             value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="senha" className="form-label">Senha:</label>
+            <input type="password" id="senha" 
+            placeholder="Digite sua senha" 
+            className="form-input" 
+            value={password} onChange={(e) => setPassword(e.target.value)} required/>
           </div>
 
           <button type="submit" className="btn-primary" id="btn-primary">Entrar</button>
