@@ -5,16 +5,19 @@
 import "../style/loginPage.css"
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+
+import { LoginTransition } from "../components/LoginTransition";
 
  
 function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
+  const [isLogin, setLogin ] = useState(false); //novo
 
   const { login } = useAuth();
-  const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
+  //const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
 
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
@@ -33,7 +36,8 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
       console.log("Login bem sucedido!", data);
 
       login(); //atualiza o estado para logado
-      navigate("/app"); //redireciona para o dashboard (a área que só entra quem está logado)
+      //navigate("/app"); //redireciona para o dashboard (a área que só entra quem está logado)
+      setLogin(true); //novo
     } else {
       alert("Falha ao logar: Verifique suas credenciais cósmicas!")
     }
@@ -46,10 +50,14 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
     return (   
         <section className="tela-login" id="tela-login">
+
     <div className="space-background login-bg">
       <div className="stars"></div>
       <div className="planets"></div> 
     </div> 
+     { isLogin ? (
+      <LoginTransition />
+    ) : (
     <div className="content-wrapper">
       <div className="login-container">
         <div className="welcome-section">
@@ -76,14 +84,16 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
           </div>
 
           <button type="submit" className="btn-primary" id="btn-primary">Entrar</button>
+
           <p className="cadastro-link">Não tem uma conta? 
           <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink>
           </p>
         </form>
       </div> 
     </div>
+    )}
   </section> 
-    );  
+  );  
 }
 
 export default LoginPage;  
