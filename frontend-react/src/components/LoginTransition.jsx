@@ -11,48 +11,107 @@
 import CosmicBackground from "./CosmicBackground"
 
 export function LoginTransition() {
+
+  const styles = {
+    radarWrap: {
+      position: "relative",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "280px",
+      height: "280px",
+      animation: "textAnimation 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+    },
+
+    radarLabel: {
+      color: "#00e5ff",
+      fontFamily: "'Orbitron', monospace",
+      fontSize: "0.8rem",
+      marginBottom: "20px",
+      transform: "translateX (-50%)",
+    },
+
+    scanText: {
+      fontFamily: "'Orbitron', monospace",
+      fontSize: "0.7rem",
+      color: "#00e5ff",
+      letterSpacing: "0.25rem",
+      opacity: "0.7", 
+      textTransform: "uppercase",
+      animation: "pulsar 1.4s ease-in-out infinite",
+    },
+
+    progressSection: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "16px",
+     /*  opacity: "0", */
+      transition: "0.8 ease",
+    },
+
+    progressSintonia: {
+      color: "#ffd60a",
+      fontSize: "0.6rem",
+      fontFamily: "'Orbitron', monospace",
+      textTransform: "uppercase",
+      textAlign: "center",
+      letterSpacing: "0.3rem",
+    },
+
+    progressBarra: {
+      border: "1px solid #00e5ff33",
+      width: "100%",
+      height: "36px",
+      background: "#05111f",
+      borderRadius: "50px",
+      boxShadow: "0 0 20px #00e5ff11, inset 0 0 20px #001020",
+    },
+  }
   
   return (
   <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm z-50 animate-slide-up" style={{zIndex: 1}}>
     <CosmicBackground />
+
     <div className="relative w-56 h-56 animate-slide-up">
+      <div style={styles.radarWrap}>
       <svg width="100%" height="100%" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
       
-      {/* Anel externo */}
+      {/* anel externo */}
       <circle cx="112" cy="112" r="108" stroke="#2053B3" strokeWidth="1.5" opacity="0.35" />
       
-      {/* Anel do meio */}
+      {/* anel do meio */}
       <circle cx="112" cy="112" r="75" stroke="#2053B3" strokeWidth="1" opacity="0.25" />
-      {/* Anel interno */}
+      {/* anel interno */}
       <circle cx="112" cy="112" r="42" stroke="#2053B3" strokeWidth="1" opacity="0.2" />
       <circle cx="112" cy="112" r="12" stroke="#2053B3" strokeWidth="1" opacity="0.1" />
-      {/* Linhas cruzadas */}
+      {/* linhas cruzadas */}
       <line x1="112" y1="4" x2="112" y2="220" stroke="#2053B3" strokeWidth="0.5" opacity="0.15" />
       <line x1="4" y1="112" x2="220" y2="112" stroke="#2053B3" strokeWidth="0.5" opacity="0.15" />
       <line x1="35" y1="35" x2="189" y2="189" stroke="#2053B3" strokeWidth="0.5" opacity="0.1" />
       <line x1="189" y1="35" x2="35" y2="189" stroke="#2053B3" strokeWidth="0.5" opacity="0.1" /> 
       
-      {/* Anel de brilho externo */}
+      {/* anel de brilho externo */}
       <circle cx="112" cy="112" r="110" stroke="#2053B3" strokeWidth="3" opacity="0.08" />
       
-      {/* Ponto central */}
+      {/* ponto central */}
       <circle cx="112" cy="112" r="4" fill="#2053B3">
         <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
         <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
         </circle>
         
-      {/* Linha de varredura */}
+      {/* linha de varredura */}
       <line x1="112" y1="112" x2="220" y2="112" stroke="#2053B3" strokeWidth="2" opacity="0.8" transform="rotate(0 112 112)">
         <animateTransform attributeName="transform" type="rotate" from="0 112 112" to="360 112 112" dur="2.5s" repeatCount="indefinite" />
         </line>
         
-      {/* Cone de varredura*/}
+      {/* cone de varredura*/}
       <path d="M 112 112 L 220 112 A 108 108 0 0 0 196.4 44.7 Z" fill="#2053B3" opacity="0.08">
         <animateTransform attributeName="transform" type="rotate" from="0 112 112" to="360 112 112" dur="2.5s" repeatCount="indefinite" /></path>
       <path d="M 112 112 L 220 112 A 108 108 0 0 0 208.8 76 Z" fill="#2053B3" opacity="0.15">
         <animateTransform attributeName="transform" type="rotate" from="0 112 112" to="360 112 112" dur="2.5s" repeatCount="indefinite" /></path>
 
-      {/* Sinais */}
+      {/* sinais */}
       <circle cx="148" cy="60" r="4" fill="#2053B3">
         <animate attributeName="r" values="2;5;2" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
         <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="0.5s" />
@@ -66,7 +125,7 @@ export function LoginTransition() {
           <animate attributeName="opacity" values="0;0.7;0" dur="2.5s" repeatCount="indefinite" begin="1.8s" />
         </circle>
         
-      {/* Marcas de borda */}
+      {/* marcas de borda */}
       {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
         <line 
         key={deg}
@@ -82,9 +141,40 @@ export function LoginTransition() {
         ))}
       </svg>
     </div>
+
+      <div style={styles.radarLabel}>Scanner estelar ativado </div>
+    </div>
+
+    <div style={styles.scanText}>Varrendo Frequências. . .</div>
+
+    <div style={styles.progressSection}>
+      <div style={styles.progressSintonia}>Sintonizando frequências galácticas</div>
+      <div style={styles.progressBarra}>
+      </div>
+    </div>
+
+    <style>
+      {`
+      @keyframes textAnimation {
+      0 % { transform: scale(0) rotate(-180deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      }
+
+       @keyframes pulsar {
+       {
+       0%, 100% {opacity:0.4}
+       50% {opacity: 1}
+       }
+       }`}
+    </style>
     </div>
     )
   }
+
+
+
+
+
 
 
 
