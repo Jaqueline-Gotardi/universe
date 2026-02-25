@@ -45,6 +45,8 @@ export function LoginTransition() {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+     /*  width: "380px",
+      maxWidth: "90vw", */
       gap: "16px",
      /*  opacity: "0", */
       transition: "0.8 ease",
@@ -59,7 +61,7 @@ export function LoginTransition() {
       letterSpacing: "0.3rem",
     },
 
-    progressBarra: {
+    progressBar: {
       border: "1px solid #00e5ff33",
       width: "100%",
       height: "36px",
@@ -67,6 +69,30 @@ export function LoginTransition() {
       borderRadius: "50px",
       boxShadow: "0 0 20px #00e5ff11, inset 0 0 20px #001020",
     },
+
+    progressFill: {
+      position: "relative",
+      background: "linear-gradient(90deg, #001a2e, #0066cc, #00e5ff)",
+      width: "0%",
+      heigth: "100%",
+      borderRadius: "2px",
+      transition: "width 0.2s linear",
+      boxShadow: "0 0 20px #00e5ff55",
+    },
+
+    progressCount: {
+      color: "#00e5ff",
+      fontFamily: "'Orbitron', monospace",
+      fontSize: "1.4rem",
+      fontWeight: "700",
+      textShadow: "0 0 20px",
+    },
+
+    progressStatus: {
+      color: "#ffffff44",
+      fontSize: "1rem",
+      letterSpacing: "0.2rem",
+    }
   }
   
   return (
@@ -149,8 +175,13 @@ export function LoginTransition() {
 
     <div style={styles.progressSection}>
       <div style={styles.progressSintonia}>Sintonizando frequências galácticas</div>
-      <div style={styles.progressBarra}>
+      <div style={styles.progressBar}>
+        <div style={styles.progressFill}>
+          <div style={styles.astronaut}></div>
+        </div>
       </div>
+      <div style={styles.progressCount}>0%</div>
+      <div style={styles.progressStatus}>Inicializando sistemas de navegação...</div>
     </div>
 
     <style>
@@ -161,11 +192,35 @@ export function LoginTransition() {
       }
 
        @keyframes pulsar {
-       {
-       0%, 100% {opacity:0.4}
-       50% {opacity: 1}
+       { 
+       0%, 100% { opacity:0.4 }
+       50% { opacity: 1 }
        }
-       }`}
+       }
+
+       progressBar::before {
+       position: absolute,
+       inset: 0,
+       content: '',
+       background-image: repeating-linear-gradient(90deg, #00e5ff08 0px, #00e5ff08 1px, transparent 1px, transparent 38px),
+       z-index: 1,
+       }
+       progressFill::after {
+       position: absolute,
+       content: '',
+       background: linear-gratient(90deg, transparent, #00e5ff66),
+       right: 0,
+       top: 0,
+       bottom: 0,
+       width: 40px,
+       animation: tracks 1s ease-in-out infinite,
+       }
+       @keyframes tracks {
+       0%, 100% { opacity: 0.5 }
+       50% { opacity: 1 }
+       }
+      `}
+       
     </style>
     </div>
     )
