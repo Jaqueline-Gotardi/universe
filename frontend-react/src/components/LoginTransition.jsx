@@ -8,7 +8,7 @@
 //import { useState } from "react";
 //import { useNavigate } from "react-router-dom";
 
-import CosmicBackground from "./CosmicBackground"
+import { BackroundAnimationLogin } from "./BackgroundAnimationLogin"
 
 export function LoginTransition() {
 
@@ -111,7 +111,7 @@ export function LoginTransition() {
   
   return (
   <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm z-50" style={{zIndex: 1}}>
-    <CosmicBackground />
+    <BackroundAnimationLogin />
 
     <div className="relative w-56 h-56 animate-slide-up" style={styles.containerRadar}>
       <div style={styles.radarWrap}>
