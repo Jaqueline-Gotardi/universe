@@ -27,15 +27,19 @@ export function LoginTransition() {
       alignItems: "center",
       width: "280px",
       height: "280px",
+      marginBottom: "20px",
       animation: "textAnimation 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
     },
 
     radarLabel: {
       color: "#00e5ff",
+      opacity: "0.6",
       fontFamily: "'Orbitron', monospace",
-      fontSize: "0.8rem",
-      marginBottom: "20px",
+      fontSize: "0.5rem",
+      marginBottom: "7px",
+      letterSpacing: "0.3em",
       transform: "translateX (-50%)",
+      textTransform: "uppercase",
     },
 
     scanText: {
@@ -177,7 +181,7 @@ export function LoginTransition() {
       </svg>
     </div>
 
-      <div style={styles.radarLabel}>Scanner estelar ativado </div>
+      <div style={styles.radarLabel}>◈ Scanner estelar ativado ◈</div>
     </div>
 
     <div style={styles.scanText}>▸ Varrendo Frequências. . .</div>
