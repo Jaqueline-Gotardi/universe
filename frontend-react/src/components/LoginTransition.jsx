@@ -13,6 +13,13 @@ import CosmicBackground from "./CosmicBackground"
 export function LoginTransition() {
 
   const styles = {
+    containerRadar: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "column",
+    },
+
     radarWrap: {
       position: "relative",
       display: "flex",
@@ -99,7 +106,7 @@ export function LoginTransition() {
   <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm z-50 animate-slide-up" style={{zIndex: 1}}>
     <CosmicBackground />
 
-    <div className="relative w-56 h-56 animate-slide-up">
+    <div className="relative w-56 h-56 animate-slide-up" style={styles.containerRadar}>
       <div style={styles.radarWrap}>
       <svg width="100%" height="100%" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
       
