@@ -66,12 +66,13 @@ export function LoginTransition() {
     },
 
     progressSintonia: {
-      color: "#ffd60a",
-      fontSize: "0.6rem",
+      color: "gold",
+      fontSize: "0.65rem",
       fontFamily: "'Orbitron', monospace",
       textTransform: "uppercase",
       textAlign: "center",
       letterSpacing: "0.3rem",
+      fontWeight: "500",
     },
 
     progressBar: {
@@ -187,7 +188,7 @@ export function LoginTransition() {
     <div style={styles.scanText}>▸ Varrendo Frequências. . .</div>
 
     <div style={styles.progressSection}>
-      <div style={styles.progressSintonia}>Sintonizando frequências galácticas</div>
+      <div style={styles.progressSintonia}>⬡ &nbsp; Sintonizando frequências galácticas &nbsp; ⬡</div>
       <div style={styles.progressBar}>
         <div style={styles.progressFill}>
           <div style={styles.astronaut}></div>
