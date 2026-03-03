@@ -45,7 +45,9 @@ export function LoginTransition() {
       letterSpacing: "0.25rem",
       opacity: "0.7", 
       textTransform: "uppercase",
-      animation: "pulsar 1.4s ease-in-out infinite",
+      animation: "blink 1.4s ease-in-out infinite",
+      marginBottom: "40px",
+      fontWeight: "500",
     },
 
     progressSection: {
@@ -103,7 +105,7 @@ export function LoginTransition() {
   }
   
   return (
-  <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm z-50 animate-slide-up" style={{zIndex: 1}}>
+  <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm z-50" style={{zIndex: 1}}>
     <CosmicBackground />
 
     <div className="relative w-56 h-56 animate-slide-up" style={styles.containerRadar}>
@@ -178,7 +180,7 @@ export function LoginTransition() {
       <div style={styles.radarLabel}>Scanner estelar ativado </div>
     </div>
 
-    <div style={styles.scanText}>Varrendo Frequências. . .</div>
+    <div style={styles.scanText}>▸ Varrendo Frequências. . .</div>
 
     <div style={styles.progressSection}>
       <div style={styles.progressSintonia}>Sintonizando frequências galácticas</div>
@@ -198,12 +200,12 @@ export function LoginTransition() {
       100% { transform: scale(1) rotate(0deg); opacity: 1; }
       }
 
-       @keyframes pulsar {
+       @keyframes blink 
        { 
        0%, 100% { opacity:0.4 }
        50% { opacity: 1 }
        }
-       }
+       
 
        progressBar::before {
        position: absolute,
