@@ -8,9 +8,12 @@
 //import { useState } from "react";
 //import { useNavigate } from "react-router-dom";
 
+import { useState } from "react"
 import { BackroundAnimationLogin } from "./BackgroundAnimationLogin"
 
 export function LoginTransition() {
+
+  const [progress, setProgress ] = useState(0);
 
   const styles = {
     containerRadar: {
@@ -191,7 +194,39 @@ export function LoginTransition() {
       <div style={styles.progressSintonia}>⬡ &nbsp; Sintonizando frequências galácticas &nbsp; ⬡</div>
       <div style={styles.progressBar}>
         <div style={styles.progressFill}>
-          <div style={styles.astronaut}></div>
+
+          <div style={{...styles.astronaut, left: `calc(${progress}% - 16px)`,}}>
+            {/* corpo do astronauta */}
+            <div style={styles.astronautBody}>
+              <div style={styles.astronautAura}>
+
+                {/* capacete */}
+                <div style={styles.helmet}>
+                  {/* viseira */}
+                  <div style={styles.visor}>
+                    <div style={styles.visorReflecti}></div>
+                  </div>
+
+                  {/* mochila de oxigênio */}
+                  <div style={styles.oxygen}></div>
+
+                  {/* traje espacial */}
+                  <div style={styles.traje}>
+                    <div style={styles.trajeDetail}></div>
+                  </div>
+
+                  {/* pernas */}
+                  <div style={styles.legLeft}></div>
+                  <div style={styles.legRight}></div>
+
+                  {/* braços */}
+                  <div style={styles.armLeft}></div>
+                  <div style={styles.armRight}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
       <div style={styles.progressCount}>0%</div>
@@ -248,7 +283,7 @@ export function LoginTransition() {
 
 
 
-//ACESSAR NODELOS ESSES 3 MODELOS BASES PARA COSNTRUIR A ANIMAÇÃO DE LOGIN
+//ACESSAR NODELOS ESSES 3 MODELOS BASES PARA CONSTRUIR A ANIMAÇÃO DE LOGIN
 
 //https://claude.ai/chat/6fd46f59-d352-498b-8b85-fc2108c2bde0
 
