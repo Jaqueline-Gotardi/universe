@@ -8,14 +8,72 @@
 //import { useState } from "react";
 //import { useNavigate } from "react-router-dom";
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { BackroundAnimationLogin } from "./BackgroundAnimationLogin"
 
-export function LoginTransition() {
+const Status_messages = [
+  "Inicializando sistemas de navegação. . .",
+  "Calibrando sensores quânticos. . .",
+  "Mapeando buracos de minhoca. . .",
+  "Sincronizando com Órion. . .",
+  "Frequências galácticas detectadas!",
+  "Missão autorizada. Bem-vindo, cosmonauta!",
+];
 
+export function LoginTransition({onComplete}) {
   const [progress, setProgress ] = useState(0);
+  const [ showProgress, setShowProgress ] = useState(false);
+  const [ statusId, setStatusId ] = useState(0);
+
+  //mostrar radar antes da barra de progresso
+  useEffect(() => {
+    const timer = setTimeout(() => setShowProgress(true), 2000);
+    return() => clearTimeout(timer);
+  }, []);
+
+  //calcular o progresso da barra
+  useEffect(() => {
+    if (!showProgress) return;
+    let current = 0;
+    const tick = setInterval(() => {
+      //velocidade da barra de progresso
+      const speed = current < 30 ? 0.4 : current < 70 ? 0.7 : 0.3;
+      current += speed;
+      
+      if (current >= 100) {
+        current = 100;
+        clearInterval(tick);
+        setTimeout(() => {
+          if (onComplete) onComplete();
+        }, 1000);
+      }
+      setProgress(Math.floor(current));
+    }, 50);
+    return () => clearInterval(tick);
+  }, [showProgress]);
+
+  //para trocar as mensagens de status
+  useEffect(() => {
+    if (!showProgress) return;
+    const interval = setInterval(() => {
+      setStatusId((i) => Math.min(i + 1, Status_messages.length -1));
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [showProgress]);
 
   const styles = {
+     overlay: {
+      position: "fixed",
+      inset: 0,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "rgba(0,0,0,0.4)",
+      backdropFilter: "blur(8px)",
+      zIndex: 9999,
+    },
+
     containerRadar: {
       display: "flex",
       justifyContent: "center",
@@ -65,7 +123,9 @@ export function LoginTransition() {
       maxWidth: "90vw", */
       gap: "16px",
      /*  opacity: "0", */
-      transition: "0.8 ease",
+     opacity: showProgress ? 1 : 0,
+     transform: showProgress ? "translateY(0)" : "translateY(20px)",
+     transition: "all 0.8 ease",
     },
 
     progressSintonia: {
@@ -91,20 +151,21 @@ export function LoginTransition() {
     progressFill: {
       position: "relative",
       background: "linear-gradient(90deg, #001a2e, #0066cc, #00e5ff)",
-      width: "0%",
-      heigth: "100%",
-      borderRadius: "2px",
+      width: `${progress}%`,
+      height: "100%",
+      borderRadius: "50px",
       transition: "width 0.2s linear",
       boxShadow: "0 0 20px #00e5ff55",
     },
 
-    astronaut: {
+    astronautContainer: {
       position: "absolute",
-      top: "9px",
-      transform: "translateX(60%)",
-      /* left: "30%", */
+      top: "22px",
+      transform: "translateY(-50%)",
+      //left: "1%", 
+      right: "2px",
       transition: "left 0.2s linear",
-      zIndex: 10, 
+      zIndex: 20, 
     },
 
     astronautBody: {
@@ -254,7 +315,7 @@ export function LoginTransition() {
   }
   
   return (
-  <div className="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm z-50" style={{zIndex: 1}}>
+  <div style={styles.overlay}>
     <BackroundAnimationLogin />
 
     <div className="relative w-56 h-56 animate-slide-up" style={styles.containerRadar}>
@@ -336,7 +397,9 @@ export function LoginTransition() {
       <div style={styles.progressBar}>
         <div style={styles.progressFill}>
 
-          <div style={{...styles.astronaut, left: `calc(${progress}% - 16px)`}}>
+          {/* <div style={{...styles.astronaut, left: `calc(${progress}% - 16px)`}}> */}
+
+          <div style={{...styles.astronautContainer}}>
             {/* corpo do astronauta */}
             <div style={styles.astronautBody}>
               <div style={styles.astronautAura} />
@@ -369,8 +432,9 @@ export function LoginTransition() {
           
         </div>
       </div>
-      <div style={styles.progressCount}>0%</div>
-      <div style={styles.progressStatus}>Inicializando sistemas de navegação...</div>
+      <span style={styles.progressCount}>{progress}%</span>
+      <span style={styles.progressStatus}>{Status_messages[statusId]}
+      </span>
     </div>
 
     <style>
@@ -443,19 +507,3 @@ export function LoginTransition() {
     </div>
     )
   }
-
-
-
-
-
-
-
-
-
-//ACESSAR NODELOS ESSES 3 MODELOS BASES PARA CONSTRUIR A ANIMAÇÃO DE LOGIN
-
-//https://claude.ai/chat/6fd46f59-d352-498b-8b85-fc2108c2bde0
-
-//https://www.figma.com/make/L1HOgYsslnbl94Lb1aJeXX/Initial-screen-with-buttons?p=f&t=PSXLPJ4I89wLXpd3-0
-
-//https://app.base44.com/apps/699cc63920bbd544d75550d8/editor/workspace/code?filePath=pages/Home.jsx
