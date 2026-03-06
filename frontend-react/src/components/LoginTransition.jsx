@@ -150,12 +150,13 @@ export function LoginTransition({onComplete}) {
 
     progressFill: {
       position: "relative",
-      background: "linear-gradient(90deg, #001a2e, #0066cc, #00e5ff)",
+      background: "linear-gradient(90deg, #001a2e 0%, #0066cc 50%, #00e5ffe4 100%)",
       width: `${progress}%`,
       height: "100%",
       borderRadius: "50px",
       transition: "width 0.2s linear",
-      boxShadow: "0 0 20px #00e5ff55",
+      boxShadow: "0 0 15px rgba(0, 229, 255, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2)",
+      animation: "gradientFlow 3s linear infinite",
     },
 
     astronautContainer: {
@@ -447,6 +448,11 @@ export function LoginTransition({onComplete}) {
       @keyframes blink { 
       0%, 100% { opacity:0.4 }
       50% { opacity: 1 }
+      }
+
+      @keyframes gradientFlow {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
       }
 
       @keyframes astronaut {
