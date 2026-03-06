@@ -100,7 +100,7 @@ export function LoginTransition() {
 
     astronaut: {
       position: "absolute",
-      top: "0px",
+      top: "9px",
       transform: "translateX(60%)",
       /* left: "30%", */
       transition: "left 0.2s linear",
@@ -111,7 +111,8 @@ export function LoginTransition() {
       position: "relative",
       width: "28px",
       height: "29px",
-      animation: "astronautBob 0.6s ease-in-out infinite",
+      filter: "drop-shadow(0 0 7px rgba(0,229,255,0.7))",
+      animation: "astronaut 2s ease-in-out infinite",
     },
 
     astronautAura: {
@@ -119,7 +120,7 @@ export function LoginTransition() {
       inset: "-8px",
       background: "radial-gradient(circle, rgba(0,229,255,0.12), transparent 70%)",
       borderRadius: "50%",
-      animation: "auraPulse 1s ease-in-out infinite",
+      /* animation: "auraPulse 1s ease-in-out infinite", */
     },
 
     helmet: {
@@ -198,7 +199,7 @@ export function LoginTransition() {
       height: "6px",
       borderRadius: "0 0 4px 4px",
       transformOrigin: "top center",
-      animation: "legLeft 0.3s ease-in-out infinite",
+      animation: "legLeft 0.6s ease-in-out infinite alternate",
     },
 
     legRight: {
@@ -210,7 +211,7 @@ export function LoginTransition() {
       height: "6px",
       borderRadius: "0 0 4px 4px",
       transformOrigin: "top center",
-      animation: "legRight 0.3s ease-in-out infinite",
+      animation: "legRight 0.6s ease-in-out infinite alternate",
     },
 
     armLeft: {
@@ -222,7 +223,7 @@ export function LoginTransition() {
       background: "#cfd8dc",
       borderRadius: "50px",
       transformOrigin: "top center",
-      animation: "armLeft 0.4s ease-in-out infinite",
+      animation: "armLeft 0.6s ease-in-out infinite alternate",
     },
 
     armRight: {
@@ -234,7 +235,7 @@ export function LoginTransition() {
       background: "#cfd8dc",
       borderRadius: "50px",
       transformOrigin: "top center",
-      animation: "armRight 0.4s ease-in-out infinite",
+      animation: "armRight 0.6s ease-in-out infinite",
     },
 
     progressCount: {
@@ -379,11 +380,40 @@ export function LoginTransition() {
       100% { transform: scale(1) rotate(0deg); opacity: 1; }
       }
 
-       @keyframes blink 
-       { 
-       0%, 100% { opacity:0.4 }
-       50% { opacity: 1 }
-       }
+      @keyframes blink { 
+      0%, 100% { opacity:0.4 }
+      50% { opacity: 1 }
+      }
+
+      @keyframes astronaut {
+      0%, 100% { transform: translateY(-50%) rotate(-5deg); }
+      50% { transform: translateY(-40%) rotate(5deg); }
+      }
+
+      @keyframes auraPulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.12); }
+      }
+
+      @keyframes legLeft {
+      0%, 100% { transform: rotate(-22deg); }
+      50% { transform: rotate(18deg); }
+      }
+
+      @keyframes legRight {
+      0%, 100% { transform: rotate(18deg); }
+      50% { transform: rotate(-22deg); }
+      }
+
+      @keyframes armLeft {
+      0%, 100% { transform: rotate(-25deg); }
+      50% { transform: rotate(20deg); }
+      }
+
+      @keyframes armRight {
+      0%, 100% { transform: rotate(20deg); }
+      50% { transform: rotate(-25deg); }
+      }
        
 
        progressBar::before {
@@ -413,3 +443,19 @@ export function LoginTransition() {
     </div>
     )
   }
+
+
+
+
+
+
+
+
+
+//ACESSAR NODELOS ESSES 3 MODELOS BASES PARA CONSTRUIR A ANIMAÇÃO DE LOGIN
+
+//https://claude.ai/chat/6fd46f59-d352-498b-8b85-fc2108c2bde0
+
+//https://www.figma.com/make/L1HOgYsslnbl94Lb1aJeXX/Initial-screen-with-buttons?p=f&t=PSXLPJ4I89wLXpd3-0
+
+//https://app.base44.com/apps/699cc63920bbd544d75550d8/editor/workspace/code?filePath=pages/Home.jsx
