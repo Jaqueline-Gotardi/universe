@@ -79,6 +79,7 @@ export function LoginTransition() {
     },
 
     progressBar: {
+      position: "relative",
       border: "1px solid #00e5ff33",
       width: "100%",
       height: "36px",
@@ -95,6 +96,145 @@ export function LoginTransition() {
       borderRadius: "2px",
       transition: "width 0.2s linear",
       boxShadow: "0 0 20px #00e5ff55",
+    },
+
+    astronaut: {
+      position: "absolute",
+      top: "0px",
+      transform: "translateX(60%)",
+      /* left: "30%", */
+      transition: "left 0.2s linear",
+      zIndex: 10, 
+    },
+
+    astronautBody: {
+      position: "relative",
+      width: "28px",
+      height: "29px",
+      animation: "astronautBob 0.6s ease-in-out infinite",
+    },
+
+    astronautAura: {
+      position: "absolute",
+      inset: "-8px",
+      background: "radial-gradient(circle, rgba(0,229,255,0.12), transparent 70%)",
+      borderRadius: "50%",
+      animation: "auraPulse 1s ease-in-out infinite",
+    },
+
+    helmet: {
+      position: "absolute",
+      top: 0,
+      left: "50%",
+      transform: "translateX(-47%)",
+      width: "20px",
+      height: "20px",
+      background: "linear-gradient(160deg, #e0e8f0, #b0bec5)",
+      borderRadius: "50%",
+      border: "2px solid #90a4ae",
+      zIndex: 10, 
+    },
+
+    visor: {
+      background: "linear-gradient(135deg, #00bcd4, #1565c0)",
+      width: "15px",
+      height: "10px",
+      borderRadius: "50%",
+      position: "absolute",
+      top: "3px",
+      left: "50%",
+      transform: "translateX(-50%)"
+    },
+
+    visorReflection: {
+      background: "rgba(255,255,255,0.65)",
+      borderRadius: "50%",
+      width: "4px",
+      height: "4px",
+      position: "absolute",
+      top: "2px",
+      left: "2px",
+    },
+
+    oxygen: {
+      background: "#78909c",
+      borderRadius: "2px",
+      position: "absolute",
+      width: "18px",
+      height: "14px",
+      top: "15px",
+      left: "3px",
+    },
+
+    traje: {
+      background: "linear-gradient(180deg, #eceff1, #cfd8dc)",
+      borderRadius: "6px",
+      border: "1px solid #b8bec5",
+      position: "absolute",
+      top: "19px",
+      left: "50%",
+      width: "18px",
+      height: "14px",
+      transform: "translateX(-50%)",
+    },
+
+    trajeDetail: {
+      background: "#00bcd4",
+      position: "absolute",
+      top: "4px",
+      left: "50%",
+      width: "7px",
+      height: "4px",
+      borderRadius: "50px",
+      transform: "translateX(-50%)",
+    },
+
+    legLeft: {
+      position: "absolute",
+      background: "#cfd8dc",
+      bottom: "-8px",
+      left: "6px",
+      width: "6px",
+      height: "6px",
+      borderRadius: "0 0 4px 4px",
+      transformOrigin: "top center",
+      animation: "legLeft 0.3s ease-in-out infinite",
+    },
+
+    legRight: {
+      position: "absolute",
+      background: "#cfd8dc",
+      bottom: "-8px",
+      right: "6px",
+      width: "6px",
+      height: "6px",
+      borderRadius: "0 0 4px 4px",
+      transformOrigin: "top center",
+      animation: "legRight 0.3s ease-in-out infinite",
+    },
+
+    armLeft: {
+      position: "absolute",
+      top: "20px",
+      left: "-0px",
+      width: "6px",
+      height: "8px",
+      background: "#cfd8dc",
+      borderRadius: "50px",
+      transformOrigin: "top center",
+      animation: "armLeft 0.4s ease-in-out infinite",
+    },
+
+    armRight: {
+      position: "absolute",
+      top: "20px",
+      right: "-0px",
+      width: "6px",
+      height: "8px",
+      background: "#cfd8dc",
+      borderRadius: "50px",
+      transformOrigin: "top center",
+      animation: "armRight 0.4s ease-in-out infinite",
     },
 
     progressCount: {
@@ -195,35 +335,34 @@ export function LoginTransition() {
       <div style={styles.progressBar}>
         <div style={styles.progressFill}>
 
-          <div style={{...styles.astronaut, left: `calc(${progress}% - 16px)`,}}>
+          <div style={{...styles.astronaut, left: `calc(${progress}% - 16px)`}}>
             {/* corpo do astronauta */}
             <div style={styles.astronautBody}>
-              <div style={styles.astronautAura}>
+              <div style={styles.astronautAura} />
 
                 {/* capacete */}
                 <div style={styles.helmet}>
                   {/* viseira */}
                   <div style={styles.visor}>
-                    <div style={styles.visorReflecti}></div>
+                    <div style={styles.visorReflection} />
                   </div>
+                  </div> 
 
                   {/* mochila de oxigênio */}
-                  <div style={styles.oxygen}></div>
+                  <div style={styles.oxygen} />
 
                   {/* traje espacial */}
                   <div style={styles.traje}>
-                    <div style={styles.trajeDetail}></div>
+                    <div style={styles.trajeDetail} />
                   </div>
 
                   {/* pernas */}
-                  <div style={styles.legLeft}></div>
-                  <div style={styles.legRight}></div>
+                  <div style={styles.legLeft} />
+                  <div style={styles.legRight} />
 
                   {/* braços */}
-                  <div style={styles.armLeft}></div>
-                  <div style={styles.armRight}></div>
-                </div>
-              </div>
+                  <div style={styles.armLeft} />
+                  <div style={styles.armRight} />
             </div>
           </div>
           
@@ -274,19 +413,3 @@ export function LoginTransition() {
     </div>
     )
   }
-
-
-
-
-
-
-
-
-
-//ACESSAR NODELOS ESSES 3 MODELOS BASES PARA CONSTRUIR A ANIMAÇÃO DE LOGIN
-
-//https://claude.ai/chat/6fd46f59-d352-498b-8b85-fc2108c2bde0
-
-//https://www.figma.com/make/L1HOgYsslnbl94Lb1aJeXX/Initial-screen-with-buttons?p=f&t=PSXLPJ4I89wLXpd3-0
-
-//https://app.base44.com/apps/699cc63920bbd544d75550d8/editor/workspace/code?filePath=pages/Home.jsx
