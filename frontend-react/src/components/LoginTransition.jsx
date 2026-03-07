@@ -21,9 +21,8 @@ const Status_messages = [
   "Inicializando sistemas de navegação. . .",
   "Calibrando sensores quânticos. . .",
   "Mapeando buracos de minhoca. . .",
-  "Sincronizando com Órion. . .",
   "Frequências galácticas detectadas!",
-  "Conexão com a estação espacial estabelecida. . .",
+  "Conexão com a estação espacial estabelecida.",
   "Missão autorizada. Bem-vindo, cosmonauta!",
 ];
 
@@ -44,7 +43,7 @@ export function LoginTransition({onComplete}) {
     let current = 0;
     const tick = setInterval(() => {
       //velocidade da barra de progresso
-      const speed = current < 30 ? 0.4 : current < 70 ? 1 : 3;
+      const speed = current < 30 ? 0.6 : current < 65 ? 1 : 3;
       current += speed;
       
       if (current >= 100) {
@@ -52,7 +51,7 @@ export function LoginTransition({onComplete}) {
         clearInterval(tick);
         setTimeout(() => {
           if (onComplete) onComplete();
-        }, 2100);
+        }, 2180);
       }
       setProgress(Math.floor(current));
     }, 50);
