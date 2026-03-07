@@ -10,7 +10,7 @@ import { AuthProvider } from '../contexts/authContext.jsx';
 //importar as funções
 import LoginPage from './pages/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
-import RegisterPage from './pages/RegisterPage.jsx';
+import RegisterPage from './pages/RegisterPage.jsx'; 
 
 //importar o css 
 import "../src/style/reset.css"
@@ -115,7 +115,7 @@ const router = createBrowserRouter([
   {
     path: "/app",
     element: (
-      <ProtectRoute>  {/* autentificação */}
+    <ProtectRoute>  {/* autentificação */}
     <DashboardPage/>  {/* conteúdo */}
     </ProtectRoute>
     ),

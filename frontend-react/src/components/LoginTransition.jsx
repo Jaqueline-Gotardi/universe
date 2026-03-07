@@ -5,6 +5,12 @@
 // 4. Um astronata caminha até o fim da barra, deixando rastros de carregamento... 
 // 5. Após a barra de progresso ficar 100%, o usuário é jogado para o Dashboard
 
+
+
+//FALTA FAZER
+//1 deixar o radar flutuando
+//2. aumentar a velocidade da barra de progresso
+
 //import { useState } from "react";
 //import { useNavigate } from "react-router-dom";
 
@@ -17,6 +23,7 @@ const Status_messages = [
   "Mapeando buracos de minhoca. . .",
   "Sincronizando com Órion. . .",
   "Frequências galácticas detectadas!",
+  "Conexão com a estação espacial estabelecida. . .",
   "Missão autorizada. Bem-vindo, cosmonauta!",
 ];
 
@@ -37,7 +44,7 @@ export function LoginTransition({onComplete}) {
     let current = 0;
     const tick = setInterval(() => {
       //velocidade da barra de progresso
-      const speed = current < 30 ? 0.4 : current < 70 ? 0.7 : 0.3;
+      const speed = current < 30 ? 0.4 : current < 70 ? 1 : 3;
       current += speed;
       
       if (current >= 100) {
@@ -50,7 +57,7 @@ export function LoginTransition({onComplete}) {
       setProgress(Math.floor(current));
     }, 50);
     return () => clearInterval(tick);
-  }, [showProgress]);
+  }, [showProgress, onComplete]); //só executa quando showProgress mudar para true, ou se a função onComplete mudar
 
   //para trocar as mensagens de status
   useEffect(() => {

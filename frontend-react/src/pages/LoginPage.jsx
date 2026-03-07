@@ -5,7 +5,7 @@
 import "../style/loginPage.css"
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 import { LoginTransition } from "../components/LoginTransition";
@@ -17,8 +17,14 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   const [isLogin, setLogin ] = useState(false); //novo
 
   const { login } = useAuth();
-  //const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
+  const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
 
+  //função que joga o usuário para o dashboard quando o astronauta chega em 100%
+  const handleTransitionEnd = () => {
+    navigate("/app"); //joga o usuário para o dashboard
+  };
+
+  //função de validação de login
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
   //console.log("Tentando fazer login com:", email, password);
@@ -49,14 +55,14 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 }
 
     return (   
-        <section className="tela-login" id="tela-login">
+    <section className="tela-login" id="tela-login">
 
     <div className="space-background login-bg">
       <div className="stars"></div>
       <div className="planets"></div> 
     </div> 
-     { isLogin ? (
-      <LoginTransition />
+     { isLogin ? ( //se o login for feito, mostra a animação de transição, senão mostra o formulário de login
+      <LoginTransition onComplete={handleTransitionEnd} />
     ) : (
     <div className="content-wrapper">
       <div className="login-container">
