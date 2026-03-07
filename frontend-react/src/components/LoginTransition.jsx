@@ -52,7 +52,7 @@ export function LoginTransition({onComplete}) {
         clearInterval(tick);
         setTimeout(() => {
           if (onComplete) onComplete();
-        }, 1000);
+        }, 2100);
       }
       setProgress(Math.floor(current));
     }, 50);
@@ -64,7 +64,7 @@ export function LoginTransition({onComplete}) {
     if (!showProgress) return;
     const interval = setInterval(() => {
       setStatusId((i) => Math.min(i + 1, Status_messages.length -1));
-    }, 1500);
+    }, 1150);
     return () => clearInterval(interval);
   }, [showProgress]);
 
