@@ -27,7 +27,7 @@ export function LoginTransition({onComplete}) {
     let current = 0;
     const tick = setInterval(() => {
       //velocidade da barra de progresso
-      const speed = current < 30 ? 0.6 : current < 65 ? 1 : 3;
+      const speed = current < 30 ? 0.9 : current < 65 ? 1 : 3;
       current += speed;
       
       if (current >= 100) {
@@ -35,7 +35,7 @@ export function LoginTransition({onComplete}) {
         clearInterval(tick);
         setTimeout(() => {
           if (onComplete) onComplete();
-        }, 2180);
+        }, 2100);
       }
       setProgress(Math.floor(current));
     }, 50);
@@ -69,6 +69,7 @@ export function LoginTransition({onComplete}) {
       justifyContent: "center",
       alignItems: "center",
       flexDirection: "column",
+      animation: "textAnimation 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
     },
 
     radarWrap: {
@@ -79,7 +80,7 @@ export function LoginTransition({onComplete}) {
       width: "280px",
       height: "280px",
       marginBottom: "20px",
-      animation: "textAnimation 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+      animation: "floating 3s ease-in-out infinite",
     },
 
     radarLabel: {
@@ -89,7 +90,6 @@ export function LoginTransition({onComplete}) {
       fontSize: "0.5rem",
       marginBottom: "7px",
       letterSpacing: "0.3em",
-      transform: "translateX (-50%)",
       textTransform: "uppercase",
     },
 
@@ -149,8 +149,8 @@ export function LoginTransition({onComplete}) {
     astronautContainer: {
       position: "absolute",
       top: "22px",
-      transform: "translateY(-50%)",
-      right: "2px",
+      right: "-35px",
+      transform: "translateY(-50%) translateX(-100%)",
       transition: "left 0.2s linear",
       zIndex: 20, 
     },
@@ -428,6 +428,11 @@ export function LoginTransition({onComplete}) {
       100% { transform: scale(1) rotate(0deg); opacity: 1; }
       }
 
+      @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      }
+
       @keyframes blink { 
       0%, 100% { opacity:0.4 }
       50% { opacity: 1 }
@@ -462,29 +467,6 @@ export function LoginTransition({onComplete}) {
       0%, 100% { transform: rotate(20deg); }
       50% { transform: rotate(-25deg); }
       }
-       
-
-       progressBar::before {
-       position: absolute,
-       inset: 0,
-       content: '',
-       background-image: repeating-linear-gradient(90deg, #00e5ff08 0px, #00e5ff08 1px, transparent 1px, transparent 38px),
-       z-index: 1,
-       }
-       progressFill::after {
-       position: absolute,
-       content: '',
-       background: linear-gratient(90deg, transparent, #00e5ff66),
-       right: 0,
-       top: 0,
-       bottom: 0,
-       width: 40px,
-       animation: tracks 1s ease-in-out infinite,
-       }
-       @keyframes tracks {
-       0%, 100% { opacity: 0.5 }
-       50% { opacity: 1 }
-       }
       `}
        
     </style>
