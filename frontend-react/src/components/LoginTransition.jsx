@@ -1,19 +1,3 @@
-// Animação de login
-// 1. O radar deve pular para a tela do usuário assim que ele logar com suas credenciais
-// 2. Esse radar deve ficar flutuando 
-// 3. Após passar 2 segundos, uma barra de progresso é processada
-// 4. Um astronata caminha até o fim da barra, deixando rastros de carregamento... 
-// 5. Após a barra de progresso ficar 100%, o usuário é jogado para o Dashboard
-
-
-
-//FALTA FAZER
-//1 deixar o radar flutuando
-//2. aumentar a velocidade da barra de progresso
-
-//import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
-
 import { useEffect, useState } from "react"
 import { BackroundAnimationLogin } from "./BackgroundAnimationLogin"
 
@@ -125,13 +109,10 @@ export function LoginTransition({onComplete}) {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-     /*  width: "380px",
-      maxWidth: "90vw", */
       gap: "16px",
-     /*  opacity: "0", */
-     opacity: showProgress ? 1 : 0,
-     transform: showProgress ? "translateY(0)" : "translateY(20px)",
-     transition: "all 0.8 ease",
+      opacity: showProgress ? 1 : 0,
+      transform: showProgress ? "translateY(0)" : "translateY(20px)",
+      transition: "all 0.8 ease",
     },
 
     progressSintonia: {
@@ -169,7 +150,6 @@ export function LoginTransition({onComplete}) {
       position: "absolute",
       top: "22px",
       transform: "translateY(-50%)",
-      //left: "1%", 
       right: "2px",
       transition: "left 0.2s linear",
       zIndex: 20, 
@@ -188,7 +168,6 @@ export function LoginTransition({onComplete}) {
       inset: "-8px",
       background: "radial-gradient(circle, rgba(0,229,255,0.12), transparent 70%)",
       borderRadius: "50%",
-      /* animation: "auraPulse 1s ease-in-out infinite", */
     },
 
     helmet: {
@@ -404,8 +383,6 @@ export function LoginTransition({onComplete}) {
       <div style={styles.progressBar}>
         <div style={styles.progressFill}>
 
-          {/* <div style={{...styles.astronaut, left: `calc(${progress}% - 16px)`}}> */}
-
           <div style={{...styles.astronautContainer}}>
             {/* corpo do astronauta */}
             <div style={styles.astronautBody}>
@@ -464,11 +441,6 @@ export function LoginTransition({onComplete}) {
       @keyframes astronaut {
       0%, 100% { transform: translateY(-50%) rotate(-5deg); }
       50% { transform: translateY(-40%) rotate(5deg); }
-      }
-
-      @keyframes auraPulse {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.12); }
       }
 
       @keyframes legLeft {
