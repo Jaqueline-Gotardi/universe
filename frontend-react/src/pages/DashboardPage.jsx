@@ -3,6 +3,7 @@
 //import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import SoundTrack from "../components/SoundTrack";
+import { AgentBadge } from "../components/AgentBadge";
 
 function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
 
@@ -13,6 +14,7 @@ function DashboardPage() { //nome de componentes/funções em React deve-se come
       <Outlet /> {/*renderiza os componentes filhos conforme as rotas definidas no main.jsx */}
       </main>
 
+      <AgentBadge />
       <SoundTrack />
       </div>
       

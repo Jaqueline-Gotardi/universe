@@ -5,6 +5,10 @@ export const AgentBadge = () => {
 
   const styles = {
 
+    container: {
+      display: "flex",
+    }
+
   }
 
   return (
@@ -20,7 +24,7 @@ export const AgentBadge = () => {
 
         </div>
       </div>
-
+      
       </div>
     </div>
   )
