@@ -15,6 +15,9 @@ export const AgentBadge = () => {
       borderRadius: "50px",
       padding: "8px 16px 8px 8px",
       zIndex: 1,
+      gap: "10px",
+      boxShadow: "0 0 22px rgba(168,85,247,0.3), inset 0 0 15px rgba(168,85,247,0.1)",
+      backdropFilter: "blur(10px)", //embaça o fundo
       cursor: "pointer",
     },
 
@@ -24,6 +27,7 @@ export const AgentBadge = () => {
       left: "-100%",
       width: "200%",
       height: "100%",
+      background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent",
     },
 
     avatarWrapper: {
@@ -31,7 +35,8 @@ export const AgentBadge = () => {
       width: "42px",
       height: "42px",
       borderRadius: "50%", 
-      border: "2px solid rgba(168,5,247,0.7)",
+      border: "2px solid rgba(168,85,247,0.7)",
+      boxShadow: "0 0 12px rgba(168,15,247,0.5)",
     },
 
     avatar: {
@@ -63,7 +68,13 @@ export const AgentBadge = () => {
       fontWeight: "700",
       fontFamily: "'Segoe UI', sans-serif",
       letterSpacing: "0.5px",
-    }
+    },
+
+    paragraph: {
+      color: "#a78bfa",
+      fontSize: "11px",
+      letterSpacing: "1.5px",
+    },
 
   }
 
@@ -73,13 +84,14 @@ export const AgentBadge = () => {
     
     <div style={{position: "relative"}}>
       <div style={styles.avatarWrapper}>
-        <img src="/imagens/sol.webp" alt="avatar" style={styles.avatar}/>
+        <img src="/imagens/avatar-nova.webp" alt="avatar" style={styles.avatar} />
         </div>
         <div style={styles.anelOnline} />
         </div>
 
         <div style={styles.info}>
-          <span style={styles.nameAgent}>Nome do Agente Espacial</span>
+          <span style={styles.nameAgent}>Agente Espacial</span>
+          <span style={styles.paragraph}>★ EXPLORER</span>
         </div>
 
       </div>
