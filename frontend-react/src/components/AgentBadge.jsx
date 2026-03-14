@@ -25,9 +25,11 @@ export const AgentBadge = () => {
       position: "absolute",
       top: "0",
       left: "-100%",
-      width: "200%",
+      width: "110%",
       height: "100%",
+      borderRadius: "50px",
       background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent",
+      animation: "brilho 3s infinite",
     },
 
     avatarWrapper: {
@@ -54,6 +56,7 @@ export const AgentBadge = () => {
       right: "-2px",
       borderRadius: "50%",
       border: "2px solid rgba(15,23,42,0.9)",
+      animation: "pulsacao 2s infinite",
     },
 
     info: {
@@ -93,6 +96,16 @@ export const AgentBadge = () => {
           <span style={styles.nameAgent}>Agente Espacial</span>
           <span style={styles.paragraph}>★ EXPLORER</span>
         </div>
+        
+        <style>{`
+        @keyframes brilho {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+        }
+        @keyframes pulsacao {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.3); } 
+        `}</style>
 
       </div>
   )
