@@ -4,15 +4,17 @@ export const AgentBadge = () => {
   const navigate = useNavigate();
 
   const styles = {
-
     container: {
-      position: "relative",
+      position: "fixed",
+      bottom: "24px",
+      left: "24px",
       display: "flex",
       alignItems: "center",
       background: "linear-gradient(135deg, rgba(88,28,135,0.8), rgba(15,23,42,0.9)",
       border: "1px solid rgba(168,85,247,0.5)",
       borderRadius: "50px",
       padding: "8px 16px 8px 8px",
+      zIndex: 1,
       cursor: "pointer",
     },
 
@@ -80,6 +82,6 @@ export const AgentBadge = () => {
           <span style={styles.nameAgent}>Nome do Agente Espacial</span>
         </div>
 
-        </div>
+      </div>
   )
 }
