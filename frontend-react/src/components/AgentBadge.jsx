@@ -68,7 +68,7 @@ export const AgentBadge = () => {
   }
 
   return (
-  <div style={styles.container} onClick={() => navigate("/profile")}>
+  <div style={styles.container} onClick={() => navigate("/app/profile")}>
     <div style={styles.brilho} />
     
     <div style={{position: "relative"}}>
