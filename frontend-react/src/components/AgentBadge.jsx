@@ -1,24 +1,32 @@
 import { useNavigate } from "react-router-dom"
+import { useState } from "react";
 
 export const AgentBadge = () => {
   const navigate = useNavigate();
+  const [ isHovered, setIsHovered ] = useState(false)
 
   const styles = {
     container: {
       position: "fixed",
-      bottom: "24px",
+      bottom: "26px",
       left: "24px",
       display: "flex",
       alignItems: "center",
       background: "linear-gradient(135deg, rgba(88,28,135,0.8), rgba(15,23,42,0.9)",
-      border: "1px solid rgba(168,85,247,0.5)",
+      border: isHovered 
+      ? "1px solid rgba(168,85,247,0.8)"
+      : "1px solid rgba(168,85,247,0.5)",
       borderRadius: "50px",
       padding: "8px 16px 8px 8px",
       zIndex: 1,
       gap: "10px",
-      boxShadow: "0 0 22px rgba(168,85,247,0.3), inset 0 0 15px rgba(168,85,247,0.1)",
+      boxShadow: isHovered
+      ? "0 0 35px rgba(168,85,247,0.6), inset 0 0 20px rgba(168,85,247,0.2)"
+      : "0 0 22px rgba(168,85,247,0.3), inset 0 0 15px rgba(168,85,247,0.1)",
       backdropFilter: "blur(10px)", //embaça o fundo
       cursor: "pointer",
+      transform: isHovered ? "scale(1.05)" : "scale(1)",
+      transition: "all 0.3s ease",
     },
 
     brilho: {
@@ -78,11 +86,13 @@ export const AgentBadge = () => {
       fontSize: "11px",
       letterSpacing: "1.5px",
     },
-
   }
 
   return (
-  <div style={styles.container} onClick={() => navigate("/app/profile")}>
+  <div style={styles.container} 
+  onClick={() => navigate("/app/profile")}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}>
     <div style={styles.brilho} />
     
     <div style={{position: "relative"}}>
