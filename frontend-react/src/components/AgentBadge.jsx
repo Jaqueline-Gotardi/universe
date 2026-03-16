@@ -18,7 +18,7 @@ export const AgentBadge = () => {
       : "1px solid rgba(168,85,247,0.5)",
       borderRadius: "50px",
       padding: "8px 16px 8px 8px",
-      zIndex: 1,
+      zIndex: 1000,
       gap: "10px",
       boxShadow: isHovered
       ? "0 0 35px rgba(168,85,247,0.6), inset 0 0 20px rgba(168,85,247,0.2)"
