@@ -103,8 +103,8 @@ export const AgentBadge = () => {
         </div>
 
         <div style={styles.info}>
-          <span style={styles.nameAgent}>Agente Espacial</span>
-          <span style={styles.paragraph}>★ EXPLORER</span>
+          <span style={styles.nameAgent}>Nome do agente aqui</span>
+          <span style={styles.paragraph}>★ Agente espacial</span>
         </div>
         
         <style>{`
