@@ -11,8 +11,14 @@ export const NotFound = () => {
         containerNotFound: {
           display: "flex",
           flexDirection: "column",
-          justityContent: "center",
+          justifyContent: "center",
           alignItems: "center",
+
+          //essas duas propriedades centralizam o conteúdo considerando a tela inteira
+          position: "fixed",
+          inset: 0,
+          
+          
           fontFamily: "System-ui, sans-serif",
           animation: showScreen ? "offlineFadeIn 0.5s ease forwards" : "offlineFadeOut 0.5s ease forwards", //se a tela não estiver sendo exibida VS /se tiver...
         },
