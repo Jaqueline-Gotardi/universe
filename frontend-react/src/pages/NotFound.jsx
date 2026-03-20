@@ -13,7 +13,8 @@ export const NotFound = () => {
           flexDirection: "column",
           justityContent: "center",
           alignItems: "center",
-          fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif",
+          fontFamily: "System-ui, sans-serif",
+          animation: showScreen ? "offlineFadeIn 0.5s ease forwards" : "offlineFadeOut 0.5s ease forwards", //se a tela não estiver sendo exibida VS /se tiver...
         },
         titulo: {
           color: "#ffffff",
@@ -26,6 +27,19 @@ export const NotFound = () => {
           maxWidth: "420px",
           fontSize: "1.1rem",
           lineHeight: "1",
+        },
+        containerInfoAdicional: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "12px",
+        },
+        bolinhaDeConexao: {
+          width: "8px",
+          height: "8px",
+          borderRadius: "50%",
+          background: "#ff4a6e",
+          animation: "signalPulse 1.5s ease-in-out infinite",
         },
         paragrafoExtra: {
           color: "rgba(255,255,255,0.4)",
@@ -47,9 +61,23 @@ export const NotFound = () => {
             <p style={styles.paragrafo}>Parece que seu sinal se perdeu entre as estrelas. Verifique sua conexão e tente novamente.</p>
 
             <div style={styles.containerInfoAdicional}>
-              <div />
-                <span style={styles.paragrafoExtra}>Aguardando reconexão. . .</span>
+              <div style={styles.bolinhaDeConexao} />
+              <span style={styles.paragrafoExtra}>Aguardando reconexão. . .</span>
             </div>
+            <style>{`
+            @keyframes offlineFadeIn {
+            from { opacity: 1; }
+            to { opacity: 0; }
+            }
+            @keyframes offlineFadeOut {
+            from { opacity: 0; }
+            to { opacity: 1; }
+            }
+            @keyframes signalPulse {
+            0%, 100% {opacity: 0.3; transform: scale(1)}
+            50% {opacity: 1; tranform: scale(1.1)}
+            }
+              `}</style>
         </div>
     )
 }
