@@ -18,7 +18,9 @@ O projeto conta com:
   - Constelações famosas (Órion, Cruzeiro do Sul, Andrômeda, etc.)  
   - Eventos astronômicos (Eclipses, Chuvas de Meteoros, Conjunções)  
   - Planetas do Sistema Solar, incluindo a Lua e o Sol ☀️🌙
+- **Linha do Tempo do Universe**: Galeria histórica que exibe a evolução visual do projeto, desde o protótipo de 2022, passando pela transição de 2025, até o design definitivo de 2026.
 - **Tela de Perfil do Usuário**: **Módulo de Edição completo com Galeria de Avatares**, onde é possível adicionar nome, foto, interesses e descrição (com gestão de estado de UI).
+- **Agent Badge**: Componente fixo exibindo o avatar e nome do agente em tempo real durante a navegação.
 - **Tela de Criadores**: destacando o trabalho original de 2022 e a nova versão atualizada.  
 - **Tela de Apagar Conta**: com mensagem personalizada e interação dinâmica.  
 - **Trilha Sonora Espacial**: o usuário pode ouvir até 5 músicas-tema durante a navegação. 🎶  
@@ -32,7 +34,6 @@ O projeto agora possui **backend local em Node.js e Express** para consumir e pr
 
 ### Arquitetura Robusta (APOD + Fallback)
 
-O diferencial deste projeto é a arquitetura de **Resiliência e Agregação de Dados**:
 1.  **Prioridade APOD (API com Chave):** Tenta buscar a Imagem/Vídeo do Dia.
 2.  **Agregação:** Combina o resultado da APOD (se disponível) com a busca da API Images.
 3.  **Sistema de Fallback:** Se a APOD falhar (por problemas de rede ou limite de requisições), o sistema **ignora a falha** e garante que os resultados da **API Images (gratuita)** ainda sejam exibidos, assegurando a experiência do usuário.
@@ -150,21 +151,10 @@ VALUES ('nome', 'email@exemplo.com', '$2a$10$...HASH...');
 
 ---
 
-## 🖌️ Implementações Recentes (Sprint Jan/2026)
-
-Nesta última semana, o foco foi a **"Faxina de UI"** e a robustez da **Lógica de Interface**:
-- **Player Musical Customizado**: Implementação de trilha sonora com lógica de `loop`, `auto-play` e controle de visibilidade da barra de áudio (fechamento ao clicar fora).
-- **Gestão de Perfil Avançada**: Lógica de rascunho (temporary state) para edição de perfil, garantindo que os dados originais só sejam alterados após a confirmação do usuário.
-- **Refatoração para SVG**: Substituição de imagens externas por SVGs internos para ícones como a "Lixeira" e "Avatar Padrão", otimizando o carregamento.
-- **Ajustes de UX**: Implementação de fechamento automático de galerias e reset de avatares para uma navegação mais intuitiva.
-
----
-
 ## 🧠 Aprendizados e Desafios  
 
 Cada linha de código representa uma descoberta, e alguns erros de vírgula também! 😅  
 
-Durante o desenvolvimento, aprimorei habilidades como:  
 - Manipulação de DOM;
 - Estruturação de formulários;
 - Navegação dinâmica entre seções;  
@@ -172,7 +162,7 @@ Durante o desenvolvimento, aprimorei habilidades como:
 - Criação de telas conectadas por JavaScript;  
 - Conexão entre Front-end (JavaScript) e Back-end (Node.js/Express).
 - Tratamento de Erros: Implementação de try/catch e lógica de fallback para garantir a integridade da aplicação.
-- Aprendendo muito sobre **design de interface** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 🌠
+- Aprendendo muito sobre **design de interface** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 
 - Gestão de Estado de UI: Lógica de salvamento e reset de dados em formulários (Módulo de Perfil).
 - A migração para o React tem me ensinado que **organização é clareza**. Lidar com conceitos como `props`, `state` e renderização condicional tem sido uma experiência deliciosa!
 
@@ -182,11 +172,10 @@ Durante o desenvolvimento, aprimorei habilidades como:
 
 O Universe é um organismo vivo e a missão continua com as seguintes metas:
 
-1.  **Conexão com Firebase**: Migrar os dados temporários para o **Firestore** e implementar autenticação real.
-2.  **Animação de Splash Screen**: Criar uma tela de entrada (radar com barra de progresso) para preparar a imersão do agente.
-3.  **Sistema de Notificações (Toasts)**: Substituir alertas simples por notificações amigáveis.
-4.  **Página 404 Espacial**: Criar uma tela de "Agente Perdido no Espaço" para rotas não encontradas.
-5.  **Agent Badge**: Componente fixo no canto inferior exibindo o avatar e nome do usuário em todas as telas.
+1. **Conexão com Supabase**: Migrar os dados temporários para o **Supabase** e implementar autenticação real.
+2. **Sistema de Notificações (Toasts)**: Substituir alertas simples por notificações amigáveis.
+3. **Página 404 Espacial**: Finalização da tela de "Agente Perdido no Espaço" para rotas não encontradas.
+4. **Linha do Tempo**: Galeria de evolução histórica (2022-2026).
    
 Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínuo, 1% melhor por dia. 💙  
 
@@ -207,13 +196,14 @@ O que antes era um site desenvolvido com JS, hoje está evoluindo para uma aplic
 
 ## 💙 Créditos e Inspiração  
 
-- Protótipo original criado no **Instituto Federal do Amazonas - Campus Eirunepé (IFAM)** -2022;
-- Releitura e desenvolvimento atual por **Jaqueline Gotardi**; 
+- **Idealização:** Giliany Silva e Jaqueline Gotardi;
+- **Desenvolvimento Principal:** Jaqueline Gotardi;
+- **Desenvolvedora Assistente:** Grazielle Martins (integrada à tripulação após contribuições valiosas via Pull Request e suporte ativo no desenvolvimento de tarefas);
+- **Origem:** Protótipo escolar criado no **Instituto Federal do Amazonas - Campus Eirunepé (IFAM)** em 2022.
 
 ---
 
-🕵️‍♀️ **Missão em andamento...**  
-Mais descobertas estão a caminho. . .
+🕵️‍♀️ **Tripulação aumentada, missão em andamento...** O Universo ficou maior, e nossa equipe também. Hehe! 🚀🌌
 
 ---
 
