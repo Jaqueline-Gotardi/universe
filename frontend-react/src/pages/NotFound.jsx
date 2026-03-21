@@ -33,6 +33,7 @@ export const NotFound = () => {
           maxWidth: "420px",
           fontSize: "1.1rem",
           lineHeight: "1",
+          paddingBottom: "20px",
         },
         containerInfoAdicional: {
           display: "flex",
