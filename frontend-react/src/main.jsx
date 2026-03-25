@@ -11,6 +11,7 @@ import { AuthProvider } from '../contexts/authContext.jsx';
 import LoginPage from './pages/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'; 
+import NotFound from './pages/NotFound.jsx';
 
 //importar o css 
 import "../src/style/reset.css"
@@ -407,6 +408,10 @@ const router = createBrowserRouter([
       {
         path: "delete-account",
         element: <DeleteAccount />
+      },
+      {
+        path: "*",
+        element: <NotFound /> //se o usuário digitar uma rota desconhecida
       }
     ]
   }, 
@@ -414,8 +419,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
   <AuthProvider>
+    <NotFound />
     <RouterProvider router={router} />
   </AuthProvider>
+
   </StrictMode>
 )   

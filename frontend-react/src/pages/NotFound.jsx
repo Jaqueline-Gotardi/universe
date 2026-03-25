@@ -1,11 +1,30 @@
 // página 404 espacial
 
 import { useEffect, useState } from "react"
-import CosmicBackground from "./CosmicBackground";
+import CosmicBackground from "../components/CosmicBackground";
 
-export const NotFound = () => {
+function NotFound() {
     const [ isOffline, setIsOffline ] = useState(!navigator.onLine); //não está online
     const [ showScreen, setShowScreen ] = useState(false);
+
+    //lógica de mostrar a tela 404 somente quando a internet cair
+    useEffect(() => {
+      const handleOnline = () => setIsOffline(false);
+      const handleOffline = () => setIsOffline(true);
+
+      //ouvir quando a internet cair ou voltar
+      window.addEventListener("online", handleOnline);
+      window.addEventListener("offline", handleOffline);
+
+      //limpar os eventos de escuta
+      return() => {
+        window.removeEventListener("online", handleOnline);
+        window.removeEventListener("offline", handleOffline);
+      }
+    },[])
+
+    //só mostra a tela, se estiver offline
+    if (!isOffline) return null;
     
     const styles = { 
       containerNotFound: {
@@ -53,13 +72,12 @@ export const NotFound = () => {
         letterSpacing: "1px",
       },
     }
-    
     return (
     <div style={styles.containerNotFound}>
       <CosmicBackground />
 
-      <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>      
-        {/*Svg de buraco negro === */}
+      <div style={{ position: "relative", zIndex: 1, textAlign: "center" }} aria-hidden="true">      
+        {/*Svg de buraco negro */}
         <div style={{animation: "bhPulse 6s ease-in-out infinite" }}>
           <svg width="340" height="300" viewBox="0 40 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -170,3 +188,4 @@ export const NotFound = () => {
           </div>
           )
         }
+export default NotFound;
