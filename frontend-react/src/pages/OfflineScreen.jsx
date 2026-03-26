@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react"
 import CosmicBackground from "../components/CosmicBackground";
 
-function NotFound() {
+function OfflineScreen() {
     const [ isOffline, setIsOffline ] = useState(!navigator.onLine); //não está online
-    const [ showScreen, setShowScreen ] = useState(false);
+    //const [ showScreen, setShowScreen ] = useState(false);
 
     //lógica de mostrar a tela 404 somente quando a internet cair
     useEffect(() => {
@@ -38,7 +38,8 @@ function NotFound() {
         inset: 0,
           
         fontFamily: "System-ui, sans-serif",
-        animation: showScreen ? "offlineFadeIn 0.5s ease forwards" : "offlineFadeOut 0.5s ease forwards", //se a tela não estiver sendo exibida VS /se tiver...
+        //animation: showScreen ? "offlineFadeIn 0.5s ease forwards" : "offlineFadeOut 0.5s ease forwards", //se a tela não estiver sendo exibida VS /se tiver...
+        zIndex: "9999", //garante que a tela 404 fique por cima de todas as outras quando a internet cair
       },
       titulo: {
         color: "#ffffff",
@@ -157,17 +158,20 @@ function NotFound() {
         
         <div style={styles.containerInfoAdicional}>
           <div style={styles.bolinhaDeConexao} />
-          <span style={styles.paragrafoExtra}>Aguardando reconexão. . .</span>
+          <span style={styles.paragrafoExtra}>AGUARDANDO RECONEXÃO. . .</span>
           </div>
           <style>{`
-          @keyframes offlineFadeIn {
+
+          /* @keyframes offlineFadeIn {
           from { opacity: 1; }
           to { opacity: 0; }
           }
           @keyframes offlineFadeOut {
           from { opacity: 0; }
           to { opacity: 1; }
-          }
+          } */
+
+          
           @keyframes signalPulse {
           0%, 100% {opacity: 0.3; transform: scale(1)}
           50% {opacity: 1; tranform: scale(1.1)}
@@ -188,4 +192,4 @@ function NotFound() {
           </div>
           )
         }
-export default NotFound;
+export default OfflineScreen;

@@ -11,7 +11,8 @@ import { AuthProvider } from '../contexts/authContext.jsx';
 import LoginPage from './pages/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'; 
-import NotFound from './pages/NotFound.jsx';
+import OfflineScreen from './pages/OfflineScreen.jsx';
+import Page404 from './pages/Page404.jsx';
 
 //importar o css 
 import "../src/style/reset.css"
@@ -411,7 +412,7 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <NotFound /> //se o usuário digitar uma rota desconhecida
+        element: <Page404 /> //se o usuário digitar uma rota desconhecida
       }
     ]
   }, 
@@ -421,7 +422,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
 
   <AuthProvider>
-    <NotFound />
+    <OfflineScreen /> {/* para vigiar se o wifi cair ou oscilar */}
     <RouterProvider router={router} />
   </AuthProvider>
 
