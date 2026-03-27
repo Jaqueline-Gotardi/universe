@@ -22,12 +22,7 @@ const InfoMenu = () => {
     </div>
   )
 }
-export default InfoMenu;
-
-
-
-
-
+export default InfoMenu;  
 
 /* import { Router, useNavigate } from "react-router-dom";
 import { useState, useMemo } from "react";

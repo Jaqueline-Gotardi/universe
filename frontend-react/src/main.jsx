@@ -11,6 +11,8 @@ import { AuthProvider } from '../contexts/authContext.jsx';
 import LoginPage from './pages/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'; 
+import OfflineScreen from './pages/OfflineScreen.jsx';
+import Page404 from './pages/Page404.jsx';
 
 //importar o css 
 import "../src/style/reset.css"
@@ -407,6 +409,10 @@ const router = createBrowserRouter([
       {
         path: "delete-account",
         element: <DeleteAccount />
+      },
+      {
+        path: "*",
+        element: <Page404 /> //se o usuário digitar uma rota desconhecida
       }
     ]
   }, 
@@ -414,8 +420,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
   <AuthProvider>
+    <OfflineScreen /> {/* para vigiar se o wifi cair ou oscilar */}
     <RouterProvider router={router} />
   </AuthProvider>
+
   </StrictMode>
 )   
