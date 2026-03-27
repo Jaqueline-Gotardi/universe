@@ -23,7 +23,7 @@ function OfflineScreen() {
       }
     },[])
 
-    //só mostra a tela, se estiver offline
+    //só mostra a tela, se estiver offline, se não estiver a OfflineScreen não aparece (nulo)
     if (!isOffline) return null;
     
     const styles = { 

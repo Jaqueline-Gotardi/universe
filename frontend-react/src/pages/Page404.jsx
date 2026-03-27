@@ -1,10 +1,31 @@
 // página 404 espacial
 
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import CosmicBackground from "../components/CosmicBackground";
 
 function Page404() {
     const navigate = useNavigate()
+    const [ isOnline, setIsOnline ] = useState(navigator.onLine); //está online
+
+    //lógica de mostrar a tela somente quando a internet cair
+    useEffect(() => {
+      const handleOnline = () => setIsOnline(true);
+      const handleOffline = () => setIsOnline(false);
+    
+      //ouvir quando a internet cair ou voltar
+      window.addEventListener("online", handleOnline);
+      window.addEventListener("offline", handleOffline);
+    
+      //limpar os eventos de escuta
+      return() => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    }
+  },[])
+  
+  //se não estiver online, retorna nulo (essa tela tem que sumir para a tela OfflineScreen aparecer)
+  if (!isOnline) return null;
     
     const styles = { 
       containerNotFound: {
