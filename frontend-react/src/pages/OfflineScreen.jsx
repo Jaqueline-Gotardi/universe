@@ -1,4 +1,4 @@
-// página 404 espacial
+//essa tela é exibida quando a internet cai ou oscila
 
 import { useEffect, useState } from "react"
 import CosmicBackground from "../components/CosmicBackground";
@@ -38,8 +38,8 @@ function OfflineScreen() {
         inset: 0,
           
         fontFamily: "System-ui, sans-serif",
-        //animation: showScreen ? "offlineFadeIn 0.5s ease forwards" : "offlineFadeOut 0.5s ease forwards", //se a tela não estiver sendo exibida VS /se tiver...
-        zIndex: "9999", //garante que a tela 404 fique por cima de todas as outras quando a internet cair
+        animation: "opacidadeDaTela 0.5s ease forwards", //mudar a opacidade da tela, quando o sinal cair
+        zIndex: "9999", //garante que a tela fique por cima de todas as outras quando a internet cair
       },
       titulo: {
         color: "#ffffff",
@@ -162,16 +162,10 @@ function OfflineScreen() {
           </div>
           <style>{`
 
-          /* @keyframes offlineFadeIn {
-          from { opacity: 1; }
-          to { opacity: 0; }
-          }
-          @keyframes offlineFadeOut {
+          @keyframes opacidadeDaTela {
           from { opacity: 0; }
           to { opacity: 1; }
-          } */
-
-          
+          }
           @keyframes signalPulse {
           0%, 100% {opacity: 0.3; transform: scale(1)}
           50% {opacity: 1; tranform: scale(1.1)}
@@ -180,7 +174,7 @@ function OfflineScreen() {
           0%, 100% { transform: scale(1); opacity: 1; }
           50% { transform: scale(1.08); opacity: 0.85; }
           }
-          @keyframes accretionFlow {
+          @keyframes accretionFlow { /* fazer os traços do disco correr */
           from { stroke-dashoffset: 0; }
           to { stroke-dashoffset: -120; }
           }

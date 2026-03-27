@@ -1,4 +1,4 @@
-// página 404 espacial
+//essa tela é exibida quando o usuário digita uma rota desconhecida
 
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ function Page404() {
     const navigate = useNavigate()
     const [ isOnline, setIsOnline ] = useState(navigator.onLine); //está online
 
-    //lógica de mostrar a tela somente quando a internet cair
+    //lógica de mostrar a tela somente quando a internet cair (precisamos trocar a tela Page404.jsx pela OfflineScreen.jsx, já que o problema não é mais de rota desconhecida, mas sim de conexão)
     useEffect(() => {
       const handleOnline = () => setIsOnline(true);
       const handleOffline = () => setIsOnline(false);
@@ -39,7 +39,7 @@ function Page404() {
         inset: 0,
           
         fontFamily: "System-ui, sans-serif",
-        //animation: showScreen ? "offlineFadeIn 0.5s ease forwards" : "offlineFadeOut 0.5s ease forwards", //se a tela não estiver sendo exibida VS /se tiver...
+        animation: "opacidadeDaTela 0.5s ease forwards", //mudar a opacidade da tela (quando a rota for desconhecida)
         zIndex: "9999", //garante que a tela 404 fique por cima de todas as outras quando a internet cair
       },
       titulo: {
@@ -88,34 +88,13 @@ function Page404() {
           e.currentTarget.style.transform = "translateY(0) scale(1)";
           e.currentTarget.style.boxShadow = "0 5px 25px rgba(168, 85, 247, 0.3)";
         }}>Volte para a Nave mãe</button>
-        
-          {/* <style>{`
-          @keyframes offlineFadeIn {
-          from { opacity: 1; }
-          to { opacity: 0; }
-          }
-          @keyframes offlineFadeOut {
+
+        <style>{`@keyframes opacidadeDaTela {
           from { opacity: 0; }
           to { opacity: 1; }
-          }
-          @keyframes signalPulse {
-          0%, 100% {opacity: 0.3; transform: scale(1)}
-          50% {opacity: 1; tranform: scale(1.1)}
-          }
-          @keyframes bhPulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.08); opacity: 0.85; }
-          }
-          @keyframes accretionFlow {
-          from { stroke-dashoffset: 0; }
-          to { stroke-dashoffset: -120; }
-          }
-          @keyframes wifiFloat {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          50% { transform: translate(-4px, -6px) rotate(-8deg); }
-          }
-          `}</style> */}
-          </div>
-          )
-        }
+          }`}
+        </style>
+      </div>
+      )
+    }
 export default Page404;
