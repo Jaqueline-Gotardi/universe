@@ -1,0 +1,8 @@
+<!-- Este arquivo desativa o motor do github pages.
+Ele evita erros de build quando existem arquivos em Markdown (.md).
+
+Antes, o github estava confundindo comandos como: "${ }" ou "{{ }})" com comandos do jekyll.
+
+Com a criação deste arquivo, o github ignora esses comandos e processa o build.
+
+O que é build? É o processamento final. Toda vez que fazemos um push, o  GitHub Actions processa o commit, executa o robô (workflows/fluxo de trabalho), e tenta "montar" o projeto em um servidor distinto. Se o build (construção) falhar, o site vai quebrar, o deploy só vai carregar a última versão do site que funcionava -->
