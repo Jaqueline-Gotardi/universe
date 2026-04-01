@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-import { LoginTransition } from "../components/LoginTransition";
+import { LoginTransition } from "../components/auth/LoginTransition";
 
  
 function LoginPage() { //no react as functions começam com letra Maiúscula

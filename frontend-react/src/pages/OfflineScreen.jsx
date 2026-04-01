@@ -1,7 +1,7 @@
 //essa tela é exibida quando a internet cai ou oscila
 
 import { useEffect, useState } from "react"
-import CosmicBackground from "../components/CosmicBackground";
+import CosmicBackground from "../components/layout/CosmicBackground";
 
 function OfflineScreen() {
     const [ isOffline, setIsOffline ] = useState(!navigator.onLine); //não está online

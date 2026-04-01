@@ -2,7 +2,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import CosmicBackground from "../components/CosmicBackground";
+import CosmicBackground from "../components/layout/CosmicBackground";
 
 function Page404() {
     const navigate = useNavigate()
