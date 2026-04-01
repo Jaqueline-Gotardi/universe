@@ -4,27 +4,27 @@ import { useState, useRef, useEffect } from "react";
 const songs = [
   {
     title: "Conexão cósmica: Frequênica 639Hz",
-    src: "/musicas/frequencia-cosmica.mp3",
+    src: "/audio/frequencia-cosmica.mp3",
   },
   {
     title: "Ecos do Espaço Profundo",
-    src: "/musicas/espaco-profundo.mp3",
+    src: "/audio/espaco-profundo.mp3",
   },
   {
     title: "Meditação na Nebulosa",
-    src: "/musicas/meditacao.mp3",
+    src: "/audio/meditacao.mp3",
   },
   {
     title: "Pulsares e Galáxias distantes",
-    src: "/musicas/pulsares.mp3",
+    src: "/audio/pulsares.mp3",
   },
   {
     title: "O canto dos Planetas",
-    src: "/musicas/canto-planetas.mp3",
+    src: "/audio/canto-planetas.mp3",
   },
   {
     title: "Sinfonia do vazio Estelar",
-    src: "/musicas/vazio-estelar.mp3",
+    src: "/audio/vazio-estelar.mp3",
   },
 ];
 
