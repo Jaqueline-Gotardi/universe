@@ -76,7 +76,7 @@ src/
 │   │   ├── styles/
 │   │   │   ├── auth.module.css
 │   │   │
-│   │   └── index.js
+│   │   └── index.js 
 │
 │   ├── dashboard/
 │   │   ├── components/

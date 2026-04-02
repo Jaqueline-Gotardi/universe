@@ -1,0 +1,333 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+}
+
+.containerRadar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: textAnimation 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.radarWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 20px;
+  animation: floating 3s ease-in-out infinite;
+}
+
+.radarLabel {
+  color: #00e5ff;
+  opacity: 0.6;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.5rem;
+  margin-bottom: 7px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.scanText {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.7rem;
+  color: #00e5ff;
+  letter-spacing: 0.25rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  animation: blink 1.4s ease-in-out infinite;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.8s ease;
+}
+
+.progressSintonia {
+  color: gold;
+  font-size: 0.65rem;
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  font-weight: 500;
+}
+
+.progressBar {
+  position: relative;
+  border: 1px solid #00e5ff33;
+  width: 100%;
+  height: 36px;
+  background: #05111f;
+  border-radius: 50px;
+  box-shadow: 0 0 20px #00e5ff11, inset 0 0 20px #001020;
+}
+
+.progressFill {
+  position: relative;
+  background: linear-gradient(90deg, #001a2e 0%, #0066cc 50%, #00e5ffe4 100%);
+  height: 100%;
+  border-radius: 50px;
+  transition: width 0.2s linear;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  animation: gradientFlow 3s linear infinite;
+}
+
+.astronautContainer {
+  position: absolute;
+  top: 22px;
+  right: -35px;
+  transform: translateY(-50%) translateX(-100%);
+  transition: left 0.2s linear;
+  z-index: 20;
+}
+
+.astronautBody {
+  position: relative;
+  width: 28px;
+  height: 29px;
+  filter: drop-shadow(0 0 7px rgba(0, 229, 255, 0.7));
+  animation: astronaut 2s ease-in-out infinite;
+}
+
+.astronautAura {
+  position: absolute;
+  inset: -8px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.12), transparent 70%);
+  border-radius: 50%;
+}
+
+.helmet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-47%);
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(160deg, #e0e8f0, #b0bec5);
+  border-radius: 50%;
+  border: 2px solid #90a4ae;
+  z-index: 10;
+}
+
+.visor {
+  background: linear-gradient(135deg, #00bcd4, #1565c0);
+  width: 15px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.visorReflection {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.oxygen {
+  background: #78909c;
+  border-radius: 2px;
+  position: absolute;
+  width: 18px;
+  height: 14px;
+  top: 15px;
+  left: 3px;
+}
+
+.traje {
+  background: linear-gradient(180deg, #eceff1, #cfd8dc);
+  border-radius: 6px;
+  border: 1px solid #b8bec5;
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  width: 18px;
+  height: 14px;
+  transform: translateX(-50%);
+}
+
+.trajeDetail {
+  background: #00bcd4;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 7px;
+  height: 4px;
+  border-radius: 50px;
+  transform: translateX(-50%);
+}
+
+.legLeft {
+  position: absolute;
+  background: #cfd8dc;
+  bottom: -8px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 0 0 4px 4px;
+  transform-origin: top center;
+  animation: legLeft 0.6s ease-in-out infinite alternate;
+}
+
+.legRight {
+  position: absolute;
+  background: #cfd8dc;
+  bottom: -8px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 0 0 4px 4px;
+  transform-origin: top center;
+  animation: legRight 0.6s ease-in-out infinite alternate;
+}
+
+.armLeft {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 6px;
+  height: 8px;
+  background: #cfd8dc;
+  border-radius: 50px;
+  transform-origin: top center;
+  animation: armLeft 0.6s ease-in-out infinite alternate;
+}
+
+.armRight {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 6px;
+  height: 8px;
+  background: #cfd8dc;
+  border-radius: 50px;
+  transform-origin: top center;
+  animation: armRight 0.6s ease-in-out infinite;
+}
+
+.progressCount {
+  color: #00e5ff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 0 0 20px;
+}
+
+.progressStatus {
+  color: #ffffff44;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
+
+@keyframes textAnimation {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+@keyframes astronaut {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-40%) rotate(5deg);
+  }
+}
+
+@keyframes legLeft {
+  0%,
+  100% {
+    transform: rotate(-22deg);
+  }
+  50% {
+    transform: rotate(18deg);
+  }
+}
+
+@keyframes legRight {
+  0%,
+  100% {
+    transform: rotate(18deg);
+  }
+  50% {
+    transform: rotate(-22deg);
+  }
+}
+
+@keyframes armLeft {
+  0%,
+  100% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes armRight {
+  0%,
+  100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+}

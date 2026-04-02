@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-import { LoginTransition } from "../components/auth/LoginTransition";
+import { LoginTransition } from "../components/auth/LoginTransition/LoginTransition.jsx";
 
  
 function LoginPage() { //no react as functions começam com letra Maiúscula
@@ -66,7 +66,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
     <div className="content-wrapper">
       <div className="login-container">
         <div className="welcome-section">
-          <img src="./imagens/astronauta-hero.webp" alt="Astronauta" className="astronaut-hero"/>
+          <img src="./images/astronauta-hero.webp" alt="Astronauta" className="astronaut-hero"/>
           <h1 className="welcome-title">Bem vindo(a) ao Universe!</h1>
         </div>
  

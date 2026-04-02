@@ -95,10 +95,10 @@ import Enceladus from './components/solar-system/Enceladus.jsx';
 import Triton from './components/solar-system/Triton.jsx';
 
 import ExtrasMenu from './components/navigation/ExtrasMenu.jsx';
-import Profile from './components/auth/Profile.jsx';
+import Profile from './components/auth/Profile/Profile.jsx';
 import Creators from './components/layout/Creators.jsx';
-import DeleteAccount from './components/auth/DeleteAccount.jsx';
-import ChangePassword from './components/auth/ChangePassword.jsx';
+import DeleteAccount from './components/auth/DeleteAccount/DeleteAccount.jsx';
+import ChangePassword from './components/auth/ChangePassword/ChangePassword.jsx';
 
 //configurando o roteador
 const router = createBrowserRouter([  

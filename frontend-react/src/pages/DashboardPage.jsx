@@ -3,7 +3,7 @@
 //import { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import SoundTrack from "../components/layout/SoundTrack";
-import { AgentBadge } from "../components/auth/AgentBadge";
+import { AgentBadge } from "../components/auth/AgentBadge/AgentBadge";
 
 function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
 

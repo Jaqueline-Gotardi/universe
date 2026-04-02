@@ -1,0 +1,200 @@
+.telaApagarConta {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.backButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.4) 100%);
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 25px rgba(168, 85, 247, 0.3);
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  cursor: pointer;
+}
+
+.backButton:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.5);
+}
+
+.containerConteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 500px;
+  padding: 50px 40px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(20, 10, 10, 0.95), rgba(30, 15, 15, 0.9));
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.2);
+  animation: dangerCardGlow 6s ease-in-out infinite;
+  margin-bottom: 30px;
+}
+
+.iconeAlerta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  padding: 20px;
+  border: 2px solid rgb(124, 38, 38);
+  border-radius: 50%;
+  background-color: rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.22);
+  animation: warningPulse 5s ease-in-out infinite;
+}
+
+.painelConfirmacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: rgba(252, 165, 165, 0.7);
+}
+
+.titleApagarConta {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  color: rgb(252, 165, 165);
+  text-shadow: rgba(239, 68, 68, 0.5) 0 0 30px;
+  margin-bottom: 10px;
+}
+
+.mensagemPersuasiva {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.mensagensAlerta {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.mensagensAlertaItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  padding: 12px 15px;
+  border: 1px solid rgb(124, 38, 38);
+  border-radius: 10px;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.confirmarcaoApagarConta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  width: 100%;
+}
+
+.spanConfirmacao {
+  color: rgb(239, 68, 68);
+  font-weight: bold;
+}
+
+.confirmacaoInput {
+  width: 100%;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  padding: 15px 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+  text-align: center;
+}
+
+.botaoVoltarHome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 25px;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 12px;
+  color: rgb(134, 239, 172);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.botaoApagarConta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.8), rgba(185, 28, 28, 0.8));
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+}
+
+.textoSeguranca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 20px;
+  color: rgba(167, 139, 250, 0.7);
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+}
+
+@media (max-width: 870px) {
+  .containerConteudo {
+    margin-top: 60px;
+  }
+}
+
+@keyframes dangerCardGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 28px rgba(239, 68, 68, 0.16);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(239, 68, 68, 0.28);
+  }
+}
+
+@keyframes warningPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.16);
+  }
+
+  50% {
+    box-shadow: 0 0 24px rgba(239, 68, 68, 0.24);
+  }
+}

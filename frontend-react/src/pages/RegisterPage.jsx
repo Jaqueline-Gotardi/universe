@@ -3,6 +3,7 @@ import "../style/perfil.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import CosmicBackground from "../components/layout/CosmicBackground";
 
 function RegisterPage() {
   const [ username, setUsername ] = useState("");
@@ -47,6 +48,7 @@ function RegisterPage() {
 
     return (
 <section className="tela-cadastro" id="tela-cadastro">
+  <CosmicBackground />
     <div className="container-cadastro">
       <h2 className="titulo-secao">Crie sua conta de Agente</h2>
       <form className="form-cadastro" id="form-cadastro" onSubmit={handleRegister}>

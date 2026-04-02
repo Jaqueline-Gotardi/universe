@@ -1,0 +1,89 @@
+.container {
+  position: fixed;
+  bottom: 26px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(88, 28, 135, 0.8), rgba(15, 23, 42, 0.9));
+  border-radius: 50px;
+  padding: 8px 16px 8px 8px;
+  z-index: 1000;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.brilho {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 110%;
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  animation: brilho 3s infinite;
+}
+
+.avatarContainer {
+  position: relative;
+}
+
+.avatarWrapper {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid rgba(168, 85, 247, 0.7);
+  box-shadow: 0 0 12px rgba(168, 15, 247, 0.5);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.anelOnline {
+  position: absolute;
+  background: #22c55e;
+  width: 12px;
+  height: 12px;
+  bottom: -2px;
+  right: -2px;
+  border-radius: 50%;
+  border: 2px solid rgba(15, 23, 42, 0.9);
+  animation: pulsacao 2s infinite;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.nameAgent {
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.paragraph {
+  color: #a78bfa;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+@keyframes brilho {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulsacao {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.3); 
+  }
+}
