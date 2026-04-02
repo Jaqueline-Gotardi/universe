@@ -18,7 +18,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 2.5rem;
-  width: 100%;
+  width: 100%; 
   max-width: 600px;
   box-shadow: 0 0 40px rgba(118, 59, 219, 0.6);
   text-align: center;
@@ -156,8 +156,8 @@
 
 .campoFotoEdicao {
   position: relative;
-  width: 8rem;
-  height: 8rem;
+  width: 100%;
+  height: auto;
   margin: 0 auto 1rem;
   display: flex;
   align-items: center;
@@ -178,8 +178,11 @@
 
 .resetAvatarButton {
   position: absolute;
-  top: -1rem;
-  right: 2rem;
+  width: 38px;
+  height: 38px;
+  top: 6rem;
+  right: auto;
+  left: 55%;
   background: #dc2626;
   padding: 0.5rem;
   border-radius: 9999px;
@@ -247,6 +250,7 @@
   font-size: 1rem;
   border-radius: 50%;
   background: #ff4081;
+  border: 1px solid #763bdb;
   color: white;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -254,6 +258,7 @@
 
 .btnFecharGaleria:hover {
   background: #ff7b9f;
+  transform: scale(1.1);
 }
 
 .galeriaGridAvatares {
