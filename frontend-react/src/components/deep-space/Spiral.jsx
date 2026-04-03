@@ -7,29 +7,12 @@ import { PlanetaTemplate } from "../solar-system/PlanetaTemplate";
 const Spiral = () => {
   return (
   
-  <section className="tela-eventos-detalhe" id="detalhe-espiral" style={{position: "relative", minHeight: "100vh"}}>
+  <section className="telaDetalhe" id="detalhe-espiral">
     <div className="space-background">
       <div className="stars"></div>
       </div> 
       
-      <main className="container-spiral">
-       <style>{`
-        .container-spiral img {
-        width: 100%; 
-        max-width: 800px;       
-        transform: scale(1.1);      
-        transition: all 0.3s ease;
-        object-fit: contain;
-        margin: 0px; 
-        border-radius: 25px;
-        }
-        @media (max-width: 768px) {
-        .container-big-dipper img {
-        width: 100%;
-        transform: scale(1);
-        }
-        `}
-        </style>
+      <main className="containerAstro">
 
        <PlanetaTemplate
         planetaId= "espiral"
