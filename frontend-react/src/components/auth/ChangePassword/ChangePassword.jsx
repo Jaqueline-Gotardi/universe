@@ -20,7 +20,7 @@ function ChangePassword() {
               id="senha-atual"
               placeholder="Digite sua senha atual"
             />
-          </div>
+          </div> 
 
           <div className={styles.campoInput}>
             <label htmlFor="nova-senha">Nova Senha</label>
@@ -32,7 +32,7 @@ function ChangePassword() {
           </div>
 
           <div className={styles.campoInput}>
-            <label htmlFor="confirmar-nova-senha">Confirmar Nova Senha</label>
+            <label htmlFor="confirmar-nova-senha">Confirmar Nova Senha</label> 
             <input
               type="password"
               id="confirmar-nova-senha"

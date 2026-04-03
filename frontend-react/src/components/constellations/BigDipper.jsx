@@ -5,7 +5,7 @@ import "../../style/eventos-astronomicos.css"
 
 
 const BigDipper = () => {
-  return (
+  return ( 
   
   <section className="tela-eventos-detalhe" id="detalhe-ursa-maior" style={{position: "relative", minHeight: "100vh"}}>
     <div className="space-background">

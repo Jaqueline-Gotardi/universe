@@ -8,7 +8,7 @@ export const PlanetaTemplate = ({planetaId}) => {
   
 
   if (!conteudo) return <div>Carregando. . .</div>;
-
+ 
   const cornerStyle = {
     position: "absolute",
     width: "30px",   

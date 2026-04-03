@@ -29,7 +29,7 @@ import SouthConstellations from './components/constellations/SouthConstellations
 import FamousConstellations from './components/constellations/FamousConstellations.jsx';
 import BigDipper from './components/constellations/BigDipper.jsx';
 import LittleDipper from './components/constellations/LittleDipper.jsx';
-import AndromedaConstellation from './components/constellations/AndromedaConstellation.jsx';
+import AndromedaConstellation from './components/constellations/AndromedaConstellation/AndromedaConstellation.jsx';
 import SouthernCross from './components/constellations/SouthernCross.jsx';
 import Phoenix from './components/constellations/Phoenix.jsx';
 import Centaur from './components/constellations/Centaur.jsx';
