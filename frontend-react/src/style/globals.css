@@ -31,6 +31,104 @@ section.selecionado {
 
 
 
+
+
+
+
+
+
+
+
+ .telaDetalhe {
+    position: relative;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #0a0a25 0%, #020205 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.spaceBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 3s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+.containerConstellation {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PlanetaTemplate Container */
+.containerConstellation > div {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Plano de fundo animado */
 .cosmic-engine {
     position: absolute;
