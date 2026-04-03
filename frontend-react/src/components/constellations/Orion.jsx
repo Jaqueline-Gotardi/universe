@@ -12,7 +12,7 @@ const Orion = () => {
       <div className="stars"></div>
       </div> 
       
-      <main className="containerConstellation">
+      <main className="containerAstro">
 
        <PlanetaTemplate
         planetaId= "orion"

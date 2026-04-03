@@ -14,7 +14,7 @@ const BigDipper = () => {
         <div className="stars"></div>
       </div> 
       
-      <main className="containerConstellation">
+      <main className="containerAstro">
 
        <PlanetaTemplate
         planetaId= "ursa-maior"

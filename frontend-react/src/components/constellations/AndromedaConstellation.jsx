@@ -8,12 +8,12 @@ import { PlanetaTemplate } from "../solar-system/PlanetaTemplate";
 const AndromedaConstellation = () => {
   return (
   
-  <section id="detalhe-andromeda-constelacao" className="telaDetalhe">
+  <section className="telaDetalhe" id="detalhe-andromeda-constelacao">
     <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       
-      <main className="containerConstellation">
+      <main className="containerAstro">
 
        <PlanetaTemplate
         planetaId= "andromeda"

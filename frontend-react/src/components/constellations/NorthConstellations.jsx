@@ -1,4 +1,3 @@
-import React from "react";
 import CosmicBackground from "../layout/CosmicBackground";
 import CosmicCard from "../layout/CosmicCard";
 import { useNavigate } from "react-router-dom";
@@ -22,4 +21,4 @@ const ConstellationsMenu = () => {
     </div>
   )
 }
-export default ConstellationsMenu; 
+export default ConstellationsMenu;  
