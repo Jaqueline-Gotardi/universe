@@ -79,7 +79,7 @@
 }
 
 /* PlanetaTemplate Content */
-.containerAndromeda > div > div {
+/* .containerAndromeda > div > div {
     position: relative;
     z-index: 10;
     max-width: 800px;
@@ -89,10 +89,10 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-}
+} */
 
 /* Card principal - PlanetaTemplate */
-.containerAndromeda > div > div > div:first-child {
+/* .containerAndromeda > div > div > div:first-child {
     position: relative;
     background: rgba(20, 10, 50, 0.7);
     border: 2px solid rgba(168, 85, 247, 0.3);
@@ -101,24 +101,24 @@
     backdrop-filter: blur(15px);
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), inset 0 0 80px rgba(168, 85, 247, 0.05);
     width: 100%;
-}
+} */
 
 /* Imagem no PlanetaTemplate */
-.containerAndromeda > div > div > div > div[style*="max-width"] {
+/* .containerAndromeda > div > div > div > div[style*="max-width"] {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-}
+} */
 
-.containerAndromeda img {
+/* .containerAndromeda img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
     border-radius: 15px;
-}
+} */
 
 /* Título - PlanetaTemplate */
-.containerAndromeda h1 {
+/* .containerAndromeda h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(22px, 4vw, 32px);
     font-weight: 700;
@@ -127,20 +127,20 @@
     margin-bottom: 25px;
     letter-spacing: 2px;
     animation: titleGlow 4s ease-in-out infinite;
-}
+} */
 
 /* Descrição - PlanetaTemplate */
-.containerAndromeda p {
+/* .containerAndromeda p {
     font-family: 'Space Mono', monospace;
     font-size: 14px;
     line-height: 1.9;
     color: rgba(255, 255, 255, 0.85);
     text-align: justify;
     margin-bottom: 20px;
-}
+} */
 
 /* Botão Voltar - PlanetaTemplate */
-.containerAndromeda button {
+/* .containerAndromeda button {
     display: block;
     margin: 20px auto 0;
     padding: 15px 60px;
@@ -157,16 +157,16 @@
     box-shadow: 0 5px 30px rgba(168, 85, 247, 0.4);
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
     text-transform: uppercase;
-}
+} */
 
-.containerAndromeda button:hover {
+/* .containerAndromeda button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 35px rgba(168, 85, 247, 0.6);
     background: linear-gradient(135deg, rgba(168, 85, 247, 0.6) 0%, rgba(139, 92, 246, 0.7) 100%);
-}
+} */
 
 /* Corner decorations - PlanetaTemplate */
-.containerAndromeda > div > div > div > div[style*="position: absolute"] {
+/* .containerAndromeda > div > div > div > div[style*="position: absolute"] {
     position: absolute;
     width: 30px;
     height: 30px;
@@ -182,9 +182,9 @@
         opacity: 1;
         box-shadow: 0 0 45px rgba(6, 182, 212, 0.7), 0 0 30px rgba(6, 182, 212, 0.5);
     }
-}
+} */
 
-@keyframes titleGlow {
+/* @keyframes titleGlow {
     0%, 100% { 
         text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
     }
@@ -200,14 +200,14 @@
     50% { 
         transform: translateY(-8px) scale(1.02);
     }
-}
+} */
 
 @media (max-width: 768px) {
     .telaDetalhe {
         padding: 15px;
     }
 
-    .containerAndromeda > div > div {
+    /* .containerAndromeda > div > div {
         padding: 25px 15px 40px;
     }
 
@@ -226,5 +226,5 @@
     .containerAndromeda button {
         padding: 12px 40px;
         font-size: 12px;
-    }
+    } */
 }
