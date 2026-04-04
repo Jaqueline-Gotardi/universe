@@ -16,7 +16,8 @@ import { AuthProvider } from '../contexts/authContext.jsx';
 
 //importar o css 
 import "../src/style/reset.css"
-import "../src/style/globals.css" 
+//import "../src/style/globals.css"
+//import "../src/style/tela-principal.css" 
 
 import MissionTutorial from './components/layout/MissionTutorial.jsx';
 import ExplorerMenu from './components/navigation/ExplorerMenu.jsx';
@@ -96,7 +97,7 @@ import Triton from './components/solar-system/Triton.jsx';
 
 import ExtrasMenu from './components/navigation/ExtrasMenu.jsx';
 import Profile from './components/auth/Profile/Profile.jsx';
-import Creators from './components/layout/Creators.jsx';
+import Creators from './components/layout/Creators/Creators.jsx';
 import DeleteAccount from './components/auth/DeleteAccount/DeleteAccount.jsx';
 import ChangePassword from './components/auth/ChangePassword/ChangePassword.jsx';
 
