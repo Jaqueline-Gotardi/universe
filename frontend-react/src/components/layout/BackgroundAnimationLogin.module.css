@@ -1,0 +1,27 @@
+/* BackgroundAnimationLogin.module.css */
+
+.cosmicEngine {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #000000 0%, #020205 100%);
+  z-index: -1;
+}
+
+.starField {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px white;
+  animation: star-animation 3s ease-in-out infinite;
+}
+
+@keyframes star-animation {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}

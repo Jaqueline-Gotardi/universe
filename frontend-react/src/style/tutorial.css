@@ -1,6 +1,6 @@
-.tela-tutorial {
+/* .tela-tutorial { */
     /* background-image: url('../imagens/tela-criadores.jpg'); */
-    background-size: cover;
+   /*  background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -10,14 +10,14 @@
     color: #e0f2f7;
     padding: 60px 20px;
     font-family: 'Space Mono', monospace;
-}
+} */
 
-.jornada-projeto p {
+/* .jornada-projeto p {
     font-size: 1rem;
     line-height: 1.7;
     text-align: justify;
     margin-bottom: 20px;
-}
+} 
 
 .card {
     background-color: rgba(0, 0, 0, 0.4);
@@ -84,4 +84,4 @@
     .secao-missao {
         padding: 20px;
     }
-}
+} */

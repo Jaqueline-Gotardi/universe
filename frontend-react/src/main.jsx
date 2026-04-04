@@ -19,7 +19,7 @@ import "../src/style/reset.css"
 //import "../src/style/globals.css"
 //import "../src/style/tela-principal.css" 
 
-import MissionTutorial from './components/layout/MissionTutorial.jsx';
+import MissionTutorial from './components/layout/MissionTutorial/MissionTutorial.jsx';
 import ExplorerMenu from './components/navigation/ExplorerMenu.jsx';
 import WelcomeSection from './components/layout/WelcomeSection/WelcomeSection.jsx';
 import InfoMenu from './components/navigation/InfoMenu.jsx';
