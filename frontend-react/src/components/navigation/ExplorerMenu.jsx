@@ -4,9 +4,9 @@ import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchBox from "../navigation/SearchBox/SearchBox";
 
-import "../../style/tela-menu.css";
-import "../../style/tela-navegacao.css";
-import "../../style/criadores.css";
+//import "../../style/tela-menu.css";
+//import "../../style/tela-navegacao.css";
+//import "../../style/criadores.css";
 
 function ExplorerMenu() { 
   const navigate = useNavigate();
@@ -445,7 +445,6 @@ function ExplorerMenu() {
           border-color: #8b5cf6 !important;
           box-shadow: 0 25px 80px rgba(139, 92, 246, 0.3);
         }
-
         .apod-img-zoom:hover { 
         transform: scale(1.03); 
         }
@@ -619,6 +618,7 @@ function ExplorerMenu() {
         backdrop-filter: blur(15px); 
         z-index: 100; 
         border-bottom: 1px solid rgba(6, 182, 212, 0.2); 
+        gap: 15px;
         }
 
         .container-busca {  /* --> do input de busca */
@@ -682,7 +682,7 @@ function ExplorerMenu() {
         color: #f87171; 
         padding: 15px 30px; 
         border-radius: 15px; 
-        width: fit-content; --> /* conteúdo adequado */
+        width: fit-content; /* conteúdo adequado */
         margin: 0 auto 30px; 
         animation: slideDown 0.4s ease; 
         }

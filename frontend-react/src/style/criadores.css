@@ -14,7 +14,7 @@
     text-transform: uppercase;
     letter-spacing: 1px; 
 }
-
+ 
 .botao-voltar:hover {
     background: #A020F0;
     transform: translateY(-2px);
