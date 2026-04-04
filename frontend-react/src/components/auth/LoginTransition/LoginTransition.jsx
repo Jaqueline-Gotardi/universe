@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { BackroundAnimationLogin } from "../../layout/BackgroundAnimationLogin"
+import { BackgroundAnimationLogin } from "../../layout/BackgroundAnimationLogin/BackgroundAnimationLogin"
 import styles from "./LoginTransition.module.css"
 
 const Status_messages = [
@@ -54,7 +54,7 @@ export function LoginTransition({ onComplete }) {
 
   return (
     <div className={styles.overlay}>
-      <BackroundAnimationLogin />
+      <BackgroundAnimationLogin />
 
       <div className={styles.containerRadar}>
         <div className={styles.radarWrap}>
