@@ -68,7 +68,7 @@ export const PlanetaTemplate = ({planetaId}) => {
       animationDelay: "0.5s",
     },
 
-    cornerBottomLeft: {
+    cornerBottomLeft: { 
       ...cornerStyle,
       bottom: "-2px",
       left: "-2px",

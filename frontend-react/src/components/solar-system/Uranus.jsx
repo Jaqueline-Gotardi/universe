@@ -16,6 +16,6 @@ const Uranus = () => {
         />
       </main>
     </div>
-  )
+  ) 
 }
 export default Uranus; 

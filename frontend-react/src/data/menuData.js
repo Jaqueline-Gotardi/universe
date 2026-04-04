@@ -19,7 +19,7 @@ export const menuPrincipal = [
   },
 ];
 
-export const menuAstros = [
+export const menuAstros = [ 
   {
     id: "constelações",
     label: "Constelações",
@@ -232,8 +232,16 @@ export const galaxiasFamosas = [
 ];
 
 export const menuExtras = [
-  { id: "perfil", label: "Perfil", route: "/app/profile", icon: "👤" },
-  { id: "criadores", label: "Criadores", route: "/app/creators", icon: "🚀" },
+  { id: "perfil", 
+    label: "Perfil", 
+    route: "/app/profile", 
+    icon: "👤" 
+  },
+  { id: "criadores", 
+    label: "Criadores", 
+    route: "/app/creators", 
+    icon: "🚀" 
+  },
   {
     id: "apagar-conta",
     label: "Apagar conta",

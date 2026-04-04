@@ -3,7 +3,7 @@ export const informacoesPlanetarias = [
     id: "planetas",
     label: "Planetas",
     route: "/app/planetary-menu",
-    description: "Os 8 planetas do sistema solar",
+    description: "Os 8 planetas do sistema solar + Plutão",
     icon: "🪐",
   },
   {
@@ -21,7 +21,7 @@ export const informacoesPlanetarias = [
     icon: "🌙",
   },
 ];
- 
+  
 export const menuSistemaSolar = [
   {
     id: "sol",
@@ -69,7 +69,7 @@ export const menuPlanetas = [
   { id: "saturno", label: "Saturno", route: "/app/saturn", icon: "🪐" },
   { id: "urano", label: "Urano", route: "/app/uranus", icon: "🔵" },
   { id: "netuno", label: "Netuno", route: "/app/neptune", icon: "🔵" },
-  /* { id: "plutao", label: "Plutão", route: "/app/pluto", icon: "⚫"},  */
+  { id: "plutao", label: "Plutão", route: "/app/pluto", icon: "⚫" },
 ];
 
 export const menuLuasESatelites = [
@@ -203,6 +203,18 @@ export const conteudosPlanetarios = {
     O planeta possui os ventos mais fortes do Sistema Solar, atingindo velocidades de até 2.100 km/h. Sua atmosfera apresenta tempestades massivas, incluindo a Grande Mancha Escura, similar à Grande Mancha Vermelha de Júpiter.
 
     Netuno possui 16 luas conhecidas, sendo Tritão a maior e mais interessante. Tritão é uma das luas mais frias do Sistema Solar e é geologicamente ativa, com gêiseres que expelem nitrogênio. Curiosamente, Tritão orbita Netuno na direção oposta à rotação do planeta.`,
+  },
+  plutao: {
+    titulo: "Plutão - O Planeta Anão",
+    imagem: "/images/plutao.webp",
+    descricao: `Plutão foi considerado o nono planeta do Sistema Solar por 76 anos, mas foi reclassificado como um planeta anão em 2006 pela União Astronômica Internacional, após a descoberta de objetos similares como Éris.
+    Plutão é um mundo gelado, com uma superfície composta principalmente de nitrogênio, metano e monóxido de carbono congelados. Sua atmosfera fina, composta principalmente de nitrogênio, congela e cai como neve quando o planeta se afasta do Sol em sua órbita elíptica.
+
+    Sua lua Caronte é tão grande (metade do tamanho de Plutão) que ambos orbitam um centro de massa comum, formando um sistema duplo único.
+
+    Situado no Cinturão de Kuiper, além de Netuno, possui uma órbita altamente inclinada e elíptica, levando-o a distâncias variáveis do Sol, entre 30 e 49 unidades astronômicas.
+
+    Em 2015, a sonda da NASA revelou um relevo surpreendente, com montanhas de gelo de 3.500 metros e possíveis criovulcões.`
   },
 
   sol: {

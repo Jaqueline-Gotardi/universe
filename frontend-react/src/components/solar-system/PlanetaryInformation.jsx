@@ -67,7 +67,7 @@ const PlanetaryInformation = () => {
     backgroundLayer: {
       position: "absolute",
       inset: 0,
-      overflow: "hidden",
+      overflow: "hidden", 
     },
     star: {
       position: "absolute",

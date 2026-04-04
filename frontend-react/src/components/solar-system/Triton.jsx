@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-/* import CosmicBackground from "./CosmicBackground"; */
 import CosmicBackground from "../layout/CosmicBackground";
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate";
 

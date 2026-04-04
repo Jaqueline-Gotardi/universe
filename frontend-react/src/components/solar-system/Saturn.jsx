@@ -18,4 +18,4 @@ const Saturn = () => {
     </div>
   )
 }
-export default Saturn; 
+export default Saturn;  
