@@ -21,7 +21,7 @@ import "../src/style/reset.css"
 
 import MissionTutorial from './components/layout/MissionTutorial.jsx';
 import ExplorerMenu from './components/navigation/ExplorerMenu.jsx';
-import WelcomeSection from './components/layout/WelcomeSection.jsx';
+import WelcomeSection from './components/layout/WelcomeSection/WelcomeSection.jsx';
 import InfoMenu from './components/navigation/InfoMenu.jsx';
 import AstrosMenu from './components/navigation/AstrosMenu.jsx';
 import ConstellationsMenu from './components/navigation/ConstellationsMenu.jsx';
