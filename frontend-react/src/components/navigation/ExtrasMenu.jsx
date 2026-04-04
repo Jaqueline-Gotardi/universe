@@ -1,5 +1,3 @@
-import React from "react";
-/* import CosmicBackground from "./CosmicBackground"; */
 import CosmicBackground from "../layout/CosmicBackground";
 import CosmicCard from "../layout/CosmicCard"; 
 

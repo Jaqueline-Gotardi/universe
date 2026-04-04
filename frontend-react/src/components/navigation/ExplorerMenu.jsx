@@ -2,13 +2,13 @@
 
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import SearchBox from "../navigation/SearchBox";
+import SearchBox from "../navigation/SearchBox/SearchBox";
 
 import "../../style/tela-menu.css";
 import "../../style/tela-navegacao.css";
 import "../../style/criadores.css";
 
-function ExplorerMenu() {
+function ExplorerMenu() { 
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState(""); //guarda oq for digitado
   const [results, setResults] = useState([]); //um lista [array] q a guarda oq o servidor devolveu

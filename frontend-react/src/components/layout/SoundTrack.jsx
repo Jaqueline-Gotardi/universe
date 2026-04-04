@@ -331,7 +331,7 @@ const SoundTrack = () => {
             </p>
           </div>
 
-          {/* Barra de progresso */}
+          {/* barra de progresso */}
           <div
             style={{
               width: "100%",
@@ -353,7 +353,7 @@ const SoundTrack = () => {
             ></div>
           </div>
 
-          {/* Controles */}
+          {/* controles */}
           <div
             style={{
               display: "flex",
@@ -362,7 +362,7 @@ const SoundTrack = () => {
               gap: "30px",
             }}
           >
-            {/* Voltar música */}
+            {/* voltar música */}
             <button
               onClick={prevTrack}
               style={{
@@ -384,7 +384,7 @@ const SoundTrack = () => {
               </svg>
             </button>
 
-            {/* Pausar/Reproduzir */}
+            {/* pausar/Reproduzir */}
             <button
               onClick={togglePlay}
               style={{
@@ -425,7 +425,7 @@ const SoundTrack = () => {
               )}
             </button>
 
-            {/* Passar música */}
+            {/* passar música */}
             <button
               onClick={nextTrack}
               style={{
@@ -449,7 +449,7 @@ const SoundTrack = () => {
           </div>
         </div>
 
-        {/* Animação do ícone musical */}
+        {/* animação do ícone musical */}
         <style>{`
         @keyframes spin-slow { 
           from { transform: rotate(0deg); }
