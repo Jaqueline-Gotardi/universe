@@ -27,10 +27,12 @@ const CosmicCard = ({ items, title, onBack }) => {
       onMouseEnter={(e) => {
         e.target.style.borderColor = "#a747e2";
         e.target.style.boxShadow = "0 0 15px #A020F0";
+        e.target.style.transform = "scale(1.05)";
       }}
       onMouseLeave={(e) => {
         e.target.style.borderColor = "#ffffff";
         e.target.style.boxShadow = "0 4px 20px rgba(168, 85, 247, 0.2)";
+        e.target.style.transform = "scale(1)";
       }}
       >
        <span>{item.icon}</span>
@@ -112,6 +114,7 @@ const styles = {
     justifyContent: "center",
     gap: "12px",
     padding: "18px 30px",
+    width: "100%",
     fontFamily: "'Orbitron', sans-serif",
     fontSize: "15px",
     fontWeight: 600,
