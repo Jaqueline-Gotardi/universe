@@ -93,7 +93,8 @@
   backdrop-filter: blur(10px);
 }
 
-.backButton:hover {
+.backButton:hover,
+.subBackButton:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 25px rgba(168, 85, 247, 0.5);
 }
