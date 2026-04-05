@@ -1,4 +1,4 @@
-import { PlanetaTemplate } from "../solar-system/PlanetaTemplate"; 
+import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
 
 //import "../style/eventos-astronomicos.css"
 //import "../style/tela-informacoes-planetarias.css"

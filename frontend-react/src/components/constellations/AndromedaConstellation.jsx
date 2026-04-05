@@ -1,4 +1,4 @@
-import { PlanetaTemplate } from "../solar-system/PlanetaTemplate";
+import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
 //import styles from "./AndromedaConstellation.module.css"
 
 //import "../../style/tela-menu.css"
