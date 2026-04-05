@@ -16,7 +16,7 @@ import { AuthProvider } from '../contexts/authContext.jsx';
 
 //importar o css 
 import "../src/style/reset.css"
-//import "../src/style/globals.css"
+import "../src/style/globals.css"
 //import "../src/style/tela-principal.css" 
 
 import MissionTutorial from './components/layout/MissionTutorial/MissionTutorial.jsx';
