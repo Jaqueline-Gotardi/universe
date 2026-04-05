@@ -1,0 +1,344 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background: #050505;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px #ffffff, 0 0 12px #00ffff;
+  animation: twinkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orbitalRing1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(75deg);
+  animation: ringRotate 30s linear infinite, orbitPulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orbitalRing2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(75deg);
+  animation: ringRotate 45s linear infinite reverse, orbitPulse 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orbitalRing3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  border: 1px solid rgba(255, 107, 107, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(75deg);
+  animation: ringRotate 60s linear infinite, orbitPulse 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.4) 100%);
+  border-radius: 30px;
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 5px 25px rgba(168, 85, 247, 0.3);
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.backButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 25px rgba(168, 85, 247, 0.5);
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.sparkleIcon {
+  color: #00ffff;
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+.mainTitle {
+  font-size: clamp(28px, 5vw, 48px);
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #00ffff, #8a2be2, #ff6b6b, #00ffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Space Mono', monospace;
+  margin: 0;
+}
+
+.categoriesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.categoryCard {
+  position: relative;
+  background: rgba(10, 10, 30, 0.8);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  animation: glowPulse 4s ease-in-out infinite, borderGlow 3s ease-in-out infinite;
+}
+
+.categoryCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(138, 43, 226, 0.5), 0 0 100px rgba(0, 255, 255, 0.2);
+}
+
+.categoryCard:hover .categoryIcon {
+  animation: iconFloat 1s ease-in-out infinite;
+}
+
+.categoryGlow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.categoryIcon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+}
+
+.categoryLabel {
+  font-size: 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+.categoryDescription {
+  font-size: 14px;
+  font-family: 'Space Mono', monospace;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 20px;
+}
+
+.categoryArrow {
+  font-size: 24px;
+  color: #00ffff;
+  transition: transform 0.3s ease;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.subItemsContainer {
+  padding: 20px;
+}
+
+.subHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.subBackButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: rgba(138, 43, 226, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 20px;
+  color: #8a2be2;
+  font-size: 13px;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.subTitle {
+  font-size: 28px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  background: linear-gradient(90deg, #00ffff, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subItemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.subItem {
+  position: relative;
+  background: rgba(10, 10, 30, 0.7);
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* controla a curva de velocidade da animação */
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+}
+
+.subItem:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+}
+
+.subItem:hover .itemIcon {
+  animation: iconFloat 0.8s ease-in-out infinite;
+}
+
+.itemGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.itemIcon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+}
+
+.itemLabel {
+  font-size: 14px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.itemBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 2px solid purple;
+  transition: border-color 0.3s ease;
+  pointer-events: none; /* se o usuário clicar em um botão q está atrás de algo, esse botão ainda irá fazer sua devida função! */
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), inset 0 0 20px rgba(138, 43, 226, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), inset 0 0 30px rgba(138, 43, 226, 0.2); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(138, 43, 226, 0.5); }
+  50% { border-color: rgba(0, 255, 255, 0.8); }
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}

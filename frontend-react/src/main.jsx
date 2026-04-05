@@ -62,7 +62,7 @@ import MilkyWay from './components/deep-space/MilkyWay.jsx';
 import AndromedaGalaxy from './components/deep-space/AndromedaGalaxy.jsx';
 import TriangleM33 from './components/deep-space/TriangleM33.jsx';
 
-import PlanetaryInformation from './components/solar-system/PlanetaryInformation.jsx';
+import PlanetaryInformation from './components/solar-system/PlanetaInformation/PlanetaryInformation.jsx';
 /* import SolarSystem from './components/SolarSystem.jsx'; */
 /* import PlanetaryMenu from './components/PlanetaryMenu.jsx'; */
 
