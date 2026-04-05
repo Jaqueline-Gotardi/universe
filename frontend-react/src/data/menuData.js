@@ -273,7 +273,7 @@ export const conteudosAstronomicos = {
     Polaris, a estrela mais brilhante da constelação, tem sido usada para navegação por milhares de anos, servindo como um ponto de referência constante no céu noturno do hemisfério norte.`,
   },
 
-  "andromeda": {
+  andromeda: {
     titulo: "Constelação de Andrômeda",
     imagem: "/images/andromeda.webp",
     descricao: `Andrômeda é uma constelação do hemisfério celestial norte, nomeada em homenagem à princesa Andrômeda da mitologia grega. É mais conhecida por conter a Galáxia de Andrômeda (M31), a galáxia espiral mais próxima da Via Láctea.
@@ -292,8 +292,8 @@ export const conteudosAstronomicos = {
 
     O Cruzeiro do Sul aparece em várias bandeiras nacionais, incluindo as do Brasil, Austrália e Nova Zelândia, simbolizando sua importância cultural e histórica.`,
   },
-
-  "fenix": {
+  
+  fenix: {
     titulo: "Constelação de Fênix",
     imagem: "/images/fenix.webp",
     descricao: `No vasto céu do Hemisfério Sul, a constelação Fênix é uma pequena, mas distinta, formação estelar. Nomeada em homenagem a uma figura lendária que representa a renovação, esta constelação foi introduzida no final do século XVI pelo astrônomo Petrus Plancius.
@@ -303,7 +303,7 @@ export const conteudosAstronomicos = {
     Observar a Fênix no céu noturno é uma missão que convida a uma reflexão sobre a capacidade de seguir em frente, uma história de perseverança contada pelas estrelas para os verdadeiros agentes espaciais.`
   },
 
-  "centauro": {
+  centauro: {
     titulo: "Constelação de Centauro",
     imagem: "/images/centauro.webp",
     descricao: `Centauro é uma das maiores constelações do céu, localizada no hemisfério celestial sul. Ela contém Alfa Centauri, o sistema estelar mais próximo do nosso Sistema Solar, a apenas 4,37 anos-luz de distância.
@@ -313,7 +313,7 @@ export const conteudosAstronomicos = {
     A constelação também abriga Omega Centauri, o maior aglomerado globular visível da Terra, contendo milhões de estrelas antigas.`,
   },
 
-  "orion": {
+  orion: {
     titulo: "Constelação de Órion",
     imagem: "/images/orion.webp",
     descricao: `Órion, o Caçador, é uma das constelações mais famosas e fáceis de reconhecer no céu. Sua forma imponente é um guia perfeito para qualquer explorador.
@@ -335,7 +335,7 @@ export const conteudosAstronomicos = {
     Ao explorar Cão Maior, você está seguindo a luz da estrela mais brilhante de nossa galáxia.`
   },
 
-  "escorpiao": {
+  escorpiao: {
     titulo: "Constelação de Escorpião",
     imagem: "/images/escorpiao.webp",
     descricao: `Escorpião é uma das poucas constelações que realmente se parece com a sua forma. Sua silhueta dramática o torna um alvo perfeito para qualquer explorador.
@@ -364,7 +364,7 @@ export const conteudosAstronomicos = {
     Observar um eclipse lunar é uma missão que te conecta a um fenômeno de pura escala e beleza, onde a nossa própria presença no espaço é refletida no brilho de outro mundo.`,
   },
 
-  "perseidas": {
+  perseidas: {
     titulo: "Chuva de Meteoros Perseidas",
     imagem: "/images/chuva-de-meteoros-perseidas.webp",
     descricao: `As Perseidas são uma das chuvas de meteoros mais populares e visíveis do ano. Este evento ocorre quando a Terra passa por uma nuvem de detritos deixada pelo Cometa Swift-Tuttle, criando um espetáculo de luz. As Perseidas acontecem anualmente, são melhor observadas do Hemisfério Norte, com seu pico de atividade na segunda semana de agosto.
@@ -372,7 +372,7 @@ export const conteudosAstronomicos = {
     Observar as Perseidas é como assistir a fogos de artifício cósmicos, com rastros de luz riscando o céu noturno. O nome da chuva vem da constelação de Perseu, de onde parecem irradiar, transformando o céu em um palco de luzes. É uma missão que te convida a testemunhar a beleza da dança cósmica, um espetáculo que nos lembra da constante movimentação e do brilho do nosso sistema solar.`
   },
 
-  "leonideas": {
+  leonideas: {
     titulo: "Chuva de Meteoros Leonídeas", 
     imagem: "/images/chuva-de-meteoros-leonideas.webp",
     descricao: `Prepare-se para uma missão de alta velocidade. As Leônidas são uma das chuvas de meteoros mais notáveis, conhecidas pela sua velocidade impressionante. Elas ocorrem quando a Terra passa pela trilha de detritos deixada pelo Cometa Tempel-Tuttle. Elas são melhor observadas do Hemisfério Norte, com seu pico de atividade em meados de novembro.
@@ -380,7 +380,7 @@ export const conteudosAstronomicos = {
     Observar as Leônidas é como testemunhar uma tempestade de partículas cósmicas, um espetáculo de luz que risca o céu noturno. O nome da chuva vem da constelação de Leão, de onde parecem irradiar, dando a sensação de que os próprios leões do céu estão deixando sua marca. É uma missão que te convida a testemunhar a beleza da dança cósmica, um espetáculo que nos lembra da constante movimentação e do brilho do nosso sistema solar.`
   },
 
-  "geminideas": {
+  geminideas: {
     titulo: "Chuva de Meteoros Geminídeas",
     imagem: "/images/chuva-de-meteoros-geminideas.webp",
     descricao: `Prepare-se para uma das missões mais intensas e consistentes do ano. As Geminídeas são únicas, pois são a única grande chuva de meteoros que se origina de um asteroide, o 3200 Phaethon, e não de um cometa. Elas são visíveis de quase todo o planeta, mas são melhor observadas do Hemisfério Norte, com pico em meados de dezembro.
@@ -388,7 +388,7 @@ export const conteudosAstronomicos = {
     Observar as Geminídeas é como testemunhar uma tempestade de partículas cósmicas, um espetáculo de luz que risca o céu noturno. O nome da chuva vem da constelação de Gêmeos, de onde parecem irradiar. É uma missão que te convida a testemunhar a beleza da dança cósmica, um espetáculo que nos lembra da constante movimentação e do brilho do nosso sistema solar.`
   },
 
-  "superlua": {
+  superlua: {
     titulo: "Superlua",
     imagem: "/images/superlua.webp",
     descricao: `A Superlua ocorre quando a Lua atinge sua fase de Lua Cheia no ponto de sua órbita mais próximo da Terra. Isso acontece algumas vezes por ano.
@@ -408,7 +408,7 @@ export const conteudosAstronomicos = {
     Evento que convida os exploradores a se conectar com o movimento e a beleza do nosso universo.`,
   },
 
-  "cometas": {
+  cometas: {
     titulo: "Cometas",
     imagem: "/images/cometas.webp",
     descricao: `Os cometas são objetos fascinantes, verdadeiras "bolas de neve sujas" compostas por gelo, poeira e rocha. Eles viajam por longas órbitas a partir das regiões mais frias e distantes do nosso sistema solar. O espetáculo de um cometa acontece quando ele se aproxima do Sol e o calor faz com que seu gelo evapore, criando uma vasta atmosfera e uma cauda brilhante de gás e poeira.
@@ -418,7 +418,7 @@ export const conteudosAstronomicos = {
     Observá-los te conecta a um pedaço de história cósmica em movimento, um verdadeiro viajante que nos visita de tempos em tempos.`
   },
 
-  "supernovas": {
+  supernovas: {
     titulo: "Supernovas",
     imagem: "/images/supernovas.webp",
     descricao: `Supernovas são os eventos mais poderosos e luminosos do universo. Elas marcam o fim catastrófico da vida de estrelas extremamente massivas, que entram em colapso e explodem com uma força inimaginável. Essa explosão pode brilhar mais do que uma galáxia inteira, sendo visível a bilhões de anos-luz de distância.
@@ -440,7 +440,7 @@ export const conteudosAstronomicos = {
     Observar isto te conecta com uma união de populações cósmicas.`,
   },
 
-  "espiral": {
+  espiral: {
     titulo: "Galáxia Espiral",
     imagem: "/images/galaxia-espiral.webp",
     descricao: `Galáxias espirais são galáxias que possuem um disco achatado e giratório com braços que se estendem para fora de um centro brilhante, onde reside um buraco negro supermassivo. Cerca de 70% das galáxias no universo são desse tipo. Nos braços espirais é onde a magia acontece: são as maternidades cósmicas onde novas estrelas estão nascendo a partir de vastas nuvens de gás e poeira.
@@ -448,7 +448,7 @@ export const conteudosAstronomicos = {
     Observar isto te conecta com a história de estrelas jovens e vibrantes que formam estruturas majestosas, como os braços da nossa própria Via Láctea.`,
   },
 
-  "eliptica": {
+  eliptica: {
     titulo: "Galáxia Elíptica",
     imagem: "/images/galaxia-eliptica.webp",
     descricao: `Galáxias elípticas são galáxias com formas que variam de esféricas a ovais, compostas em sua maioria por estrelas antigas. Elas não possuem os braços espirais ou o disco de gás, o que significa que a formação de novas estrelas já cessou. As maiores delas, contendo trilhões de estrelas, são as galáxias mais massivas e antigas do universo.
@@ -456,7 +456,7 @@ export const conteudosAstronomicos = {
     Observar isto te conecta com a história de estrelas antigas e maduras que formam os vastos e calmos impérios do cosmos.`
   },
 
-  "irregular": {
+  irregular: {
     titulo: "Galáxia Irregular",
     imagem: "/images/galaxia-irregular.webp",
     descricao: `Galáxias irregulares não possuem uma forma definida, parecendo 'nuvens' de estrelas, gás e poeira. Essa aparência caótica é muitas vezes causada por colisões galácticas ou interações gravitacionais, que dão origem a uma intensa formação estelar. Embora representem apenas cerca de 20% das galáxias conhecidas, elas são cruciais para a ciência, pois seu formato caótico oferece pistas sobre como as galáxias evoluem e interagem ao longo do tempo.
