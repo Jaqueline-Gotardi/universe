@@ -1,15 +1,16 @@
 /* loginPage.jsx (A Recepção): É a entrada do hotel. Se você não tem a chave, é aqui que você precisa se identificar para o sistema te deixar passar. */
 //no React, não se escreve class, mas: className!
 
-import "../style/loginPage.css"
+//import "../style/loginPage.css"
 import { useState } from "react";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-import { LoginTransition } from "../components/auth/LoginTransition/LoginTransition.jsx";
+import { LoginTransition } from "../../components/auth/LoginTransition/LoginTransition.jsx";
+import styles from "./LoginPage.module.css"
 
- 
+  
 function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
@@ -54,44 +55,44 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 }
 
     return (   
-    <section className="tela-login" id="tela-login">
+    <section className={styles.telaLogin} id="tela-login">
 
-    <div className="space-background login-bg">
-      <div className="stars"></div>
-      <div className="planets"></div> 
+    <div className={styles.spaceBackground} id="login-bg">
+      <div className={styles.stars}></div>
+      <div className={styles.planets}></div> 
     </div> 
      { isLogin ? ( //se o login for feito, mostra a animação de transição, senão mostra o formulário de login
       <LoginTransition onComplete={handleTransitionEnd} />
     ) : (
-    <div className="content-wrapper">
-      <div className="login-container">
-        <div className="welcome-section">
-          <img src="./images/astronauta-hero.webp" alt="Astronauta" className="astronaut-hero"/>
-          <h1 className="welcome-title">Bem vindo(a) ao Universe!</h1>
+    <div className={styles.contentWrapper}>
+      <div className={styles.loginContainer}>
+        <div className={styles.welcomeSection}>
+          <img src="./images/astronauta-hero.webp" alt="Astronauta" className={styles.astronautHero}/>
+          <h1 className={styles.welcomeTitle}>Bem vindo(a) ao Universe!</h1>
         </div>
  
-        <form className="login-form" id="formulario" onSubmit={handleLogin}>
+        <form className={styles.loginForm} id="formulario" onSubmit={handleLogin}>
 
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">Email:</label>
+          <div className={styles.formGroup}>
+            <label htmlFor="email" className={styles.formLabel}>Email:</label>
             <input type="email" id="email" 
             placeholder="Digite seu email" 
-            className="form-input" 
+            className={styles.formInput} 
             value={email} onChange={(e) => setEmail(e.target.value)} required/>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="senha" className="form-label">Senha:</label>
+          <div className={styles.formGroup}>
+            <label htmlFor="senha" className={styles.formLabel}>Senha:</label>
             <input type="password" id="senha" 
             placeholder="Digite sua senha" 
-            className="form-input" 
+            className={styles.formInput} 
             value={password} onChange={(e) => setPassword(e.target.value)} required/>
           </div>
 
-          <button type="submit" className="btn-primary" id="btn-primary">Entrar</button>
+          <button type="submit" className={styles.btnPrimary} id="btn-primary">Entrar</button>
 
-          <p className="cadastro-link">Não tem uma conta? 
-          <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink>
+          <p className={styles.cadastroLink}>Não tem uma conta? 
+          <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink> 
           </p>
         </form>
       </div> 

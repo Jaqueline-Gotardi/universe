@@ -91,7 +91,7 @@ function Page404() {
 
         <style>{`@keyframes opacidadeDaTela {
           from { opacity: 0; }
-          to { opacity: 1; }
+          to { opacity: 1; } 
           }`}
         </style>
       </div>

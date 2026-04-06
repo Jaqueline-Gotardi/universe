@@ -20,7 +20,7 @@ function RegisterPage() {
     if (password !== confirmPassword) {
       alert("Senha espaciais não coincidem!")
       return;
-    }
+    } 
 
     try {
       const response = await fetch("http://localhost:3000/register", {

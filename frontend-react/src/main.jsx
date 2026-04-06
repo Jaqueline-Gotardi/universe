@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importando o roteador
  
 
-import LoginPage from './pages/LoginPage.jsx';
+import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx'; 
 import OfflineScreen from './pages/OfflineScreen.jsx';
 import Page404 from './pages/Page404.jsx';

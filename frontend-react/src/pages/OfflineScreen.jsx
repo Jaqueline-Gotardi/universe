@@ -162,7 +162,7 @@ function OfflineScreen() {
           </div>
           <style>{`
 
-          @keyframes opacidadeDaTela {
+          @keyframes opacidadeDaTela { 
           from { opacity: 0; }
           to { opacity: 1; }
           }

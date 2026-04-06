@@ -27,7 +27,7 @@
   transform: rotate(180deg);
   white-space: nowrap;
   margin-bottom: 10px;
-}
+} 
 
 .player-controles {
   display: flex;
