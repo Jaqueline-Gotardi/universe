@@ -113,7 +113,7 @@ const PlanetaryInformation = () => {
               </div>
             ))}
           </div>
-        ) : (
+        ) : ( 
 
           /*sub Items Grid */
           <div className={styles.subItemsContainer}>

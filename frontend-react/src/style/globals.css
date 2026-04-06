@@ -3,7 +3,8 @@
 
 
 body {
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 section {
@@ -12,49 +13,28 @@ section {
 
 section.selecionado {
     display: flex;
-    /* flex-direction: column;
-    align-items: center;
-    justify-content: center; */
 }
 
-/* .hidden {
-    display: none;
-} */
-
-/* SCROOL */
+/* SCROLL */
 * {
     scrollbar-width: thin;
     scrollbar-color: rgba(173, 74, 222, 0.9) rgba(31, 0, 51, 0.9);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
  .telaDetalhe {
     position: relative;
     min-height: 100vh;
     background: radial-gradient(circle at center, #0a0a25 0%, #020205 100%);
-    /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
     width: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .spaceBackground {
@@ -104,25 +84,14 @@ section.selecionado {
     justify-content: center;
 }
 
-/* PlanetaTemplate Container */
 .containerAstro > div {
-    min-height: 100vh;
     width: 100%;
     position: relative;
-    overflow: auto;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
 }
-
-
-
-
-
-
-
-
 
 
 
