@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import CosmicBackground from "../layout/CosmicBackground";
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
 
 function Pluto() {
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     return (
       <div style={{position: "relative", minHeight: "100vh"}}>
@@ -12,7 +12,7 @@ function Pluto() {
       <main>
         <PlanetaTemplate
         planetaId= "plutao"
-        onBack={() => navigate("/app/planetary-menu")}
+        //onBack={() => navigate("/app/planetary-menu")}
         />
       </main>
     </div>

@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import CosmicBackground from "../layout/CosmicBackground";
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
 
 const OortCloud = () => {
-  const navigate = useNavigate();
+ /*  const navigate = useNavigate(); */
 
   return (
     <div style={{position: "relative", minHeight: "100vh"}}>
@@ -12,7 +12,7 @@ const OortCloud = () => {
       <main>
         <PlanetaTemplate
         planetaId= "nuvem-de-oort"
-        onBack={() => navigate("/app/constellations-menu")}
+        /* onBack={() => navigate("/app/constellations-menu")} */
         />
       </main>
     </div>

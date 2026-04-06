@@ -22,4 +22,4 @@ const Scorpion = () => {
   </section>
   )
 }
-export default Scorpion;
+export default Scorpion; 

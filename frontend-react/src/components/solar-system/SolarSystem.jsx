@@ -1,4 +1,4 @@
-import CosmicBackground from "../layout/CosmicBackground";
+/* import CosmicBackground from "../layout/CosmicBackground";
 import CosmicCard from "../layout/CosmicCard";
 import { useNavigate } from "react-router-dom";
 
@@ -21,4 +21,4 @@ const SolarSystem = () => {
     </div>
   )
 }
-export default SolarSystem;  
+export default SolarSystem;   */

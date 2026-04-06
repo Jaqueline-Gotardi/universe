@@ -54,6 +54,6 @@ export const PlanetaTemplate = ({ planetaId }) => {
           </button>
         </div>
       </div>
-    </div>
+    </div> 
   );
-};
+}; 

@@ -28,12 +28,12 @@ const PlanetaryInformation = () => {
   //obter itens baseado na categoria ativa
   const getSubItems = () => {
     switch (activeCategory) {
-      case "planetas": return menuPlanetas;
+      case "planetas": return menuPlanetas; //se o id for "planetas" retorna o menuPlanetas definido em planetaryData.jsx
       case "sistema-solar": return menuSistemaSolar;
       case "luas-e-satelites": return menuLuasESatelites; //nome do id do botao (definido em planetaryData.js)
       default: return [];
     }
-  };
+  }; 
 
   //fazer a busca pelo id 
   const getCategoryTitle = () => {
