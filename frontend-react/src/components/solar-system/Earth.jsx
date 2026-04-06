@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import CosmicBackground from "../layout/CosmicBackground";
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
 
 const Earth = () => {
-  const navigate = useNavigate();
 
   return (
     <div style={{position: "relative", minHeight: "100vh"}}>
@@ -12,7 +10,6 @@ const Earth = () => {
       <main>
         <PlanetaTemplate
         planetaId= "terra"
-        onBack={() => navigate("/app/constellations-menu")}
         />
       </main>
     </div>
