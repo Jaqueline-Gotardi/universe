@@ -8,7 +8,7 @@ const GreaterCanis = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-cao-maior">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

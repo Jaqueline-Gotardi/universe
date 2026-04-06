@@ -8,7 +8,7 @@ const Elliptical = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-eliptica">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

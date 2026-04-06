@@ -8,7 +8,7 @@ const PlanetaryConjunction = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-conjuncao-planetaria">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

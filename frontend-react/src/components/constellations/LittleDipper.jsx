@@ -8,11 +8,11 @@ const LitteDipper = () => {
   return (
   
   <section className="telaDetalhe"id="detalhe-ursa-menor">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       
-      <main className="containerAstro">
+      <main className="containerAstro"> 
 
        <PlanetaTemplate
         planetaId= "ursa-menor"

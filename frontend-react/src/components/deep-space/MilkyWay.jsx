@@ -8,7 +8,7 @@ const MilkyWay = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-via-lactea">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

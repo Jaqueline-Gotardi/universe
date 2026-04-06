@@ -8,7 +8,7 @@ const AndromedaGalaxy = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-andromeda-galaxia">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

@@ -8,7 +8,7 @@ const StarClusters = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-agrupamentos-estelares">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

@@ -8,7 +8,7 @@ const Scorpion = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-escorpiao">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

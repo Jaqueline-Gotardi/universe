@@ -8,7 +8,7 @@ const TriangleM33 = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-triangulo">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

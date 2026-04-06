@@ -8,7 +8,7 @@ const LunarEclipse = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-eclipse-lunar">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

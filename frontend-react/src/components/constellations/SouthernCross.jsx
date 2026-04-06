@@ -8,7 +8,7 @@ const SouthernCross = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-cruzeiro-do-sul">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

@@ -8,7 +8,7 @@ const Leonids = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-leonideas">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

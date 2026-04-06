@@ -8,7 +8,7 @@ const Geminids = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-geminideas">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

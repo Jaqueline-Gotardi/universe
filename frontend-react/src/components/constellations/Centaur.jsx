@@ -8,7 +8,7 @@ const Centaur = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-centauro">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

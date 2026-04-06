@@ -8,7 +8,7 @@ const Phoenix = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-fenix">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

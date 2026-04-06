@@ -8,7 +8,7 @@ const Orion = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-orion">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

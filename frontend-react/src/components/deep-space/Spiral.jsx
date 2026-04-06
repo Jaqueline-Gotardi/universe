@@ -8,7 +8,7 @@ const Spiral = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-espiral">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

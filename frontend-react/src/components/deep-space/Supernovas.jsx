@@ -8,7 +8,7 @@ const Supernovas = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-supernovas">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

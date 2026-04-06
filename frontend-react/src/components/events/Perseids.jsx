@@ -8,7 +8,7 @@ const Perseids = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-perseidas">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       

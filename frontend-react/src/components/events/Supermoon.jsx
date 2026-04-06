@@ -8,7 +8,7 @@ const Supermoon = () => {
   return (
   
   <section className="telaDetalhe" id="detalhe-superlua">
-    <div className="space-background">
+    <div className="spaceBackground">
       <div className="stars"></div>
       </div> 
       
