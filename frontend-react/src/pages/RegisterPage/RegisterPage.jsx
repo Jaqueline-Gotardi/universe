@@ -1,9 +1,11 @@
-import "../style/cadastro.css"
-import "../style/perfil.css"
+//import "../style/cadastro.css"
+//import "../style/perfil.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import CosmicBackground from "../components/layout/CosmicBackground";
+import CosmicBackground from "../../components/layout/CosmicBackground";
+
+import styles from "./RegisterPage.module.css"
 
 function RegisterPage() {
   const [ username, setUsername ] = useState("");
@@ -47,27 +49,27 @@ function RegisterPage() {
   }
 
     return (
-<section className="tela-cadastro" id="tela-cadastro">
+<section className={styles.telaCadastro} id="tela-cadastro">
   <CosmicBackground />
-    <div className="container-cadastro">
-      <h2 className="titulo-secao">Crie sua conta de Agente</h2>
-      <form className="form-cadastro" id="form-cadastro" onSubmit={handleRegister}>
+    <div className={styles.containerCadastro}>
+      <h2 className={styles.tituloSecao}>Crie sua conta de Agente</h2>
 
-        <div className="campo-input">
+      <form className={styles.formCadastro} id="form-cadastro" onSubmit={handleRegister}>
+        <div className={styles.campoInput}>
           <label htmlFor="nome-cadastro">Nome de Agente</label>
           <input type="text" id="nome-cadastro" 
           placeholder="Ex: Capitã Estelar"
           value={username} onChange={(e) => setUsername(e.target.value)} required/>
         </div>
    
-        <div className="campo-input">
+        <div className={styles.campoInput}>
           <label htmlFor="email-cadastro">E-mail</label>
           <input type="email" id="email-cadastro" 
           placeholder="seu-email@universo.com"
           value={email} onChange={(e) => setEmail(e.target.value)} required/>
         </div>
    
-        <div className="campo-input">
+        <div className={styles.campoInput}>
           <label htmlFor="senha-cadastro">Senha</label>
           <input type="password" id="senha-cadastro" 
           placeholder="Crie uma senha forte"
@@ -75,23 +77,25 @@ function RegisterPage() {
           onChange={(e) => setPassword(e.target.value)} required/>
         </div>
  
-        <div className="campo-input">
+        <div className={styles.campoInput}>
           <label htmlFor="cofirma-senha-cadastro">Confirmar Senha</label>
           <input type="password" id="cofirma-senha-cadastro" placeholder="Confirme sua senha" 
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)} required/>
         </div>
 
-        <div className="captcha-container">
+        <div className={styles.captchaContainer}>
           <input type="checkbox" id="nao-sou-robo-cadastro" required/>
           <label htmlFor="nao-sou-robo-cadastro">Eu não sou um robô</label>
         </div>
   
-        <div className="botoes-cadastro">
-          <button type="submit" className="btn-cadastrar-conta" id="btn-cadastrar">Criar conta</button>
+        <div className={styles.botoesCadastro}>
+          <button type="submit" className={styles.btnCadastrarConta} id="btn-cadastrar">
+            Criar conta
+          </button>
         </div>
 
-        <p className="link-ja-tem-conta">Já tem uma conta? 
+        <p className={styles.linkJaTemConta}>Já tem uma conta? 
           <NavLink to="/login" id="link-login"> Faça seu login</NavLink>
         </p>
   

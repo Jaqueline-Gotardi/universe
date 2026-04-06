@@ -1,0 +1,130 @@
+.telaCadastro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    color: #fff; 
+    padding: 2rem 1rem; 
+    box-sizing: border-box;
+}
+
+.containerCadastro {
+    background: rgba(13, 11, 28, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 40px rgba(118, 59, 219, 0.6);
+    text-align: center;
+}
+
+.tituloSecao {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px #763bdb;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+}
+
+.formCadastro {
+    display: flex; 
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.campoInput label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #a3a3c2;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.campoInput input,
+.campoInput textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: 'Space Mono', sans-serif;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.campoInput input:focus,
+.campoInput textarea:focus {
+    outline: none;
+    border-color: #9356f9;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px #9356f9;
+}
+
+.captchaContainer {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.botoesCadastro {
+    margin-top: 1rem;
+}
+
+.botoesCadastro > button {
+    width: 100%;
+}
+
+.btnCadastrarConta {
+    padding: 0.6rem 1.3rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    background: transparent;
+    color: #c1c1e0;
+    border-color: #763bdb;
+}
+
+.btnCadastrarConta:hover {
+    background: #763bdb;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #763bdb;
+}
+
+.linkJaTemConta {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #a3a3c2;
+}
+
+.linkJaTemConta a {
+    color: #9356f9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.linkJaTemConta a:hover {
+    color: #763bdb;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .titulo-secao {
+        font-size: 1.8rem;
+    }
+}
