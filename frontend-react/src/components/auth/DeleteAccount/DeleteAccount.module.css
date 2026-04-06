@@ -10,7 +10,7 @@
 
 .backButton {
   position: absolute;
-  top: 20px;
+  top: 20px; 
   left: 20px;
   display: flex;
   align-items: center;
@@ -144,6 +144,14 @@
   font-family: 'Orbitron', sans-serif;
   font-size: 14px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.botaoVoltarHome:hover { 
+  background: rgba(34, 197, 94, 0.3);
+  border-color: rgba(34, 197, 94, 0.6);
+  color: rgb(34, 197, 94);
+  transform: translateY(2px) scale(1.02);
 }
 
 .botaoApagarConta {
