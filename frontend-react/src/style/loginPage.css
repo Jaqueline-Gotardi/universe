@@ -24,7 +24,7 @@
   font-size: 14px;
   text-align: center; 
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  transform: rotate(180deg); 
   white-space: nowrap;
   margin-bottom: 10px;
 } 

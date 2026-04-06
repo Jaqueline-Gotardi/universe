@@ -2,7 +2,7 @@
 //no React, não se escreve class, mas: className!
 
 //import "../style/loginPage.css"
-import { useState } from "react";
+import { useState } from "react"; 
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
