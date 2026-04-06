@@ -51,7 +51,7 @@ return (
         <span className={styles.titleHighlight}>Começou Sob as Estrelas</span>
         </h1>
         </div>
-        
+         
         <div id="jornada-projeto" className={styles.storyCard}>
           <p>
             Toda grande jornada tem um ponto de partida. A nossa começou em 2022, lá no IF Campus - Eirunepé. Eu e minha colega de classe: Giliany Do Carmo, embarcamos na aventura de criar um protótipo de aplicativo como parte de um projeto escolar. Na época, ele tinha uma pegada mais infantil, mas já era cheio das nossas ideias e da nossa paixão pelo espaço. Foi uma aventura de aprendizado e, honestamente, muuuitaaa empolgação a cada pequena conquista!✨
