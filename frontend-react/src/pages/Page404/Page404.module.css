@@ -1,0 +1,56 @@
+.containerNotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* essas duas propriedades centralizam o conteúdo considerando a tela inteira */
+  position: fixed;
+  inset: 0;
+
+  font-family: System-ui, sans-serif;
+  animation: opacidadeDaTela 0.5s ease forwards; /* mudar a opacidade da tela (quando a rota for desconhecida) */
+  z-index: 9999; /* garante que a tela 404 fique por cima de todas as outras quando a internet cair */
+}
+
+.titulo {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.paragrafo {
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 420px;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.botaoVoltar {
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(139, 92, 246, 0.4) 100%);
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 25px rgba(168, 85, 247, 0.3);
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  cursor: pointer;
+}
+
+.botaoVoltar:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes opacidadeDaTela {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

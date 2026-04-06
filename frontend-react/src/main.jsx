@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importa
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx'; 
 import OfflineScreen from './pages/OfflineScreen/OfflineScreen.jsx';
-import Page404 from './pages/Page404.jsx';
+import Page404 from './pages/Page404/Page404.jsx';
 
 import ProtectRoute from './components/auth/ProtectRoute.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
