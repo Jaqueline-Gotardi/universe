@@ -1,7 +1,8 @@
 //essa tela é exibida quando a internet cai ou oscila
 
 import { useEffect, useState } from "react"
-import CosmicBackground from "../components/layout/CosmicBackground";
+import CosmicBackground from "../../components/layout/CosmicBackground";
+import styles from "./OfflineScreen.module.css"
 
 function OfflineScreen() {
     const [ isOffline, setIsOffline ] = useState(!navigator.onLine); //não está online
@@ -26,60 +27,13 @@ function OfflineScreen() {
     //só mostra a tela, se estiver offline, se não estiver a OfflineScreen não aparece (nulo)
     if (!isOffline) return null;
     
-    const styles = { 
-      containerNotFound: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-
-        //essas duas propriedades centralizam o conteúdo considerando a tela inteira
-        position: "fixed",
-        inset: 0,
-          
-        fontFamily: "System-ui, sans-serif",
-        animation: "opacidadeDaTela 0.5s ease forwards", //mudar a opacidade da tela, quando o sinal cair
-        zIndex: "9999", //garante que a tela fique por cima de todas as outras quando a internet cair
-      },
-      titulo: {
-        color: "#ffffff",
-        fontSize: "2.2rem",
-        fontWeight: "800",
-        margin: "0 0 0.5rem",
-      },
-      paragrafo: {
-        color: "rgba(255,255,255,0.5)",
-        maxWidth: "420px",
-        fontSize: "1.1rem",
-        lineHeight: "1",
-        paddingBottom: "20px",
-      },
-      containerInfoAdicional: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "12px",
-      },
-      bolinhaDeConexao: {
-        width: "8px",
-        height: "8px",
-        borderRadius: "50%",
-        background: "#ff4a6e",
-        animation: "signalPulse 1.5s ease-in-out infinite",
-      },
-      paragrafoExtra: {
-        color: "rgba(255,255,255,0.4)",
-        fontSize: "0.85rem",
-        letterSpacing: "1px",
-      },
-    }
     return (
-    <div style={styles.containerNotFound}>
+    <div className={styles.containerNotFound}>
       <CosmicBackground />
 
-      <div style={{ position: "relative", zIndex: 1, textAlign: "center" }} aria-hidden="true">      
+      <div className={styles.contentWrapper} aria-hidden="true">      
         {/*Svg de buraco negro */}
-        <div style={{animation: "bhPulse 6s ease-in-out infinite" }}>
+        <div className={styles.buracoNegro}>
           <svg width="340" height="300" viewBox="0 40 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           {/* gradiente */}
@@ -113,7 +67,7 @@ function OfflineScreen() {
         {/* brilho de fundo */}
         <circle cx="210" cy="210" r="150" fill="url(#outerGlow)" />
         {/* disco */}
-        <g style={{ animation: "bhRotate 30s linear infinite", transformOrigin: "210px 210px" }}>
+        <g style={{ animation: `${styles.bhRotate} 30s linear infinite`, transformOrigin: "210px 210px" }}>
           <ellipse cx="210" cy="210" rx="155" ry="40" fill="none" stroke="#ff6b35" strokeWidth="0.5" opacity="0.12" />
           <ellipse cx="210" cy="210" rx="140" ry="36" fill="none" stroke="#ffa726" strokeWidth="1" opacity="0.15" strokeDasharray="8 12" style={{ animation: "accretionFlow 3s linear infinite" }} />
           <ellipse cx="210" cy="210" rx="125" ry="32" fill="none" stroke="#ff4a6e" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 8" style={{ animation: "accretionFlow 2s linear infinite" }} />
@@ -129,7 +83,7 @@ function OfflineScreen() {
         </circle>
               
         {/* wifi */}
-        <g style={{ animation: "wifiFloat 5s ease-in-out infinite", transformOrigin: "390px 190px"}}>
+        <g style={{ animation: `${styles.wifiFloat} 5s ease-in-out infinite`, transformOrigin: "390px 190px"}}>
         {/* sinal de wifi sumindo */}
         <path d="M183 185 Q210 165 237 185" stroke="#4a9eff" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.15" />
         <path d="M190 192 Q210 178 230 192" stroke="#4a9eff" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.3" />
@@ -153,36 +107,13 @@ function OfflineScreen() {
         </div>
         </div>
         
-        <h1 style={styles.titulo}>Conexão Perdida no Espaço</h1>
-        <p style={styles.paragrafo}>Parece que seu sinal se perdeu entre as estrelas. Verifique sua conexão e tente novamente.</p>
+        <h1 className={styles.titulo}>Conexão Perdida no Espaço</h1>
+        <p className={styles.paragrafo}>Parece que seu sinal se perdeu entre as estrelas. Verifique sua conexão e tente novamente.</p>
         
-        <div style={styles.containerInfoAdicional}>
-          <div style={styles.bolinhaDeConexao} />
-          <span style={styles.paragrafoExtra}>AGUARDANDO RECONEXÃO. . .</span>
+        <div className={styles.containerInfoAdicional}>
+          <div className={styles.bolinhaDeConexao} />
+          <span className={styles.paragrafoExtra}>AGUARDANDO RECONEXÃO. . .</span>
           </div>
-          <style>{`
-
-          @keyframes opacidadeDaTela { 
-          from { opacity: 0; }
-          to { opacity: 1; }
-          }
-          @keyframes signalPulse {
-          0%, 100% {opacity: 0.3; transform: scale(1)}
-          50% {opacity: 1; tranform: scale(1.1)}
-          }
-          @keyframes bhPulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.08); opacity: 0.85; }
-          }
-          @keyframes accretionFlow { /* fazer os traços do disco correr */
-          from { stroke-dashoffset: 0; }
-          to { stroke-dashoffset: -120; }
-          }
-          @keyframes wifiFloat {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          50% { transform: translate(-4px, -6px) rotate(-8deg); }
-          }
-          `}</style>
           </div>
           )
         }
