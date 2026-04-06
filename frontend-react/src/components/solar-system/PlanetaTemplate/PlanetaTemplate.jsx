@@ -13,7 +13,7 @@ export const PlanetaTemplate = ({ planetaId }) => {
     <div className={styles.container}>
       <div className={styles.content}>
         {/* card principal */}
-        <div className={styles.card}>
+        <div className={styles.card}> 
           {/* decoração de canto */}
           <div className={styles.cornerTopLeft} />
           <div className={styles.cornerTopRight} />
