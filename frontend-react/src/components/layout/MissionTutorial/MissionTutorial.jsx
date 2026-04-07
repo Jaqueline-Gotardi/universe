@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-//import "../../style/tutorial.css"
 import styles from "./MissionTutorial.module.css"
 
 function MissionTutorial() {

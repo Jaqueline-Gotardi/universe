@@ -1,5 +1,4 @@
 //componente responsável pela construção do input de pesquisar no universo
-
 import styles from "./SearchBox.module.css"
 
 const SearchBox = ({ 

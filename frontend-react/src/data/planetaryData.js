@@ -3,21 +3,18 @@ export const informacoesPlanetarias = [
   {
     id: "planetas",
     label: "Planetas",
-    /* route: "/app/planetary-menu", */
     description: "Os 8 planetas do sistema solar + Plutão",
     icon: "🪐",
   },
   {
     id: "sistema-solar",
     label: "Sistema Solar",
-    /* route: "/app/sistema-solar", */ 
     description: "Estrutura e componentes",
     icon: "☀️",
   },
   {
     id: "luas-e-satelites",
     label: "Luas e Satélites",
-    /* route: "app/moons-and-satellites", */
     description: "Satélites naturais",
     icon: "🌙",
   },

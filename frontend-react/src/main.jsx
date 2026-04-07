@@ -4,7 +4,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' //importando o roteador
  
-
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx'; 
 import OfflineScreen from './pages/OfflineScreen/OfflineScreen.jsx';
@@ -17,7 +16,6 @@ import { AuthProvider } from '../contexts/authContext.jsx';
 //importar o css 
 import "../src/style/reset.css"
 import "../src/style/globals.css"
-//import "../src/style/tela-principal.css" 
 
 import MissionTutorial from './components/layout/MissionTutorial/MissionTutorial.jsx';
 import ExplorerMenu from './components/navigation/ExplorerMenu.jsx';
@@ -63,13 +61,6 @@ import AndromedaGalaxy from './components/deep-space/AndromedaGalaxy.jsx';
 import TriangleM33 from './components/deep-space/TriangleM33.jsx';
 
 import PlanetaryInformation from './components/solar-system/PlanetaInformation/PlanetaryInformation.jsx';
-/* import SolarSystem from './components/SolarSystem.jsx'; */
-/* import PlanetaryMenu from './components/PlanetaryMenu.jsx'; */
-
-
-
-
-
 import Sun from './components/solar-system/Sun.jsx';
 import Mercury from './components/solar-system/Mercury.jsx';
 import Venus from './components/solar-system/Venus.jsx';
@@ -295,14 +286,6 @@ const router = createBrowserRouter([
         path: "planetary-information",
         element: <PlanetaryInformation />
       },
-      /* {
-        path: "sistema-solar",
-        element: <SolarSystem />
-      }, */
-      /* {
-        path: "planetary-menu",
-        element: <PlanetaryMenu />
-      }, */
       {
         path: "sun",
         element: <Sun />

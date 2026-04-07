@@ -1,9 +1,5 @@
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
 
-//import "../style/eventos-astronomicos.css"
-//import "../style/tela-informacoes-planetarias.css"
-
-
 const LunarEclipse = () => {
   return (
   
@@ -12,8 +8,7 @@ const LunarEclipse = () => {
       <div className="stars"></div>
       </div> 
       
-      <main className="containerAstro">
-
+      <main>
        <PlanetaTemplate
         planetaId= "eclipse-lunar"
         />

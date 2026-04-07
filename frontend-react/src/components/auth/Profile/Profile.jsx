@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-
-/* import CosmicBackground from "./CosmicBackground"; */
 import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./Profile.module.css";
 

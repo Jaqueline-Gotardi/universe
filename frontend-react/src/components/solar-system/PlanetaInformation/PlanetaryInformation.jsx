@@ -7,7 +7,7 @@ import {
   menuSistemaSolar,
   menuLuasESatelites,
 } from "../../../data/planetaryData";
-import styles from "./PlanetaInformation.module.css";
+import styles from "./PlanetaryInformation.module.css";
 
 const PlanetaryInformation = () => {
   const navigate = useNavigate();

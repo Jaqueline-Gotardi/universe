@@ -248,35 +248,6 @@
   animation: sparkle 3s ease-in-out infinite;
 }
 
-/* .bottomDecoration {
-  margin-top: 40px;
-  position: relative;
-}
-
-.orbitingDots {
-  display: flex;
-  gap: 8px;
-  animation: subtitleFloat 3s ease-in-out infinite;
-}
-
-.orbitDot1 {
-  color: #06b6d4;
-  font-size: 6px;
-  animation: sparkle 2s ease-in-out infinite;
-}
-
-.orbitDot2 {
-  color: #a855f7;
-  font-size: 8px;
-  animation: sparkle 2s ease-in-out infinite 0.3s;
-}
-
-.orbitDot3 {
-  color: #ec4899;
-  font-size: 6px;
-  animation: sparkle 2s ease-in-out infinite 0.6s;
-} */
-
 @keyframes starAnimation {
   0%, 100% {
     opacity: 0.3;
@@ -353,7 +324,7 @@
   }
 }
 
-/* @keyframes sparkle {
+@keyframes sparkle {
   0%, 100% {
     opacity: 0.5;
     transform: scale(1);
@@ -362,16 +333,7 @@
     opacity: 1;
     transform: scale(1.2);
   }
-} */
-
-/* @keyframes subtitleFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-} */
+}
 
 @keyframes flutuarTitulo {
   0%, 100% {

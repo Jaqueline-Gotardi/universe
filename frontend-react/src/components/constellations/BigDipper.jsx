@@ -1,10 +1,4 @@
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
-//import styles from "../../../style/globals.css"
-
-
-//import "../../style/eventos-astronomicos.css"
-//import "../style/tela-informacoes-planetarias.css"
-
 
 const BigDipper = () => {
   return ( 
@@ -14,8 +8,7 @@ const BigDipper = () => {
         <div className="stars"></div>
       </div> 
       
-      <main className="containerAstro">
-
+      <main>
        <PlanetaTemplate
         planetaId= "ursa-maior"
         />

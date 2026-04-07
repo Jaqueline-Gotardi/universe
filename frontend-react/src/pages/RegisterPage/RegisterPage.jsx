@@ -1,5 +1,3 @@
-//import "../style/cadastro.css"
-//import "../style/perfil.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";

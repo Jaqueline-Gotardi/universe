@@ -6,8 +6,7 @@ import styles from "./OfflineScreen.module.css"
 
 function OfflineScreen() {
     const [ isOffline, setIsOffline ] = useState(!navigator.onLine); //não está online
-    //const [ showScreen, setShowScreen ] = useState(false);
-
+    
     //lógica de mostrar a tela 404 somente quando a internet cair
     useEffect(() => {
       const handleOnline = () => setIsOffline(false);

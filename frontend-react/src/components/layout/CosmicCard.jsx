@@ -12,12 +12,12 @@ const CosmicCard = ({ items, title, onBack }) => {
         <h2 style={styles.title}>{title}</h2>
         )}
         
-    <div className="informacoes-extras" style={styles.card}>
+    <div style={styles.card}>
 
         {items.map((item, index) => (
           <button 
           type="button" 
-          className="btn-cosmic"  id="btn-informacoes-astronomicas"
+          id="btn-informacoes-astronomicas"
           key={item.id}
           style={{
             ...styles.menuButton,

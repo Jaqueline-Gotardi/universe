@@ -1,9 +1,4 @@
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
-//import styles from "./AndromedaConstellation.module.css"
-
-//import "../../style/tela-menu.css"
-//import "../../style/tela-informacoes-planetarias.css"
-
 
 const AndromedaConstellation = () => {
   return (
@@ -13,8 +8,7 @@ const AndromedaConstellation = () => {
       <div className="stars"></div>
       </div> 
       
-      <main className="containerAstro">
-
+      <main>
        <PlanetaTemplate
         planetaId= "andromeda"
         />

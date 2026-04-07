@@ -1,7 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import CosmicBackground from "../layout/CosmicBackground";
 import CosmicCard from "../layout/CosmicCard";
-import { useNavigate } from "react-router-dom";
-
 import { cometasEOutros } from "../../data/menuData";
 
 const CometsAndOthers = () => {

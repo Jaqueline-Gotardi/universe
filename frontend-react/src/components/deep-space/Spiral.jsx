@@ -1,9 +1,5 @@
 import { PlanetaTemplate } from "../solar-system/PlanetaTemplate/PlanetaTemplate";
 
-//import "../style/eventos-astronomicos.css"
-//import "../style/tela-informacoes-planetarias.css"
-
-
 const Spiral = () => {
   return (
   
@@ -12,8 +8,7 @@ const Spiral = () => {
       <div className="stars"></div>
       </div> 
       
-      <main className="containerAstro">
-
+      <main>
        <PlanetaTemplate
         planetaId= "espiral"
         />

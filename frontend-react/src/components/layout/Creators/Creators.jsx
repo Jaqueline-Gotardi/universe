@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./Creators.module.css";
-
 import { Github, Linkedin, Mail, } from "lucide-react";
 
 
@@ -99,7 +98,6 @@ const Creators = () => {
                 </div>
               </div>
           ))}
-
         </div>
         
   <button 

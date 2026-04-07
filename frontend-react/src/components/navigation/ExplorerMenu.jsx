@@ -1,12 +1,7 @@
 //componente responsável pela tela de Menu "inicial"
-
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchBox from "../navigation/SearchBox/SearchBox";
-
-//import "../../style/tela-menu.css";
-//import "../../style/tela-navegacao.css";
-//import "../../style/criadores.css";
 
 function ExplorerMenu() { 
   const navigate = useNavigate();
@@ -530,6 +525,7 @@ function ExplorerMenu() {
         margin-top: 80px; 
         }
 
+        /* para deixar o texto flutuando */
         .container-titulo-flutuante { 
         display: flex; 
         align-items: center; 
@@ -543,8 +539,6 @@ function ExplorerMenu() {
         }
 
         .titulo-flutuante { 
-        display: flex; 
-        align-items: center; 
         font-size: 4.5rem; 
         font-weight: 900; 
         background: linear-gradient(to right, #06b6d4, #8b5cf6, #ec4899); 
@@ -824,22 +818,22 @@ function ExplorerMenu() {
         }
 
         @media (max-width: 850px) {
-          .modal-body { 
-          flex-direction: column; 
-          height: auto; 
-          max-height: 90vh; 
-          overflow-y: auto; 
-          }
-          .modal-media { 
-          height: 300px; 
-          }
-          .titulo-flutuante { 
-          font-size: 2.8rem; 
-          }
-          .svg-foguete { 
-          width: 40px; 
-          height: 40px; 
-          }
+        .modal-body { 
+        flex-direction: column; 
+        height: auto; 
+        max-height: 90vh; 
+        overflow-y: auto; 
+        }
+        .modal-media { 
+        height: 300px; 
+        }
+        .titulo-flutuante { 
+        font-size: 2.8rem; 
+        }
+        .svg-foguete { 
+        width: 40px; 
+        height: 40px; 
+        }
         }
       `}</style>
     </div>

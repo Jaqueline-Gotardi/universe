@@ -1,7 +1,6 @@
 /* loginPage.jsx (A Recepção): É a entrada do hotel. Se você não tem a chave, é aqui que você precisa se identificar para o sistema te deixar passar. */
 //no React, não se escreve class, mas: className!
 
-//import "../style/loginPage.css"
 import { useState } from "react"; 
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +41,6 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
       console.log("Login bem sucedido!", data);
 
       login(); //atualiza o estado para logado
-      //navigate("/app"); //redireciona para o dashboard (a área que só entra quem está logado)
       setLogin(true); //novo
     } else {
       alert("Falha ao logar: Verifique suas credenciais cósmicas!")

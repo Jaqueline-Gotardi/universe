@@ -1,11 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import styles from "./WelcomeSection.module.css";
-// import "../../style/tela-principal.css";
-// import "../../style/globals.css";
-// import "../../style/informacoes-extras.css"; //não é usada
-// import "../../style/tela-menu.css"; //não é usado
 
 function WelcomeSection() {
   //nome de componentes/funções em React deve-se começar com letras maiúsculas
@@ -159,14 +154,6 @@ function WelcomeSection() {
           <span className={styles.buttonArrow} style={{ color: "#a855f7" }}>→</span>
         </button>
       </div>
-
-      {/* <div className={styles.bottomDecoration}>
-        <div className={styles.orbitingDots}>
-          <span className={styles.orbitDot1}>●</span>
-          <span className={styles.orbitDot2}>●</span>
-          <span className={styles.orbitDot3}>●</span>
-        </div>
-      </div> */}
     </section>
   );
 }
