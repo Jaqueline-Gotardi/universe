@@ -1,7 +1,8 @@
+/* ESSE CÓDIGO É DA VERSÃO LEGACY, OU SEJA, A VERSÃO ORIGINAL DO PROJETO QUE ANTES ERA FEITA EM HTML, CSS E JAVASCRIPT PURO. ELE SERVE PARA MOSTRAR COMO O PROJETO FUNCIONAVA ANTES DE SER REESCRITO EM REACT. TUDO O QUE ESTÁ AQUI FOI REESCRITO PARA SE ADEQUAR À ESTRUTURA DE COMPONENTES DO REACT, O QUE MELHOROU MUITO A ORGANIZAÇÃO E MANUTENÇÃO DO CÓDIGO. ENTÃO, SE VOCÊ ESTÁ VENDO ESTE CÓDIGO, É COMO SE FOSSE UM "ANTES" DO PROJETO, MOSTRANDO COMO AS COISAS FUNCIONAVAM ANTES DE SEREM OTIMIZADAS COM O REACT. */
+
 /* ATENÇÃO ---> Pense no seu código como uma casa: Se você deixa suas chaves (variáveis) em cada cômodo (bloco de código), quando estiver em outro cômodo, não conseguirá encontrá-las. A solução é deixar todas as chaves em um lugar central, como um chaveiro na entrada da casa.
  */  
       
-    
 /* VARIÁVEIS DE BOTÕES E ELEMENTOS GERAIS */
 const botaoEntrar = document.querySelector('.btn-primary');
 const cadastroLink = document.getElementById('cadastro-link');

@@ -1,5 +1,6 @@
-/* PARA CONSUMIR UMA API SEM PRECISAR DE BACKEND: USANDO A API DA WIKIPEDIA
+/* ESSE CÓDIGO É DA VERSÃO LEGACY, OU SEJA, A VERSÃO ORIGINAL DO PROJETO QUE ANTES ERA FEITA EM HTML, CSS E JAVASCRIPT PURO. ELE SERVE PARA MOSTRAR COMO O PROJETO FUNCIONAVA ANTES DE SER REESCRITO EM REACT. TUDO O QUE ESTÁ AQUI FOI REESCRITO PARA SE ADEQUAR À ESTRUTURA DE COMPONENTES DO REACT, O QUE MELHOROU MUITO A ORGANIZAÇÃO E MANUTENÇÃO DO CÓDIGO. ENTÃO, SE VOCÊ ESTÁ VENDO ESTE CÓDIGO, É COMO SE FOSSE UM "ANTES" DO PROJETO, MOSTRANDO COMO AS COISAS FUNCIONAVAM ANTES DE SEREM OTIMIZADAS COM O REACT. */
 
+/* PARA CONSUMIR UMA API SEM PRECISAR DE BACKEND: USANDO A API DA WIKIPEDIA */
 const campoPesquisa = document.getElementById('campo-pesquisa');
 const lupaPesquisa = document.getElementById('lupa-pesquisa');
 const exibicaoDaPesquisa = document.getElementById('exibicao-da-pesquisa');   
@@ -13,7 +14,6 @@ lupaPesquisa.addEventListener('click', () => {
                 const resposta = await fetch(`https://pt.wikipedia.org/w/api.php?action=query&list=search&srsearch=${valorInput}&format=json&origin=*`);
                  
                 const dados = await resposta.json();
-                //console.log(dados);
 
                 //remover o botão de menu quando a pesquisa for realizada
                 btnMenu.classList.remove('btn-menu'); 
@@ -33,13 +33,7 @@ lupaPesquisa.addEventListener('click', () => {
         }
     }
     buscarDados();
-}); */
-
-
-
-
-
-
+}); 
 
 
 
@@ -137,7 +131,6 @@ async function enviarDados() {
       <br><br>`;
       })
     )};
-
     //para exibir o resultado da API APOD e API IMAGES
     mostrarPesquisa.innerHTML = htmlResultados;
 
@@ -161,9 +154,6 @@ async function enviarDados() {
     console.log(`Dados não disponível: ${erro}`);
   }
 }
-//enviarDados(); 
- 
-
 
 lupaPesquisa.addEventListener("click", () => {
   enviarDados(); //chama a função a cada click na tecla Enter
@@ -177,4 +167,4 @@ campoPesquisa.addEventListener("keydown", (e) => {
 
 //PORQUE A API NÃO TAVA FUNCIONANDO:
          //o Node estava bloqueado de fazer conexões HTTPS externas, algo estava impedindo o acesso (pode ser o IPv6, proxy, firewall, ou bloqueio na porta 443). 
-//primeira suspeita: bloqueamento no cors, servidor node rodando na porta 3000 e o live server rodando meu frontend na porta 5001, por isso dava conflito!  */
+//primeira suspeita: bloqueamento no cors, servidor node rodando na porta 3000 e o live server rodando meu frontend na porta 5001, por isso dava conflito!  */ 
