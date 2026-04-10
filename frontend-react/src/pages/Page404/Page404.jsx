@@ -13,7 +13,7 @@ function Page404() {
     useEffect(() => {
       const handleOnline = () => setIsOnline(true);
       const handleOffline = () => setIsOnline(false);
-    
+     
       //ouvir quando a internet cair ou voltar
       window.addEventListener("online", handleOnline);
       window.addEventListener("offline", handleOffline);

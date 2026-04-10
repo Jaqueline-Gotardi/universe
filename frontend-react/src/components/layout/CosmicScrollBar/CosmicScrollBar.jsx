@@ -2,9 +2,10 @@ import useAuth from "../../../hooks/useAuth";
 import styles from "./CosmicScrollBar.module.css"
 
 const CosmicScrollBar = () => {
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, isLoading } = useAuth();
 
-    if (!isAuthenticated) return null;
+    //se está carregando ou não está logado não mostra a barra de rolagem do topo
+    if (isLoading || !isAuthenticated) return null;
 
     return <div className={styles.cosmicScrollBar}></div>;
 };

@@ -7,7 +7,7 @@ function ProtectRoute ({ children }) {
     //chamar o useAuth, quando o usuário entrar em /app
     const { isLoading, isAuthenticated } = useAuth();
 
-    //se estiver carregando...
+    //se estiver carregando... 
     if (isLoading) {
         return ( 
             <div className="min-h-screen -flex items-center justify-center">
