@@ -1,0 +1,26 @@
+.cosmicEngine {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #000000 0%, #020205 100%); /* equilibrar a cor de fundo */
+  z-index: -1;
+}
+
+.starField {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px white;
+  animation: star-animation var(--star-duration, 3s) infinite ease-in-out var(--star-delay, 0s);
+}
+
+@keyframes star-animation {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}

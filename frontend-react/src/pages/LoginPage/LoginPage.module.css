@@ -1,0 +1,186 @@
+.telaLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.telaLogin input {
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: double;
+}
+
+.welcomeTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+}
+
+/*stars Animation */
+.spaceBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  z-index: 1;
+  background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 50%, #2d1b69 100%); 
+}
+ 
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 3s linear infinite;
+}
+
+@keyframes sparkle {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+} 
+
+.contentWrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.loginContainer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  justify-items: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 340px) {
+  .loginContainer {
+    padding: 2rem;
+    max-width: 16rem;
+    position: absolute;
+  }
+}
+
+.welcomeSection {
+  margin-bottom: 2rem;
+}
+
+.astronautHero {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  animation: float 1.6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.welcomeTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+@media (max-width: 340px) {
+  .welcomeTitle {
+    font-size: 1rem;
+  }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  text-align: left;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+}
+
+.formInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btnPrimary{
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.cadastroLink {
+  color: #ccc;
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cadastroLink a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.cadastroLink a:hover {
+  color: #8765a8;
+  text-decoration: underline;
+}

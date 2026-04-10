@@ -1,0 +1,92 @@
+.containerNotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* essas duas propriedades centralizam o conteúdo considerando a tela inteira */
+  position: fixed;
+  inset: 0;
+
+  font-family: "System-ui", sans-serif; 
+  animation: opacidadeDaTela 0.5s ease forwards; /* mudar a opacidade da tela, quando o sinal cair */
+  z-index: 9999; /* garante que a tela fique por cima de todas as outras quando a internet cair */
+}
+
+.contentWrapper {
+  position: relative; 
+  z-index: 1; 
+  text-align: center;
+}
+
+.titulo {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.paragrafo {
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 420px;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.containerInfoAdicional {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.bolinhaDeConexao {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff4a6e;
+  box-shadow: 0 0 10px #ff4a6e;
+  animation: signalPulse 1.5s ease-in-out infinite;
+}
+
+.paragrafoExtra {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.buracoNegro {
+  animation: bhPulse 6s ease-in-out infinite;
+}
+
+@keyframes opacidadeDaTela { 
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes signalPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes bhPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes accretionFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -120; }
+}
+
+@keyframes wifiFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-4px, -6px) rotate(-8deg); }
+}
+
+@keyframes bhRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
