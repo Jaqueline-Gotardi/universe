@@ -13,7 +13,6 @@ const CosmicCard = ({ items, title, onBack, style }) => {
         )}
         
     <div style={styles.card}>
-
         {items.map((item, index) => (
           <button 
           type="button" 
@@ -39,7 +38,6 @@ const CosmicCard = ({ items, title, onBack, style }) => {
        <span style={styles.buttonLabel}>{item.label}</span> 
         </button>
         ))}
-
     </div> 
 
     <button 
