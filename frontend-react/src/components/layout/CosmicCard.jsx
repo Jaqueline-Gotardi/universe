@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const CosmicCard = ({ items, title, onBack }) => {
+const CosmicCard = ({ items, title, onBack, style }) => {
     const navigate = useNavigate(); 
     const [ hoveredIndex ] = useState(null);
         
   return (
 
-    <div style={styles.container}>
+    <div style={{ ...styles.container, ...style }}>
       { title && (
         <h2 style={styles.title}>{title}</h2>
         )}

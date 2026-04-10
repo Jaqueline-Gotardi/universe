@@ -15,8 +15,9 @@ import "../src/style/globals.css"
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
+      <div className="cosmicScrollBar"></div> {/*barra visual cósmica */}
       <OfflineScreen /> {/* para vigiar se o wifi cair ou oscilar */}
       <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>
-)
+) 

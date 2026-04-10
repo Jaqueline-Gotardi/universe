@@ -583,8 +583,8 @@ function ExplorerMenu() {
         margin-top: 20px; 
         line-height: 1.6; 
         font-style: italic; 
-        font-family: 'Space Mono', 
-        monospace; animation: flutuarDescricao 5s ease-in-out infinite; 
+        font-family: 'Space Mono', monospace; 
+        animation: flutuarDescricao 5s ease-in-out infinite; 
         }
 
         .descricao-cosmica span { 
