@@ -6,12 +6,12 @@ require('dotenv').config()
 
 //configurando o pool (são as msm informações do meu universe_db)
 const pool = new Pool({
-    user : 'postgres',
-    host : 'localhost',
-    database : 'universe_db',
+    user : process.env.DB_USER,
+    host : process.env.DB_HOST,
+    database : process.env.DB_NAME,
     password : process.env.DB_PASSWORD,
-    port : 5432,
+    port : process.env.DB_PORT,
 }) 
 
 //para que outros arquivos possam usar o pool (minha conexão configurada)
-module.exports = pool; 
+module.exports = pool;  

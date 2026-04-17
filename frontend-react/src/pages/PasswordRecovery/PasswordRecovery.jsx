@@ -10,11 +10,25 @@ function PasswordRecovery() {
   async function handleRecover(event) { //função para disparar o pedido de recuperar senha, via email
     event.preventDefault();
     try {
+
+      const response = await fetch("http://localhost:3000/password-recovery", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({email}) //enviar email para o servidor
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        const errorData = await response.josn();
+        alert(`Erro galáctico: ${errorData.message}`);
+      }
+
       console.log("Solicitando recuperação para:", email);
 
       //simular sucesso do email enviado
       setSubmitted(true);
-    } catch (error) {
+    } catch (erro) {
       alert("Erro na transmissão galática. Tente novamente.");
     }
   }
