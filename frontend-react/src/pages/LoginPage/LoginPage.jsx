@@ -89,9 +89,13 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
           <button type="submit" className={styles.btnPrimary} id="btn-primary">Entrar</button>
 
-          <p className={styles.cadastroLink}>Não tem uma conta? 
+          <span className={styles.cadastroLink}>Não tem uma conta? 
           <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink> 
-          </p>
+          </span>
+          <span className={styles.cadastroLink} style={{marginTop: "0px"}}>
+            <NavLink to="/recuperar-senha">Esqueceu sua senha?</NavLink>
+          </span>
+          
         </form>
       </div> 
     </div>
