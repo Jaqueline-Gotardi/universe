@@ -176,11 +176,12 @@
 }
 
 .cadastroLink a {
-  color: #ccc;
-  text-decoration: none;
+  color: #b177ae;
+  font-weight: 500;
+  text-decoration: underline;
 }
 
 .cadastroLink a:hover {
-  color: #8765a8;
+  color: #380336;
   text-decoration: underline;
 }
