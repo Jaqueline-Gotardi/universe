@@ -12,6 +12,28 @@ body {
     scrollbar-color: rgba(173, 74, 222, 0.9) rgba(31, 0, 51, 0.9);
 }
 
+
+/* estilos customizados para o Toastify (as mensagens amigáveis */
+.Toastify__toast {
+    background-color: #0d0b1c !important; 
+    border: 1px solid #763bdb !important; 
+    box-shadow: 0 0 15px rgba(118, 59, 219, 0.5) !important;
+    font-family: 'Orbitron', sans-serif !important;
+    color: #fff !important;
+}
+/* barra lateral*/
+.Toastify__toast--warning {
+    border-left: 6px solid #763bdb !important; 
+}
+.Toastify__toast--warning .Toastify__toast-icon svg {
+    fill: #763bdb !important;
+}
+/* barra de progresso */
+.Toastify__progress-bar--warning {
+    background: #763bdb !important;
+}
+
+
 /* estilização para a tela de detalhes dos planetas, com fundo espacial e estrelas animadas
  */
 .telaDetalhe {

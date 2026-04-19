@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify"
 import CosmicBackground from "../../components/layout/CosmicBackground";
 
 import styles from "./RegisterPage.module.css"
@@ -18,9 +19,9 @@ function RegisterPage() {
 
     //confirmar se a senha digitada é igual a digitada no campo de confirmar senha
     if (password !== confirmPassword) {
-      alert("Senha espaciais não coincidem!")
+      toast.warning("🚀 Senhas espaciais não coincidem!")
       return;
-    } 
+    }  
 
     try {
       const response = await fetch("http://localhost:3000/register", {
@@ -34,15 +35,15 @@ function RegisterPage() {
     if (response.ok) {
       const data = await response.json()
       console.log("Cadastro bem sucedido!", data)
-      alert("Cadastro realizado com sucesso! Faça seu login agora.")
+      toast.success("👩‍🚀 Cadastro realizado! Faça seu login.")
 
       navigate("/login");
     } else {
-      alert("Falha ao cadastrar")
+      toast.error("☄️ Falha ao cadastrar. Verifique os dados e tente novamente.")
     }
   
   } catch(error) {
-      alert("Erro de rede: Não foi possível concluir seu cadastro. Tente novamente mais tarde.", error)
+    toast.error("📡 Erro de rede: Sem sinal com a base. Tente novamente mais tarde!", error)
     }
   }
 
