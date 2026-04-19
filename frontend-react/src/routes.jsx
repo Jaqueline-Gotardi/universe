@@ -108,7 +108,7 @@ const router = createBrowserRouter([
       </ProtectRoute>
     ),
     children: [
-      {
+      { 
         index: true,
         element: <WelcomeSection />
       },

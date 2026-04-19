@@ -2,18 +2,18 @@ const jwt = require('jsonwebtoken'); //importando
 require('dotenv').config()
 const chaveDoJwt = process.env.JWT_SECRET; 
 
- 
+  
 function authMiddleware(req, res, next) {
     const authHeader = req.headers['authorization']; 
 
     //se o cabeçalho existir. . .
-    if (!authHeader) {
+    if (!authHeader) { 
         return res.status(401).json({message: 'Acesso negado, token não fornecido. . .'})
-    }
+    } 
 
-    const token = authHeader.split(' ')[1] 
+    const token = authHeader.split(' ')[1] //corta o o texto do token pq vem grande, descartando a palavra "Bearer"
 
-    //verificar se o token foi extraído
+    //se o token não for extraído
        if (!token) {
         //se a extração falhar
         return res.status(401).json({message: 'O formato de token é inválido.'})
@@ -31,4 +31,4 @@ function authMiddleware(req, res, next) {
         })
 }
 
-module.exports = authMiddleware; //para exportar
+module.exports = authMiddleware; //para exportar 
