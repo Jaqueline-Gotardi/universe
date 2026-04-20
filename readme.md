@@ -207,4 +207,6 @@ O que antes era um site desenvolvido com JS, hoje está evoluindo para uma aplic
 
 ---
 
+👉 [Veja nosso relatório de qualidade completo aqui (QA.md)](./QA.md)
+
 **No Universo do código, cada erro é uma nova estrela sendo descoberta.** 💙
