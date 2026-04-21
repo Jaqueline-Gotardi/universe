@@ -11,13 +11,14 @@ import { toast } from "react-toastify";
 import { LoginTransition } from "../../components/auth/LoginTransition/LoginTransition.jsx";
 import styles from "./LoginPage.module.css"
 
-  
+   
 function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [isLogin, setLogin ] = useState(false); 
   const [ showPassword, setShowPassword ] = useState(false);
-
+  const [ loading, setLoading ] = useState(false)
+;
   const { login } = useAuth();
   const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
 
@@ -30,6 +31,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
   //console.log("Tentando fazer login com:", email, password);
+  setLoading(true);
   try {
     const response = await fetch("http://localhost:3000/login", {
       method: "POST",
@@ -54,6 +56,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
     toast.error("📡 Falha na comunicação com a base. Tente novamente em instantes!")
     console.log(error)
   }
+  setLoading(false)
 }
 
     return (   
@@ -101,7 +104,11 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
           </div>
           </div>
 
-          <button type="submit" className={styles.btnPrimary} id="btn-primary">Entrar</button>
+          <button type="submit" className={styles.btnPrimary} 
+          id="btn-primary" 
+          disabled={loading} //impede cliques duplos
+          >{loading ? "Autenticando. . ." : "Entrar"}
+          </button>
 
           <span className={styles.cadastroLink}>Não tem uma conta? 
           <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink> 
