@@ -67,6 +67,36 @@
     box-shadow: 0 0 8px #9356f9;
 }
 
+.campoSenhaWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.campoSenhaWrapper input {
+    padding-right: 45px !important; 
+}
+
+.iconeOlho {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #a3a3c2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.3s ease;
+    z-index: 5;
+}
+
+.iconeOlho:hover {
+    color: #9356f9;
+}
+
 .captchaContainer {
     display: flex;
     gap: 0.8rem;
