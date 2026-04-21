@@ -5,6 +5,7 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
 
 import { LoginTransition } from "../../components/auth/LoginTransition/LoginTransition.jsx";
 import styles from "./LoginPage.module.css"
@@ -13,7 +14,8 @@ import styles from "./LoginPage.module.css"
 function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
-  const [isLogin, setLogin ] = useState(false); //novo
+  const [isLogin, setLogin ] = useState(false); 
+  const [ showPassword, setShowPassword ] = useState(false);
 
   const { login } = useAuth();
   const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
@@ -81,10 +83,20 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
           <div className={styles.formGroup}>
             <label htmlFor="senha" className={styles.formLabel}>Senha:</label>
-            <input type="password" id="senha" 
+            <div className={styles.campoSenhaWrapper}>
+            <input type={showPassword ? "text" : "password"} id="senha" 
             placeholder="Digite sua senha" 
             className={styles.formInput} 
             value={password} onChange={(e) => setPassword(e.target.value)} required/>
+
+          <button type="button" 
+          className={styles.iconeOlho} 
+          onClick={() => setShowPassword(!showPassword)} 
+          tabIndex="-1" //pula o olhindo para ir pro próximo campo quando o usuário clicar em tab
+          > 
+          {showPassword ? <EyeOff size={20} /> : <Eye size={20} />} {/*fazer a troca dos olhinhos completo/e com risco no meio */}
+          </button>
+          </div>
           </div>
 
           <button type="submit" className={styles.btnPrimary} id="btn-primary">Entrar</button>
@@ -96,7 +108,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
             <NavLink to="/recuperar-senha">Esqueceu sua senha?</NavLink>
           </span>
           
-        </form>
+        </form> 
       </div> 
     </div>
     )}

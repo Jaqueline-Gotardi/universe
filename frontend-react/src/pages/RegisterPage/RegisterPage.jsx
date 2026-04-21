@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify" //importar a lib toast que cria nossas notificações
-import { Eye, EyeOff } from "lucide-react" //importar ícones
+import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
 
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./RegisterPage.module.css"
@@ -16,7 +16,7 @@ function RegisterPage() {
   const [ showPassword, setShowPassword ] = useState(false);
 
   const navigate = useNavigate("")
-  
+   
   const checkStrength = () => { //função para verificar a força da senha
     const requirements = [
       { re: /.{8,}/, label: "8+ caracteres" },
