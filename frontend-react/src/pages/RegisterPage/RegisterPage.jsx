@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { toast } from "react-toastify"
-import CosmicBackground from "../../components/layout/CosmicBackground";
+import { toast } from "react-toastify" //importar a lib toast que cria nossas notificações
 
+import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./RegisterPage.module.css"
 
 function RegisterPage() {
@@ -14,12 +14,33 @@ function RegisterPage() {
   const [ isSubmitting, setIsSubmitting ] = useState(false);
 
   const navigate = useNavigate("")
+  
+  const checkStrength = () => { //função para verificar a força da senha
+    const requirements = [
+      { re: /.{8,}/, label: "8+ caracteres" },
+      { re: /[A-Z]/, label: "Maiúscula" },
+      { re: /[0-9]/, label: "Número" },
+      { re: /[^A-Za-z0-9]/, label: "Especial" } //o "^" significa não, se não for letra, nem número (sobra os caracteres especiais!)
+    ];
+    
+    //o meCount é o contador de "sucessos"
+    const metCount = requirements.filter(req => req.re.test(password)).length; //verificar as requisições no campo password
+    let strengthClass = '';
+    if (password.length > 0) { //se tiver algo escrito
+      if (metCount <= 2) strengthClass = styles.weak; //se tiver 0 a 2 requisitos cumpridos, a senha é fraca
+      else if (metCount === 3) strengthClass = styles.medium; //se tiver 3, ela é mediana
+      else strengthClass = styles.strong; //4 requisitos cumpridos => a senha é forte!
+    }
+    
+    return { requirements, metCount, strengthClass };
+  };
+  const { requirements, strengthClass, metCount } = checkStrength();
 
-  async function handleRegister(event) {
+  async function handleRegister(event) { //função que envia os dados para o servidor
     event.preventDefault();
 
-    //verificar se os campos não estão vazios
-    if (!username.trim() || !email.trim() || !password.trim()) {
+    //verificar se os campos estão vazios
+    if (!username.trim() || !email.trim()) {
       toast.warning("🚀 Agente, identifique-se corretamente antes de prosseguir.")
       return;
     }
@@ -41,7 +62,8 @@ function RegisterPage() {
       body: JSON.stringify({ 
         username: username.trim(), //para garantir que os dados do usuário não seja enviado "em branco" pro bd
         email:email.trim(), 
-        password:password.trim() })
+        password:password 
+      })
     })    
     
     const data = await response.json().catch(() => ({})) //se o servidor retornar erro, o .catch evita que o sistema trave ao tentar ler como json
@@ -87,6 +109,25 @@ function RegisterPage() {
           placeholder="Crie uma senha forte"
           value={password} 
           onChange={(e) => setPassword(e.target.value)} required/>
+
+        <div className={styles.passwordStrengthWrapper}>  
+          {/* barrinha de progresso para ver se a senha está ficando forte*/}
+          <div className={styles.strengthBar}>
+            <div className={`${styles.strengthProgress} ${strengthClass}`}></div>
+          </div>
+          
+          {/* listinha dos requisitos para a senha forte */}
+          <ul className={styles.requirementList}>
+            {requirements.map((req, i) => (
+            <li 
+             key={i} 
+             className={`${styles.requirementItem} ${req.re.test(password) ? styles.met : styles.unmet}`}
+             >
+            {req.re.test(password) ? '●' : '○'} {req.label} {/* a bolinha muda conforme o requisito for cumprido */}
+            </li>
+          ))}
+          </ul>
+          </div>
         </div>
  
         <div className={styles.campoInput}>
@@ -100,10 +141,19 @@ function RegisterPage() {
           <input type="checkbox" id="nao-sou-robo-cadastro" required/>
           <label htmlFor="nao-sou-robo-cadastro">Eu não sou um robô</label>
         </div>
+
+        {/* mostrar o aviso da senha quando ela não atender aos requisitos esperados */} 
+        {password.length > 0 && metCount < 4 && (
+          <p className={styles.avisoSenha}>
+            Protocolo de segurança: A senha precisa cumprir todos os requisitos para autorizar o cadastro. 🛰️
+          </p>
+        )}
   
         <div className={styles.botoesCadastro}>
-          <button type="submit" className={styles.btnCadastrarConta} id="btn-cadastrar" disabled={isSubmitting}>
-            {isSubmitting ? "Enviando..." : "Criar conta"} {/* quando apertar em criar conta/botão padrão */}
+          <button type="submit" className={styles.btnCadastrarConta} id="btn-cadastrar"
+          //o botão só habilita se a senha tiver conteúdo e os 4 requisitos forem batidos
+          disabled={password.length > 0 && metCount < 4 || isSubmitting}>
+            {isSubmitting ? "Enviando..." : "Criar conta"} {/* quando apertar em criar conta mostra "Enviando"/ou o botão padrão */}
           </button>
         </div>
 
