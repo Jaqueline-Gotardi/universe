@@ -6,6 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
+import { toast } from "react-toastify"; 
 
 import { LoginTransition } from "../../components/auth/LoginTransition/LoginTransition.jsx";
 import styles from "./LoginPage.module.css"
@@ -40,17 +41,18 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
     if (response.ok) {
       const data = await response.json(); 
-      console.log("Login bem sucedido!", data);
+      toast.success("👩‍🚀 Login autorizado! Entrando na base...")
+      console.log(data)
 
       login(); //atualiza o estado para logado
-      setLogin(true); //novo
+      setLogin(true); 
     } else {
-      alert("Falha ao logar: Verifique suas credenciais cósmicas!")
+      toast.error("☄️ Acesso negado! Verifique suas credenciais cósmicas.")
     }
 
   } catch(error) {
-    console.log("Erro de rede ao tentar logar:", error);
-    alert("Erro de rede: Não foi possível conectar ao servidor. Tente novamente mais tarde.")
+    toast.error("📡 Falha na comunicação com a base. Tente novamente em instantes!")
+    console.log(error)
   }
 }
 
@@ -84,7 +86,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
           <div className={styles.formGroup}>
             <label htmlFor="senha" className={styles.formLabel}>Senha:</label>
             <div className={styles.campoSenhaWrapper}>
-            <input type={showPassword ? "text" : "password"} id="senha" 
+            <input type={showPassword ? "text" : "password"} id="senha" //mostrar a senha (quando o olhindo for ativado) e mostrar em forma de pontinhos(senha) quando o olho for desativado
             placeholder="Digite sua senha" 
             className={styles.formInput} 
             value={password} onChange={(e) => setPassword(e.target.value)} required/>
