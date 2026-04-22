@@ -30,7 +30,6 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   //função de validação de login
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
-  //console.log("Tentando fazer login com:", email, password);
   setLoading(true);
   try {
     const response = await fetch("http://localhost:3000/login", {

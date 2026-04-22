@@ -52,7 +52,6 @@ function Profile() {
       ...prev, // O ...prevData serve para dizer: "Mantenha tudo o q já existe e mude apenas o avatar
       avatar: avatarSrc,
     }));
-    //console.log("avatar selecionado:")
   };
 
   //função para upload de arquivo

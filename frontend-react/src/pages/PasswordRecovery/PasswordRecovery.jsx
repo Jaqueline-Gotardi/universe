@@ -28,7 +28,6 @@ function PasswordRecovery() {
         toast.error(`☄️ E-mail não encontrado na nossa base estelar ${errorData.message}`)
       }
     } catch {
-      //alert("Erro na transmissão galática. Tente novamente.");
       toast.error("📡 Falha na conexão. Tente novamente mais tarde!")
     } finally {
       setLoading(false);
