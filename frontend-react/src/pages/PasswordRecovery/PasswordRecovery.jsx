@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify"
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./PasswordRecovery.module.css";
 
 function PasswordRecovery() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function handleRecover(event) { //função para disparar o pedido de recuperar senha, via email
     event.preventDefault();
+    setLoading(true);
     try {
 
-      const response = await fetch("http://localhost:3000/password-recovery", {
+      const response = await fetch("http://localhost:3000/recuperar-senha", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({email}) //enviar email para o servidor
@@ -19,17 +22,16 @@ function PasswordRecovery() {
 
       if (response.ok) {
         setSubmitted(true)
+        toast.success("🚀 E-mail de recuperação enviado! Verifique sua caixa de entrada.")
       } else {
-        const errorData = await response.josn();
-        alert(`Erro galáctico: ${errorData.message}`);
+        const errorData = await response.json();
+        toast.error(`☄️ E-mail não encontrado na nossa base estelar ${errorData.message}`)
       }
-
-      console.log("Solicitando recuperação para:", email);
-
-      //simular sucesso do email enviado
-      setSubmitted(true);
-    } catch (erro) {
-      alert("Erro na transmissão galática. Tente novamente.");
+    } catch {
+      //alert("Erro na transmissão galática. Tente novamente.");
+      toast.error("📡 Falha na conexão. Tente novamente mais tarde!")
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -58,8 +60,10 @@ function PasswordRecovery() {
                 />
             </div>
             
-            <button type="submit" className={styles.btnRecuperarSenha}>
-              Enviar Instruções
+            <button type="submit" 
+            className={styles.btnRecuperarSenha}
+            disabled={loading} >
+              {loading ? "Enviando" : "Enviar Instruções"}
             </button>
           </form>
           </>

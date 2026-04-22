@@ -11,7 +11,7 @@ const cors = require('cors'); //para aceitar todas as origens/domínios/portas
 
 app.use(express.json()); //para o express ler requisições json
 app.use(express.urlencoded({extended : true})); //para o express ler dados de formulários
-app.use(cors());
+app.use(cors()); 
 
 // É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
 
@@ -23,7 +23,6 @@ const pool = require('./db_config');
 //acessando a pasta public, pra iniciar a conexão do front com o back local
 app.use(express.static(path.join(__dirname, '../public')));
  
-
 
 
 //ROTA DE REGISTRAR DADOS DO USUÁRIO
@@ -151,6 +150,30 @@ app.post('/login', async(req, res) => {
     } catch(error) { //erro inesperado do servidor
         console.log('Falha ao conectar ao banco de dados, tente novamante mais tarde:', error)
         res.status(500).json({message: 'Erro interno do servidor. Tente novamente mais tarde. . .'})
+    }
+})
+
+//ROTA DE RECUPERAÇÃO DE SENHA
+app.post('/recuperar-senha', async(req, res) => {
+    const { email } = req.body;
+
+    if (!email || email.trim() === '') {
+        return res.status(400).json({message: "O e-mail é obrigatório para a recuperação."});
+    }
+
+    try {
+        //verificar se o email existe no bd
+        const queryUser = `SELECT * FROM users
+                           WHERE email = $1`;
+        const result = await pool.query(queryUser, [email]);
+
+        if (result.rows.length > 0) {
+            return res.status(200).json({message: "E-mail de recuperação enviado com sucesso!"});
+        } else {
+            return res.status(404).json({message: "E-mail não encontrado na nossa base estelar."})
+        }
+    } catch (error) {
+        return res.status(500).json({message: "Erro interno no servidor. Tente novamente mais tarde."})
     }
 })
 
