@@ -16,17 +16,13 @@ export const AgentBadge = () => {
   onMouseLeave={() => setIsHovered(false)}>
     <div className={style.brilho} />
     
-    <div style={{position: "relative"}}>
+  <div style={{position: "relative"}}>
       <div className={style.avatarWrapper}>
         <img src="/images/avatar-nova.webp" alt="avatar" className={style.avatar} />
         </div>
         <div className={style.anelOnline} />
         </div>
         
-        <div className={style.info}>
-          <span className={style.nameAgent}>Nome do agente aqui</span>
-          <span className={style.paragraph}>★ Agente espacial</span>
-        </div>
       </div>
   )
 } 
