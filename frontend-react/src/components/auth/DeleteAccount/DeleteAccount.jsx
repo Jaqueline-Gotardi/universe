@@ -1,30 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import CosmicBackground from "../../layout/CosmicBackground";
 import { useMemo, useState } from "react";
+import { toast } from "react-toastify";
+import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./DeleteAccount.module.css";
 
 function DeleteAccount() {
   const [confirmText, setConfirmText] = useState("");
+  const navigate = useNavigate();
 
   const canDelete = useMemo(
     () => confirmText.trim().toUpperCase() === "APAGAR",
     [confirmText]
   );
 
-  const navigate = useNavigate();
+  const keepAccount = () => {
+  toast.success("🚀 Segurança confirmada, comandante!")
+  navigate("/app/extras-menu")
+}
+
 
   return (
     <section id="detalhe-apagar-conta" className={styles.telaApagarConta}>
       <CosmicBackground />
-
-      <button
-        className={styles.backButton}
-        onClick={() => navigate("/app/extras-menu")}
-        aria-label="Voltar para a página anterior"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-        Voltar
-      </button>
 
       <div className={styles.containerConteudo}>
         <div className={styles.iconeAlerta}>
@@ -48,13 +45,6 @@ function DeleteAccount() {
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-x"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
               </div>
-              <p>Seu histórico de exploração será perdido</p>
-            </div>
-
-            <div className={styles.mensagensAlertaItem}>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-x"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
-              </div>
               <p>Não será possível recuperar sua conta</p>
             </div>
           </div>
@@ -72,7 +62,7 @@ function DeleteAccount() {
           </div>
         </div> 
 
-        <button type="button" aria-label="Voltar para a página inicial" onClick={() => navigate("/app/extras-menu")} className={styles.botaoVoltarHome}>
+        <button type="button" aria-label="Voltar para a página inicial" onClick={keepAccount} className={styles.botaoVoltarHome}>
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
           Manter conta segura
         </button>
