@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./ChangePassword.module.css";
 
 function ChangePassword() {
   const navigate = useNavigate();
+
+  const salvarAlteracoes = (e) => {
+    e.preventDefault();
+    toast.success("Senha alterada com sucesso!");
+    navigate("/app/profile");
+  }
 
   return (
     <section className={styles.secaoTrocarSenha} id="secao-trocar-senha">
@@ -26,7 +33,7 @@ function ChangePassword() {
             <input
               type="password"
               id="nova-senha"
-              placeholder="Digite sua nova senha"
+              placeholder="Digite sua nova senha" 
             />
           </div>
 
@@ -49,7 +56,7 @@ function ChangePassword() {
               type="submit"
               className={styles.btnSalvar}
               id="btn-salvar-senha"
-              onClick={() => navigate("/app/profile")}
+              onClick={salvarAlteracoes}
             >
               Salvar Nova Senha
             </button>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import { toast } from "react-toastify";
 import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./Profile.module.css";
 
@@ -40,6 +41,8 @@ function Profile() {
   const handleSaveProfile = (e) => {
     e.preventDefault();
     console.log("Dados salvos:", userData);
+    toast.success("Perfil salvo com sucesso!");
+
 
     setUserData(tempUserData); //pegando os dados temporários e jogando no oficial
     setIsGalleryOpen(false);
@@ -214,7 +217,7 @@ function Profile() {
                 />
 
                 {isGalleryOpen && (
-                  <div
+                  <div 
                     className={styles.galeriaAgentesEspaciais}
                     id="galeria-agentes-espaciais"
                   >
