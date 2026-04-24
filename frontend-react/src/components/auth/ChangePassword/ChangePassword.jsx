@@ -13,8 +13,11 @@ function ChangePassword() {
   const [novaSenha, setNovaSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [isRobotChecked, setRobotChecked] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [ showSenhaAtual, setShowSenhaAtual ] = useState(false);
+  const [ showNovaSenha, setShowNovaSenha ] = useState(false);
+  const [ showConfirmarSenha, setShowConfirmarSenha ] = useState(false);
 
   const checkStrength = () => {
     //função para verificar a força da senha
@@ -82,7 +85,7 @@ function ChangePassword() {
             <label htmlFor="senha-atual">Senha Atual</label>
             <div className={styles.campoSenhaWrapper}>
               <input
-                type={showPassword ? "text" : "password"} //mostrar a senha (quando o olhindo for ativado) e mostrar em forma de pontinhos(senha) quando o olho for desativado
+                type={showSenhaAtual ? "text" : "password"} //mostrar a senha (quando o olhindo for ativado) e mostrar em forma de pontinhos(senha) quando o olho for desativado
                 id="senha-atual"
                 value={senhaAtual}
                 onChange={(e) => setSenhaAtual(e.target.value)}
@@ -92,10 +95,10 @@ function ChangePassword() {
               <button
                 type="button"
                 className={styles.iconeOlho}
-                onClick={() => setShowPassword(!showPassword)}
+                onClick={() => setShowSenhaAtual(!showSenhaAtual)}
                 tabIndex="-1" //pula o olhindo para ir pro próximo campo quando o usuário clicar em tab
               >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}{" "}
+                {showSenhaAtual ? <EyeOff size={20} /> : <Eye size={20} />}{" "}
                 {/*fazer a troca dos olhinhos completo/e com risco no meio */}
               </button>
             </div>
@@ -103,21 +106,29 @@ function ChangePassword() {
 
           <div className={styles.campoInput}>
             <label htmlFor="nova-senha">Nova Senha</label>
+            <div className={styles.campoSenhaWrapper}>
             <input
               id="nova-senha"
-              type={showPassword ? "text" : "password"}
+              type={showNovaSenha ? "text" : "password"}
               value={novaSenha}
               onChange={(e) => setNovaSenha(e.target.value)}
               placeholder="Digite sua nova senha"
               required
             />
+            <button
+                type="button"
+                className={styles.iconeOlho}
+                onClick={() => setShowNovaSenha(!showNovaSenha)}
+                tabIndex="-1" 
+              >
+                {showNovaSenha ? <EyeOff size={20} /> : <Eye size={20} />}{" "}
+              </button>
+              </div>
 
             <div className={styles.passwordStrengthWrapper}>
               {/* barrinha de progresso para ver se a senha está ficando forte*/}
               <div className={styles.strengthBar}>
-                <div
-                  className={`${styles.strengthProgress} ${strengthClass}`}
-                ></div>
+                <div className={`${styles.strengthProgress} ${strengthClass}`} />
               </div>
               {/* listinha dos requisitos para a senha forte */}
               <ul className={styles.requirementList}>
@@ -160,14 +171,24 @@ function ChangePassword() {
 
           <div className={styles.campoInput}>
             <label htmlFor="confirmar-nova-senha">Confirmar Nova Senha</label>
+            <div className={styles.campoSenhaWrapper}>
             <input
               id="confirmar-nova-senha"
-              type={showPassword ? "text" : "password"}
+              type={showConfirmarSenha ? "text" : "password"}
               value={confirmarSenha}
               onChange={(e) => setConfirmarSenha(e.target.value)}
               placeholder="Confirme sua nova senha"
               required
             />
+            <button
+              type="button"
+              className={styles.iconeOlho}
+              onClick={() => setShowConfirmarSenha(!showConfirmarSenha)}
+              tabIndex="-1" 
+              >
+                {showConfirmarSenha ? <EyeOff size={20} /> : <Eye size={20} />}{" "}
+              </button>
+            </div>
           </div>
 
           <div className={styles.captchaContainer}>
