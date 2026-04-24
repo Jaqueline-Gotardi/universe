@@ -9,11 +9,11 @@ import styles from "./ChangePassword.module.css";
 function ChangePassword() {
   const navigate = useNavigate();
 
-  const [senhaAtual, setSenhaAtual] = useState("");
-  const [novaSenha, setNovaSenha] = useState("");
-  const [confirmarSenha, setConfirmarSenha] = useState("");
-  const [isRobotChecked, setRobotChecked] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [ senhaAtual, setSenhaAtual ] = useState("");
+  const [ novaSenha, setNovaSenha ] = useState("");
+  const [ confirmarSenha, setConfirmarSenha ] = useState("");
+  const [ isRobotChecked, setRobotChecked ] = useState(false);
+  const [ isSubmitting, setIsSubmitting ] = useState(false);
 
   const [ showSenhaAtual, setShowSenhaAtual ] = useState(false);
   const [ showNovaSenha, setShowNovaSenha ] = useState(false);

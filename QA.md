@@ -42,6 +42,5 @@ Para garantir essa qualidade, eu utilizo:
 
 ## 🛰️ Próximos Passos (Roadmap de QA)
 - [ ] Implementar validação de e-mail em tempo real.
-- [ ] Verificar se a senha é forte o suficiente antes de deixar cadastrar.
 
 > *"Qualidade não é um ato, é um hábito de Agente Estelar."* 🌌
