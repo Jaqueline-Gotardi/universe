@@ -22,7 +22,7 @@ function ChangePassword() {
       { re: /.{8,}/, label: "8+ caracteres" },
       { re: /[A-Z]/, label: "Maiúscula" },
       { re: /[0-9]/, label: "Número" },
-      { re: /[^A-Za-z0-9]/, label: "Especial" }, //o "^" significa não, se não for letra, nem número (sobra os caracteres especiais!)
+      { re: /[!@#$%^&*(),.?":{}|<>]/, label: "Especial" }, //o "^" significa não, se não for letra, nem número (sobra os caracteres especiais!)
     ];
 
     //o meCount é o contador de "sucessos"
@@ -47,11 +47,15 @@ function ChangePassword() {
   const salvarAlteracoes = (e) => {
     e.preventDefault();
 
-    if (!senhaAtual || !novaSenha || !confirmarSenha) {
+    if (!senhaAtual.trim() || !novaSenha.trim() || !confirmarSenha.trim()) {
       return toast.error("⚠️ Por favor, preencha todos os campos!");
     }
 
-    if (novaSenha !== confirmarSenha) {
+    if (senhaAtual.trim() === novaSenha.trim()) {
+      return toast.error("❌ A nova senha não pode ser igual à senha atual!")
+    }
+
+    if (novaSenha.trim() !== confirmarSenha.trim()) {
       return toast.error("❌ As novas senhas não coincidem!");
     }
 
@@ -60,9 +64,11 @@ function ChangePassword() {
     }
 
     setIsSubmitting(true); //travar o botão para evitar cliques duplos
-
     toast.success("🚀 Senha alterada com sucesso!");
-    navigate("/app/profile");
+
+    setTimeout(() => {
+      navigate("/app/profile");
+    }, 1000);
   };
 
   return (
