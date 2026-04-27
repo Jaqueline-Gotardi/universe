@@ -18,7 +18,7 @@ Validar os fluxos de criação de conta e autenticação para garantir a integri
 - **Nível de Teste:** Integração (Backend + Banco de dados)
 - **Tipo de Teste:** Funcional
 - **Técnica:** Caixa Preta
-
+ 
 ---
 
 ### CT-01 - Validar cadastro de um usuário novo 
@@ -77,6 +77,7 @@ Validar os fluxos de criação de conta e autenticação para garantir a integri
               2. Enviar senha atual e nova senha forte.
 - **Resultado Esperado:** Status 200, com a mensagem: "Senha alterada com sucesso!"
 - **Resultado Obtido:** Nova senha cumpriu os requisitos de segurança.
+- **Evidência:** ![Trocar Senha Sucesso](./docs/test-evidence/05-troca-sucesso-token.png) ![Trocar Senha Sucesso](./docs/test-evidence/05-troca-sucesso-validacao.png) 
 
 ### CT-06 - Impedir alteração com Senha Atual incorreta
 - **Descrição:** Verificar se o campo de senha atual aceita senhas incorretas (que não foram cadastradas)
@@ -84,6 +85,7 @@ Validar os fluxos de criação de conta e autenticação para garantir a integri
 - **Passos:** 1. Realizar a requisição POST em changePassword/. 2. Enviar senha errada no campo senha atual e uma nova senha.
 - **Resultado Esperado:** Status 401 (Unauthorized) ou 400. Mensagem informando que a senha atual não confere.
 - **Resultado Obtido:** Usuário não pode trocar a senha, pois digitou a senha atual errada.
+- **Evidência:** ![Erro Senha Atual](./docs/test-evidence/06-erro-senha-atual.png) 
 
 ### CT-07 - Impedir que a Nova Senha seja igual à Senha Atual 
 - **Descrição:** Verificar se a nova senha não é igual a senha atual.
@@ -91,10 +93,11 @@ Validar os fluxos de criação de conta e autenticação para garantir a integri
 - **Passos:** Enviar nova senha que, após a limpeza de espaços, seja idêntica à senha atual.
 - **Resultado Esperado:** Bloqueio do envio e status 400, com a mensagem: "A nova senha não pode ser igual à senha atual!".
 - **Resultado Obtido:** Nova senha foi bloquada, e uma mensagem de alerta foi exibida.
+- **Evidência:** ![Erro Senha Igual](./docs/test-evidence/07-erro-senha-igual-(logando).png) ![Erro Senha Igual](./docs/test-evidence/07-erro-senha-igual-(token).png) ![Erro Senha Igual](./docs/test-evidence/07-erro-senha-igual(validacao).png) 
 
 
 ## 🗄️ Validação de Persistência (SQL)
-- **Processo:** Após o resultado obtido nos casos de teste(CT-01, CT-02, CT-03, CT-04), foi realizada uma consulta no banco de dados para garantir o registro dos dados em todos os casos.
+- **Processo:** Após o resultado obtido nos casos de teste(CT-01 a CT-08), foi realizada uma consulta no banco de dados para garantir o registro dos dados em todos os casos.
 - **Ferramenta:** DBeaver.
 - **Evidência:** ![Dados Dbeaver](./docs/test-evidence/bd-cadastro.png)
 

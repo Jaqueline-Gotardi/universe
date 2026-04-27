@@ -177,6 +177,52 @@ app.post('/recuperar-senha', async(req, res) => {
     }
 })
 
+//ROTA DE TROCAR SENHA
+app.post('/change-password', authMiddleware, async(req, res) => {
+    const { senhaAtual, novaSenha } = req.body;
+
+    const userId  = req.user.id;
+
+    if (!senhaAtual.trim() || !novaSenha.trim()) {
+        return res.status(400).json({message: "Dados incompletos. Preencha corretamente!"});
+    }
+
+    if (senhaAtual === novaSenha) {
+        return res.status(400).json({message: "A nova senha não pode ser igual a senha atual."})
+    }
+
+    try {
+        const queryUser = `SELECT * FROM users
+                           WHERE id = $1`;
+        const result = await pool.query(queryUser, [userId]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({message: "Usuário não encontrado no cosmos!"});
+        }
+
+        const user = result.rows[0];
+
+        const senhaValida = await bcrypt.compare(senhaAtual, user.password);
+
+        if(!senhaValida) {
+            return res.status(401).json({message: "Senha atual incorreta!"})
+        }
+
+        const novaSenhaHash = await bcrypt.hash(novaSenha, 10);
+
+        const updateQuery = `UPDATE users SET password = $1 WHERE id = $2`;
+        await pool.query(updateQuery, [novaSenhaHash, userId]);
+
+        return res.status(200).json({message: "Senha atualizada com sucesso!"})
+
+    } catch(error) {
+        console.error("Erro na troca de senha:", error);
+        return res.status(500).json({message: "Erro interno no servidor"})
+    }
+})
+   
+
+
 
 
 //ROTA SEARCH (PARA BUSCAR OS DADOS NA API...)

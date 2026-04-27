@@ -44,10 +44,11 @@ function ChangePassword() {
 
     return { requirements, metCount, strengthClass };
   };
-
   const { requirements, strengthClass, metCount } = checkStrength();
 
-  const salvarAlteracoes = (e) => {
+
+  //função para verificar os dados e salvar a alteração de senha
+  const salvarAlteracoes = async (e) => {
     e.preventDefault();
 
     if (!senhaAtual.trim() || !novaSenha.trim() || !confirmarSenha.trim()) {
@@ -67,13 +68,29 @@ function ChangePassword() {
     }
 
     setIsSubmitting(true); //travar o botão para evitar cliques duplos
-    toast.success("🚀 Senha alterada com sucesso!");
 
-    setTimeout(() => {
-      navigate("/app/profile");
-    }, 1000);
+    try { 
+      const response = await fetch("http://localhost:3000/change-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({senhaAtual, novaSenha}) 
+      })
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("🚀 Senha alterada com sucesso!")
+        setTimeout(() => navigate("/app/profile"), 1500);
+      } else {
+        toast.error(`❌ Erro: ${data.message}`);
+        setIsSubmitting(false);
+      }
+    } catch {
+      toast.error("📡 Falha na conexão. Tente novamente mais tarde!")
+      setIsSubmitting(false);
   };
-
+};
+ 
   return (
     <section className={styles.secaoTrocarSenha} id="secao-trocar-senha">
       <CosmicBackground />
