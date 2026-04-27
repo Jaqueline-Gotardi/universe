@@ -70,13 +70,28 @@ Validar os fluxos de criação de conta e autenticação para garantir a integri
 
 - **Evidência:** ![Login Erro](./docs/test-evidence/04-login-erro.png) 
 
-### CT-05: Validar alteração com sucesso (Senha atual correta + Nova senha forte).
+### CT-05 - Validar alteração com sucesso (Senha atual correta + Nova senha forte).
+- **Descrição:** Verificar se a nova senha digitada cumpre os requisitos obrigatórios para uma senha forte.
+- **Pré-condições:** Servidor Backend deve estar em execução.
+- **Passos:** 1. Realizar a requisição POST em changePassword/.
+              2. Enviar senha atual e nova senha forte.
+- **Resultado Esperado:** Status 200, com a mensagem: "Senha alterada com sucesso!"
+- **Resultado Obtido:** Nova senha cumpriu os requisitos de segurança.
 
-### CT-06: Impedir alteração com Senha Atual incorreta
+### CT-06 - Impedir alteração com Senha Atual incorreta
+- **Descrição:** Verificar se o campo de senha atual aceita senhas incorretas (que não foram cadastradas)
+- **Pré-condições:** Servidor Backend deve estar em execução.
+- **Passos:** 1. Realizar a requisição POST em changePassword/. 2. Enviar senha errada no campo senha atual e uma nova senha.
+- **Resultado Esperado:** Status 401 (Unauthorized) ou 400. Mensagem informando que a senha atual não confere.
+- **Resultado Obtido:** Usuário não pode trocar a senha, pois digitou a senha atual errada.
 
-### CT-07: Impedir que a Nova Senha seja igual à Senha Atual 
+### CT-07 - Impedir que a Nova Senha seja igual à Senha Atual 
+- **Descrição:** Verificar se a nova senha não é igual a senha atual.
+- **Pré-condições:** Servidor Backend deve estar em execução.
+- **Passos:** Enviar nova senha que, após a limpeza de espaços, seja idêntica à senha atual.
+- **Resultado Esperado:** Bloqueio do envio e status 400, com a mensagem: "A nova senha não pode ser igual à senha atual!".
+- **Resultado Obtido:** Nova senha foi bloquada, e uma mensagem de alerta foi exibida.
 
-### CT-08: Validar persistência no Banco 
 
 ## 🗄️ Validação de Persistência (SQL)
 - **Processo:** Após o resultado obtido nos casos de teste(CT-01, CT-02, CT-03, CT-04), foi realizada uma consulta no banco de dados para garantir o registro dos dados em todos os casos.

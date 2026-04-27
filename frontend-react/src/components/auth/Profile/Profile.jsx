@@ -41,7 +41,7 @@ function Profile() {
   const handleSaveProfile = (e) => {
     e.preventDefault();
     console.log("Dados salvos:", userData);
-    toast.success("Perfil salvo com sucesso!");
+    toast.success("Alterações salvas com sucesso!");
 
 
     setUserData(tempUserData); //pegando os dados temporários e jogando no oficial
