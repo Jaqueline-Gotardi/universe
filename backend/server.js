@@ -128,12 +128,12 @@ app.post('/login', async(req, res) => {
             if (compararSenha === true) { //se senha estiver correta
             const chaveJwt = process.env.JWT_SECRET;
 
-            const token = jwt.sign({ id: user.id, email: user.email }, chaveJwt, { expiresIn: "1h" }); //gera token
+            const token = jwt.sign({ id: user.id, email: user.email }, chaveJwt, { expiresIn: "24h" }); //gera token
             res.cookie("token", token, {
-                httpOnly: true, 
-                secure: false,
-                sameSite: "lax",
-                maxAge: 360000
+                httpOnly: true, //impedir que roubem o código ou acessem o token
+                secure: false, //enviar a conexão via http (localmente)
+                sameSite: "lax", //impede que sites maliciosos consigam disparar ações usando sua aba
+                maxAge: 24 * 60 * 60 * 1000 //tempo de vida do cookie (24horas)
             });
 
             console.log('Login bem sucedido!')
