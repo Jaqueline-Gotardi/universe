@@ -47,9 +47,13 @@ function RegisterPage() {
       return;
     }
 
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email)) {
-      toast.warning("🚀 Agente, o formato desse e-mail não é reconhecido pelas normas estelares, teste novamnete!")
+    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];
+
+    const temExtensaoProibida = extensoesProibidas.some(ext => email.toLowerCase().endsWith(ext));
+
+    if (!emailRegex.test(email) || temExtensaoProibida) {
+      toast.warning("🚀 Agente, o formato desse e-mail não é reconhecido pelas normas estelares, teste novamente!")
       return;
     }
 

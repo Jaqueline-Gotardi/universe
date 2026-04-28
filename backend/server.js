@@ -58,9 +58,13 @@ app.post('/register', async (req, res) => {
    }
 
    //para aceitar somente formato de email válido
-   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-   if (!emailRegex.test(email)) {
-    return res.status(400).json({ message: "Por favor, insira um e-mail válido!" });
+   const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+   const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];
+   
+   const temExtensaoProibida = extensoesProibidas.some(ext => email.toLowerCase().endsWith(ext));
+
+   if (!emailRegex.test(email) || temExtensaoProibida) {
+    return res.status(400).json({ message: "Formato de e-mail inválido ou extensão de arquivo não permitida!" });
    }
 
    //verificar duplicidade de dados no banco de dados
