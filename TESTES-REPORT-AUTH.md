@@ -177,3 +177,15 @@ line: '638' ```
 - **Response (201 Created):** ```{ "message": "Usuário cadastrado com sucesso!" }```
 
 - **Evidência:** ![Cadastro sucesso](./docs/test-evidence/07.1-cadastro-ursername-formatoImg.png)  
+
+### BUG-05. [Login] - Falha no redirecionamento após expiração de sessão
+
+- **Severidade:** Alta
+- **Prioridade:** Alta
+- **Ambiente:** DevTools
+- **Descrição:** O cookie expira (deleta-se), mas o usuário permanece na rota protegida /app. 
+- **Passos para Reproduzir:** 1. Logar com credenciais válidas, 2. Aguardar 10 segundos (o tempo definido no server.js para este teste).
+- **Resultado Esperado:** Ao perder o cookie, o sistema deve detectar a falta de autorização e redirecionar para /login imediatamente.
+- **Resultado Obtido:** O usuário permanece na página, podendo ver dados em cache, embora não consiga realizar novas ações que dependam do backend.
+
+- **Evidência:** ![Cookie expirado](./docs/test-evidence/08-sessao-expirada(cookie-apareceu).png) ![Cookie expirado](./docs/test-evidence/08-sessao-expirada(cookie-sumiu).png)    
