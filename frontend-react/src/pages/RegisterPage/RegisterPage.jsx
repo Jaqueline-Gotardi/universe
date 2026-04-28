@@ -47,6 +47,12 @@ function RegisterPage() {
       return;
     }
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      toast.warning("🚀 Agente, o formato desse e-mail não é reconhecido pelas normas estelares, teste novamnete!")
+      return;
+    }
+
     //confirmar se a senha digitada é igual a digitada no campo de confirmar senha
     if (password !== confirmPassword) {
       toast.warning("🚀 Senhas espaciais não coincidem!")

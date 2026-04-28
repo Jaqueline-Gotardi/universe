@@ -139,7 +139,7 @@ line: '638' ```
 
 - **Evidência:** ![Cadastro Erro](./docs/test-evidence/05-limite-caracteres.png) 
 
-### BUG-02. [Cadastro] – Falha na validação do formato de e-mail (regEx inválida)
+### [RESOLVIDO] BUG-02. [Cadastro] – Falha na validação do formato de e-mail (regEx inválida)
 
 - **Severidade:** Alta (pois irá impedir uma futura recuperação de senha, caso seja preciso)
 - **Prioridade:** Alta

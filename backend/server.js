@@ -57,6 +57,12 @@ app.post('/register', async (req, res) => {
     return res.status(400).json({message: "O nome de usuário deve ter no máximo 50 caracteres!"})
    }
 
+   //para aceitar somente formato de email válido
+   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+   if (!emailRegex.test(email)) {
+    return res.status(400).json({ message: "Por favor, insira um e-mail válido!" });
+   }
+
    //verificar duplicidade de dados no banco de dados
    try {
     console.log('3. Verificando duplicidade de usuário/email...')
