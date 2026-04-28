@@ -102,6 +102,10 @@ console.log('9. resultado da inserção:', verificarSenha.rows);
  }
 })
 
+//ROTA PARA VERIFICAR SE O COOKIE AINDA É VÁLIDO (SE O USUÁRIO AINDA ESTÁ AUTENTICADO)
+app.get("/auth/verify", authMiddleware, (req, res) => {
+    res.status(200).json({ authMiddleware: true, user: req.user });
+});
 
 //ROTA DE LOGIN DO USUÁRIO
 app.post('/login', async(req, res) => {

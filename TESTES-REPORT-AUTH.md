@@ -178,7 +178,7 @@ line: '638' ```
 
 - **Evidência:** ![Cadastro sucesso](./docs/test-evidence/07.1-cadastro-ursername-formatoImg.png)  
 
-### BUG-05. [Login] - Falha no redirecionamento após expiração de sessão
+### [RESOLVIDO] BUG-05. [Login] - Falha no redirecionamento após expiração de sessão
 
 - **Severidade:** Alta
 - **Prioridade:** Alta
@@ -188,4 +188,4 @@ line: '638' ```
 - **Resultado Esperado:** Ao perder o cookie, o sistema deve detectar a falta de autorização e redirecionar para /login imediatamente.
 - **Resultado Obtido:** O usuário permanece na página, podendo ver dados em cache, embora não consiga realizar novas ações que dependam do backend.
 
-- **Evidência:** ![Cookie expirado](./docs/test-evidence/08-sessao-expirada(cookie-apareceu).png) ![Cookie expirado](./docs/test-evidence/08-sessao-expirada(cookie-sumiu).png)    
+- **Evidência:** ![Cookie expirado](./docs/test-evidence/08-sessao-expirada(cookie-apareceu).png) ![Cookie expirado](./docs/test-evidence/08-sessao-expirada(cookie-sumiu).png)     
