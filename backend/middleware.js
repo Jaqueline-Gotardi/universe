@@ -4,19 +4,13 @@ const chaveDoJwt = process.env.JWT_SECRET;
 
   
 function authMiddleware(req, res, next) {
-    const authHeader = req.headers['authorization']; 
 
-    //se o cabeçalho existir. . .
-    if (!authHeader) { 
-        return res.status(401).json({message: 'Acesso negado, token não fornecido. . .'})
-    } 
-
-    const token = authHeader.split(' ')[1] //corta o o texto do token pq vem grande, descartando a palavra "Bearer"
+    const token = req.cookies.token; //pega o token
 
     //se o token não for extraído
        if (!token) {
         //se a extração falhar
-        return res.status(401).json({message: 'O formato de token é inválido.'})
+        return res.status(401).json({message: 'Acesso negado, sessão expirada ou não encontrada.'})
         }
 
         //verificação real do jwt

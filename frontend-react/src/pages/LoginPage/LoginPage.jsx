@@ -37,6 +37,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
       headers: {
         "Content-type": "application/json",
       },
+      credentials: "include", //essencial para o navegador enviar o cookie
       body: JSON.stringify({ email, password}),
       });
 

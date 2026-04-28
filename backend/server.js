@@ -9,9 +9,18 @@ const authMiddleware = require('./middleware'); //importando. . .
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
 //cors é uma biblioteca para o expŕess
 
+const cookieParser = require("cookie-parser");
+app.use(cookieParser())
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true, //para permitir que o cookie viage entre o front e o back
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json()); //para o express ler requisições json
 app.use(express.urlencoded({extended : true})); //para o express ler dados de formulários
-app.use(cors()); 
 
 // É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
 
@@ -119,16 +128,13 @@ app.post('/login', async(req, res) => {
             if (compararSenha === true) { //se senha estiver correta
             const chaveJwt = process.env.JWT_SECRET;
 
-            const payload = {
-                id: user.id,
-                email: user.email
-            } 
- 
-            const options = { 
-                expiresIn: '1h'
-            }
-
-            const token = jwt.sign(payload, chaveJwt, options) //gera token
+            const token = jwt.sign({ id: user.id, email: user.email }, chaveJwt, { expiresIn: "1h" }); //gera token
+            res.cookie("token", token, {
+                httpOnly: true, 
+                secure: false,
+                sameSite: "lax",
+                maxAge: 360000
+            });
 
             console.log('Login bem sucedido!')
             res.status(200).json({message: 'Login bem-sucedido!', token: token}); //envia token pro front
@@ -153,6 +159,7 @@ app.post('/login', async(req, res) => {
     }
 })
 
+
 //ROTA DE RECUPERAÇÃO DE SENHA
 app.post('/recuperar-senha', async(req, res) => {
     const { email } = req.body;
@@ -176,6 +183,7 @@ app.post('/recuperar-senha', async(req, res) => {
         return res.status(500).json({message: "Erro interno no servidor. Tente novamente mais tarde."})
     }
 })
+
 
 //ROTA DE TROCAR SENHA
 app.post('/change-password', authMiddleware, async(req, res) => {
@@ -221,9 +229,6 @@ app.post('/change-password', authMiddleware, async(req, res) => {
     }
 })
    
-
-
-
 
 //ROTA SEARCH (PARA BUSCAR OS DADOS NA API...)
     //app.get('/search', authMiddleware, async(req, res) => {

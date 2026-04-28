@@ -72,7 +72,10 @@ function ChangePassword() {
     try { 
       const response = await fetch("http://localhost:3000/change-password", {
         method: "POST",
-        headers: { "Content-Type": "application/json"},
+        headers: { 
+          "Content-Type": "application/json",
+        },
+        credentials: "include", //essencial para o navegador enviar o cookie
         body: JSON.stringify({senhaAtual, novaSenha}) 
       })
 
