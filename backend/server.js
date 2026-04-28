@@ -46,10 +46,15 @@ app.post('/register', async (req, res) => {
    //verificar se existem ou se estão vazios. . .
    if (!username || username.trim() === '' 
      || !email || email.trim() === '' 
-     || !password || password.trim() === '') {
 
+     || !password || password.trim() === '') {
     res.status(400).json({ message: 'Todos os campos (username, email, password) são obrigatórios!'})
     return;
+   }
+
+   //para não aceitar nomes com mais de 50 caracteres
+   if (username.length > 50) {
+    return res.status(400).json({message: "O nome de usuário deve ter no máximo 50 caracteres!"})
    }
 
    //verificar duplicidade de dados no banco de dados
@@ -101,6 +106,7 @@ console.log('9. resultado da inserção:', verificarSenha.rows);
     return;
  }
 })
+
 
 //ROTA PARA VERIFICAR SE O COOKIE AINDA É VÁLIDO (SE O USUÁRIO AINDA ESTÁ AUTENTICADO)
 app.get("/auth/verify", authMiddleware, (req, res) => {

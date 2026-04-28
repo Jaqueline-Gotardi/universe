@@ -120,7 +120,7 @@ Validar os fluxos de criação de conta e autenticação para garantir a integri
 
 ## 🎯 Objetivo: Validar limite de caracteres, formatação de email e integridade do username para garantir que os dados salvos no BD sejam seguros.
 
-### BUG-01: [Cadastro] - Erro de 500 ao enviar username > 50 caracteres
+### [RESOLVIDO] BUG-01: [Cadastro] - Erro de 500 ao enviar username > 50 caracteres
 
 - **Severidade:** Crítico (O servidor cai)
 - **Prioridade:** Alta
