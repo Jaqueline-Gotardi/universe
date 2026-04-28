@@ -57,6 +57,12 @@ app.post('/register', async (req, res) => {
     return res.status(400).json({message: "O nome de usuário deve ter no máximo 50 caracteres!"})
    }
 
+   //aceitar username apenas com letras e números
+   const usernameRegex = /^[a-zA-Z0-9 ]+$/;
+   if (!usernameRegex.test(username)) {
+    return res.status(400).json({ message: "O nome de agente deve conter apenas letras e números, sem símbolos ou extensões!" });
+   }
+
    //para aceitar somente formato de email válido
    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
    const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];

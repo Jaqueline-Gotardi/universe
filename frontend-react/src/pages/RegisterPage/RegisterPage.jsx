@@ -47,6 +47,13 @@ function RegisterPage() {
       return;
     }
 
+    //aceitar username apenas com letras e números
+   const usernameRegex = /^[a-zA-Z0-9 ]+$/;
+   if (!usernameRegex.test(username)) {
+    toast.warning("O nome de agente deve conter apenas letras, números e espaços!'");
+    return;
+   }
+
     const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];
 

@@ -152,7 +152,7 @@ line: '638' ```
 
 - **Evidência:** ![Cadastro Sucesso](./docs/test-evidence/06-cadastro-formato-email.png) 
 
-### BUG-03. [Cadastro] – Username sendo aceito com 100% de caracteres especiais
+### [RESOLVIDO] BUG-03. [Cadastro] – Username sendo aceito com 100% de caracteres especiais
 
 - **Severidade:** Média
 - **Prioridade:** Média
@@ -165,7 +165,7 @@ line: '638' ```
 
 - **Evidência:** ![Cadastro sucesso](./docs/test-evidence/07.0-cadastro-username-formato-numerico.png)  
 
-### BUG-04. [Cadastro] – Username sendo aceito como extensão de arquivo
+### [RESOLVIDO] BUG-04. [Cadastro] – Username sendo aceito como extensão de arquivo
 
 - **Severidade:** Baixa
 - **Prioridade:** Baixa
