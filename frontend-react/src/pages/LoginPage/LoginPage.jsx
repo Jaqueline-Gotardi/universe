@@ -2,6 +2,8 @@
 //no React, não se escreve class, mas: className!
 
 import { useState } from "react"; 
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom"; // Hook para ler a URL
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
@@ -17,8 +19,17 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ password, setPassword ] = useState("");
   const [isLogin, setLogin ] = useState(false); 
   const [ showPassword, setShowPassword ] = useState(false);
-  const [ loading, setLoading ] = useState(false)
-;
+  const [ loading, setLoading ] = useState(false);
+  const [searchParams] = useSearchParams();
+  
+  useEffect(() => {
+    //se na URL tiver ?verified=true, mostra o toast de sucesso
+    if (searchParams.get("verified") === "true") {
+        toast.success("🚀 Identidade confirmada, Agente! Acesso à base autorizado.");
+    }
+}, [searchParams]);
+
+
   const { login } = useAuth();
   const navigate = useNavigate(); //hook do react-router-dom para redirecionar a página
 

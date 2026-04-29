@@ -1,8 +1,36 @@
 const express = require('express'); //framework web para node.js
 const path = require('path'); //módulo nativo do node.js
+
+//É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
+//require('dotenv').config({path: path.join(__dirname, '../.env')}); //configurando o dontev para ler o arquivo .env
+require('dotenv').config()
+
 const app = express(); 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
+console.log("E-mail configurado:", process.env.EMAIL_USER);
+//para enviar email de confirmação pra caixa de entrada do usuário
+const nodemailer = require("nodemailer");
+const crypto = require("crypto");
+
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    }
+})
+
+// Verificação de conexão com o e-mail
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log("❌ Erro na configuração do e-mail:", error);
+  } else {
+    console.log("🚀 O servidor de e-mail está pronto para decolar!");
+  }
+});
+
 
 const authMiddleware = require('./middleware'); //importando. . .
  
@@ -20,11 +48,7 @@ app.use(cors({
 }));
 
 app.use(express.json()); //para o express ler requisições json
-app.use(express.urlencoded({extended : true})); //para o express ler dados de formulários
-
-// É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
-
-require('dotenv').config({path: path.join(__dirname, '../.env')}); //configurando o dontev para ler o arquivo .env 
+app.use(express.urlencoded({extended : true})); //para o express ler dados de formulários 
  
 //importar pool (lá do DB. . .)
 const pool = require('./db_config');
@@ -36,12 +60,13 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //ROTA DE REGISTRAR DADOS DO USUÁRIO
 app.post('/register', async (req, res) => {
-    console.log('1. Requisição de registro recebida')
-   const username = req.body.username;
+    //console.log('1. Requisição de registro recebida')
+    const { username, email, password } = req.body;
+    /* const username = req.body.username;
    const email= req.body.email;
-   const password = req.body.password;
+   const password = req.body.password; */
 
-    console.log('2. Dados do corpo', {username, email, password});
+    //console.log('2. Dados do corpo', {username, email, password});
    
    //verificar se existem ou se estão vazios. . .
    if (!username || username.trim() === '' 
@@ -62,7 +87,7 @@ app.post('/register', async (req, res) => {
    if (!usernameRegex.test(username)) {
     return res.status(400).json({ message: "O nome de agente deve conter apenas letras e números, sem símbolos ou extensões!" });
    }
-
+ 
    //para aceitar somente formato de email válido
    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
    const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];
@@ -75,7 +100,7 @@ app.post('/register', async (req, res) => {
 
    //verificar duplicidade de dados no banco de dados
    try {
-    console.log('3. Verificando duplicidade de usuário/email...')
+    //console.log('3. Verificando duplicidade de usuário/email...')
     const queryText = `SELECT * FROM users 
                        WHERE email = $1 OR username = $2`;
     const verificarDuplicidade = await pool.query(queryText, [email, username]); //extraindo email e username
@@ -89,39 +114,97 @@ app.post('/register', async (req, res) => {
     }
 } catch (error) {
     console.log('5. Erro ao verificar duplicidade no banco de dados:', error)
-    res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
+    res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.', details: error.message});
     return;
 }
 
 //criptografando a senha
-console.log('6. Criptografando a senha. . .')
+//console.log('6. Criptografando a senha. . .')
  const senhaCriptografada = await bcrypt.hash(password, 10); //o "10" é o número de voltas que o bcriptjs dará para fechar o 'cadeado' (é como uma camada extra de proteção de senha para dificultar ataques. . .)
- console.log('7. Senha criptografada')
+ //console.log('7. Senha criptografada')
+
+ const verificationToken = crypto.randomBytes(32).toString("hex"); //gerar um código único
 
  try {
-    console.log('8. Inserindo novo usuário no banco de dados. . .')
-    const querySenha = `INSERT INTO users (username, email, password) 
-                        VALUES ($1, $2, $3) RETURNING id`;
-const verificarSenha = await pool.query(querySenha,[username, email, senhaCriptografada]);
+    const queryInsert = `INSERT INTO users (username, email, password, verification_token) 
+                        VALUES ($1, $2, $3, $4) RETURNING id`
+    const result = await pool.query(queryInsert,[username, email, senhaCriptografada, verificationToken]) 
 
-console.log('9. resultado da inserção:', verificarSenha.rows);
+    if (result.rows.length === 1) {
+        //enviar o emaild e confirmação
+        const urlConfirmacao = `http://127.0.0.1:3000/verify-email?token=${verificationToken}`;
 
-//se pelo menos 1 linha tiver sido inserida no banco. . .
-    if (verificarSenha.rows.length === 1) {
-        console.log('10. Usuário cadastrado com sucesso!');
-        res.status(201).json({message : 'Usuário cadastrado com sucesso!'})
-        return;   
-    } else {
-        console.error('11. Inserção no banco de dados não retornou uma linha.'); 
-        res.status(500).json({ message: 'Erro ao cadastrar usuário: Inserção falhou.' });
-        return;
+        const mailOptions = {
+            from: '"Universe Base Control" <universe.base.st@gmail.com>',
+            to: email,
+            subject: "🚀 Confirme sua identidade, Agente",
+            html: ` 
+            <div style="font-family: sans-serif; background-color: #0b0d17; color: white; padding: 20px; border-radius: 10px;">
+            <h1 style="color: #7b2cbf;">Bem-vindo ao Universe, ${username}!</h1>
+            <p>Sua conta foi criada. Para autorizar o acesso à base, clique no botão abaixo:</p>
+            <a href="${urlConfirmacao}" style="background-color: #7b2cbf; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Confirmar Identidade</a>
+            <p style="margin-top: 20px; font-size: 12px; color: #888;">Se você não solicitou este acesso, ignore este e-mail.</p>
+            </div>
+            `
+        };
+
+        await transporter.sendMail(mailOptions);
+        res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada para confirmar sua identidade."})
     }
  } catch (error) {
-    console.log('12. Erro ao inserir dados no banco:', error)
     res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
     return;
  }
 })
+
+//ROTA PARA VERIFICAR EMAIL
+app.get("/verify-email", async(req, res) => {
+    const { token } = req.query;
+
+    try {
+        const query = `UPDATE users SET is_verified = true, verification_token = null
+                       WHERE verification_token = $1 RETURNING username`;
+        const result = await pool.query(query, [token]);
+        
+        //se pelo menos 1 linha tiver sido inserida no banco. . .
+        if (result.rows.length === 1) {
+            res.send(`
+            <style>
+            * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            }
+            body { 
+            background-color: #0b0d17; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            font-family: 'Segoe UI', sans-serif; 
+            overflow: hidden; 
+            }
+            </style>
+            <div style="text-align: center; color: white; border: 2px solid #7b2cbf; padding: 40px; border-radius: 20px; background: rgba(123, 44, 191, 0.1); box-shadow: 0 0 30px rgba(123, 44, 191, 0.3);">
+            <h1 style="color: #7b2cbf; font-size: 2rem; margin-bottom: 20px;">🚀 Identidade Confirmada!</h1>
+            <p>Agente <strong>${result.rows[0].username}</strong>, seu acesso à base Universe foi autorizado.</p>
+            <a href="http://localhost:5173/login?verified=true" style="display: inline-block; margin-top: 30px; background-color: #7b2cbf; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">IR PARA O LOGIN</a>
+            </div>
+            `)
+        } else {
+            res.status(400).send(`
+                <div style="background-color: #0b0d17; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; font-family: sans-serif;">
+                  <h1 style="color: #ff4d4d;">❌ Erro: Token inválido ou já utilizado.</h1>
+                </div>
+            `)
+        }
+    } catch (error) {
+        res.status(500).send("❌ Erro ao interno ao processar verificação.")
+    }
+});
+
+ /* 
+const verificarSenha = await pool.query(querySenha,[username, email, senhaCriptografada]); */
 
 
 //ROTA PARA VERIFICAR SE O COOKIE AINDA É VÁLIDO (SE O USUÁRIO AINDA ESTÁ AUTENTICADO)
@@ -131,8 +214,9 @@ app.get("/auth/verify", authMiddleware, (req, res) => {
 
 //ROTA DE LOGIN DO USUÁRIO
 app.post('/login', async(req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+    const { email, password } = req.body;
+    /* const email = req.body.email;
+    const password = req.body.password; */
 
     if (!email || email.trim() === ''
         || !password || password.trim() === '') {
@@ -146,8 +230,13 @@ app.post('/login', async(req, res) => {
         const verificarUsers = await pool.query(queryUser,[email]); 
 
         //verificar se o usuário foi encontrado. . .
-        if (verificarUsers.rows.length) { //se usuário for encontrado. . .
-            const user = verificarUsers.rows[0];
+        if (verificarUsers.rows.length > 0) { //se usuário for encontrado. . .
+
+            const user = verificarUsers.rows[0]; //só entra se estiver a identidade confirmada via e-mail
+            if (!user.is_verified) {
+                return res.status(403).json({ message: "📡 Acesso negado. Confirme seu e-mail antes de entrar na base!" });
+            }
+
             const compararSenha = await bcrypt.compare(password, user.password); //"compare" é para verificar se a senha digitada pelo usuário corresponde ao hash armazenado no banco
 
             //se a senha estiver certa. . .
@@ -164,7 +253,6 @@ app.post('/login', async(req, res) => {
 
             console.log('Login bem sucedido!')
             res.status(200).json({message: 'Login bem-sucedido!', token: token}); //envia token pro front
-
             return;
 
             } else {
@@ -341,3 +429,39 @@ app.post('/change-password', authMiddleware, async(req, res) => {
 app.listen(3000, () => { 
     console.log('Servidor em execução em http://localhost:3000/');
 });
+
+
+
+
+
+
+//TENTATIVAS DE EMAIL (TODOS JÁ TEM DONO)
+/* 
+1. base.universe.control@gmail.com
+2. universe.base.hq@gmail.com
+3. universe.base@gmail.com
+4. universe.base.st@gmail.com
+5. base.universe.st@gmail.com
+6. base_universe@gmail.com 
+7. base.universe.core@gmail.com
+8. universe.base.core@gmail.com
+9. base.universe.tech@gmail.com
+10. universe.base.tech@gmail.com
+11. central.universe.st@gmail.com
+12. universe.st@gmail.com
+13. universe@gmail.com
+14. universeBase.st@gmail.com
+15. baseUniverse.st@gmail.com
+16. universeBase.hq@gmail.com
+17. baseUniverse.hq@gmail.com
+18. universe.hq@gmail.com
+19. universe.central.st@gmail.com
+20. universe.central.hq@gmail.com
+21. universe.portal.st@gmail.com
+22. portalUniverse.st@gmail.com
+23. universePortal.st@gmail.com
+24. universeBase@gmail.com
+
+//deu certo esse aqui ...
+25. universe.base.st@gmail.com 
+*/

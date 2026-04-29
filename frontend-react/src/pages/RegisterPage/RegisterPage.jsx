@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify" //importar a lib toast que cria nossas notificações
 import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
@@ -15,7 +15,7 @@ function RegisterPage() {
   const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [ showPassword, setShowPassword ] = useState(false);
 
-  const navigate = useNavigate("")
+  //const navigate = useNavigate("")
    
   const checkStrength = () => { //função para verificar a força da senha
     const requirements = [
@@ -63,7 +63,7 @@ function RegisterPage() {
       toast.warning("🚀 Agente, o formato desse e-mail não é reconhecido pelas normas estelares, teste novamente!")
       return;
     }
-
+ 
     //confirmar se a senha digitada é igual a digitada no campo de confirmar senha
     if (password !== confirmPassword) {
       toast.warning("🚀 Senhas espaciais não coincidem!")
@@ -77,7 +77,7 @@ function RegisterPage() {
         method: "POST",
         headers: {
           "Content-type": "application/json",
-      },
+      }, 
       body: JSON.stringify({ 
         username: username.trim(), //para garantir que os dados do usuário não seja enviado "em branco" pro bd
         email:email.trim(), 
@@ -88,8 +88,14 @@ function RegisterPage() {
     const data = await response.json().catch(() => ({})) //se o servidor retornar erro, o .catch evita que o sistema trave ao tentar ler como json
 
     if (response.ok) {
-      toast.success("👩‍🚀 Cadastro realizado! Faça seu login.")
-      navigate("/login");
+      toast.success("🚀 Quase lá, Agente! Enviamos um link de ativação para seu e-mail.", {
+        autoClose: 8000
+      })
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      //navigate("/login");
     } else {
       toast.error(data.message ||"☄️ Falha ao cadastrar. Verifique os dados e tente novamente.")
     }
