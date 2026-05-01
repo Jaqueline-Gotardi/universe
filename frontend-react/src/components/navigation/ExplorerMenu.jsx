@@ -76,7 +76,11 @@ function ExplorerMenu() {
         setResults(data);
       }
     } catch (err) {
-      setErrorMsg("Falha na comunicação intergaláctica. Verifique o servidor.", err);
+      if (!window.navigator.onLine) { //se a internet cair no meio das buscas
+        setErrorMsg("Você está fora de órbita! Verifique sua conexão com a internet.");
+      } else {
+        setErrorMsg("O centro de comando (servidor) não responde. Tente novamente mais tarde.", err);
+      }
       setResults([]);
     } finally {
       setIsLoading(false);

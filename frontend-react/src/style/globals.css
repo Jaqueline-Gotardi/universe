@@ -12,7 +12,6 @@ body {
     scrollbar-color: rgba(173, 74, 222, 0.9) rgba(31, 0, 51, 0.9);
 }
 
-
 /* estilos customizados para o Toastify (as mensagens amigáveis */
 .Toastify__toast {
     background-color: #0d0b1c !important; 

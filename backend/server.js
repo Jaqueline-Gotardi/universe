@@ -9,7 +9,8 @@ const app = express();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-console.log("E-mail configurado:", process.env.EMAIL_USER);
+//console.log("E-mail configurado:", process.env.EMAIL_USER);
+
 //para enviar email de confirmação pra caixa de entrada do usuário
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
@@ -131,7 +132,7 @@ app.post('/register', async (req, res) => {
     const result = await pool.query(queryInsert,[username, email, senhaCriptografada, verificationToken]) 
 
     if (result.rows.length === 1) {
-        //enviar o emaild e confirmação
+        //enviar o email de confirmação
         const urlConfirmacao = `http://127.0.0.1:3000/verify-email?token=${verificationToken}`;
 
         const mailOptions = {
@@ -157,7 +158,7 @@ app.post('/register', async (req, res) => {
  }
 })
 
-//ROTA PARA VERIFICAR EMAIL
+//ROTA PARA CONFIRMAR A IDENTIDADE DO USUÁRIO AO CADASTRAR
 app.get("/verify-email", async(req, res) => {
     const { token } = req.query;
 
@@ -202,9 +203,6 @@ app.get("/verify-email", async(req, res) => {
         res.status(500).send("❌ Erro ao interno ao processar verificação.")
     }
 });
-
- /* 
-const verificarSenha = await pool.query(querySenha,[username, email, senhaCriptografada]); */
 
 
 //ROTA PARA VERIFICAR SE O COOKIE AINDA É VÁLIDO (SE O USUÁRIO AINDA ESTÁ AUTENTICADO)
@@ -289,6 +287,30 @@ app.post('/recuperar-senha', async(req, res) => {
         const result = await pool.query(queryUser, [email]);
 
         if (result.rows.length > 0) {
+            const username = result.rows[0].username;
+            const resetToken = crypto.randomBytes(32).toString("hex");
+
+            const updateQuery = `UPDATE users SET verification_token = $1
+                                 WHERE email = $2`;
+            await pool.query(updateQuery, [resetToken, email]);
+
+            const urlReset = `http://localhost:5173/reset-password?token=${resetToken}`;
+
+            const mailOptions = {
+                from: '"Universe Base Control" <universe.base.st@gmail.com>',
+                to: email,
+                subject: "🛰️ Coordenadas de Recuperação de Acesso",
+                html: `
+                <div style="font-family: sans-serif; background-color: #0b0d17; color: white; padding: 20px; border-radius: 10px;">
+                <h1 style="color: #7b2cbf;">Comandante ${username},</h1>
+                <p>Recebemos um pedido para redefinir sua senha de acesso à base Universe.</p>
+                <p>Clique no botão abaixo para configurar uma nova senha:</p>
+                <a href="${urlReset}" style="background-color: #7b2cbf; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Redefinir Senha</a>
+                <p style="margin-top: 20px; font-size: 12px; color: #888;">Este link é temporário. Se não foi você, proteja seus dados e ignore este e-mail.</p>
+                </div>
+            `}
+
+            await transporter.sendMail(mailOptions);
             return res.status(200).json({message: "E-mail de recuperação enviado com sucesso!"});
         } else {
             return res.status(404).json({message: "E-mail não encontrado na nossa base estelar."})
@@ -297,6 +319,41 @@ app.post('/recuperar-senha', async(req, res) => {
         return res.status(500).json({message: "Erro interno no servidor. Tente novamente mais tarde."})
     }
 })
+
+//ROTA PARA CONFIRMAR A RECUPERAÇÃO DE SENHA (APÓS O CLIQUE NO E-MAIL)
+app.post("/reset-password", async (req, res) => {
+    const { token, novaSenha } = req.body; 
+    
+    if (!token || !novaSenha) {
+        return res.status(400).json({ message: "Dados incompletos: Token e nova senha são obrigatórios." });
+    }
+
+    try {
+        //verificar se existe um usuário com esse token
+        const queryUser = `SELECT id FROM users WHERE verification_token = $1`;         
+        const userResult = await pool.query(queryUser, [token]);
+T
+        if (userResult.rows.length === 0) {
+            return res.status(400).json({ message: "Token inválido ou expirado." });
+        }
+
+        //criptografar a nova senha
+        const salt = await bcrypt.genSalt(10);
+        const senhaCriptografada = await bcrypt.hash(novaSenha, salt);
+
+        //atualizar a senha e limpar o token para que não possa ser usado de novo
+        const updateQuery = ` UPDATE users 
+                              SET password = $1, verification_token = null 
+                              WHERE verification_token = $2 `;
+        await pool.query(updateQuery, [senhaCriptografada, token]);
+
+        return res.status(200).json({ message: "Senha redefinida com sucesso! Você já pode voltar para a base." });
+
+    } catch (error) {
+        console.error("Erro ao redefinir senha:", error);
+        return res.status(500).json({ message: "Erro interno no servidor espacial." });
+    }
+});
 
 
 //ROTA DE TROCAR SENHA

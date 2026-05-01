@@ -12,20 +12,35 @@ function PasswordRecovery() {
   async function handleRecover(event) { //função para disparar o pedido de recuperar senha, via email
     event.preventDefault();
     setLoading(true);
-    try {
 
+    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];
+    
+    const temExtensaoProibida = extensoesProibidas.some(ext => email.toLowerCase().endsWith(ext));
+    if (!emailRegex.test(email) || temExtensaoProibida) {
+      toast.warning("🚀 Agente, o formato desse e-mail não é reconhecido pelas normas estelares, teste novamente!")
+      return;
+    }
+    
+    try {
       const response = await fetch("http://localhost:3000/recuperar-senha", {
         method: "POST",
-        headers: { "Content-Type": "application/json"},
+        headers: { 
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({email}) //enviar email para o servidor
       })
 
       if (response.ok) {
         setSubmitted(true)
-        toast.success("🚀 E-mail de recuperação enviado! Verifique sua caixa de entrada.")
+        toast.success("🚀 E-mail de recuperação enviado! Verifique sua caixa de entrada.", {
+          autoClose: 8000
+        })
+        setEmail("");
       } else {
         const errorData = await response.json();
-        toast.error(`☄️ E-mail não encontrado na nossa base estelar ${errorData.message}`)
+        toast.error(`☄️ E-mail não encontrado na nossa base estelar`)
+        console.log(errorData);
       }
     } catch {
       toast.error("📡 Falha na conexão. Tente novamente mais tarde!")

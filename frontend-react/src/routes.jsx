@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 import PasswordRecovery from './pages/PasswordRecovery/PasswordRecovery.jsx';
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
 import Page404 from './pages/Page404/Page404.jsx';
 
 import ProtectRoute from './components/auth/ProtectRoute.jsx';
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
   {
     path: "/recuperar-senha",
     element: <PasswordRecovery />
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />
   },
   {
     path: "/app",
