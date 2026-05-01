@@ -125,7 +125,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
           <NavLink to="/register" id="cadastro-link"> Cadastre-se</NavLink> 
           </span>
           <span className={styles.cadastroLink} style={{marginTop: "0px"}}>
-            <NavLink to="/recuperar-senha">Esqueceu sua senha?</NavLink>
+            <NavLink to="/password-recovery">Esqueceu sua senha?</NavLink>
           </span>
           
         </form> 

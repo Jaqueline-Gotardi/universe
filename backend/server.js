@@ -273,7 +273,7 @@ app.post('/login', async(req, res) => {
 
 
 //ROTA DE RECUPERAÇÃO DE SENHA
-app.post('/recuperar-senha', async(req, res) => {
+app.post('/password-recovery', async(req, res) => {
     const { email } = req.body;
 
     if (!email || email.trim() === '') {

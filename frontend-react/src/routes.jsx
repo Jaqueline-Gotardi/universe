@@ -98,7 +98,7 @@ const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
-    path: "/recuperar-senha",
+    path: "/password-recovery",
     element: <PasswordRecovery />
   },
   {

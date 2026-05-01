@@ -23,7 +23,7 @@ function PasswordRecovery() {
     }
     
     try {
-      const response = await fetch("http://localhost:3000/recuperar-senha", {
+      const response = await fetch("http://localhost:3000/password-recovery", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json"
@@ -63,10 +63,10 @@ function PasswordRecovery() {
           
           <form className={styles.formRecuperarSenha} onSubmit={handleRecover}>
             <div className={styles.campoInput}>
-              <label htmlFor="email-recuperar-senha">E-mail de Cadastro</label>
+              <label htmlFor="email-password-recovery">E-mail de Cadastro</label>
               <input 
                 type="email" 
-                id="email-recuperar-senha" 
+                id="email-password-recovery" 
                 placeholder="seu-email@universo.com"
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
@@ -80,6 +80,9 @@ function PasswordRecovery() {
               {loading ? "Enviando" : "Enviar Instruções"}
             </button>
           </form>
+          <p className={styles.linkVoltar}>Lembrou a senha?
+            <NavLink to="/login"> Voltar para a base</NavLink>
+          </p>
           </>
           ) : (  //se o email for enviado, mostrar informações de ok
           <div className={styles.sucessoContainer}>
@@ -89,10 +92,6 @@ function PasswordRecovery() {
             </p>
           </div>
         )}
-        
-        <p className={styles.linkVoltar}>Lembrou a senha? 
-          <NavLink to="/login"> Voltar para a base</NavLink>
-        </p>
       </div>
     </section>
   );
