@@ -296,7 +296,7 @@ app.post('/password-recovery', async(req, res) => {
 
             const urlReset = `http://localhost:5173/reset-password?token=${resetToken}`;
 
-            const mailOptions = {
+            const mailOptions = { 
                 from: '"Universe Base Control" <universe.base.st@gmail.com>',
                 to: email,
                 subject: "🛰️ Coordenadas de Recuperação de Acesso",

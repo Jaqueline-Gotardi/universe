@@ -20,7 +20,7 @@ function PasswordRecovery() {
     if (!emailRegex.test(email) || temExtensaoProibida) {
       toast.warning("🚀 Agente, o formato desse e-mail não é reconhecido pelas normas estelares, teste novamente!")
       return;
-    }
+    } 
     
     try {
       const response = await fetch("http://localhost:3000/password-recovery", {

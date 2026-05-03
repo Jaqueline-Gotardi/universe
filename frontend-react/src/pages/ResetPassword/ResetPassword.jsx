@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
 import { toast } from "react-toastify";
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./ResetPassword.module.css";
@@ -11,6 +12,8 @@ function ResetPassword() {
 
   const [novaSenha, setNovaSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [showNovaSenha, setShowNovaSenha] = useState(false);
+  const [showConfirmarSenha, setShowConfirmarSenha] = useState(false);
   const [loading, setLoading] = useState(false);
 
   async function handleReset(event) {
@@ -56,24 +59,44 @@ function ResetPassword() {
         <form onSubmit={handleReset} className={styles.form}>
           <div className={styles.campo}>
             <label>Nova Senha</label>
+            <div className={styles.campoSenhaWrapper}>
             <input
-              type="password"
+              type={showNovaSenha ? "text" : "password"}
               value={novaSenha}
+              className={styles.formInput} 
               onChange={(e) => setNovaSenha(e.target.value)}
-              required
               placeholder="Digite a nova senha"
+              required
             />
+            <button type="button" 
+            className={styles.iconeOlho} 
+            onClick={() => setShowNovaSenha(!showNovaSenha)} 
+            tabIndex="-1"
+            > 
+            {showNovaSenha ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
           </div>
 
           <div className={styles.campo}>
             <label>Confirmar Senha</label>
+            <div className={styles.campoSenhaWrapper}>
             <input
-              type="password"
+              type={showConfirmarSenha ? "text" : "password"}
               value={confirmarSenha}
+              className={styles.formInput} 
               onChange={(e) => setConfirmarSenha(e.target.value)}
-              required
               placeholder="Repita a nova senha"
+              required
             />
+            <button type="button" 
+            className={styles.iconeOlho} 
+            onClick={() => setShowConfirmarSenha(!showConfirmarSenha)} 
+            tabIndex="-1"
+            > 
+            {showConfirmarSenha ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+            </div>
           </div>
 
           <button type="submit" disabled={loading} className={styles.btn}>

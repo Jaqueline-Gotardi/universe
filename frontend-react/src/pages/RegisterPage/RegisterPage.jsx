@@ -13,7 +13,8 @@ function RegisterPage() {
   const [ password, setPassword ] = useState("");
   const [ confirmPassword, setConfirmPassword ] = useState("");
   const [ isSubmitting, setIsSubmitting ] = useState(false);
-  const [ showPassword, setShowPassword ] = useState(false);
+  const [showSenha, setShowSenha] = useState(false);
+  const [showConfirmarSenha, setShowConfirmarSenha] = useState(false);
 
   //const navigate = useNavigate("")
    
@@ -131,7 +132,7 @@ function RegisterPage() {
         <div className={styles.campoInput}>
           <label htmlFor="senha-cadastro">Senha</label>
         <div className={styles.campoSenhaWrapper}>
-          <input type={showPassword ? "text" : "password"} //mostrar a senha (quando o olhindo for ativado) e mostrar em forma de pontinhos(senha) quando o olho for desativado
+          <input type={showSenha ? "text" : "password"} //mostrar a senha (quando o olhindo for ativado) e mostrar em forma de pontinhos(senha) quando o olho for desativado
           id="senha-cadastro" 
           placeholder="Crie uma senha forte"
           value={password} 
@@ -141,10 +142,10 @@ function RegisterPage() {
 
           <button type="button" 
           className={styles.iconeOlho} 
-          onClick={() => setShowPassword(!showPassword)} 
+          onClick={() => setShowSenha(!showSenha)} 
           tabIndex="-1" //pula o olhindo para ir pro próximo campo quando o usuário clicar em tab
           > 
-            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />} {/*fazer a troca dos olhinhos completo/e com risco no meio */}
+            {showSenha ? <EyeOff size={20} /> : <Eye size={20} />} {/*fazer a troca dos olhinhos completo/e com risco no meio */}
           </button>
         </div>
 
@@ -170,9 +171,22 @@ function RegisterPage() {
  
         <div className={styles.campoInput}>
           <label htmlFor="cofirma-senha-cadastro">Confirmar Senha</label>
-          <input type="password" id="cofirma-senha-cadastro" placeholder="Confirme sua senha" 
+          <div className={styles.campoSenhaWrapper}>
+          <input type={showConfirmarSenha ? "text" : "password"} 
+          id="cofirma-senha-cadastro" placeholder="Confirme sua senha" 
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)} required/>
+          onChange={(e) => setConfirmPassword(e.target.value)} 
+          required
+          />
+
+          <button type="button"
+          className={styles.iconeOlho} 
+          onClick={() => setShowConfirmarSenha(!showConfirmarSenha)} 
+          tabIndex="-1" //pula o olhindo para ir pro próximo campo quando o usuário clicar em tab
+          > 
+            {showConfirmarSenha ? <EyeOff size={20} /> : <Eye size={20} />} {/*fazer a troca dos olhinhos completo/e com risco no meio */}
+          </button>
+        </div>
         </div>
 
         <div className={styles.captchaContainer}>
