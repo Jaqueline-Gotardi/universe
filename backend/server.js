@@ -290,7 +290,7 @@ app.post('/password-recovery', async(req, res) => {
             const username = result.rows[0].username;
             const resetToken = crypto.randomBytes(32).toString("hex");
 
-            const updateQuery = `UPDATE users SET verification_token = $1
+            const updateQuery = `UPDATE users SET reset_token = $1
                                  WHERE email = $2`;
             await pool.query(updateQuery, [resetToken, email]);
 
@@ -330,9 +330,10 @@ app.post("/reset-password", async (req, res) => {
 
     try {
         //verificar se existe um usuário com esse token
-        const queryUser = `SELECT id FROM users WHERE verification_token = $1`;         
+        const queryUser = `SELECT id FROM users 
+                           WHERE reset_token = $1`;         
         const userResult = await pool.query(queryUser, [token]);
-T
+
         if (userResult.rows.length === 0) {
             return res.status(400).json({ message: "Token inválido ou expirado." });
         }
@@ -343,8 +344,8 @@ T
 
         //atualizar a senha e limpar o token para que não possa ser usado de novo
         const updateQuery = ` UPDATE users 
-                              SET password = $1, verification_token = null 
-                              WHERE verification_token = $2 `;
+                              SET password = $1, reset_token = null 
+                              WHERE reset_token = $2 `;
         await pool.query(updateQuery, [senhaCriptografada, token]);
 
         return res.status(200).json({ message: "Senha redefinida com sucesso! Você já pode voltar para a base." });

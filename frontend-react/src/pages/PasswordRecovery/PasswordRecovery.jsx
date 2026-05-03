@@ -77,7 +77,7 @@ function PasswordRecovery() {
             <button type="submit" 
             className={styles.btnRecuperarSenha}
             disabled={loading} >
-              {loading ? "Enviando" : "Enviar Instruções"}
+              {loading ? "Enviando. . ." : "Enviar Instruções"}
             </button>
           </form>
           <p className={styles.linkVoltar}>Lembrou a senha?
