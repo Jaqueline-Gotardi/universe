@@ -29,9 +29,9 @@ function ResetPassword() {
     const metCount = requirements.filter(req => req.re.test(novaSenha)).length; //verificar as requisições no campo password
     let strengthClass = '';
     if (novaSenha.length > 0) { //se tiver algo escrito
-      if (metCount <= 2) strengthClass = styles.weak; //se tiver 0 a 2 requisitos cumpridos, a senha é fraca
-      else if (metCount === 3) strengthClass = styles.medium; //se tiver 3, ela é mediana
-      else strengthClass = styles.strong; //4 requisitos cumpridos => a senha é forte!
+      if (metCount <= 2) strengthClass = "weak"; //se tiver 0 a 2 requisitos cumpridos, a senha é fraca
+      else if (metCount === 3) strengthClass = "medium"; //se tiver 3, ela é mediana
+      else strengthClass = "strong"; //4 requisitos cumpridos => a senha é forte!
     }
 
     return { requirements, metCount, strengthClass };
@@ -100,17 +100,17 @@ function ResetPassword() {
             </button>
           </div>
 
-          <div className={styles.passwordStrengthWrapper}>  
+          <div className="passwordStrengthWrapper">  
             {/* barrinha de progresso para ver se a senha está ficando forte*/}
-            <div className={styles.strengthBar}>
-              <div className={`${styles.strengthProgress} ${strengthClass}`}></div>
+            <div className="strengthBar">
+              <div className={`strengthProgress ${strengthClass}`}></div>
               </div>
               {/* listinha dos requisitos para a senha forte */}
-              <ul className={styles.requirementList}>
+              <ul className="requirementList">
                 {requirements.map((req, i) => (
                   <li 
                   key={i} 
-                  className={`${styles.requirementItem} ${req.re.test(novaSenha) ? styles.met : styles.unmet}`}
+                  className={`requirementItem ${req.re.test(novaSenha) ? "met" : "unmet"}`}
                   >
                   {req.re.test(novaSenha) ? '●' : '○'} {req.label} {/* a bolinha muda conforme o requisito for cumprido */}
                   </li>

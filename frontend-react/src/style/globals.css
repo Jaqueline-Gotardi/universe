@@ -70,8 +70,42 @@ body {
     transition: color 0.3s ease;
 }
 
-.met { color: #00ffcc; }
-.unmet { color: #a3a3c2; opacity: 0.6; }
+.met {
+  color: #00ffcc;
+}
+
+.unmet {
+  color: #a3a3c2;
+  opacity: 0.6;
+}
+
+.statusContainer {
+  margin-top: 10px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.avisoSenhaFraca {
+  color: #fbbf24;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 /* estilização para a tela de detalhes dos planetas, com fundo espacial e estrelas animadas
