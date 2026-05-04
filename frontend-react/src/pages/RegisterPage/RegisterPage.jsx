@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify" //importar a lib toast que cria nossas notificações
 import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
@@ -13,10 +12,8 @@ function RegisterPage() {
   const [ password, setPassword ] = useState("");
   const [ confirmPassword, setConfirmPassword ] = useState("");
   const [ isSubmitting, setIsSubmitting ] = useState(false);
-  const [showSenha, setShowSenha] = useState(false);
-  const [showConfirmarSenha, setShowConfirmarSenha] = useState(false);
-
-  //const navigate = useNavigate("")
+  const [ showSenha, setShowSenha ] = useState(false);
+  const [ showConfirmarSenha, setShowConfirmarSenha ] = useState(false);
    
   const checkStrength = () => { //função para verificar a força da senha
     const requirements = [
@@ -26,7 +23,7 @@ function RegisterPage() {
       { re: /[^A-Za-z0-9]/, label: "Especial" } //o "^" significa não, se não for letra, nem número (sobra os caracteres especiais!)
     ];
     
-    //o meCount é o contador de "sucessos"
+    //o metCount é o contador de "sucessos"
     const metCount = requirements.filter(req => req.re.test(password)).length; //verificar as requisições no campo password
     let strengthClass = '';
     if (password.length > 0) { //se tiver algo escrito
@@ -34,7 +31,7 @@ function RegisterPage() {
       else if (metCount === 3) strengthClass = styles.medium; //se tiver 3, ela é mediana
       else strengthClass = styles.strong; //4 requisitos cumpridos => a senha é forte!
     }
-    
+
     return { requirements, metCount, strengthClass };
   };
   const { requirements, strengthClass, metCount } = checkStrength();
