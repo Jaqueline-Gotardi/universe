@@ -40,7 +40,5 @@ Para garantir essa qualidade, eu utilizo:
 
 ---
 
-## 🛰️ Próximos Passos (Roadmap de QA)
-- [ ] Implementar validação de e-mail em tempo real.
 
 > *"Qualidade não é um ato, é um hábito de Agente Estelar."* 🌌

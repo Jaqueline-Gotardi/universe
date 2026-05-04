@@ -173,9 +173,7 @@ Cada linha de código representa uma descoberta, e alguns erros de vírgula tamb
 O Universe é um organismo vivo e a missão continua com as seguintes metas:
 
 1. **Conexão com Supabase**: Migrar os dados temporários para o **Supabase** e implementar autenticação real.
-2. **Sistema de Notificações (Toasts)**: Substituir alertas simples por notificações amigáveis.
-3. **Página 404 Espacial**: Finalização da tela de "Agente Perdido no Espaço" para rotas não encontradas.
-4. **Linha do Tempo**: Galeria de evolução histórica (2022-2026).
+2. **Linha do Tempo**: Galeria de evolução histórica (2022-2026).
    
 Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínuo, 1% melhor por dia. 💙  
 
