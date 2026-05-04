@@ -7,15 +7,22 @@ import { AgentBadge } from "../components/auth/AgentBadge/AgentBadge";
 function DashboardPage() { //nome de componentes/funções em React deve-se começar com letras maiúsculas
 
   const location = useLocation()
-  const displayAgent = location.pathname === ("/app/profile") //se a rota for profile
+  const hideAgentBadge = ["/app/profile", "/app/delete-account"]; //se a rota for profile ou delete-account, não mostra o crachá de agente
+  const shouldHideAgentBadge = hideAgentBadge.includes(location.pathname);
+
+  const shouldHideSound = location.pathname === "/app/delete-account"; //se a rota for delete-account-não mostra o ícone musical 
 
     return (
     <div>
       <main>
         <Outlet /> {/*renderiza os componentes filhos conforme as rotas definidas no main.jsx */}
       </main>
+      
+      {/* Só renderiza o Badge se NÃO estiver nas rotas de ocultar */}
+      {!shouldHideAgentBadge && <AgentBadge />} 
 
-      {!displayAgent && <AgentBadge />} {/* se a rota não for /profile, mostra o crachá do agente */}
+      {/* Só renderiza o som se NÃO for a tela de deletar */}
+      {!shouldHideSound && <SoundTrack />}
 
       <SoundTrack />
       </div>

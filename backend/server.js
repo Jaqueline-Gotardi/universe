@@ -335,7 +335,7 @@ app.post("/reset-password", async (req, res) => {
         const userResult = await pool.query(queryUser, [token]);
 
         if (userResult.rows.length === 0) {
-            return res.status(400).json({ message: "Token inválido ou expirado." });
+            return res.status(400).json({ message: "Token inválido ou expirado. Peça uma nova recuperação de senha." });
         }
 
         //criptografar a nova senha
