@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify"
 import { AuthContext } from '../contexts/contextStore.js';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
           
   
 //a função que irá transmitir se o usuário está logado (para o arquivo ProtectRoute.jsx)
@@ -20,7 +22,7 @@ import { AuthContext } from '../contexts/contextStore.js';
                 try {
 
                     //tentar falar com os servidor e enviar o Cookie (cookie é uma informação sua q faz o site lembrar de vc)
-                    const response = await fetch (`http://localhost:3000/auth/verify`, {
+                    const response = await fetch(`${API_BASE_URL}/auth/verify`, {
                         credentials: "include"
                     }
                         //para garantir que o navegador anexe o cookie de autentificação. Se não incluirmos o credentials: "include", o Back não receberá o Cookie e sempre responderá 401 (não autorizado). O credentials: 'include' é a chave que permite o envio do Cookie de volta ao servidor para verificação
@@ -51,7 +53,7 @@ import { AuthContext } from '../contexts/contextStore.js';
             }
             verificarAutentificação();
 
-            const interval = setInterval(verificarAutentificação, 10000);
+            const interval = setInterval(verificarAutentificação, 60000);
             return () => clearInterval(interval); //limpar o intervalo sempre que o usuário for deslogado
         }, []);
 

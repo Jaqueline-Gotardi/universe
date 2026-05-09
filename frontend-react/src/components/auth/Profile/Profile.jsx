@@ -40,7 +40,6 @@ function Profile() {
   //função para salvar os dados do perfil
   const handleSaveProfile = (e) => {
     e.preventDefault();
-    console.log("Dados salvos:", userData);
     toast.success("Alterações salvas com sucesso!");
 
 

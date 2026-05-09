@@ -26,7 +26,7 @@ const Creators = () => {
       avatar: "/images/giliany.webp",
       github: "",
       linkedin: "", 
-      email: "gilianysilva@gmail.com"
+      email: ""
     },
     {
       id: 3,

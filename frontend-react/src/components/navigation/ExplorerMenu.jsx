@@ -50,7 +50,9 @@ function ExplorerMenu() {
     return { stars, comets };
   }, []);
 
-  //lógica de pesquisar
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
+//lógica de pesquisar
   const handleSearch = async () => {
     const query = searchQuery.trim();
     if (!query) { //se não houver pesquisa
@@ -65,7 +67,7 @@ function ExplorerMenu() {
     setHasSearched(true);
 
     try {
-      const response = await fetch(`http://localhost:3000/search?title=${encodeURIComponent(query)}`); //usar o termo pesquisado na url
+      const response = await fetch(`${API_BASE_URL}/search?title=${encodeURIComponent(query)}`); //usar o termo pesquisado na url
       if (!response.ok) throw new Error("Erro na conexão"); //se a resposta não for ok
       const data = await response.json(); //transforma em json, de uma forma que o navegador entenda
 

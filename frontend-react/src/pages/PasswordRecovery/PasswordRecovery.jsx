@@ -4,6 +4,8 @@ import { toast } from "react-toastify"
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./PasswordRecovery.module.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
 function PasswordRecovery() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -23,7 +25,7 @@ function PasswordRecovery() {
     } 
     
     try {
-      const response = await fetch("http://localhost:3000/password-recovery", {
+      const response = await fetch(`${API_BASE_URL}/password-recovery`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json"
@@ -38,9 +40,8 @@ function PasswordRecovery() {
         })
         setEmail("");
       } else {
-        const errorData = await response.json();
+        await response.json();
         toast.error(`☄️ E-mail não encontrado na nossa base estelar`)
-        console.log(errorData);
       }
     } catch {
       toast.error("📡 Falha na conexão. Tente novamente mais tarde!")

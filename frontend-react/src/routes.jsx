@@ -83,6 +83,7 @@ import Profile from './components/auth/Profile/Profile.jsx';
 import Creators from './components/layout/Creators/Creators.jsx';
 import DeleteAccount from './components/auth/DeleteAccount/DeleteAccount.jsx';
 import ChangePassword from './components/auth/ChangePassword/ChangePassword.jsx';
+import UniverseAgents from './pages/UniverseAgents/UniverseAgents.jsx';
 
 const router = createBrowserRouter([
   {
@@ -392,6 +393,10 @@ const router = createBrowserRouter([
       {
         path: "delete-account",
         element: <DeleteAccount />
+      },
+      {
+        path: "agents",
+        element: <UniverseAgents />
       },
       {
         path: "*",

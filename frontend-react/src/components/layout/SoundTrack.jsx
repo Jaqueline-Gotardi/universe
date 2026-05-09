@@ -101,7 +101,9 @@ const SoundTrack = () => {
       if (isPlaying) {
         audioRef.current
           .play()
-          .catch((err) => console.log("Aguardando...:", err));
+          .catch(() => {
+            /*falha silenciosa no carregamento de áudio, sem quebrar a interface */
+          });
       }
     }
   }, [currentTrack, isPlaying]); //índice da música que foi pêga para tocá-la;

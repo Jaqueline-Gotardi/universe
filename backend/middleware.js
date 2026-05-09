@@ -2,10 +2,13 @@ const jwt = require('jsonwebtoken'); //importando
 require('dotenv').config()
 const chaveDoJwt = process.env.JWT_SECRET; 
 
-  
+if (!chaveDoJwt) {
+  throw new Error('JWT_SECRET não está configurado.');
+}
+
 function authMiddleware(req, res, next) {
 
-    const token = req.cookies.token; //pega o token
+    const token = req.cookies?.token || req.headers.authorization?.split(' ')[1]; //pega o token
 
     //se o token não for extraído
        if (!token) {

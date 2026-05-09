@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { Eye, EyeOff } from "lucide-react"; //importar ícones de olhinho
-
 import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./ChangePassword.module.css";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
 function ChangePassword() {
   const navigate = useNavigate();
@@ -70,7 +71,7 @@ function ChangePassword() {
     setIsSubmitting(true); //travar o botão para evitar cliques duplos
 
     try { 
-      const response = await fetch("http://localhost:3000/change-password", {
+      const response = await fetch(`${API_BASE_URL}/change-password`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",

@@ -2,9 +2,10 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify" //importar a lib toast que cria nossas notificações
 import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
-
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./RegisterPage.module.css"
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
 function RegisterPage() {
   const [ username, setUsername ] = useState("");
@@ -71,7 +72,7 @@ function RegisterPage() {
     setIsSubmitting(true); //travar o botão para evitar cliques duplos
 
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

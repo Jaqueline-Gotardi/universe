@@ -15,6 +15,31 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
+const requiredEnvVars = [
+  'DB_USER',
+  'DB_PASSWORD',
+  'DB_HOST',
+  'DB_NAME',
+  'DB_PORT',
+  'JWT_SECRET',
+  'EMAIL_USER',
+  'EMAIL_PASS',
+  'API_KEY'
+
+];
+
+const missingEnvVars = requiredEnvVars.filter((envVar) => !process.env[envVar]);
+if (missingEnvVars.length > 0) {
+  console.error(`❌ Variáveis de ambiente ausentes: ${missingEnvVars.join(', ')}`);
+  process.exit(1);
+}
+
+const API_KEY = process.env.API_KEY;
+const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
+const COOKIE_SECURE = process.env.NODE_ENV === 'production';
+
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -24,13 +49,15 @@ const transporter = nodemailer.createTransport({
 })
 
 // Verificação de conexão com o e-mail
-transporter.verify(function (error, success) {
-  if (error) {
-    console.log("❌ Erro na configuração do e-mail:", error);
-  } else {
-    console.log("🚀 O servidor de e-mail está pronto para decolar!");
-  }
-});
+if (process.env.NODE_ENV !== 'production') {
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.error("❌ Erro na configuração do e-mail:", error.message);
+    } else {
+      console.log("🚀 O servidor de e-mail está pronto para decolar!");
+    }
+  });
+}
 
 
 const authMiddleware = require('./middleware'); //importando. . .
@@ -42,7 +69,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser())
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: FRONTEND_URL,
     credentials: true, //para permitir que o cookie viage entre o front e o back
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
@@ -106,7 +133,6 @@ app.post('/register', async (req, res) => {
                        WHERE email = $1 OR username = $2`;
     const verificarDuplicidade = await pool.query(queryText, [email, username]); //extraindo email e username
 
-    console.log('4. Resultado da verificação de duplicidade:', verificarDuplicidade.rows)
     
     //verificar se tem algo
     if (verificarDuplicidade.rows.length > 0) {
@@ -114,7 +140,7 @@ app.post('/register', async (req, res) => {
         return;   
     }
 } catch (error) {
-    console.log('5. Erro ao verificar duplicidade no banco de dados:', error)
+    console.error('5. Erro ao verificar duplicidade no banco de dados:', error)
     res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.', details: error.message});
     return;
 }
@@ -133,10 +159,10 @@ app.post('/register', async (req, res) => {
 
     if (result.rows.length === 1) {
         //enviar o email de confirmação
-        const urlConfirmacao = `http://127.0.0.1:3000/verify-email?token=${verificationToken}`;
+        const urlConfirmacao = `${SERVER_URL}/verify-email?token=${verificationToken}`;
 
         const mailOptions = {
-            from: '"Universe Base Control" <universe.base.st@gmail.com>',
+            from: process.env.EMAIL_FROM || '"Universe Base Control" <universe.base.st@gmail.com>',
             to: email,
             subject: "🚀 Confirme sua identidade, Agente",
             html: ` 
@@ -189,7 +215,7 @@ app.get("/verify-email", async(req, res) => {
             <div style="text-align: center; color: white; border: 2px solid #7b2cbf; padding: 40px; border-radius: 20px; background: rgba(123, 44, 191, 0.1); box-shadow: 0 0 30px rgba(123, 44, 191, 0.3);">
             <h1 style="color: #7b2cbf; font-size: 2rem; margin-bottom: 20px;">🚀 Identidade Confirmada!</h1>
             <p>Agente <strong>${result.rows[0].username}</strong>, seu acesso à base Universe foi autorizado.</p>
-            <a href="http://localhost:5173/login?verified=true" style="display: inline-block; margin-top: 30px; background-color: #7b2cbf; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">IR PARA O LOGIN</a>
+            <a href="${FRONTEND_URL}/login?verified=true" style="display: inline-block; margin-top: 30px; background-color: #7b2cbf; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">IR PARA O LOGIN</a>
             </div>
             `)
         } else {
@@ -240,33 +266,33 @@ app.post('/login', async(req, res) => {
             //se a senha estiver certa. . .
             if (compararSenha === true) { //se senha estiver correta
             const chaveJwt = process.env.JWT_SECRET;
+            if (!chaveJwt) {
+              return res.status(500).json({ message: 'Erro de configuração do servidor. Tente novamente mais tarde.' });
+            }
 
-            const token = jwt.sign({ id: user.id, email: user.email }, chaveJwt, { expiresIn: "24h" }); //gera token
+            const token = jwt.sign({ id: user.id, email: user.email }, chaveJwt, { expiresIn: JWT_EXPIRES_IN }); //gera token
             res.cookie("token", token, {
                 httpOnly: true, //impedir que roubem o código ou acessem o token
-                secure: false, //enviar a conexão via http (localmente)
-                sameSite: "lax", //impede que sites maliciosos consigam disparar ações usando sua aba
+                secure: COOKIE_SECURE, //usar seguro em produção
+                sameSite: COOKIE_SECURE ? "none" : "lax",
                 maxAge: 24 * 60 * 60 * 1000 //tempo de vida do cookie (24horas)
             });
 
-            console.log('Login bem sucedido!')
-            res.status(200).json({message: 'Login bem-sucedido!', token: token}); //envia token pro front
+            res.status(200).json({ message: 'Login bem-sucedido!', user: { id: user.id, email: user.email } });
             return;
 
             } else {
-                 console.log('Senha inválida!');
             res.status(401).json({message: 'Senha inválida!'});
             return;
             }
 
         } else { //se usuário não for encontrado. . .
-            console.log('Usuário não encontrado');
             res.status(401).json({message: 'Credenciais inválidas'});
             return;
         } 
 
     } catch(error) { //erro inesperado do servidor
-        console.log('Falha ao conectar ao banco de dados, tente novamante mais tarde:', error)
+        console.error('Falha ao conectar ao banco de dados, tente novamente mais tarde:', error)
         res.status(500).json({message: 'Erro interno do servidor. Tente novamente mais tarde. . .'})
     }
 })
@@ -294,10 +320,10 @@ app.post('/password-recovery', async(req, res) => {
                                  WHERE email = $2`;
             await pool.query(updateQuery, [resetToken, email]);
 
-            const urlReset = `http://localhost:5173/reset-password?token=${resetToken}`;
+            const urlReset = `${FRONTEND_URL}/reset-password?token=${resetToken}`;
 
             const mailOptions = { 
-                from: '"Universe Base Control" <universe.base.st@gmail.com>',
+                from: process.env.EMAIL_FROM || '"Universe Base Control" <universe.base.st@gmail.com>',
                 to: email,
                 subject: "🛰️ Coordenadas de Recuperação de Acesso",
                 html: `
@@ -329,7 +355,7 @@ app.post("/reset-password", async (req, res) => {
     }
 
     try {
-        //verificar se existe um usuário com esse token
+        //verificar se existe um usuário with esse token
         const queryUser = `SELECT id FROM users 
                            WHERE reset_token = $1`;         
         const userResult = await pool.query(queryUser, [token]);
@@ -400,92 +426,121 @@ app.post('/change-password', authMiddleware, async(req, res) => {
         return res.status(500).json({message: "Erro interno no servidor"})
     }
 })
-   
+
+
+//ROTA PARA BUSCAR TODOS OS AGENTES (USUÁRIOS) DO UNIVERSE
+app.get('/agents', authMiddleware, async (req, res) => {
+    try {
+        const query = `SELECT username, bio, interests, avatar FROM users WHERE is_verified = true ORDER BY id DESC`;
+        const result = await pool.query(query);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.error("Erro ao buscar agentes:", error);
+        res.status(500).json({ message: "Erro interno ao buscar a tripulação." });
+    }
+});
+
+//ROTA PARA BUSCAR OS DADOS DO AGENTE LOGADO (PERFIL)
+app.get('/profile', authMiddleware, async (req, res) => {
+    try {
+        const query = `SELECT username, email, bio, interests, avatar FROM users WHERE id = $1`;
+        const result = await pool.query(query, [req.user.id]);
+        
+        if (result.rows.length > 0) {
+            res.status(200).json(result.rows[0]);
+        } else {
+            res.status(404).json({ message: "Agente não encontrado." });
+        }
+    } catch (error) {
+        console.error("Erro ao buscar perfil:", error);
+        res.status(500).json({ message: "Erro interno no centro de comando." });
+    }
+});
 
 //ROTA SEARCH (PARA BUSCAR OS DADOS NA API...)
-    //app.get('/search', authMiddleware, async(req, res) => {
-        app.get('/search', async(req, res) => {
+    app.get('/search', authMiddleware, async(req, res) => {
         const title = req.query.title || '';
         const q = title?.trim();
-        const isAPOD = /APOD|foto do dia|astronomia/i.test(q) || q.length === 0;
+        
+        //se a busca for vazia ou contiver palavras-chave da APOD
+        const isAPOD = !q || /APOD|foto do dia|astronomia/i.test(q);
 
         let resultadosFinais = [];
 
-        //BUSCAR DADOS NA API APOD. . .
+        // Função interna para buscar na API gratuita da NASA (Images)
+        async function getNasaImages(searchTerm) {
+            try {
+                const searchQ = searchTerm || 'nebula'; // fallback para busca vazia
+                const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(searchQ)}`);
+                
+                if (!respostaGratuita.ok) return [];
+                
+                const dadosGratuitos = await respostaGratuita.json();
+
+                if (dadosGratuitos.collection && dadosGratuitos.collection.items) {
+                    return dadosGratuitos.collection.items
+                        .filter(item =>
+                            item.data &&
+                            item.links &&
+                            item.links.some(link => link.render === 'image')
+                        )
+                        .map(item => ({
+                            source: 'IMAGES',
+                            title: item.data[0].title,
+                            date_created: item.data[0].date_created || 'Sem data',
+                            location: item.data[0].location || 'Sem localização',
+                            description: item.data[0].description || 'Sem descrição',
+                            href: item.links.find(link => link.render === 'image').href
+                        }));
+                }
+                return [];
+            } catch (erro) {
+                console.error('Erro na API Images:', erro);
+                return [];
+            }
+        }
+
+        // 1. Tentar buscar na API APOD se for o caso
         if (isAPOD) {
             try {
-                console.log('Tentando API APOD. . .');
-                const respostaComChave = await fetch(`https://api.nasa.gov/planetary/apod?&api_key=${process.env.API_KEY}`);
-
-                if (!respostaComChave.ok) {
-                    throw new Error(`Resposta da API APOD falhou com status: ${respostaComChave.status}`);
-                }
-
-                const dadosComChave = await respostaComChave.json();
-
-                if (dadosComChave.url) {
-                    console.log('Dados encontrados na APOD. Formatando e adicionando. . .');
-                    const resultadosDaApod = [{
-                        source: 'APOD',
-                        title: dadosComChave.title || 'Sem título (APOD)',
-                        date_created: dadosComChave.date || 'Sem data',
-                        location: 'Espaço',
-                        description: dadosComChave.explanation || 'Sem descrição',
-                        href: dadosComChave.media_type === 'image' ? dadosComChave.hdurl || dadosComChave.url : dadosComChave.url
-                    }];
-                    resultadosFinais.push(...resultadosDaApod);
-                    res.json(resultadosFinais);
-                } else {
-                    console.log('APOD não retornou dados concretos. Seguindo para a gratuita. . .');
-                    await getNasaImages();
+                const respostaComChave = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}`);
+                
+                if (respostaComChave.ok) {
+                    const dadosComChave = await respostaComChave.json();
+                    if (dadosComChave.url) {
+                        resultadosFinais.push({
+                            source: 'APOD',
+                            isApod: true, // Tag para o frontend identificar
+                            title: dadosComChave.title || 'Sem título (APOD)',
+                            date_created: dadosComChave.date || 'Sem data',
+                            location: 'Espaço',
+                            description: dadosComChave.explanation || 'Sem descrição',
+                            href: dadosComChave.media_type === 'image' ? dadosComChave.hdurl || dadosComChave.url : dadosComChave.url
+                        });
+                    }
                 }
             } catch (erro) {
-                console.log('Erro ao acessar API APOD (mas seguindo para a API gratuita):', erro);
-                await getNasaImages();
+                console.error('Erro ao acessar API APOD:', erro);
             }
-        } else {
-            //chama a função para buscar images se APOD não for chamado
-            await getNasaImages();
         }
 
-        //BUSCAR DADOS NA API GRATUITA. . .
+        // 2. Buscar também na API de Imagens (ou se APOD falhar/não for solicitada)
+        const imagensNasa = await getNasaImages(q);
+        resultadosFinais.push(...imagensNasa);
 
-        async function getNasaImages() {
-        try {
-            console.log('Chamando API NASA Images (Gratuita)...');
-            const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${title}`);
-            const dadosGratuitos = await respostaGratuita.json();
-
-            const resultadosDaImages = dadosGratuitos.collection.items
-                .filter(item =>
-                    item.data &&
-                    item.links &&
-                    item.links.some(link => link.render === 'image')
-                )
-                .map(item => ({
-                    source: 'IMAGES',
-                    title: item.data[0].title,
-                    date_created: item.data[0].date_created || 'Sem data',
-                    location: item.data[0].location || 'Sem localização',
-                    description: item.data[0].description || 'Sem descrição',
-                    href: item.links.find(link => link.render === 'image').href
-                }));
-            resultadosFinais.push(...resultadosDaImages);
-        } catch (erro) {
-            console.log('Erro na API Images:', erro);
-        }
-
+        // 3. Responder
         if (resultadosFinais.length > 0) {
-            res.json(resultadosFinais)
+            res.json(resultadosFinais);
         } else {
             res.status(404).json({ error: 'Nenhum resultado encontrado em nenhuma das APIs. . .' });
         }
-    }
     });
 
-//inicia o servidor na porta 3000
-app.listen(3000, () => { 
-    console.log('Servidor em execução em http://localhost:3000/');
+const PORT = Number(process.env.SERVER_PORT) || 3000;
+
+//inicia o servidor na porta configurada
+app.listen(PORT, () => {
+    console.log(`Servidor em execução em ${SERVER_URL}`);
 });
 
 

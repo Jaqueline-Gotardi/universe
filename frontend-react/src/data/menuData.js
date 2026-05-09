@@ -248,6 +248,12 @@ export const menuExtras = [
     route: "/app/delete-account",
     icon: "🗑️",
   },
+  {
+    id: "agents",
+    label: "Universe Agents",
+    route: "/app/agents",
+    icon: "🤖",
+  },
 ];
 
 

@@ -1,23 +1,38 @@
 import { useNavigate } from "react-router-dom"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./AgentBadge.module.css"
 
 //avatar padrão em construído em código SVG
 const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-  <circle />
+  <circle cx="12" cy="12" r="10" stroke="#94a3b8" stroke-width="1"/>
   <path d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM12 7C13.6569 7 15 8.34315 15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10C9 8.34315 10.3431 7 12 7ZM12 17.2C10.1 17.2 8.4 16.3 7.3 14.9C7.3 13.3 10.4 12.4 12 12.4C13.6 12.4 16.7 13.3 16.7 14.9C15.6 16.3 13.9 17.2 12 17.2Z" fill="#94a3b8"/>
 </svg>
 `)}`;
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
 export const AgentBadge = () => {
   const navigate = useNavigate();
   const [ isHovered, setIsHovered ] = useState(false)
+  const [ avatar, setAvatar ] = useState(default_avatar);
 
-  //constantes para guardar os dados oficiais do perfil
-  const [userData, setUserData] = useState({
-      avatar: default_avatar,
-    });
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/profile`, {
+          credentials: "include"
+        });
+        if (response.ok) {
+          const data = await response.json();
+          if (data.avatar) setAvatar(data.avatar);
+        }
+      } catch (err) {
+        console.error("Erro ao carregar avatar do badge:", err);
+      }
+    };
+    fetchAvatar();
+  }, []);
 
   return (
   <div className={style.container} 
@@ -31,7 +46,7 @@ export const AgentBadge = () => {
     
   <div style={{position: "relative"}}>
       <div className={style.avatarWrapper}>
-        <img src={userData.avatar || default_avatar} alt="avatar" className={style.avatar} />
+        <img src={avatar || default_avatar} alt="avatar" className={style.avatar} />
         </div>
         <div className={style.anelOnline} />
         </div>

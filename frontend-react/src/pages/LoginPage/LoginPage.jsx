@@ -39,11 +39,13 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   };
 
   //função de validação de login
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
   setLoading(true);
   try {
-    const response = await fetch("http://localhost:3000/login", {
+    const response = await fetch(`${API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -53,9 +55,8 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
       });
 
     if (response.ok) {
-      const data = await response.json(); 
+      await response.json(); 
       toast.success("👩‍🚀 Login autorizado! Entrando na base...")
-      console.log(data)
 
       login(); //atualiza o estado para logado
       setLogin(true); 
@@ -65,7 +66,6 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
   } catch(error) {
     toast.error("📡 Falha na comunicação com a base. Tente novamente em instantes!")
-    console.log(error)
   }
   setLoading(false)
 }

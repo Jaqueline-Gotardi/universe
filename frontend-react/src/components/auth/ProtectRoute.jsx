@@ -18,7 +18,6 @@ function ProtectRoute ({ children }) {
 
     //se o usuário não estiver autentificado
     if (isAuthenticated === false) {
-        console.log("Faça seu login para prosseguir! Redirecionando. . .")
         return <Navigate to= "/login" replace/>
     }  
 

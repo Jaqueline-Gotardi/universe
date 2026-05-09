@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
 import { toast } from "react-toastify";
-
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./ResetPassword.module.css";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
 function ResetPassword() {
   const [ searchParams ] = useSearchParams();
@@ -49,7 +50,7 @@ function ResetPassword() {
     setLoading(true);
     
     try {
-      const response = await fetch("http://localhost:3000/reset-password", {
+      const response = await fetch(`${API_BASE_URL}/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token, novaSenha }),
@@ -140,8 +141,7 @@ function ResetPassword() {
             </div>
           </div>
 
-          <button type="submit" disabled={loading} className={styles.btn}
-            disabled={novaSenha.length > 0 && metCount < 4 || loading}>
+          <button type="submit" disabled={loading || (novaSenha.length > 0 && metCount < 4)} className={styles.btn}>
             {loading ? "Atualizando..." : "Salvar Nova Senha"}
           </button>
         </form>
