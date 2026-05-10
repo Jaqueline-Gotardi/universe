@@ -97,7 +97,7 @@ function OfflineScreen() {
 
         {/* ondas sinalizadoras */}
         {[0, 1, 2].map(i => (
-          <circle cx="210" cy="210" fill="none" stroke="#4a9eff" strokeWidth="0.5" opacity="0.15">
+          <circle key={1} cx="210" cy="210" fill="none" stroke="#4a9eff" strokeWidth="0.5" opacity="0.15">
             <animate attributeName="r" values="50;180" dur="5s" begin={`${i * 1.7}s`} repeatCount="indefinite" />
             <animate attributeName="opacity" values="0.2;0" dur="5s" begin={`${i * 1.7}s`} repeatCount="indefinite" />
           </circle>

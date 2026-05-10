@@ -3,15 +3,38 @@ import { useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./DeleteAccount.module.css";
+import useAuth from "../../../hooks/useAuth";
 
 function DeleteAccount() {
   const [confirmText, setConfirmText] = useState("");
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   const canDelete = useMemo(
     () => confirmText.trim().toUpperCase() === "APAGAR",
     [confirmText]
   );
+
+  //função que vai fala com o servidor para excluir a conta do usuário
+  const handleDelete = async () => {
+    if (!canDelete) return;
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/users/${user.id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        toast.warn("🚀 Conta excluída. Esperamos te ver no cosmos novamente!");
+        logout(); //limpa os dados de login no front
+        navigate("/login"); //manda de volta para o início
+      } else {
+        toast.error("Erro ao processar exclusão. Tente novamente.");
+      }
+    } catch (error) {
+      toast.error("O centro de comando não responde. Verifique sua conexão.");
+    }
+  };
 
   const keepAccount = () => {
   toast.success("🚀 Segurança confirmada, comandante!")
@@ -72,12 +95,14 @@ function DeleteAccount() {
           aria-label="Apagar conta"
           disabled={!canDelete}
           className={styles.botaoApagarConta}
+          onClick={handleDelete}
           style={{
             opacity: canDelete ? 1 : 0.5,
             cursor: canDelete ? "pointer" : "not-allowed",
           }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trash2"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line>
+          </svg>
           Apagar conta
         </button>
       </div>

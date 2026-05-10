@@ -18,7 +18,7 @@ const pool = new Pool({
     database : process.env.DB_NAME,
     password : process.env.DB_PASSWORD,
     port : Number(process.env.DB_PORT),
-    max: 10, // Reduzido para compatibilidade com planos gratuitos (Render/Neon)
+    max: 10, //reduzido para compatibilidade com planos gratuitos (Render/Neon)
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 5000,
     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false

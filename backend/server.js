@@ -467,10 +467,10 @@ app.get('/profile', authMiddleware, async (req, res) => {
 
         let resultadosFinais = [];
 
-        // Função interna para buscar na API gratuita da NASA (Images)
+        //função interna para buscar na API gratuita da NASA (Images)
         async function getNasaImages(searchTerm) {
             try {
-                const searchQ = searchTerm || 'nebula'; // fallback para busca vazia
+                const searchQ = searchTerm || 'nebula'; //fallback para busca vazia
                 const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(searchQ)}`);
                 
                 if (!respostaGratuita.ok) return [];
@@ -510,7 +510,7 @@ app.get('/profile', authMiddleware, async (req, res) => {
                     if (dadosComChave.url) {
                         resultadosFinais.push({
                             source: 'APOD',
-                            isApod: true, // Tag para o frontend identificar
+                            isApod: true, //tag para o frontend identificar
                             title: dadosComChave.title || 'Sem título (APOD)',
                             date_created: dadosComChave.date || 'Sem data',
                             location: 'Espaço',

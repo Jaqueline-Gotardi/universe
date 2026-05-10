@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { toast } from "react-toastify";
 import CosmicBackground from "../../layout/CosmicBackground";
 import styles from "./Profile.module.css";
+import useAuth from "../../../hooks/useAuth";
 
 //avatar padrão em construído em código SVG
 const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
@@ -15,6 +16,7 @@ const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
 
 function Profile() {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   //O estado que controla "qual canal está passando"
   const [activeSection, setActiveSection] = useState("view");
@@ -32,7 +34,7 @@ function Profile() {
   //constantes para guardar os dados oficiais do perfil
   const [userData, setUserData] = useState({
     avatar: default_avatar,
-    username: "",
+    username: user?.username || "",
     bio: "",
     interests: "",
   });
@@ -266,7 +268,7 @@ function Profile() {
                           alt="Avatar Orion"
                           className={styles.avatarPreview}
                           onClick={() =>
-                            handleAvatarSelect("/images//avatar-orion.webp")
+                            handleAvatarSelect("/images/avatar-orion.webp")
                           }
                         />
                       </div>
@@ -286,7 +288,7 @@ function Profile() {
                           alt="Avatar Ace"
                           className={styles.avatarPreview}
                           onClick={() =>
-                            handleAvatarSelect("/images//avatar-ace.webp")
+                            handleAvatarSelect("/images/avatar-ace.webp")
                           }
                         />
                       </div>

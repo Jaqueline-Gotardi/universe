@@ -91,6 +91,9 @@ function PasswordRecovery() {
             <p className={styles.descricao}>
               Verifique sua caixa de entrada. As instruções de recuperação já cruzaram a atmosfera!
             </p>
+            <NavLink to="/login" className={styles.btnVoltarSucesso}>
+            Voltar para o Início
+            </NavLink>
           </div>
         )}
       </div>

@@ -327,7 +327,15 @@ function ExplorerMenu() {
             </button>
             <div className="modal-body">
               <div className="modal-media">
+                {isVideo(selectedCard.href) ? (
+                  <iframe
+                  src={getEmbedUrl(selectedCard.href)}
+                  style={{ width: "100%", height: "100%", border: "none" }}
+                  allowFullScreen
+                  />
+                ) : (
                 <img src={selectedCard.href} alt={selectedCard.title} />
+                )}
               </div>
               <div className="modal-desc">
                 <h2>{selectedCard.title}</h2>

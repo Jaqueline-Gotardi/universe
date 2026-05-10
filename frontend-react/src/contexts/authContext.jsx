@@ -2,7 +2,7 @@
  
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify"
-import { AuthContext } from '../contexts/contextStore.js';
+import { AuthContext } from './AuthStore.js';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
           
@@ -10,20 +10,13 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
 //a função que irá transmitir se o usuário está logado (para o arquivo ProtectRoute.jsx)
     export function AuthProvider ({ children }) {
         const [ isAuthenticated, setAuthenticated ] = useState(false);
+        const [ user, setUser ] = useState(null);
         const [ isLoading, setLoading ] = useState(true);
     //isAuthenticated e isLoading são os valores atuais
     //setIsAuthenticated e setIsLoading são para atualizar os valores atuais
-        const [ user, setUser ] = useState(null);
       
-        //receber os dados do usuário e atualizar o estado de autenticação
-        const login = (userData) => { 
-        setAuthenticated(true);
-        setUser(userData);
-    };
-        const logout = () => {
-        setAuthenticated(false);
-        setUser(null); 
-    };
+        const login = () => setAuthenticated(true);
+        const logout = () => setAuthenticated(false);
 
         useEffect(() => {
             const verificarAutentificação = async() => {
@@ -39,7 +32,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
                     if (response.ok) {
                         const data = await response.json();
                         setAuthenticated(true);
-                        setUser(data.user); //atualiza os dados do usuário com as info retornadas pelo servidor
+                        setUser(data.user);
                     } else {
                         //pegar o estado anterior 
                         setAuthenticated((prev) => {
@@ -68,7 +61,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
         }, []);
 
     return (
-    <AuthContext.Provider value = {{isAuthenticated, isLoading, login, logout, user}}>
+    <AuthContext.Provider value = {{isAuthenticated, user, isLoading, login, logout}}>
     {children}
     </AuthContext.Provider>
     )

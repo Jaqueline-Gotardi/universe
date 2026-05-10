@@ -18,13 +18,12 @@ function DashboardPage() { //nome de componentes/funções em React deve-se come
         <Outlet /> {/*renderiza os componentes filhos conforme as rotas definidas no main.jsx */}
       </main>
       
-      {/* Só renderiza o Badge se NÃO estiver nas rotas de ocultar */}
+      {/*só renderiza o Badge se NÃO estiver nas rotas de ocultar */}
       {!shouldHideAgentBadge && <AgentBadge />} 
 
-      {/* Só renderiza o som se NÃO for a tela de deletar */}
+      {/*só renderiza o som se NÃO for a tela de deletar */}
       {!shouldHideSound && <SoundTrack />}
 
-      <SoundTrack />
       </div>
     ); 
 } 

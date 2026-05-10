@@ -17,10 +17,10 @@ import styles from "./LoginPage.module.css"
 function LoginPage() { //no react as functions começam com letra Maiúscula
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
-  const [isLogin, setLogin ] = useState(false); 
+  const [ isLogin, setLogin ] = useState(false); 
   const [ showPassword, setShowPassword ] = useState(false);
   const [ loading, setLoading ] = useState(false);
-  const [searchParams] = useSearchParams();
+  const [ searchParams ] = useSearchParams();
   
   useEffect(() => {
     //se na URL tiver ?verified=true, mostra o toast de sucesso
@@ -39,7 +39,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   };
 
   //função de validação de login
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
@@ -55,10 +55,10 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
       });
 
     if (response.ok) {
-      await response.json(); 
-      toast.success("👩‍🚀 Login autorizado! Entrando na base...")
+      const data = await response.json(); 
+      toast.success(`👩‍🚀 Login autorizado ${data.username}! Entrando na base...`)
 
-      login(); //atualiza o estado para logado
+      login(data); //atualiza o estado para logado
       setLogin(true); 
     } else {
       toast.error("☄️ Acesso negado! Verifique suas credenciais cósmicas.")

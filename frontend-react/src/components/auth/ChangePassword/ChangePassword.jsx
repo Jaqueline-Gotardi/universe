@@ -91,8 +91,9 @@ function ChangePassword() {
       }
     } catch {
       toast.error("📡 Falha na conexão. Tente novamente mais tarde!")
-      setIsSubmitting(false);
-  };
+  } finally {
+    setIsSubmitting(false);
+  }
 };
  
   return (

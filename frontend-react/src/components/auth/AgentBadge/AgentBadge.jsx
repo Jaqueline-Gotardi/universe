@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
 import style from "./AgentBadge.module.css"
 
 //avatar padrão em construído em código SVG
@@ -14,25 +15,9 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
 
 export const AgentBadge = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [ isHovered, setIsHovered ] = useState(false)
-  const [ avatar, setAvatar ] = useState(default_avatar);
-
-  useEffect(() => {
-    const fetchAvatar = async () => {
-      try {
-        const response = await fetch(`${API_BASE_URL}/profile`, {
-          credentials: "include"
-        });
-        if (response.ok) {
-          const data = await response.json();
-          if (data.avatar) setAvatar(data.avatar);
-        }
-      } catch (err) {
-        console.error("Erro ao carregar avatar do badge:", err);
-      }
-    };
-    fetchAvatar();
-  }, []);
+  const avatarExibido = user?.avatar || default_avatar;
 
   return (
   <div className={style.container} 
@@ -42,11 +27,11 @@ export const AgentBadge = () => {
   onClick={() => navigate("/app/profile")}
   onMouseEnter={() => setIsHovered(true)}
   onMouseLeave={() => setIsHovered(false)}>
+
     <div className={style.brilho} />
-    
   <div style={{position: "relative"}}>
       <div className={style.avatarWrapper}>
-        <img src={avatar || default_avatar} alt="avatar" className={style.avatar} />
+        <img src={avatarExibido} alt="avatar" className={style.avatar} />
         </div>
         <div className={style.anelOnline} />
         </div>
