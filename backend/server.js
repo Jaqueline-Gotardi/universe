@@ -25,7 +25,6 @@ const requiredEnvVars = [
   'EMAIL_USER',
   'EMAIL_PASS',
   'API_KEY'
-
 ];
 
 const missingEnvVars = requiredEnvVars.filter((envVar) => !process.env[envVar]);
@@ -85,16 +84,10 @@ const pool = require('./db_config');
 app.use(express.static(path.join(__dirname, '../public')));
  
 
-
 //ROTA DE REGISTRAR DADOS DO USUÁRIO
 app.post('/register', async (req, res) => {
     //console.log('1. Requisição de registro recebida')
     const { username, email, password } = req.body;
-    /* const username = req.body.username;
-   const email= req.body.email;
-   const password = req.body.password; */
-
-    //console.log('2. Dados do corpo', {username, email, password});
    
    //verificar se existem ou se estão vazios. . .
    if (!username || username.trim() === '' 
@@ -128,7 +121,6 @@ app.post('/register', async (req, res) => {
 
    //verificar duplicidade de dados no banco de dados
    try {
-    //console.log('3. Verificando duplicidade de usuário/email...')
     const queryText = `SELECT * FROM users 
                        WHERE email = $1 OR username = $2`;
     const verificarDuplicidade = await pool.query(queryText, [email, username]); //extraindo email e username
@@ -146,9 +138,7 @@ app.post('/register', async (req, res) => {
 }
 
 //criptografando a senha
-//console.log('6. Criptografando a senha. . .')
  const senhaCriptografada = await bcrypt.hash(password, 10); //o "10" é o número de voltas que o bcriptjs dará para fechar o 'cadeado' (é como uma camada extra de proteção de senha para dificultar ataques. . .)
- //console.log('7. Senha criptografada')
 
  const verificationToken = crypto.randomBytes(32).toString("hex"); //gerar um código único
 
@@ -365,7 +355,7 @@ app.post("/reset-password", async (req, res) => {
         }
 
         //criptografar a nova senha
-        const salt = await bcrypt.genSalt(10);
+        const salt = await bcrypt.genSalt(10); //embaralhar a senha para dificultar ataques de força bruta
         const senhaCriptografada = await bcrypt.hash(novaSenha, salt);
 
         //atualizar a senha e limpar o token para que não possa ser usado de novo
@@ -428,7 +418,7 @@ app.post('/change-password', authMiddleware, async(req, res) => {
 })
 
 
-//ROTA PARA BUSCAR TODOS OS AGENTES (USUÁRIOS) DO UNIVERSE
+//ROTA PARA BUSCAR TODOS OS AGENTES DO UNIVERSE
 app.get('/agents', authMiddleware, async (req, res) => {
     try {
         const query = `SELECT username, bio, interests, avatar FROM users WHERE is_verified = true ORDER BY id DESC`;
@@ -538,43 +528,21 @@ app.get('/profile', authMiddleware, async (req, res) => {
 
 const PORT = Number(process.env.SERVER_PORT) || 3000;
 
+
+//ROTA DE DELETAR CONTA
+app.delete('/delete-account', authMiddleware, async (req, res) => {
+    try {
+        const deleteQuery = `DELETE FROM users WHERE id = $1`;
+        await pool.query(deleteQuery, [req.user.id]);
+        res.clearCookie("token");
+        res.status(200).json({message: "Conta deletada com sucesso, agente!"});
+    } catch (error) {
+        console.error("Erro ao deletar conta:", error);
+        res.status(500).json({message: "Erro interno do servidor. Tente novamente mais tarde."});
+    } 
+})
+
 //inicia o servidor na porta configurada
 app.listen(PORT, () => {
     console.log(`Servidor em execução em ${SERVER_URL}`);
 });
-
-
-
-
-
-
-//TENTATIVAS DE EMAIL (TODOS JÁ TEM DONO)
-/* 
-1. base.universe.control@gmail.com
-2. universe.base.hq@gmail.com
-3. universe.base@gmail.com
-4. universe.base.st@gmail.com
-5. base.universe.st@gmail.com
-6. base_universe@gmail.com 
-7. base.universe.core@gmail.com
-8. universe.base.core@gmail.com
-9. base.universe.tech@gmail.com
-10. universe.base.tech@gmail.com
-11. central.universe.st@gmail.com
-12. universe.st@gmail.com
-13. universe@gmail.com
-14. universeBase.st@gmail.com
-15. baseUniverse.st@gmail.com
-16. universeBase.hq@gmail.com
-17. baseUniverse.hq@gmail.com
-18. universe.hq@gmail.com
-19. universe.central.st@gmail.com
-20. universe.central.hq@gmail.com
-21. universe.portal.st@gmail.com
-22. portalUniverse.st@gmail.com
-23. universePortal.st@gmail.com
-24. universeBase@gmail.com
-
-//deu certo esse aqui ...
-25. universe.base.st@gmail.com 
-*/

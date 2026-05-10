@@ -21,7 +21,7 @@ function authMiddleware(req, res, next) {
             if (err) {
                 return res.status(401).json({message: 'Token inválido ou expirado'})
             } else {
-                req.user = decoded;
+                req.user = decoded; //passar o id e o username do usuário para as outras rotas
 
                 next() //--> para enviar o acesso pra rota search (onde a função authMiddleware é importada)
             }

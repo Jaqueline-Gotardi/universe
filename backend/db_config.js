@@ -1,4 +1,5 @@
 //importando o pacote pg (PostGres)
+//o pool gerencia múltiplas conexões com o banco de dados
 const {Pool} = require('pg');
 
 //configurar o dotenv(biblioteca) para acessar a chave em .env
