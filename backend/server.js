@@ -268,7 +268,7 @@ app.post('/login', async(req, res) => {
                 maxAge: 24 * 60 * 60 * 1000 //tempo de vida do cookie (24horas)
             });
 
-            res.status(200).json({ message: 'Login bem-sucedido!', user: { id: user.id, email: user.email } });
+            res.status(200).json({ message: 'Login bem-sucedido!', user: { id: user.id, email: user.email, username: user.username, avatar: user.avatar } });
             return;
 
             } else {

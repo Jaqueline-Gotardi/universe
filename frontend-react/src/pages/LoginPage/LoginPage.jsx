@@ -56,9 +56,9 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
     if (response.ok) {
       const data = await response.json(); 
-      toast.success(`👩‍🚀 Login autorizado ${data.username}! Entrando na base...`)
+      toast.success(`👩‍🚀 Login autorizado ${data.user.username}! Entrando na base...`)
 
-      login(data); //atualiza o estado para logado
+      login(data.user); //atualiza o estado para logado
       setLogin(true); 
     } else {
       toast.error("☄️ Acesso negado! Verifique suas credenciais cósmicas.")
