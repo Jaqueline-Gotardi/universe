@@ -56,7 +56,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
     if (response.ok) {
       const data = await response.json(); 
-      toast.success(`👩‍🚀 Login autorizado ${data.user.username}! Entrando na base...`)
+      toast.success(`👩‍🚀 Login autorizado, ${data.user.username}! Entrando na base...`)
 
       login(data.user); //atualiza o estado para logado
       setLogin(true); 
@@ -65,6 +65,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
     }
 
   } catch(error) {
+    console.error("Erro na requisição:", error);
     toast.error("📡 Falha na comunicação com a base. Tente novamente em instantes!")
   }
   setLoading(false)

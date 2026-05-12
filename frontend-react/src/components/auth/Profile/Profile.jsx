@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { toast } from "react-toastify";
@@ -18,42 +18,76 @@ function Profile() {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  //O estado que controla "qual canal está passando"
+  //o estado que controla "qual canal está passando"
   const [activeSection, setActiveSection] = useState("view");
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const fileInputRef = useRef(null);
 
-  //constante para guardar temporariamente os dados do perfil durante a edição
-  const [tempUserData, setTempUserData] = useState({
-    avatar: "",
+  //constantes para guardar os dados oficiais do perfil
+  const [userData, setUserData] = useState({
+    avatar: default_avatar,
     username: "",
     bio: "",
     interests: "",
   });
 
-  //constantes para guardar os dados oficiais do perfil
-  const [userData, setUserData] = useState({
+  //para guardar os dados temporários
+  const [tempUserData, setTempUserData] = useState({
     avatar: default_avatar,
-    username: user?.username || "",
+    username: "",
     bio: "",
     interests: "",
   });
 
+  useEffect(() => {
+    //sempre que o usuário fizer login ou atualizar seus dados, o perfil deve ser atualizado para refletir as mudanças, mas isso só acontece se estivermos na seção de visualização de perfil
+    if (user && userData.username === "") { //só atualiza se NÃO estivermos editando
+      const initialData = {
+        avatar: user.avatar || default_avatar,
+        username: user.username || "",
+        bio: user.bio || "",
+        interests: user.interests || "",
+      };
+
+      setUserData(initialData);
+      setTempUserData(initialData);
+    }
+  }, [user]); //atualizar os dados do perfil sempre que o usuário mudar seus dados
+
   //função para salvar os dados do perfil
-  const handleSaveProfile = (e) => {
+  const handleSaveProfile = async (e) => {
     e.preventDefault();
-    toast.success("Alterações salvas com sucesso!");
 
+    try {
+      const url = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'}/update-profile`;
 
-    setUserData(tempUserData); //pegando os dados temporários e jogando no oficial
-    setIsGalleryOpen(false);
-    setActiveSection("view"); //volta para a visualização após salvar
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: { 
+          "Content-Type": "application/json",
+         },
+         credentials: "include", //faz com que o cookie seja enviado junto com a requisição
+         body: JSON.stringify(tempUserData),
+      });
+
+      if (response.ok) {
+        setUserData(tempUserData); //pegando os dados de edição e jogando no perfil
+        setIsGalleryOpen(false);
+        setActiveSection("view"); //volta para a visualização após salvar
+        toast.success("🚀 Alterações salvas na base de dados!");
+      } else {
+        toast.error("☄️ Erro ao sincronizar com a base.");
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      toast.error("📡 Falha na comunicação com o servidor.");
+    }
   };
 
   //se fizer apenas setUserData({ avatar: avatarSrc }), o React vai "apagar" o nome, a bio e os interesses, e vai deixar só o avatar lá dentro
   const handleAvatarSelect = (avatarSrc) => {
     setTempUserData((prev) => ({
-      ...prev, // O ...prevData serve para dizer: "Mantenha tudo o q já existe e mude apenas o avatar
+      ...prev, //o ...prevData serve para dizer: "Mantenha tudo o q já existe e mude apenas o avatar"
       avatar: avatarSrc,
     }));
   };
@@ -413,5 +447,4 @@ function Profile() {
     </section>
   );
 }
-
 export default Profile;

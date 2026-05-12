@@ -58,7 +58,6 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-
 const authMiddleware = require('./middleware'); //importando. . .
  
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
@@ -222,15 +221,25 @@ app.get("/verify-email", async(req, res) => {
 
 
 //ROTA PARA VERIFICAR SE O COOKIE AINDA É VÁLIDO (SE O USUÁRIO AINDA ESTÁ AUTENTICADO)
-app.get("/auth/verify", authMiddleware, (req, res) => {
-    res.status(200).json({ authMiddleware: true, user: req.user });
+app.get("/auth/verify", authMiddleware, async (req, res) => {
+    try {
+        const query = `SELECT id, email, username, avatar, bio, interests FROM users WHERE id = $1`;
+        const result = await pool.query(query, [req.user.id]);
+        
+        if (result.rows.length === 0) {
+            return res.status(401).json({ message: "Usuário não encontrado." });
+        }
+        res.status(200).json({ authMiddleware: true, user: result.rows[0] }); //para o front saber que a autenticação foi verificada e passar os dados do agente para o front
+    } catch (error) {
+        console.error("Erro ao verificar sessão:", error);
+        res.status(500).json({ message: "Erro interno." });
+    }
 });
+
 
 //ROTA DE LOGIN DO USUÁRIO
 app.post('/login', async(req, res) => {
     const { email, password } = req.body;
-    /* const email = req.body.email;
-    const password = req.body.password; */
 
     if (!email || email.trim() === ''
         || !password || password.trim() === '') {
@@ -430,6 +439,7 @@ app.get('/agents', authMiddleware, async (req, res) => {
     }
 });
 
+
 //ROTA PARA BUSCAR OS DADOS DO AGENTE LOGADO (PERFIL)
 app.get('/profile', authMiddleware, async (req, res) => {
     try {
@@ -446,6 +456,28 @@ app.get('/profile', authMiddleware, async (req, res) => {
         res.status(500).json({ message: "Erro interno no centro de comando." });
     }
 });
+
+
+//ROTA PARA SALVAR AS EDIÇÕES DE PERFIL DE AGENTE
+app.put('/update-profile', authMiddleware, async (req, res) => {
+    const { username, bio, interests, avatar } = req.body;
+    const userId = req.user.id;
+
+    try {
+        const updateQuery = `
+          UPDATE users 
+          SET username = $1, bio = $2, interests = $3, avatar = $4 
+          WHERE id = $5
+        `;
+        await pool.query(updateQuery, [username, bio, interests, avatar, userId]);
+        
+        res.status(200).json({ message: "Perfil atualizado com sucesso!" });
+    } catch (error) {
+        console.error("Erro ao atualizar perfil:", error);
+        res.status(500).json({ message: "Erro interno ao salvar no banco cósmico." });
+    }
+});
+
 
 //ROTA SEARCH (PARA BUSCAR OS DADOS NA API...)
     app.get('/search', authMiddleware, async(req, res) => {

@@ -165,4 +165,5 @@
 .backButton:hover {
   background: #8b5cf6;
   box-shadow: 0 0 15px #8b5cf6;
+  transform: scale(1.03);
 }
