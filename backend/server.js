@@ -73,10 +73,8 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-app.use(express.json()); //para o express ler requisições json
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use(express.urlencoded({extended : true})); //para o express ler dados de formulários 
+app.use(express.json({ limit: '10mb' })); //para o express ler dados em formato JSON (como os dados de cadastro, login) e limitar o tamanho da requisição para evitar sobrecarga do servidor
+app.use(express.urlencoded({ extended: true, limit: '10mb' })); //para o express ler dados de formulários e limitar o tamanho da requisição
  
 //importar pool (lá do DB. . .)
 const pool = require('./db_config');
@@ -279,7 +277,7 @@ app.post('/login', async(req, res) => {
                 maxAge: 24 * 60 * 60 * 1000 //tempo de vida do cookie (24horas)
             });
 
-            res.status(200).json({ message: 'Login bem-sucedido!', user: { id: user.id, email: user.email, username: user.username, avatar: user.avatar } });
+            res.status(200).json({ message: 'Login bem-sucedido!', user: { id: user.id, email: user.email, username: user.username, avatar: user.avatar, bio: user.bio, interests: user.interests } });
             return;
 
             } else {

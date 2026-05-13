@@ -16,7 +16,7 @@ const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
 
 function Profile() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, login } = useAuth();
 
   //o estado que controla "qual canal está passando"
   const [activeSection, setActiveSection] = useState("view");
@@ -72,6 +72,7 @@ function Profile() {
 
       if (response.ok) {
         setUserData(tempUserData); //pegando os dados de edição e jogando no perfil
+        login({ ...user, ...tempUserData }); // atualiza o contexto global
         setIsGalleryOpen(false);
         setActiveSection("view"); //volta para a visualização após salvar
         toast.success("🚀 Alterações salvas na base de dados!");
