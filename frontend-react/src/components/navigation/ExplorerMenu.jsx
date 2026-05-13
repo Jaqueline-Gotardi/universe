@@ -67,7 +67,10 @@ function ExplorerMenu() {
     setHasSearched(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/search?title=${encodeURIComponent(query)}`); //usar o termo pesquisado na url
+      const response = await fetch(`${API_BASE_URL}/search?title=${encodeURIComponent(query)}`, {  //usar o termo pesquisado na url
+        credentials: 'include', //para enviar cookies
+      });
+      
       if (!response.ok) throw new Error("Erro na conexão"); //se a resposta não for ok
       const data = await response.json(); //transforma em json, de uma forma que o navegador entenda
 
