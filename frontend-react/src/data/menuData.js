@@ -249,16 +249,16 @@ export const menuExtras = [
     icon: "🚀" 
   },
   {
-    id: "apagar-conta",
-    label: "Apagar conta",
-    route: "/app/delete-account",
-    icon: "🗑️",
-  },
-  {
     id: "agents",
     label: "Universe Agents",
     route: "/app/agents",
     icon: "🤖",
+  },
+  {
+    id: "apagar-conta",
+    label: "Apagar conta",
+    route: "/app/delete-account",
+    icon: "🗑️",
   },
 ];
 
