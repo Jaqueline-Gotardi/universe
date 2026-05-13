@@ -183,7 +183,7 @@ function Profile() {
               type="button"
               className={styles.backButton}
               id="btn-voltar-info-menu"
-              onClick={() => navigate("/app/extras-menu")}
+              onClick={() => navigate(-1)}
             >
               Voltar
             </button>
