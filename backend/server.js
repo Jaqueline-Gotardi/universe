@@ -109,7 +109,7 @@ app.post('/register', async (req, res) => {
    }
  
    //para aceitar somente formato de email válido
-   const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+   const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
    const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];
    
    const temExtensaoProibida = extensoesProibidas.some(ext => email.toLowerCase().endsWith(ext));
@@ -155,12 +155,22 @@ app.post('/register', async (req, res) => {
             to: email,
             subject: "🚀 Confirme sua identidade, Agente",
             html: ` 
-            <div style="font-family: sans-serif; background-color: #0b0d17; color: white; padding: 20px; border-radius: 10px;">
-            <h1 style="color: #7b2cbf;">Bem-vindo ao Universe, ${username}!</h1>
-            <p>Sua conta foi criada. Para autorizar o acesso à base, clique no botão abaixo:</p>
-            <a href="${urlConfirmacao}" style="background-color: #7b2cbf; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Confirmar Identidade</a>
-            <p style="margin-top: 20px; font-size: 12px; color: #888;">Se você não solicitou este acesso, ignore este e-mail.</p>
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #05070a; color: #ffffff; padding: 40px; text-align: center; border-radius: 15px">
+            <div style="max-width: 600px; margin: 0 auto; background-color: #0b0d17; border: 1px solid #7b2cbf; border-radius: 15px; padding: 30px; box-shadow: 0 0 20px rgba(123, 44, 191, 0.2);">
+            <h1 style="color: #9d4edd; margin-bottom: 20px;">Bem-vindo à Base, Agente ${username}!</h1>
+            <p style="font-size: 16px; line-height: 1.6; color: #d1d1d1;">
+            Sua credencial foi gerada com sucesso. Para autorizar o acesso total aos sistemas do <strong>Universe</strong>, precisamos confirmar sua identidade estelar.
+            </p>
+            <div style="margin: 40px 0;">
+            <a href="${urlConfirmacao}" style="background-color: #7b2cbf; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4);">AUTORIZAR ACESSO</a>
             </div>
+            <p style="font-size: 14px; color: #888;">
+            Se você não iniciou este protocolo de cadastro, ignore esta transmissão.
+            </p>
+            <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
+            <p style="font-size: 12px; color: #555;">Universe Base Control | Setor de Segurança Cibernética</p>
+            </div>
+        </div>
             `
         };
 
@@ -326,13 +336,21 @@ app.post('/password-recovery', async(req, res) => {
                 to: email,
                 subject: "🛰️ Coordenadas de Recuperação de Acesso",
                 html: `
-                <div style="font-family: sans-serif; background-color: #0b0d17; color: white; padding: 20px; border-radius: 10px;">
-                <h1 style="color: #7b2cbf;">Comandante ${username},</h1>
-                <p>Recebemos um pedido para redefinir sua senha de acesso à base Universe.</p>
-                <p>Clique no botão abaixo para configurar uma nova senha:</p>
-                <a href="${urlReset}" style="background-color: #7b2cbf; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Redefinir Senha</a>
-                <p style="margin-top: 20px; font-size: 12px; color: #888;">Este link é temporário. Se não foi você, proteja seus dados e ignore este e-mail.</p>
+            <div style="font-family: 'Segoe UI', sans-serif; background-color: #05070a; color: #ffffff; padding: 40px; text-align: center; boder-radius: 15px">
+                <div style="max-width: 600px; margin: 0 auto; background-color: #0b0d17; border: 1px solid #ff4d4d; border-radius: 15px; padding: 30px;">
+                <h1 style="color: #ff4d4d; margin-bottom: 20px;">Protocolo de Recuperação</h1>
+                <p style="font-size: 16px; color: #d1d1d1;">
+                Comandante ${username}, detectamos uma solicitação para redefinir suas coordenadas de acesso.
+                </p>
+                <p style="font-size: 14px; color: #aaa; margin-bottom: 30px;">
+                Clique no botão abaixo para configurar uma nova chave de criptografia:
+                </p>
+                <a href="${urlReset}" style="background-color: #ff4d4d; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">REDEFINIR SENHA</a>
+                <p style="margin-top: 40px; font-size: 11px; color: #666;">
+                Este link expirará em breve. Caso não tenha solicitado, contate a Base Control imediatamente.
+                </p>
                 </div>
+            </div>
             `}
 
             await transporter.sendMail(mailOptions);
