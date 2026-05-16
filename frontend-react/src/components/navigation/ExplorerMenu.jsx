@@ -835,6 +835,9 @@ function ExplorerMenu() {
         }
 
         @media (max-width: 850px) {
+        .faixa-topo {
+        padding: 0 20px;
+        }
         .modal-body { 
         flex-direction: column; 
         height: auto; 
