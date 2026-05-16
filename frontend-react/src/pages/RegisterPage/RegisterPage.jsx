@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify" //importar a lib toast que cria nossas notificações
 import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
@@ -15,6 +16,8 @@ function RegisterPage() {
   const [ isSubmitting, setIsSubmitting ] = useState(false);
   const [ showSenha, setShowSenha ] = useState(false);
   const [ showConfirmarSenha, setShowConfirmarSenha ] = useState(false);
+
+  const navigate = useNavigate();
    
   const checkStrength = () => { //função para verificar a força da senha
     const requirements = [
@@ -62,6 +65,20 @@ function RegisterPage() {
       toast.warning("🚀 Agente, o formato desse e-mail não é reconhecido pelas normas estelares, teste novamente!")
       return;
     }
+
+    const dominiosComuns = ["gmail.com", "hotmail.com", "outlook.com", "yahoo.com"];
+    const dominioDigitado = email.split("@")[1]?.toLowerCase();
+    
+    //lógica para detectar se o usuário digitou um domínio parecido com os comuns, mas com erro de digitação
+    const dominioSuspeito = dominiosComuns.find(d => {
+      const raiz = d.split(".")[0]; //gmail, hotmail, etc
+      return dominioDigitado?.startsWith(raiz) && dominioDigitado !== d; //se o domínio digitado começar com a raiz de um domínio comum, mas não for exatamente igual, é suspeito (tipo gmail.com começar gmail.co)
+    });
+
+    if (dominioSuspeito) {
+      toast.warning(`🚀 Você quis dizer @${dominioSuspeito}? Verifique seu e-mail antes de continuar.`);
+      return;
+    }
  
     //confirmar se a senha digitada é igual a digitada no campo de confirmar senha
     if (password !== confirmPassword) {
@@ -94,7 +111,7 @@ function RegisterPage() {
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      //navigate("/login");
+      navigate("/login");
     } else {
       toast.error(data.message ||"☄️ Falha ao cadastrar. Verifique os dados e tente novamente.")
     }
@@ -203,7 +220,8 @@ function RegisterPage() {
           <button type="submit" className={styles.btnCadastrarConta} id="btn-cadastrar"
           //o botão só habilita se a senha tiver conteúdo e os 4 requisitos forem batidos
           disabled={password.length > 0 && metCount < 4 || isSubmitting}>
-            {isSubmitting ? "Enviando..." : "Criar conta"} {/* quando apertar em criar conta mostra "Enviando"/ou o botão padrão */}
+            {isSubmitting ? "Enviando..." : "Criar conta"} {/* quando apertar em criar conta mostra "Enviando"/ou o botão padrão */
+            }
           </button>
         </div>
 

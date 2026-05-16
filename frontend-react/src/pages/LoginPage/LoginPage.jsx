@@ -61,7 +61,8 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
       login(data.user); //atualiza o estado para logado
       setLogin(true); 
     } else {
-      toast.error("☄️ Acesso negado! Verifique suas credenciais cósmicas.")
+      const data = await response.json();
+      toast.error(data.message || "☄️ Acesso negado! Verifique suas credenciais cósmicas.")
     }
 
   } catch(error) {

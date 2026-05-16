@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useRef } from "react";
 import { toast } from "react-toastify";
 import CosmicBackground from "../../layout/CosmicBackground";
@@ -16,6 +16,7 @@ const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
 
 function Profile() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, login } = useAuth();
 
   //o estado que controla "qual canal está passando"
@@ -183,7 +184,14 @@ function Profile() {
               type="button"
               className={styles.backButton}
               id="btn-voltar-info-menu"
-              onClick={() => navigate(-1)}
+              onClick={() => {
+                const from = location.state?.from;
+                if (from && from !== "/app/profile" && from !== "/app/change-password") {
+                  navigate(from);
+                } else {
+                  navigate("/app");
+                }
+              }}
             >
               Voltar
             </button>

@@ -15,6 +15,29 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
+const helmet = require('helmet'); //para proteção de cabeçalhos, o helmet implementa segurança contra vulnerabilidades comuns na web
+const rateLimit = require('express-rate-limit'); //proteção contra ataques de força bruta
+
+const generalLimiter = rateLimit({ //limitador para a navegação
+    windowMs: 15 * 60 * 1000, 
+    max: 150 //numero de requisições permitido por IP
+});
+
+const authLimiter = rateLimit({ //para limitar o número de requisições para login e recuperação de senha
+    windowMs: 15 * 60 * 1000, 
+    max: process.env.NODE_ENV === 'production' ? 5:50, //limite  tentativas de login/recuperação a cada 15minutos
+    message: { message: "Protocolo de segurança ativado: muitas tentativas de acesso. Aguarde 15 minutos." }
+});
+
+app.use(helmet({ //adicionando camadas de segurança com o helmet
+    crossOriginResourcePolicy: { policy: "cross-origin"},
+    contentSecurityPolicy: false,
+}));
+
+app.use('/login', authLimiter);
+app.use('/password-recovery', authLimiter);
+app.use(generalLimiter); //ativando limitador global
+
 const requiredEnvVars = [
   'DB_USER',
   'DB_PASSWORD',
@@ -123,7 +146,6 @@ app.post('/register', async (req, res) => {
     const queryText = `SELECT * FROM users 
                        WHERE email = $1 OR username = $2`;
     const verificarDuplicidade = await pool.query(queryText, [email, username]); //extraindo email e username
-
     
     //verificar se tem algo
     if (verificarDuplicidade.rows.length > 0) {
@@ -131,8 +153,8 @@ app.post('/register', async (req, res) => {
         return;   
     }
 } catch (error) {
-    console.error('5. Erro ao verificar duplicidade no banco de dados:', error)
-    res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.', details: error.message});
+    console.error("Erro no registro", error.message);
+    res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'});
     return;
 }
 
@@ -267,7 +289,9 @@ app.post('/login', async(req, res) => {
 
             const user = verificarUsers.rows[0]; //só entra se estiver a identidade confirmada via e-mail
             if (!user.is_verified) {
-                return res.status(403).json({ message: "📡 Acesso negado. Confirme seu e-mail antes de entrar na base!" });
+                return res.status(403).json({ 
+                    message: "📡 Acesso negado. Enviamos um código de autorização para seu e-mail. Confirme-o para entrar na base!" 
+                });
             }
 
             const compararSenha = await bcrypt.compare(password, user.password); //"compare" é para verificar se a senha digitada pelo usuário corresponde ao hash armazenado no banco
@@ -324,10 +348,12 @@ app.post('/password-recovery', async(req, res) => {
         if (result.rows.length > 0) {
             const username = result.rows[0].username;
             const resetToken = crypto.randomBytes(32).toString("hex");
+            const expires = new Date(Date.now() + 3600000); //token válido por 1 hora
 
-            const updateQuery = `UPDATE users SET reset_token = $1
-                                 WHERE email = $2`;
-            await pool.query(updateQuery, [resetToken, email]);
+            const updateQuery = `UPDATE users SET reset_token = $1,
+                                 reset_token_expires = $2
+                                 WHERE email = $3`;
+            await pool.query(updateQuery, [resetToken, expires, email]);
 
             const urlReset = `${FRONTEND_URL}/reset-password?token=${resetToken}`;
 
@@ -353,7 +379,7 @@ app.post('/password-recovery', async(req, res) => {
             </div>
             `}
 
-            await transporter.sendMail(mailOptions);
+            await transporter.sendMail(mailOptions);  //enviar email de recuperação para o agente
             return res.status(200).json({message: "E-mail de recuperação enviado com sucesso!"});
         } else {
             return res.status(404).json({message: "E-mail não encontrado na nossa base estelar."})
@@ -373,12 +399,18 @@ app.post("/reset-password", async (req, res) => {
 
     try {
         //verificar se existe um usuário with esse token
-        const queryUser = `SELECT id FROM users 
-                           WHERE reset_token = $1`;         
+        const queryUser = `SELECT id,
+                           password FROM users 
+                           WHERE reset_token = $1 AND reset_token_expires > NOW()`;         
         const userResult = await pool.query(queryUser, [token]);
 
         if (userResult.rows.length === 0) {
             return res.status(400).json({ message: "Token inválido ou expirado. Peça uma nova recuperação de senha." });
+        }
+
+        const senhaIgual = await bcrypt.compare(novaSenha, userResult.rows[0].password);
+        if (senhaIgual) {
+            return res.status(400).json({ message: "A nova senha não pode ser igual à senha anterior." });
         }
 
         //criptografar a nova senha
@@ -387,7 +419,9 @@ app.post("/reset-password", async (req, res) => {
 
         //atualizar a senha e limpar o token para que não possa ser usado de novo
         const updateQuery = ` UPDATE users 
-                              SET password = $1, reset_token = null 
+                              SET password = $1, 
+                              reset_token = null,
+                              reset_token_expires = null
                               WHERE reset_token = $2 `;
         await pool.query(updateQuery, [senhaCriptografada, token]);
 
@@ -594,5 +628,5 @@ app.delete('/delete-account', authMiddleware, async (req, res) => {
 
 //inicia o servidor na porta configurada
 app.listen(PORT, () => {
-    console.log(`Servidor em execução em ${SERVER_URL}`);
+    console.log(`🚀 Servidor Universe em execução em ${SERVER_URL}`);
 });
