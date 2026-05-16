@@ -12,6 +12,102 @@ body {
     scrollbar-color: rgba(173, 74, 222, 0.9) rgba(31, 0, 51, 0.9);
 }
 
+/* estilos customizados para o Toastify (as mensagens amigáveis */
+.Toastify__toast {
+    background-color: #0d0b1c !important; 
+    border: 1px solid #763bdb !important; 
+    box-shadow: 0 0 15px rgba(118, 59, 219, 0.5) !important;
+    font-family: 'Orbitron', sans-serif !important;
+    color: #fff !important;
+}
+/* barra lateral*/
+.Toastify__toast--warning {
+    border-left: 6px solid #763bdb !important; 
+}
+.Toastify__toast--warning .Toastify__toast-icon svg {
+    fill: #763bdb !important;
+}
+/* barra de progresso */
+.Toastify__progress-bar--warning {
+    background: #763bdb !important;
+}
+
+
+/*estilos força da senha */
+.passwordStrengthWrapper {
+    margin-top: 0.5rem;
+}
+.strengthBar {
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+}
+.strengthProgress {
+    height: 100%;
+    transition: all 0.4s ease;
+    width: 0%;
+}
+
+.weak { width: 33%; background-color: #ff4d4d; box-shadow: 0 0 10px #ff4d4d; }
+.medium { width: 66%; background-color: #ffd633; box-shadow: 0 0 10px #ffd633; }
+.strong { width: 100%; background-color: #00ffcc; box-shadow: 0 0 15px #00ffcc; }
+
+.requirementList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.75rem;
+    font-family: 'Space Mono', sans-serif;
+}
+.requirementItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+}
+
+.met {
+  color: #00ffcc;
+}
+
+.unmet {
+  color: #a3a3c2;
+  opacity: 0.6;
+}
+
+.statusContainer {
+  margin-top: 10px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.avisoSenhaFraca {
+  color: #fbbf24;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 /* estilização para a tela de detalhes dos planetas, com fundo espacial e estrelas animadas
  */
 .telaDetalhe {

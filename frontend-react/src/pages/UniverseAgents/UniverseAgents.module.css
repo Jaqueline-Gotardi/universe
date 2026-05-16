@@ -1,0 +1,169 @@
+.pageContainer {
+  min-height: 100vh;
+  padding: 100px 5% 50px;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 900px; 
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-family: "Space Mono", monospace;
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.agentRow {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-left: 4px solid #06b6d4;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  gap: 30px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  align-items: center;
+}
+
+.agentRow:hover {
+  transform: scale(1.02);
+  border-color: #8b5cf6;
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.agentAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #06b6d4;
+  padding: 4px;
+  object-fit: cover;
+}
+
+.rankLabel {
+  font-size: 10px;
+  font-weight: bold;
+  color: #06b6d4;
+  letter-spacing: 2px;
+}
+
+.detailsSection {
+  flex: 1;
+}
+
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.agentName {
+  font-family: "Orbitron", sans-serif;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid #10b981;
+}
+
+.agentBio {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.interestsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+@media (max-width: 768px) {
+  .agentRow {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .mainInfo {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .interestsContainer {
+    justify-content: center;
+  }
+}
+
+.backButton {
+  margin: 40px auto;
+  padding: 12px 30px;
+  background: transparent;
+  border: 1px solid #8b5cf6;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.backButton:hover {
+  background: #8b5cf6;
+  box-shadow: 0 0 15px #8b5cf6;
+  transform: scale(1.03);
+}

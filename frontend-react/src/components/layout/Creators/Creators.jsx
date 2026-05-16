@@ -12,7 +12,8 @@ const Creators = () => {
       id: 1,
       nome: "Jaqueline Gotardi",
       cargo: "Fundadora e CEO do Universe",
-      bio: "Criadora do Universe, responsável por toda a transição tecnológica para React e pela nova identidade visual do ecossistema. No Universe, minha missão é unir estética e performance em uma experiência espacial única.",
+      bio: "Criadora do Universe, responsável por toda a transição tecnológica e pela nova identidade visual do ecossistema.",
+      missao: '"No Universe, minha missão é unir estética e performance em uma experiência espacial única."',
       avatar: "/images/jaque.webp",
       github: "https://github.com/Jaqueline-Gotardi",
       linkedin: "https://www.linkedin.com/in/jaqueline-gotardi-833454365/",
@@ -22,17 +23,19 @@ const Creators = () => {
       id: 2,
       nome: "Giliany Silva",
       cargo: "Co-fundadora do Protótipo original (2022)",
-      bio: "Co-autora da ideia original em 2022. Fundamental na concepção do primeiro protótipo que deu origem a esta jornada pelo cosmos. Acredito que as melhores ideias nascem da colaboração e da vontade de criar algo novo do zero.",
+      bio: "Co-autora da ideia original em 2022. Fundamental na concepção do primeiro protótipo que deu origem a esta jornada pelo cosmos.",
+      missao: '"Acredito que as melhores ideias nascem da colaboração e da vontade de criar algo novo do zero."',
       avatar: "/images/giliany.webp",
       github: "",
       linkedin: "", 
-      email: "gilianysilva@gmail.com"
+      email: ""
     },
     {
       id: 3,
       nome: "Grazielle Martins",
       cargo: "Desenvolvedora Assistente",
-      bio: "Desenvolvedora colaboradora, focada na otimização final e suporte técnico para o lançamento da nova versão. Minha motivação é garantir que cada linha de código contribua para um sistema robusto e sem falhas.",
+      bio: "Desenvolvedora colaboradora, focada na otimização final e suporte técnico para o lançamento da nova versão.",
+      missao: '"Minha motivação é garantir que cada linha de código contribua para um sistema robusto e sem falhas."',
       avatar: "/images/grazielle.webp",
       github: "https://github.com/grazielle-marttdev",
       linkedin: "https://www.linkedin.com/in/grazielle-martins-557b61334/",
@@ -77,6 +80,13 @@ const Creators = () => {
                 <h2 className={styles.criadorNome}>{criador.nome}</h2>
                 <p className={styles.criadorCargo}>{criador.cargo}</p>
                 <p className={styles.criadorBio}>{criador.bio}</p>
+
+                {/* Caixinha de missão/comentário */}
+                <div className={styles.missaoBox}>
+                  <p className={styles.missaoTexto}>
+                    {criador.missao}
+                  </p>
+                </div>
 
                 {/* links das redes sociais */}
                 <div className={styles.socialLinks}>

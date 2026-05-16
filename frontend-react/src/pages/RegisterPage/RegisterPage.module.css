@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-.containerCadastro {
+.containerCadastro { 
     background: rgba(13, 11, 28, 0.75);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -67,6 +67,36 @@
     box-shadow: 0 0 8px #9356f9;
 }
 
+.campoSenhaWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.campoSenhaWrapper input {
+    padding-right: 45px !important; 
+}
+
+.iconeOlho {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #a3a3c2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.3s ease;
+    z-index: 5;
+}
+
+.iconeOlho:hover {
+    color: #9356f9;
+}
+
 .captchaContainer {
     display: flex;
     gap: 0.8rem;
@@ -104,6 +134,34 @@
     box-shadow: 0 0 15px #763bdb;
 }
 
+.btnCadastrarConta:disabled {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #444;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.avisoSenha {
+    font-size: 0.8rem;
+    color: #ffd633; 
+    font-family: 'Space Mono', sans-serif;
+    margin-top: 1rem;
+    text-align: center;
+    background: rgba(255, 214, 51, 0.1);
+    padding: 0.5rem;
+    border-radius: 4px;
+    border-left: 3px solid #ffd633;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
 .linkJaTemConta {
     text-align: center;
     margin-top: 1.5rem;
@@ -119,7 +177,7 @@
 }
 
 .linkJaTemConta a:hover {
-    color: #763bdb;
+    color: #7140c7;
     text-decoration: underline;
 }
 

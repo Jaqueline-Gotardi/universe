@@ -50,7 +50,9 @@ function ExplorerMenu() {
     return { stars, comets };
   }, []);
 
-  //lógica de pesquisar
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
+//lógica de pesquisar
   const handleSearch = async () => {
     const query = searchQuery.trim();
     if (!query) { //se não houver pesquisa
@@ -65,7 +67,10 @@ function ExplorerMenu() {
     setHasSearched(true);
 
     try {
-      const response = await fetch(`http://localhost:3000/search?title=${encodeURIComponent(query)}`); //usar o termo pesquisado na url
+      const response = await fetch(`${API_BASE_URL}/search?title=${encodeURIComponent(query)}`, {  //usar o termo pesquisado na url
+        credentials: 'include', //para enviar cookies
+      });
+      
       if (!response.ok) throw new Error("Erro na conexão"); //se a resposta não for ok
       const data = await response.json(); //transforma em json, de uma forma que o navegador entenda
 
@@ -76,7 +81,11 @@ function ExplorerMenu() {
         setResults(data);
       }
     } catch (err) {
-      setErrorMsg("Falha na comunicação intergaláctica. Verifique o servidor.", err);
+      if (!window.navigator.onLine) { //se a internet cair no meio das buscas
+        setErrorMsg("Você está fora de órbita! Verifique sua conexão com a internet.");
+      } else {
+        setErrorMsg("O centro de comando (servidor) não responde. Tente novamente mais tarde.", err);
+      }
       setResults([]);
     } finally {
       setIsLoading(false);
@@ -192,7 +201,7 @@ function ExplorerMenu() {
               </h1>
             </div>
             <p className="descricao-cosmica">
-              Navegue pelo cosmos através dos arquivos da <span>NASA</span> e descubra os segredos estelares que aguardam por você.
+              Navegue pelo cosmos através dos arquivos da <span>NASA</span> e descubra os segredos estelares que aguardam por você!
             </p>
 
             {/* box de instrução extra */}
@@ -321,7 +330,15 @@ function ExplorerMenu() {
             </button>
             <div className="modal-body">
               <div className="modal-media">
+                {isVideo(selectedCard.href) ? (
+                  <iframe
+                  src={getEmbedUrl(selectedCard.href)}
+                  style={{ width: "100%", height: "100%", border: "none" }}
+                  allowFullScreen
+                  />
+                ) : (
                 <img src={selectedCard.href} alt={selectedCard.title} />
+                )}
               </div>
               <div className="modal-desc">
                 <h2>{selectedCard.title}</h2>
@@ -818,6 +835,9 @@ function ExplorerMenu() {
         }
 
         @media (max-width: 850px) {
+        .faixa-topo {
+        padding: 0 20px;
+        }
         .modal-body { 
         flex-direction: column; 
         height: auto; 

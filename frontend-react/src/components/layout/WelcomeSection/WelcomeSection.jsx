@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CosmicScrollBar from "../CosmicScrollBar/CosmicScrollBar";
 import styles from "./WelcomeSection.module.css";
 
 function WelcomeSection() {
@@ -29,6 +30,8 @@ function WelcomeSection() {
   }, []);
 
   return (
+    <>
+    <CosmicScrollBar />
     <section className={styles.telaPrincipal} id="tela-principal-inicial">
       <div className={styles.cosmicEngine}>
         {cosmicBackground.stars.map((star) => (
@@ -117,7 +120,7 @@ function WelcomeSection() {
         {/* Botão Briefing */}
         <button
           className={styles.cosmicButton}
-          style={{
+          style={{ 
             background:
               hoveredButton === "tutorial"
                 ? "linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(236, 72, 153, 0.4) 100%)"
@@ -155,6 +158,7 @@ function WelcomeSection() {
         </button>
       </div>
     </section>
+    </>
   );
 }
 

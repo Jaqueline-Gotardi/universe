@@ -121,7 +121,10 @@ export const constelacaoFamosas = [
 ];
 
 export const eventosAstronomicos = [
-  { id: "eclipses", label: "Eclipses", route: "/app/eclipses", icon: "🌕🌑" },
+  { id: "eclipses", 
+    label: "Eclipses", 
+    route: "/app/eclipses", icon: "🌕🌑" 
+  },
   {
     id: "chuvas-de-meteoros",
     label: "Chuvas de Meteoros",
@@ -174,7 +177,10 @@ export const superluasEConjuncoes = [
 ];
 
 export const cometasEOutros = [
-  { id: "cometas", label: "Cometas", route: "/app/comets", icon: "☄️" },
+  { id: "cometas", 
+    label: "Cometas",
+    route: "/app/comets", icon: "☄️" 
+  },
   {
     id: "supernovas",
     label: "Supernovas",
@@ -241,6 +247,12 @@ export const menuExtras = [
     label: "Criadores", 
     route: "/app/creators", 
     icon: "🚀" 
+  },
+  {
+    id: "agents",
+    label: "Universe Agents",
+    route: "/app/agents",
+    icon: "🤖",
   },
   {
     id: "apagar-conta",

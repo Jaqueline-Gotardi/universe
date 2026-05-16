@@ -2,6 +2,8 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
+import PasswordRecovery from './pages/PasswordRecovery/PasswordRecovery.jsx';
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx';
 import Page404 from './pages/Page404/Page404.jsx';
 
 import ProtectRoute from './components/auth/ProtectRoute.jsx';
@@ -81,6 +83,7 @@ import Profile from './components/auth/Profile/Profile.jsx';
 import Creators from './components/layout/Creators/Creators.jsx';
 import DeleteAccount from './components/auth/DeleteAccount/DeleteAccount.jsx';
 import ChangePassword from './components/auth/ChangePassword/ChangePassword.jsx';
+import UniverseAgents from './pages/UniverseAgents/UniverseAgents.jsx';
 
 const router = createBrowserRouter([
   {
@@ -96,6 +99,14 @@ const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
+    path: "/password-recovery",
+    element: <PasswordRecovery />
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />
+  },
+  {
     path: "/app",
     element: (
       <ProtectRoute>
@@ -103,7 +114,7 @@ const router = createBrowserRouter([
       </ProtectRoute>
     ),
     children: [
-      {
+      { 
         index: true,
         element: <WelcomeSection />
       },
@@ -382,6 +393,10 @@ const router = createBrowserRouter([
       {
         path: "delete-account",
         element: <DeleteAccount />
+      },
+      {
+        path: "agents",
+        element: <UniverseAgents />
       },
       {
         path: "*",
