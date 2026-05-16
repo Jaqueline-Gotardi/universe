@@ -32,6 +32,7 @@
   border-radius: 50px;
   border: 2px solid rgba(139, 92, 246, 0.5);
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+  animation: float 3s ease-in-out infinite;
 }
 
 .rocket {
@@ -47,6 +48,7 @@
   margin-bottom: 15px;
   font-family: 'Orbitron', sans-serif;
   text-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+  animation: float 3s ease-in-out infinite;
 }
 
 .subtitle {
@@ -55,6 +57,16 @@
   font-family: 'Space mono', monospace;
   max-width: 400px;
   margin: 0 auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .criadoresGrid {
@@ -69,10 +81,13 @@
 .criadorCard {
   position: relative;
   background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(25, 25, 55, 0.8));
-  padding: 40px 30px;
-  backdrop-filter: blur(20px);
-  /* deixa o fundo fosco, mantendo o conteúdo da frente legível */
+  padding: 40px 20px 35px 20px;
+  backdrop-filter: blur(20px); /* deixa o fundo fosco, mantendo o conteúdo da frente legível */
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: center;
+  height: 100%;
   border-radius: 24px;
   border: 1px solid rgba(139, 92, 246, 0.3);
   overflow: hidden;
@@ -109,6 +124,7 @@
   border-right: 2px solid rgba(6, 182, 212, 0.6);
   bottom: 10px;
   right: 10px;
+  pointer-events: none;
 }
 
 .containerAvatar {
@@ -160,15 +176,38 @@
 .criadorBio {
   font-size: 14px;
   color: rgba(224, 224, 255, 0.7);
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   line-height: 1.6;
   font-family: 'Space mono', monospace;
+}
+
+.missaoBox {
+  position: relative;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-left: 3px solid #06b6d4; 
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: left; 
+  box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.1);
+}
+
+.missaoTexto {
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(224, 224, 255, 0.9);
+  line-height: 1.5;
+  font-family: 'Space mono', monospace;
+  margin: 0;
 }
 
 .socialLinks {
   display: flex;
   justify-content: center;
   gap: 15px;
+  margin-top: auto;
 }
 
 .socialLink {

@@ -201,7 +201,7 @@ function ExplorerMenu() {
               </h1>
             </div>
             <p className="descricao-cosmica">
-              Navegue pelo cosmos através dos arquivos da <span>NASA</span> e descubra os segredos estelares que aguardam por você.
+              Navegue pelo cosmos através dos arquivos da <span>NASA</span> e descubra os segredos estelares que aguardam por você!
             </p>
 
             {/* box de instrução extra */}

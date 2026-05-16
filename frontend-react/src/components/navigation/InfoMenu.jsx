@@ -51,7 +51,7 @@ const InfoMenu = () => {
             🛰️🌌 Centro de Exploração
           </h1>
           <p style={style.paragrafo}>
-            Bem-vindo ao coração do universo! Aqui, você desvenda os mistérios cósmicos e embarca em jornadas inesquecíveis pelo espaço infinito.
+            Bem-vindo ao coração do Universe! Aqui, você desvenda os mistérios cósmicos e embarca em jornadas inesquecíveis pelo espaço infinito.
           </p>
 
           <CosmicCard
