@@ -196,14 +196,20 @@ app.post('/register', async (req, res) => {
             `
         };
 
-        await transporter.sendMail(mailOptions);
-        res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada para confirmar sua identidade."})
+        try {
+            await transporter.sendMail(mailOptions);
+            res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade."})
+        } catch (emailError) {
+            console.error("Erro ao enviar email:", emailError);
+            res.status(201).json({message: "Conta criada, mas houve um problema ao enviar o email de confirmação. Verifique sua pasta de spam ou tente se cadastrar novamente."})
+        }
     }
  } catch (error) {
     res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
     return;
  }
 })
+
 
 //ROTA PARA CONFIRMAR A IDENTIDADE DO USUÁRIO AO CADASTRAR
 app.get("/verify-email", async(req, res) => {
