@@ -104,14 +104,14 @@ function RegisterPage() {
     const data = await response.json().catch(() => ({})) //se o servidor retornar erro, o .catch evita que o sistema trave ao tentar ler como json
 
     if (response.ok) {
-      toast.success(`🚀 Quase lá, ${username}! Enviamos um link de ativação para seu e-mail.`, {
+      toast.success(`🚀 Quase lá, ${username}! Enviamos um link de ativação.  Verifique sua caixa de entrada e a pasta de spam.`, {
         autoClose: 8000
       })
       setUsername("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      navigate("/login");
+      setTimeout(() => navigate("/login"), 8000);
     } else {
       toast.error(data.message ||"☄️ Falha ao cadastrar. Verifique os dados e tente novamente.")
     }
