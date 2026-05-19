@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
-    min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
 }
 
@@ -122,13 +122,14 @@ body {
 }
 
 .spaceBackground {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     z-index: 0;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .stars {
@@ -143,7 +144,7 @@ body {
         radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
     background-repeat: repeat;
     background-size: 200px 100px;
-    animation: sparkle 3s linear infinite;
+    animation: sparkle 15s linear infinite;
     z-index: 1;
     pointer-events: none;
 }
