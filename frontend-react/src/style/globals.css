@@ -144,7 +144,7 @@ body {
         radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
     background-repeat: repeat;
     background-size: 200px 100px;
-    animation: sparkle 15s linear infinite;
+    animation: sparkle 8s linear infinite;
     z-index: 1;
     pointer-events: none;
 }
