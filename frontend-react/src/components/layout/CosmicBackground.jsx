@@ -12,7 +12,6 @@ const CosmicBackground = () => {
       delay: Math.random() * 4, //atraso
     }));
   }, []); 
-  //}, []);
 
   const comets = useMemo(() => {
     return Array.from({ length: 5 }, (_, i) => ({

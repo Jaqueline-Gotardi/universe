@@ -160,11 +160,11 @@ Cada linha de código representa uma descoberta, e alguns erros de vírgula tamb
 - Navegação dinâmica entre seções;  
 - Lógica condicional com `if`;    
 - Criação de telas conectadas por JavaScript;  
-- Conexão entre Front-end (JavaScript) e Back-end (Node.js/Express).
+- Conexão entre Front-end e Back-end.
 - Tratamento de Erros: Implementação de try/catch e lógica de fallback para garantir a integridade da aplicação.
 - Aprendendo muito sobre **design de interface** e **experiência do usuário (UX)**, usando o **Lovart IA** para gerar imagens temáticas que reforçam o clima espacial. 
-- Gestão de Estado de UI: Lógica de salvamento e reset de dados em formulários (Módulo de Perfil).
-- A migração para o React tem me ensinado que **organização é clareza**. Lidar com conceitos como `props`, `state` e renderização condicional tem sido uma experiência deliciosa!
+- Gestão de Estado de UI: Lógica de salvamento e reset de dados em formulários.
+- A migração para o React nos ensinou que **organização é clareza**. Lidar com renderização condicional foi uma experiência deliciosa!
 
 ---
 
@@ -172,8 +172,7 @@ Cada linha de código representa uma descoberta, e alguns erros de vírgula tamb
 
 O Universe é um organismo vivo e a missão continua com as seguintes metas:
 
-1. **Conexão com Supabase**: Migrar os dados temporários para o **Supabase** e implementar autenticação real.
-2. **Linha do Tempo**: Galeria de evolução histórica (2022-2026).
+1. **Linha do Tempo**: Galeria de evolução histórica (2022-2026).
    
 Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínuo, 1% melhor por dia. 💙  
 
@@ -181,14 +180,14 @@ Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínu
 
 ## 🌠 Evolução e Tecnologias  
 
-O que antes era um site desenvolvido com JS, hoje está evoluindo para uma aplicação **Single Page Application (SPA)** moderna e escalável.
+O que antes era um site desenvolvido com JS, hoje ele evoluiu para uma aplicação **Single Page Application (SPA)** moderna e escalável.
 
 ### 🛠️ Stack Tecnológica 
 - **React**: Core da aplicação, utilizando Hooks como `useState`, `useEffect` e `useRef` para controle refinado de estados e ciclos de vida.
 - **React Router Dom**: Gestão de rotas e navegação fluida entre os componentes da missão.
 - **Node.js & Express**: Backend local para consumo seguro e tratamento de falhas das APIs da NASA.
 - **SVG Dinâmico**: Ícones customizados via código XML para máxima performance e flexibilidade de estilo.
-- **HTML5 & CSS3**: Estilização imersiva com tema espacial e foco em responsividade.
+- **CSS modules**: Estilização imersiva com tema espacial e foco em responsividade.
 
 ---
 

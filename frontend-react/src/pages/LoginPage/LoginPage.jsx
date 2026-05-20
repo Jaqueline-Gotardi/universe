@@ -10,8 +10,9 @@ import { NavLink } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
 import { toast } from "react-toastify"; 
 
-import { LoginTransition } from "../../components/auth/LoginTransition/LoginTransition.jsx";
 import styles from "./LoginPage.module.css"
+import StaticStarsBackground from "../../components/layout/StaticStarsBackground.jsx";
+import { LoginTransition } from "../../components/auth/LoginTransition/LoginTransition.jsx";
 
    
 function LoginPage() { //no react as functions começam com letra Maiúscula
@@ -74,11 +75,8 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
 
     return (   
     <section className={styles.telaLogin} id="tela-login">
+      <StaticStarsBackground />
 
-    <div className={styles.spaceBackground} id="login-bg">
-      <div className={styles.stars}></div>
-      <div className={styles.planets}></div> 
-    </div> 
      { isLogin ? ( //se o login for feito, mostra a animação de transição, senão mostra o formulário de login
       <LoginTransition onComplete={handleTransitionEnd} />
     ) : (
