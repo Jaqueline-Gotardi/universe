@@ -6,7 +6,7 @@ import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./RegisterPage.module.css"
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = 'https://universe-ce66.onrender.com';
 
 function RegisterPage() {
   const [ username, setUsername ] = useState("");

@@ -39,11 +39,6 @@ app.use('/password-recovery', authLimiter);
 app.use(generalLimiter); //ativando limitador global
 
 const requiredEnvVars = [
-  'DB_USER',
-  'DB_PASSWORD',
-  'DB_HOST',
-  'DB_NAME',
-  'DB_PORT',
   'JWT_SECRET',
   'EMAIL_USER',
   'EMAIL_PASS',
@@ -51,8 +46,12 @@ const requiredEnvVars = [
 ];
 
 const missingEnvVars = requiredEnvVars.filter((envVar) => !process.env[envVar]);
-if (missingEnvVars.length > 0) {
-  console.error(`❌ Variáveis de ambiente ausentes: ${missingEnvVars.join(', ')}`);
+
+const hasFatiado = process.env.DB_USER && process.env.DB_PASSWORD && process.env.DB_HOST && process.env.DB_NAME && process.env.DB_PORT;
+const hasUnificado = process.env.DATABASE_URL;
+
+if (missingEnvVars.length > 0 || (!hasFatiado && !hasUnificado)) {
+  console.error(`❌ Variáveis de ambiente ausentes ou configuração de banco incompleta. Vars faltando: ${missingEnvVars.join(', ')}`);
   process.exit(1);
 }
 
@@ -616,7 +615,7 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
         }
     });
 
-const PORT = Number(process.env.SERVER_PORT) || 3000;
+const PORT = Number(process.env.PORT) || Number(process.env.SERVER_PORT) || 3000;
 
 
 //ROTA DE DELETAR CONTA

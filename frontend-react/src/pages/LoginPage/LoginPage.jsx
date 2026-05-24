@@ -40,7 +40,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   };
 
   //função de validação de login
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+  const API_BASE_URL = 'https://universe-ce66.onrender.com';
 
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
