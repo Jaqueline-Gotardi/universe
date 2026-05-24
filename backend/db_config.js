@@ -15,7 +15,9 @@ if (process.env.DATABASE_URL) {
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 5000,
       ssl: {
-        rejectUnauthorized: false 
+        rejectUnauthorized: false,
+        //extrai o host da variável para enviar o SNI correto ao Supabase
+        servername: process.env.DB_HOST || "aws-0-sa-east-1.pooler.supabase.com" 
       }
     });
 } else {
