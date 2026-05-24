@@ -22,7 +22,9 @@ const pool = new Pool({
     max: 10, //reduzido para compatibilidade com planos gratuitos (Render/Neon)
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 5000,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    ssl: { 
+      rejectUnauthorized: false 
+    } 
 }) 
 
 //para que outros arquivos possam usar o pool (minha conexão configurada)
