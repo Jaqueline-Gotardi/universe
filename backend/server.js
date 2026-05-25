@@ -2,10 +2,11 @@ const express = require('express'); //framework web para node.js
 const path = require('path'); //módulo nativo do node.js
 
 //É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
-//require('dotenv').config({path: path.join(__dirname, '../.env')}); //configurando o dontev para ler o arquivo .env
-require('dotenv').config()
+
+require('dotenv').config() //configurando o dontev para ler o arquivo .env
 
 const app = express(); 
+app.set('trust proxy', 1); //para confiar no proxy e permitir o uso de cookies seguros mesmo atrás de um proxy. Ele ensina seu servidor a identificar o IP real e o protocolo (HTTP/HTTPS) do usuário.
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
