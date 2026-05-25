@@ -17,7 +17,7 @@ if (process.env.DATABASE_URL) {
       ssl: {
         rejectUnauthorized: false,
         //extrai o host da variável para enviar o SNI correto ao Supabase
-        servername: process.env.DB_HOST || "aws-0-sa-east-1.pooler.supabase.com" 
+        servername: process.env.DB_HOST || "aws-1-sa-east-1.pooler.supabase.com" 
       }
     });
 } else {
