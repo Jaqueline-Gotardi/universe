@@ -6,11 +6,6 @@
       "use": "@vercel/node"
     }
   ],
-  "functions": {
-    "server.js": {
-      "regions": ["sfo1"]
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
