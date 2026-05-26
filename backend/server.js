@@ -423,7 +423,6 @@ app.post("/reset-password", async (req, res) => {
 //ROTA DE TROCAR SENHA
 app.post('/change-password', authMiddleware, async(req, res) => {
     const { senhaAtual, novaSenha } = req.body;
-
     const userId  = req.user.id;
 
     if (!senhaAtual.trim() || !novaSenha.trim()) {
@@ -444,7 +443,6 @@ app.post('/change-password', authMiddleware, async(req, res) => {
         }
 
         const user = result.rows[0];
-
         const senhaValida = await bcrypt.compare(senhaAtual, user.password);
 
         if(!senhaValida) {
@@ -452,12 +450,10 @@ app.post('/change-password', authMiddleware, async(req, res) => {
         }
 
         const novaSenhaHash = await bcrypt.hash(novaSenha, 10);
-
         const updateQuery = `UPDATE users SET password = $1 WHERE id = $2`;
         await pool.query(updateQuery, [novaSenhaHash, userId]);
 
         return res.status(200).json({message: "Senha atualizada com sucesso!"})
-
     } catch(error) {
         console.error("Erro na troca de senha:", error);
         return res.status(500).json({message: "Erro interno no servidor"})
@@ -470,10 +466,10 @@ app.get('/agents', authMiddleware, async (req, res) => {
     try {
         const query = `SELECT username, bio, interests, avatar FROM users WHERE is_verified = true ORDER BY id DESC`;
         const result = await pool.query(query);
-        res.status(200).json(result.rows);
+        return res.status(200).json(result.rows);
     } catch (error) {
         console.error("Erro ao buscar agentes:", error);
-        res.status(500).json({ message: "Erro interno ao buscar a tripulação." });
+        return res.status(500).json({ message: "Erro interno ao buscar a tripulação." });
     }
 });
 
@@ -485,13 +481,13 @@ app.get('/profile', authMiddleware, async (req, res) => {
         const result = await pool.query(query, [req.user.id]);
         
         if (result.rows.length > 0) {
-            res.status(200).json(result.rows[0]);
+            return res.status(200).json(result.rows[0]);
         } else {
-            res.status(404).json({ message: "Agente não encontrado." });
+            return res.status(404).json({ message: "Agente não encontrado." });
         }
     } catch (error) {
         console.error("Erro ao buscar perfil:", error);
-        res.status(500).json({ message: "Erro interno no centro de comando." });
+        return res.status(500).json({ message: "Erro interno no centro de comando." });
     }
 });
 
@@ -509,10 +505,10 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
         `;
         await pool.query(updateQuery, [username, bio, interests, avatar, userId]);
         
-        res.status(200).json({ message: "Perfil atualizado com sucesso!" });
+        return res.status(200).json({ message: "Perfil atualizado com sucesso!" });
     } catch (error) {
         console.error("Erro ao atualizar perfil:", error);
-        res.status(500).json({ message: "Erro interno ao salvar no banco cósmico." });
+        return res.status(500).json({ message: "Erro interno ao salvar no banco cósmico." });
     }
 });
 
@@ -524,7 +520,6 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
         
         //se a busca for vazia ou contiver palavras-chave da APOD
         const isAPOD = !q || /APOD|foto do dia|astronomia/i.test(q);
-
         let resultadosFinais = [];
 
         //função interna para buscar na API gratuita da NASA (Images)
@@ -532,9 +527,8 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
             try {
                 const searchQ = searchTerm || 'nebula'; //fallback para busca vazia
                 const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(searchQ)}`);
-                
+        
                 if (!respostaGratuita.ok) return [];
-                
                 const dadosGratuitos = await respostaGratuita.json();
 
                 if (dadosGratuitos.collection && dadosGratuitos.collection.items) {
@@ -590,231 +584,14 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
 
         // 3. Responder
         if (resultadosFinais.length > 0) {
-            res.json(resultadosFinais);
+            return res.json(resultadosFinais);
         } else {
-            res.status(404).json({ error: 'Nenhum resultado encontrado em nenhuma das APIs. . .' });
+            return res.status(404).json({ error: 'Nenhum resultado encontrado em nenhuma das APIs. . .' });
         }
     });
 
-const PORT = Number(process.env.PORT) || Number(process.env.SERVER_PORT) || 3000;
-
 
 //ROTA DE DELETAR CONTA
-app.delete('/delete-account', authMiddleware, async (req, res) => {
-    try {
-        const deleteQuery = `DELETE FROM users WHERE id = $1`;
-        await pool.query(deleteQuery, [req.user.id]);
-        res.clearCookie("token");
-        res.status(200).json({message: "Conta deletada com sucesso, agente!"});
-    } catch (error) {
-        console.error("Erro ao deletar conta:", error);
-        res.status(500).json({message: "Erro interno do servidor. Tente novamente mais tarde."});
-    } 
-})
-
-//inicia o servidor na porta configurada
-// app.listen(PORT, () => {
-//     console.log(`🚀 Servidor Universe em execução em ${SERVER_URL}`);
-// });
-
-module.exports = app; //exportando o app para usar em outros arquivos para rodar o servidor.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-// ROTA DE TROCAR SENHA
-app.post('/change-password', authMiddleware, async(req, res) => {
-    const { senhaAtual, novaSenha } = req.body;
-    const userId  = req.user.id;
-
-    if (!senhaAtual.trim() || !novaSenha.trim()) {
-        return res.status(400).json({message: "Dados incompletos. Preencha corretamente!"});
-    }
-
-    if (senhaAtual === novaSenha) {
-        return res.status(400).json({message: "A nova senha não pode ser igual a senha atual."});
-    }
-
-    try {
-        const queryUser = `SELECT * FROM users WHERE id = $1`;
-        const result = await pool.query(queryUser, [userId]);
-
-        if (result.rows.length === 0) {
-            return res.status(404).json({message: "Usuário não encontrado no cosmos!"});
-        }
-
-        const user = result.rows[0];
-        const senhaValida = await bcrypt.compare(senhaAtual, user.password);
-
-        if(!senhaValida) {
-            return res.status(401).json({message: "Senha atual incorreta!"});
-        }
-
-        const novaSenhaHash = await bcrypt.hash(novaSenha, 10);
-        const updateQuery = `UPDATE users SET password = $1 WHERE id = $2`;
-        await pool.query(updateQuery, [novaSenhaHash, userId]);
-
-        return res.status(200).json({message: "Senha updated com sucesso!"});
-    } catch(error) {
-        console.error("Erro na troca de senha:", error);
-        return res.status(500).json({message: "Erro interno no servidor"});
-    }
-});
-
-// ROTA PARA BUSCAR TODOS OS AGENTES
-app.get('/agents', authMiddleware, async (req, res) => {
-    try {
-        const query = `SELECT username, bio, interests, avatar FROM users WHERE is_verified = true ORDER BY id DESC`;
-        const result = await pool.query(query);
-        return res.status(200).json(result.rows);
-    } catch (error) {
-        console.error("Erro ao buscar agentes:", error);
-        return res.status(500).json({ message: "Erro interno ao buscar a tripulação." });
-    }
-});
-
-// ROTA PERFIL DO AGENTE LOGADO
-app.get('/profile', authMiddleware, async (req, res) => {
-    try {
-        const query = `SELECT username, email, bio, interests, avatar FROM users WHERE id = $1`;
-        const result = await pool.query(query, [req.user.id]);
-        
-        if (result.rows.length > 0) {
-            return res.status(200).json(result.rows[0]);
-        } else {
-            return res.status(404).json({ message: "Agente não encontrado." });
-        }
-    } catch (error) {
-        console.error("Erro ao buscar perfil:", error);
-        return res.status(500).json({ message: "Erro interno no centro de comando." });
-    }
-});
-
-// ROTA EDITAR PERFIL
-app.put('/update-profile', authMiddleware, async (req, res) => {
-    const { username, bio, interests, avatar } = req.body;
-    const userId = req.user.id;
-
-    try {
-        const updateQuery = `UPDATE users SET username = $1, bio = $2, interests = $3, avatar = $4 WHERE id = $5`;
-        await pool.query(updateQuery, [username, bio, interests, avatar, userId]);
-        return res.status(200).json({ message: "Perfil updated com sucesso!" });
-    } catch (error) {
-        console.error("Erro ao atualizar perfil:", error);
-        return res.status(500).json({ message: "Erro interno ao salvar no banco cósmico." });
-    }
-});
-
-// ROTA SEARCH (NASA API)
-app.get('/search', authMiddleware, async(req, res) => {
-    const title = req.query.title || '';
-    const q = title?.trim();
-    const isAPOD = !q || /APOD|foto do dia|astronomia/i.test(q);
-    let resultadosFinais = [];
-
-    async function getNasaImages(searchTerm) {
-        try {
-            const searchQ = searchTerm || 'nebula';
-            const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(searchQ)}`);
-            if (!respostaGratuita.ok) return [];
-            const dadosGratuitos = await respostaGratuita.json();
-
-            if (dadosGratuitos.collection && dadosGratuitos.collection.items) {
-                return dadosGratuitos.collection.items
-                    .filter(item => item.data && item.links && item.links.some(link => link.render === 'image'))
-                    .map(item => ({
-                        source: 'IMAGES',
-                        title: item.data[0].title,
-                        date_created: item.data[0].date_created || 'Sem data',
-                        location: item.data[0].location || 'Sem localização',
-                        description: item.data[0].description || 'Sem descrição',
-                        href: item.links.find(link => link.render === 'image').href
-                    }));
-            }
-            return [];
-        } catch (erro) {
-            console.error('Erro na API Images:', erro);
-            return [];
-        }
-    }
-
-    if (isAPOD) {
-        try {
-            const respostaComChave = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}`);
-            if (respostaComChave.ok) {
-                const dadosComChave = await respostaComChave.json();
-                if (dadosComChave.url) {
-                    resultadosFinais.push({
-                        source: 'APOD',
-                        isApod: true,
-                        title: dadosComChave.title || 'Sem título (APOD)',
-                        date_created: dadosComChave.date || 'Sem data',
-                        location: 'Espaço',
-                        description: dadosComChave.explanation || 'Sem descrição',
-                        href: dadosComChave.media_type === 'image' ? dadosComChave.hdurl || dadosComChave.url : dadosComChave.url
-                    });
-                }
-            }
-        } catch (erro) {
-            console.error('Erro ao acessar API APOD:', erro);
-        }
-    }
-
-    const imagensNasa = await getNasaImages(q);
-    resultadosFinais.push(...imagensNasa);
-
-    if (resultadosFinais.length > 0) {
-        return res.json(resultadosFinais);
-    } else {
-        return res.status(404).json({ error: 'Nenhum resultado encontrado em nenhuma das APIs.' });
-    }
-});
-
-// ROTA DE DELETAR CONTA
 app.delete('/delete-account', authMiddleware, async (req, res) => {
     try {
         const deleteQuery = `DELETE FROM users WHERE id = $1`;
@@ -825,6 +602,6 @@ app.delete('/delete-account', authMiddleware, async (req, res) => {
         console.error("Erro ao deletar conta:", error);
         return res.status(500).json({message: "Erro interno do servidor. Tente novamente mais tarde."});
     } 
-});
+})
 
-module.exports = app;
+module.exports = app; //exportando o app para usar em outros arquivos para rodar o servidor.
