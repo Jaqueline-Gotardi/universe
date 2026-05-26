@@ -2,21 +2,16 @@ const express = require('express'); //framework web para node.js
 const path = require('path'); //módulo nativo do node.js
 
 //É necessário instalar uma biblioteca dotenv para usar o .env (arquivo deve conter sua chave api, caso precise de uma), abra seu terminal no vscode msm e digite ('npm i dotenv') para instalar
-
 require('dotenv').config() //configurando o dontev para ler o arquivo .env
 
 const app = express(); 
-app.set('trust proxy', 1); //para confiar no proxy e permitir o uso de cookies seguros mesmo atrás de um proxy. Ele ensina seu servidor a identificar o IP real e o protocolo (HTTP/HTTPS) do usuário.
+app.set('trust proxy', 1); //para confiar no proxy e permitir o uso de cookies seguros mesmo atrás de um proxy.
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
-//console.log("E-mail configurado:", process.env.EMAIL_USER);
-
-//para enviar email de confirmação pra caixa de entrada do usuário
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
-
-const helmet = require('helmet'); //para proteção de cabeçalhos, o helmet implementa segurança contra vulnerabilidades comuns na web
+const helmet = require('helmet'); //segurança contra vulnerabilidades comuns na web
 const rateLimit = require('express-rate-limit'); //proteção contra ataques de força bruta
 
 const generalLimiter = rateLimit({ //limitador para a navegação
@@ -47,13 +42,12 @@ const requiredEnvVars = [
 ];
 
 const missingEnvVars = requiredEnvVars.filter((envVar) => !process.env[envVar]);
-
 const hasFatiado = process.env.DB_USER && process.env.DB_PASSWORD && process.env.DB_HOST && process.env.DB_NAME && process.env.DB_PORT;
 const hasUnificado = process.env.DATABASE_URL;
 
 if (missingEnvVars.length > 0 || (!hasFatiado && !hasUnificado)) {
   console.error(`❌ Variáveis de ambiente ausentes ou configuração de banco incompleta. Vars faltando: ${missingEnvVars.join(', ')}`);
-  process.exit(1);
+  process.exit(1); //para interromper a execução do servidor se as variáveis de ambiente estiverem faltando ou se o banco de dados não estiver configurado corretamente.
 }
 
 const API_KEY = process.env.API_KEY;
@@ -62,31 +56,20 @@ const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
 const COOKIE_SECURE = process.env.NODE_ENV === 'production';
 
+//configuração do Nodemailer 
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        pass: process.env.EMAIL_PASS, //senha de app
     }
 })
 
-// Verificação de conexão com o e-mail
-if (process.env.NODE_ENV !== 'production') {
-  transporter.verify(function (error, success) {
-    if (error) {
-      console.error("❌ Erro na configuração do e-mail:", error.message);
-    } else {
-      console.log("🚀 O servidor de e-mail está pronto para decolar!");
-    }
-  });
-}
-
 const authMiddleware = require('./middleware'); //importando. . .
- 
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
 //cors é uma biblioteca para o expŕess
-
 const cookieParser = require("cookie-parser");
+
 app.use(cookieParser())
 
 app.use(cors({
@@ -108,13 +91,11 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //ROTA DE REGISTRAR DADOS DO USUÁRIO
 app.post('/register', async (req, res) => {
-    //console.log('1. Requisição de registro recebida')
     const { username, email, password } = req.body;
    
    //verificar se existem ou se estão vazios. . .
    if (!username || username.trim() === '' 
      || !email || email.trim() === '' 
-
      || !password || password.trim() === '') {
     res.status(400).json({ message: 'Todos os campos (username, email, password) são obrigatórios!'})
     return;
@@ -134,7 +115,6 @@ app.post('/register', async (req, res) => {
    //para aceitar somente formato de email válido
    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
    const extensoesProibidas = [".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip"];
-   
    const temExtensaoProibida = extensoesProibidas.some(ext => email.toLowerCase().endsWith(ext));
 
    if (!emailRegex.test(email) || temExtensaoProibida) {
@@ -198,17 +178,17 @@ app.post('/register', async (req, res) => {
 
         try {
             await transporter.sendMail(mailOptions);
-            res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade."})
+            return res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade."});
         } catch (emailError) {
-            console.error("Erro ao enviar email:", emailError);
-            res.status(201).json({message: "Conta criada, mas houve um problema ao enviar o email de confirmação. Verifique sua pasta de spam ou tente se cadastrar novamente."})
+            console.error("Erro ao enviar e-mail via Nodemailer:", emailError);
+            return res.status(201).json({message: "Conta criada, mas houve um problema na transmissão do e-mail de confirmação."});
         }
     }
- } catch (error) {
-    res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'})
-    return;
- }
-})
+} catch (error) {
+    console.error("Erro no servidor ao registrar usuário:", error);
+    return res.status(500).json({ message: 'Erro interno do servidor. Tente novamente mais tarde.'});
+}
+});
 
 
 //ROTA PARA CONFIRMAR A IDENTIDADE DO USUÁRIO AO CADASTRAR
@@ -222,7 +202,7 @@ app.get("/verify-email", async(req, res) => {
         
         //se pelo menos 1 linha tiver sido inserida no banco. . .
         if (result.rows.length === 1) {
-            res.send(`
+            return res.send(`
             <style>
             * { 
             margin: 0; 
@@ -267,10 +247,10 @@ app.get("/auth/verify", authMiddleware, async (req, res) => {
         if (result.rows.length === 0) {
             return res.status(401).json({ message: "Usuário não encontrado." });
         }
-        res.status(200).json({ authMiddleware: true, user: result.rows[0] }); //para o front saber que a autenticação foi verificada e passar os dados do agente para o front
+        return res.status(200).json({ authMiddleware: true, user: result.rows[0] }); //para o front saber que a autenticação foi verificada e passar os dados do agente para o front
     } catch (error) {
         console.error("Erro ao verificar sessão:", error);
-        res.status(500).json({ message: "Erro interno." });
+        return res.status(500).json({ message: "Erro interno." });
     }
 });
 
@@ -279,10 +259,8 @@ app.get("/auth/verify", authMiddleware, async (req, res) => {
 app.post('/login', async(req, res) => {
     const { email, password } = req.body;
 
-    if (!email || email.trim() === ''
-        || !password || password.trim() === '') {
-            res.status(400).json({ message: 'Email e senha são obrigatórios.'})
-            return;
+    if (!email || email.trim() === '' || !password || password.trim() === '') {
+        return res.status(400).json({ message: 'Email e senha são obrigatórios.'})
     }
 
     try {
@@ -317,24 +295,20 @@ app.post('/login', async(req, res) => {
                 maxAge: 24 * 60 * 60 * 1000 //tempo de vida do cookie (24horas)
             });
 
-            res.status(200).json({ message: 'Login bem-sucedido!', user: { id: user.id, email: user.email, username: user.username, avatar: user.avatar, bio: user.bio, interests: user.interests } });
-            return;
-
+            return res.status(200).json({ message: 'Login bem-sucedido!', user: { id: user.id, email: user.email, username: user.username, avatar: user.avatar, bio: user.bio, interests: user.interests } });
             } else {
-            res.status(401).json({message: 'Senha inválida!'});
-            return;
+            return res.status(401).json({message: 'Senha inválida!'});
             }
 
         } else { //se usuário não for encontrado. . .
-            res.status(401).json({message: 'Credenciais inválidas'});
-            return;
+            return res.status(401).json({message: 'Credenciais inválidas'});
         } 
 
     } catch(error) { //erro inesperado do servidor
         console.error('Falha ao conectar ao banco de dados, tente novamente mais tarde:', error)
-        res.status(500).json({message: 'Erro interno do servidor. Tente novamente mais tarde. . .'})
+        return res.status(500).json({message: 'Erro interno do servidor. Tente novamente mais tarde. . .'})
     }
-})
+});
 
 
 //ROTA DE RECUPERAÇÃO DE SENHA
@@ -364,7 +338,7 @@ app.post('/password-recovery', async(req, res) => {
             const urlReset = `${FRONTEND_URL}/reset-password?token=${resetToken}`;
 
             const mailOptions = { 
-                from: process.env.EMAIL_FROM || '"Universe Base Control" <universe.base.st@gmail.com>',
+                from: '"Universe Base Control" <universe.base.st@gmail.com>',
                 to: email,
                 subject: "🛰️ Coordenadas de Recuperação de Acesso",
                 html: `
@@ -383,10 +357,15 @@ app.post('/password-recovery', async(req, res) => {
                 </p>
                 </div>
             </div>
-            `}
+            `};
 
-            await transporter.sendMail(mailOptions);  //enviar email de recuperação para o agente
-            return res.status(200).json({message: "E-mail de recuperação enviado com sucesso!"});
+            try {
+                await transporter.sendMail(mailOptions); //enviar email de recuperação para o agente
+                return res.status(200).json({message: "E-mail de recuperação enviado com sucesso!"});
+            } catch (errorEmail) {
+                console.error("Erro no envio do e-mail de recuperação:", errorEmail);
+                return res.status(500).json({message: "Erro ao disparar e-mail de recuperação mecânica."});
+            }
         } else {
             return res.status(404).json({message: "E-mail não encontrado na nossa base estelar."})
         }
@@ -394,6 +373,7 @@ app.post('/password-recovery', async(req, res) => {
         return res.status(500).json({message: "Erro interno no servidor. Tente novamente mais tarde."})
     }
 })
+
 
 //ROTA PARA CONFIRMAR A RECUPERAÇÃO DE SENHA (APÓS O CLIQUE NO E-MAIL)
 app.post("/reset-password", async (req, res) => {
@@ -443,7 +423,6 @@ app.post("/reset-password", async (req, res) => {
 //ROTA DE TROCAR SENHA
 app.post('/change-password', authMiddleware, async(req, res) => {
     const { senhaAtual, novaSenha } = req.body;
-
     const userId  = req.user.id;
 
     if (!senhaAtual.trim() || !novaSenha.trim()) {
@@ -464,7 +443,6 @@ app.post('/change-password', authMiddleware, async(req, res) => {
         }
 
         const user = result.rows[0];
-
         const senhaValida = await bcrypt.compare(senhaAtual, user.password);
 
         if(!senhaValida) {
@@ -472,12 +450,10 @@ app.post('/change-password', authMiddleware, async(req, res) => {
         }
 
         const novaSenhaHash = await bcrypt.hash(novaSenha, 10);
-
         const updateQuery = `UPDATE users SET password = $1 WHERE id = $2`;
         await pool.query(updateQuery, [novaSenhaHash, userId]);
 
         return res.status(200).json({message: "Senha atualizada com sucesso!"})
-
     } catch(error) {
         console.error("Erro na troca de senha:", error);
         return res.status(500).json({message: "Erro interno no servidor"})
@@ -490,10 +466,10 @@ app.get('/agents', authMiddleware, async (req, res) => {
     try {
         const query = `SELECT username, bio, interests, avatar FROM users WHERE is_verified = true ORDER BY id DESC`;
         const result = await pool.query(query);
-        res.status(200).json(result.rows);
+        return res.status(200).json(result.rows);
     } catch (error) {
         console.error("Erro ao buscar agentes:", error);
-        res.status(500).json({ message: "Erro interno ao buscar a tripulação." });
+        return res.status(500).json({ message: "Erro interno ao buscar a tripulação." });
     }
 });
 
@@ -505,13 +481,13 @@ app.get('/profile', authMiddleware, async (req, res) => {
         const result = await pool.query(query, [req.user.id]);
         
         if (result.rows.length > 0) {
-            res.status(200).json(result.rows[0]);
+            return res.status(200).json(result.rows[0]);
         } else {
-            res.status(404).json({ message: "Agente não encontrado." });
+            return res.status(404).json({ message: "Agente não encontrado." });
         }
     } catch (error) {
         console.error("Erro ao buscar perfil:", error);
-        res.status(500).json({ message: "Erro interno no centro de comando." });
+        return res.status(500).json({ message: "Erro interno no centro de comando." });
     }
 });
 
@@ -529,10 +505,10 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
         `;
         await pool.query(updateQuery, [username, bio, interests, avatar, userId]);
         
-        res.status(200).json({ message: "Perfil atualizado com sucesso!" });
+        return res.status(200).json({ message: "Perfil atualizado com sucesso!" });
     } catch (error) {
         console.error("Erro ao atualizar perfil:", error);
-        res.status(500).json({ message: "Erro interno ao salvar no banco cósmico." });
+        return res.status(500).json({ message: "Erro interno ao salvar no banco cósmico." });
     }
 });
 
@@ -544,7 +520,6 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
         
         //se a busca for vazia ou contiver palavras-chave da APOD
         const isAPOD = !q || /APOD|foto do dia|astronomia/i.test(q);
-
         let resultadosFinais = [];
 
         //função interna para buscar na API gratuita da NASA (Images)
@@ -552,9 +527,8 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
             try {
                 const searchQ = searchTerm || 'nebula'; //fallback para busca vazia
                 const respostaGratuita = await fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(searchQ)}`);
-                
+        
                 if (!respostaGratuita.ok) return [];
-                
                 const dadosGratuitos = await respostaGratuita.json();
 
                 if (dadosGratuitos.collection && dadosGratuitos.collection.items) {
@@ -610,13 +584,11 @@ app.put('/update-profile', authMiddleware, async (req, res) => {
 
         // 3. Responder
         if (resultadosFinais.length > 0) {
-            res.json(resultadosFinais);
+            return res.json(resultadosFinais);
         } else {
-            res.status(404).json({ error: 'Nenhum resultado encontrado em nenhuma das APIs. . .' });
+            return res.status(404).json({ error: 'Nenhum resultado encontrado em nenhuma das APIs. . .' });
         }
     });
-
-const PORT = Number(process.env.PORT) || Number(process.env.SERVER_PORT) || 3000;
 
 
 //ROTA DE DELETAR CONTA
@@ -625,14 +597,11 @@ app.delete('/delete-account', authMiddleware, async (req, res) => {
         const deleteQuery = `DELETE FROM users WHERE id = $1`;
         await pool.query(deleteQuery, [req.user.id]);
         res.clearCookie("token");
-        res.status(200).json({message: "Conta deletada com sucesso, agente!"});
+        return res.status(200).json({message: "Conta deletada com sucesso, agente!"});
     } catch (error) {
         console.error("Erro ao deletar conta:", error);
-        res.status(500).json({message: "Erro interno do servidor. Tente novamente mais tarde."});
+        return res.status(500).json({message: "Erro interno do servidor. Tente novamente mais tarde."});
     } 
 })
 
-//inicia o servidor na porta configurada
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor Universe em execução em ${SERVER_URL}`);
-});
+module.exports = app; //exportando o app para usar em outros arquivos para rodar o servidor.
