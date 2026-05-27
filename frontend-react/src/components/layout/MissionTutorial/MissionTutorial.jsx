@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import TimelineItem from "./TimelineItem";
 import styles from "./MissionTutorial.module.css"
 
 function MissionTutorial() {
@@ -64,6 +65,77 @@ return (
             <br />
             <span className={styles.emotionalText}>Quer se juntar a mim nessa jornada? 💜🚀</span>
           </p>
+        </div>
+
+        <div className={styles.timelineContainer}>
+          <span className={styles.timelineStarArchive}>📡 Arquivo Estelar</span>
+          <h2 className={styles.timelineTitle}>Linha do Tempo do Projeto</h2>
+          <p className={styles.timelineDescription}>Clique nas fotos para explorar a galeria de cada era</p>
+
+          <div className={styles.timelineOrnament}>
+            <span className={styles.ornamentLine}></span>
+            <span className={styles.ornamentStar}>✦</span>
+            <span className={styles.ornamentLine}></span>
+          </div>
+
+          <div className={styles.timelineCards}>
+            <TimelineItem
+              year="2022"
+              location="IF Campus Eirunepé"
+              title="🌱 O Início"
+              description="Primeiro protótipo criado em HTML e PowerPoint como projeto escolar, em parceria com Giliany Do Carmo."
+              tags={["HTML", "PowerPoint", "Projeto Escolar"]}
+              side="right"
+              color="purple"
+              images={[
+                { src: "/images/tela-principal-2022.webp", caption: "Tela principal do protótipo em 2022" },
+                { src: "/images/tela-inicial-2022.webp", caption: "Tela inicial do protótipo em 2022" },
+                { src: "/images/tela-menu-2022.webp", caption: "Tela de menu do protótipo em 2022" },
+                { src: "/images/tela-de-opcoes-2022.webp", caption: "Tela de opções do protótipo em 2022" },
+                { src: "/images/tela-info-extra-2022.webp", caption: "Tela de informações extras do protótipo em 2022" },
+                { src: "/images/tela-apagar-conta-2022.webp", caption: "Tela de apagar conta do protótipo em 2022" },
+                { src: "/images/tela-menu-astros-2022.webp", caption: "Tela de menu de astros do protótipo em 2022" },
+                { src: "/images/tela-astros-2022.webp", caption: "Tela de astros do protótipo em 2022" },
+                { src: "/images/tela-orion-2022.webp", caption: "Tela da constelação de Orion do protótipo em 2022" },
+                { src: "/images/tela-planetas-2022.webp", caption: "Tela dos planetas do protótipo em 2022" },
+                { src: "/images/tela-venus-2022.webp", caption: "Tela de Vênus do protótipo em 2022" },
+              ]}
+            />
+            <TimelineItem
+              year="2025"
+              location="Versões Intermediárias"
+              title="⚡ A Transição"
+              description="Reescrita do código com JavaScript moderno. Novas funcionalidades e experimentação visual."
+              tags={["JavaScript", "CSS3", "Redesign"]}
+              side="left"
+              color="pink"
+              images={[
+                { src: "/images/tela-login-2025.webp", caption: "Tela de login em 2025" },
+                { src: "/images/tela-principal-2025.2.webp", caption: "Tela principal em 2025" },
+                { src: "/images/tela-menu-2025.webp", caption: "Tela de menu em 2025" },
+                { src: "/images/tela-central-2025.webp", caption: "Tela central em 2025" },
+                { src: "/images/tela-central-2025.2.webp", caption: "Tela central em 2025" },
+                { src: "/images/tela-briefing-2025.webp", caption: "Tela de briefing em 2025" },
+                { src: "/images/tela-briefing-b-2025.webp", caption: "Tela de briefing em 2025" },
+                { src: "/images/tela-apagar-conta-2025.webp", caption: "Tela de apagar conta em 2025" },
+                { src: "/images/tela-de-opcoes-2025.webp", caption: "Tela de opções em 2025" },
+                { src: "/images/tela-opcoes-astros-2025.webp", caption: "Tela de opções de astros em 2025" },
+                { src: "/images/tela-astros-2025.webp", caption: "Tela de astros em 2025" },
+                { src: "/images/tela-planetas-2025.webp", caption: "Tela de planetas em 2025" },
+                { src: "/images/tela-planetas-2025.2.webp", caption: "Tela de planetas em 2025" },
+                { src: "/images/tela-terra-2025.webp", caption: "Tela da Terra em 2025" },
+              ]}
+            />
+            <TimelineItem
+              year="2025-2026"
+              location="Era Atual"
+              title="🚀 O Futuro"
+              description="React + IA + Identidade visual cósmica moderna. Uma nova era de exploração profissional e imersiva."
+              tags={["React", "IA", "Glassmorphism"]}
+              side="right"
+              color="cyan"
+            />
+          </div>
         </div>
 
         <img src="/images/ilustracao-menina-e-cao.webp" alt="Foto ilustrativa de mim e meu cachorro" className={styles.imagemAdaptavel}/>
