@@ -67,7 +67,7 @@ const transporter = nodemailer.createTransport({
 
 const authMiddleware = require('./middleware'); //importando. . .
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
-//cors é uma biblioteca para o expŕess
+//cors é uma biblioteca para o express
 const cookieParser = require("cookie-parser");
 
 app.use(cookieParser())
@@ -75,8 +75,9 @@ app.use(cookieParser())
 app.use(cors({
     origin: FRONTEND_URL,
     credentials: true, //para permitir que o cookie viage entre o front e o back
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
 }));
 
 app.use(express.json({ limit: '10mb' })); //para o express ler dados em formato JSON (como os dados de cadastro, login) e limitar o tamanho da requisição para evitar sobrecarga do servidor
