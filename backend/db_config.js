@@ -25,7 +25,7 @@ if (process.env.DATABASE_URL) {
       database: process.env.DB_NAME,
       password: process.env.DB_PASSWORD,
       port: Number(process.env.DB_PORT) || 5432,
-      max: 10, //reduzido para compatibilidade com planos gratuitos (Render/Neon)
+      max: 10, //reduzido para compatibilidade com planos gratuitos 
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 5000,
       ssl: false

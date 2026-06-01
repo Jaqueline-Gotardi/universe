@@ -605,3 +605,9 @@ app.delete('/delete-account', authMiddleware, async (req, res) => {
 })
 
 module.exports = app; //exportando o app para usar em outros arquivos para rodar o servidor.
+
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Servidor Universe em execução em ${SERVER_URL}`);
+    });
+}

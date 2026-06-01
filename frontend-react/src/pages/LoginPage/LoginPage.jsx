@@ -40,7 +40,7 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
   };
 
   //função de validação de login
-  const API_BASE_URL = 'https://universe-ce66.onrender.com';
+  const API_BASE_URL = 'https://universe-swart-three.vercel.app';
 
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
