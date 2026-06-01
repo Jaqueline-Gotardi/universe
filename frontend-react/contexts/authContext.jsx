@@ -11,7 +11,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
     export function AuthProvider ({ children }) {
         const [ isAuthenticated, setAuthenticated ] = useState(false);
         const [ isLoading, setLoading ] = useState(true);
-    //isAuthenticated e isLoading são os valores atuais
+    //isAuthenticated e isLoading são os valores atuaisvercel
     //setIsAuthenticated e setIsLoading são para atualizar os valores atuais
         const [ user, setUser ] = useState(null);
       

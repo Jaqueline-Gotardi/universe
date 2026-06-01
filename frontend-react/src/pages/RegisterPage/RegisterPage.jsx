@@ -6,7 +6,7 @@ import { Eye, EyeOff } from "lucide-react" //importar ícones de olhinho
 import CosmicBackground from "../../components/layout/CosmicBackground";
 import styles from "./RegisterPage.module.css"
 
-const API_BASE_URL = 'https://universe-swart-three.vercel.app';
+const API_BASE_URL = 'https://universe-ce66.onrender.com';
 
 function RegisterPage() {
   const [ username, setUsername ] = useState("");
