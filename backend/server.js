@@ -52,7 +52,7 @@ if (missingEnvVars.length > 0 || (!hasFatiado && !hasUnificado)) {
 
 const API_KEY = process.env.API_KEY;
 const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+//const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
 const COOKIE_SECURE = process.env.NODE_ENV === 'production';
 
@@ -73,7 +73,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser())
 
 app.use(cors({
-    origin: FRONTEND_URL,
+    origin: "https://universe-st.netlify.app",
     credentials: true, //para permitir que o cookie viage entre o front e o back
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
