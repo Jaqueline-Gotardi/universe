@@ -92,14 +92,14 @@ function RegisterPage() {
       const response = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
       }, 
       body: JSON.stringify({ 
         username: username.trim(), //para garantir que os dados do usuário não seja enviado "em branco" pro bd
-        email:email.trim(), 
-        password:password 
+        email: email.trim(), 
+        password: password 
       })
-    })    
+    })  
     
     const data = await response.json().catch(() => ({})) //se o servidor retornar erro, o .catch evita que o sistema trave ao tentar ler como json
 
