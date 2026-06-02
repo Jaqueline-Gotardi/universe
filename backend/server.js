@@ -607,7 +607,7 @@ app.delete('/delete-account', authMiddleware, async (req, res) => {
 
 module.exports = app; //exportando o app para usar em outros arquivos para rodar o servidor.
 
-const PORT = process.env.PORT || 43000;
+const PORT = process.env.PORT || 10000;
 
 if (require.main === module) {
     app.listen(PORT, () => {
