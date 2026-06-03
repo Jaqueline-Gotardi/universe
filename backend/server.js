@@ -168,7 +168,8 @@ app.post('/register', async (req, res) => {
             Sua credencial foi gerada com sucesso. Para autorizar o acesso total aos sistemas do <strong>Universe</strong>, precisamos confirmar sua identidade estelar.
             </p>
             <div style="margin: 40px 0;">
-            <a href="${urlConfirmacao}" style="background-color: #7b2cbf; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4);">AUTORIZAR ACESSO</a>
+            <a href="${urlConfirmacao}" style="background-color: #7b2cbf; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; white-space: nowrap; display: inline-block; max-width: 100%; box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4); box-sizing: border-box;
+            ">AUTORIZAR ACESSO</a>
             </div>
             <p style="font-size: 14px; color: #888;">
             Se você não iniciou este protocolo de cadastro, ignore esta transmissão.
