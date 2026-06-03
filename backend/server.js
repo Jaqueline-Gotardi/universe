@@ -168,7 +168,7 @@ app.post('/register', async (req, res) => {
             Sua credencial foi gerada com sucesso. Para autorizar o acesso total aos sistemas do <strong>Universe</strong>, precisamos confirmar sua identidade estelar.
             </p>
             <div style="margin: 40px 0;">
-            <a href="${urlConfirmacao}" style="background-color: #7b2cbf; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; white-space: nowrap; display: inline-block; max-width: 100%; box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4); box-sizing: border-box;
+            <a href="${urlConfirmacao}" style="background-color: #7b2cbf; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; display: inline-block; max-width: 100%; box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4); box-sizing: border-box; word-break: break-word;
             ">AUTORIZAR ACESSO</a>
             </div>
             <p style="font-size: 14px; color: #888;">
@@ -362,7 +362,8 @@ app.post('/password-recovery', async(req, res) => {
                 <p style="font-size: 14px; color: #aaa; margin-bottom: 30px;">
                 Clique no botão abaixo para configurar uma nova chave de criptografia:
                 </p>
-                <a href="${urlReset}" style="background-color: #ff4d4d; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">REDEFINIR SENHA</a>
+                <a href="${urlReset}" style="background-color: #ff4d4d; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; display: inline-block word-break: break-word; box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);                
+                ">REDEFINIR SENHA</a>
                 <p style="margin-top: 40px; font-size: 11px; color: #666;">
                 Este link expirará em breve. Caso não tenha solicitado, contate a Base Control imediatamente.
                 </p>
