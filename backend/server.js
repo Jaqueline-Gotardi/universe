@@ -9,7 +9,9 @@ app.set('trust proxy', 1); //para confiar no proxy e permitir o uso de cookies s
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const nodemailer = require("nodemailer");
+//const nodemailer = require("nodemailer");
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 const crypto = require("crypto");
 const helmet = require('helmet'); //segurança contra vulnerabilidades comuns na web
 const rateLimit = require('express-rate-limit'); //proteção contra ataques de força bruta
@@ -57,15 +59,15 @@ const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
 const COOKIE_SECURE = process.env.NODE_ENV === 'production';
 
 //configuração do Nodemailer 
-const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, //senha de app
-    }
-})
+// const transporter = nodemailer.createTransport({
+//     host: 'smtp.gmail.com',
+//     port: 587,
+//     secure: false,
+//     auth: {
+//         user: process.env.EMAIL_USER,
+//         pass: process.env.EMAIL_PASS, //senha de app
+//     }
+// })
 
 const authMiddleware = require('./middleware'); //importando. . .
 const cors = require('cors'); //para aceitar todas as origens/domínios/portas
@@ -179,7 +181,13 @@ app.post('/register', async (req, res) => {
         };
 
         try {
-            await transporter.sendMail(mailOptions);
+            await resend.emails.send({
+                from: 'Universe Base Control <onboarding@resend.dev>',
+                to: email,
+                subject: "🚀 Confirme sua identidade, Agente",
+                html: mailOptions.html
+            });
+            //await transporter.sendMail(mailOptions);
             return res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade."});
         } catch (emailError) {
             console.error("Erro ao enviar e-mail via Nodemailer:", emailError);
@@ -362,7 +370,13 @@ app.post('/password-recovery', async(req, res) => {
             `};
 
             try {
-                await transporter.sendMail(mailOptions); //enviar email de recuperação para o agente
+                //await transporter.sendMail(mailOptions); //enviar email de recuperação para o agente
+                await resend.emails.send({
+                    from: 'Universe Base Control <onboarding@resend.dev>',
+                    to: email,
+                    subject: mailOptions.subject,
+                    html: mailOptions.html
+                });
                 return res.status(200).json({message: "E-mail de recuperação enviado com sucesso!"});
             } catch (errorEmail) {
                 console.error("Erro no envio do e-mail de recuperação:", errorEmail);
