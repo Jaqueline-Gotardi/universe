@@ -73,7 +73,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser())
 
 app.use(cors({
-    origin: "https://universe-st.netlify.app",
+    origin: FRONTEND_URL,
     credentials: true, //para permitir que o cookie viage entre o front e o back
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
