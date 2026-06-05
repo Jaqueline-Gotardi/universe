@@ -44,7 +44,7 @@ const InfoMenu = () => {
     <div style={{position: "relative", minHeight: "100vh"}}>
       <CosmicBackground />     
 
-      <main style={{ overflow: "hidden", height: "100vh", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      <main style={{ overflow: "hidden", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
 
         <div style={style.container}>
           <h1 style={{ ...style.tituloPrincipal, marginBottom: "10px" }}>
