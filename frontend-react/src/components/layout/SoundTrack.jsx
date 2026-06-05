@@ -50,16 +50,21 @@ const SoundTrack = () => {
   };
 
   //alternador do play
-  const togglePlay = () => {
+  const togglePlay = async () => {
     if (!audioRef.current) return; //retorna se não for o áudio atual
 
+    try {
     //mas, se o áudio atual estiver tocando:
     if (isPlaying) {
       audioRef.current.pause(); //pode pausar
+      setIsPlaying(false); //estado da música é pausada
     } else {
-      audioRef.current.play().catch(() => {}); //e tocar
+      await audioRef.current.play(); //e tocar
+      setIsPlaying(true); //estado da música é tocando
     }
-    setIsPlaying(!isPlaying); //senão, o estado da música muda (não está tocando!)
+  } catch (err) {
+    console.warn("AutoPlay bloqueado:", err);
+    setIsPlaying(false); //senão, o estado da música muda (não está tocando!)
   };
 
   //quando o ícone musical for clicado, a barra musical é exibida/ou escondida (é um alternador)
