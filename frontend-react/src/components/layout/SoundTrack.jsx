@@ -65,7 +65,9 @@ const SoundTrack = () => {
   } catch (err) {
     console.warn("AutoPlay bloqueado:", err);
     setIsPlaying(false); //senão, o estado da música muda (não está tocando!)
-  };
+  }
+};
+
 
   //quando o ícone musical for clicado, a barra musical é exibida/ou escondida (é um alternador)
   const handleIconClick = (e) => {
@@ -480,5 +482,5 @@ const SoundTrack = () => {
       </div>
     </>
   );
-};
+}
 export default SoundTrack;
