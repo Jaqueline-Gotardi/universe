@@ -104,14 +104,14 @@ const SoundTrack = () => {
     if (audioRef.current) {
       audioRef.current.load();
       if (isPlaying) {
-        audioRef.current
-          .play()
-          .catch(() => {
+        audioRef.current.play().catch((err) => {
+          console.warn("Não foi possível tocar:", err);
+          setIsPlaying(false); //reseta se falhar
             /*falha silenciosa no carregamento de áudio, sem quebrar a interface */
           });
       }
     }
-  }, [currentTrack, isPlaying]); //índice da música que foi pêga para tocá-la;
+  }, [currentTrack]); //índice da música que foi pêga para tocá-la;
 
   //quando o usuário clicar fora do ícone...
   useEffect(() => {
