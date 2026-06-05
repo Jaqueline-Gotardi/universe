@@ -1,4 +1,4 @@
-import { Form, useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import style from "./AgentBadge.module.css"
@@ -15,6 +15,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
 
 export const AgentBadge = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
   const [ isHovered, setIsHovered ] = useState(false)
   const avatarExibido = user?.avatar || default_avatar;
