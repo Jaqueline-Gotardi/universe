@@ -884,6 +884,15 @@ function ExplorerMenu() {
         .faixa-topo {
         gap: 8px;
         }
+        .btn-home {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        }
+        .botoes-navegacao {
+        gap: 8px;
+        flex-shrink: 0;
+        }
         }
 
       `}</style>
