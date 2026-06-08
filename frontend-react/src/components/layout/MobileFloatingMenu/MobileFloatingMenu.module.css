@@ -1,0 +1,102 @@
+.mobileWrapper {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileWrapper {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 2000; 
+  }
+
+  .hamburgerBtn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hamburgerBtn:active {
+    transform: scale(0.9);
+  }
+
+  /*linhas do Hambúrguer*/
+  .line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /*transformação em "X"*/
+  .hamburgerBtn.active .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburgerBtn.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburgerBtn.active .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .menuContent {
+    position: absolute;
+    bottom: 72px;
+    right: 0;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.95));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    min-width: 80px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.2);
+    
+    /*estado inicial escondido */
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /*estado aberto*/
+  .menuContent.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .itemContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative !important;
+  }
+
+  /*sobrescreve as posições fixadas dos componentes originais apenas quando eles estiverem dentro do menu mobile! */
+  .itemContainer :global(.container),
+  .itemContainer > button {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+}

@@ -60,6 +60,12 @@ const CosmicCard = ({ items, title, onBack, style }) => {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
         }
+        @media (max-width: 456px) {
+        .card {
+        min-width: 90%;
+        max-width: 90%;
+        }
+        }
         `}
         </style>
         </div>

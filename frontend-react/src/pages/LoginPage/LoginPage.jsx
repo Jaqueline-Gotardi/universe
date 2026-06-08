@@ -39,9 +39,9 @@ function LoginPage() { //no react as functions começam com letra Maiúscula
     navigate("/app"); //joga o usuário para o dashboard
   };
 
-  //função de validação de login
-  const API_BASE_URL = 'https://universe-onsr.onrender.com';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'; //pega a URL do backend do arquivo .env, se não tiver, usa o localhost (para desenvolvimento local)
 
+  //função de validação de login
   async function handleLogin(event) {
   event.preventDefault(); //evita o recarregamento da página
   setLoading(true);

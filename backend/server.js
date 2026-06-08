@@ -76,12 +76,43 @@ const cookieParser = require("cookie-parser");
 
 app.use(cookieParser())
 
+
+
+
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://universe-st.netlify.app"
+];
+
 app.use(cors({
-    origin: FRONTEND_URL,
-    credentials: true, //para permitir que o cookie viage entre o front e o back
+    origin: function (origin, callback) {
+        //Permite requisições sem origem ou com
+        if (!origin) return callback(null, true); //se a requisição não tiver origem, permite a requisição
+        if (allowedOrigins.indexOf(origin) === -1) {
+            const msg = "A política CORS para este site não permite acesso a partir da origem especificada.";
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    },
+    credentials: true,//para permitir que o cookie viage entre o front e o back
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+
+ 
+
+// app.use(cors({
+//     origin: FRONTEND_URL,
+//     credentials: true, 
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"]
+// }));
+
+
+
+
+
 
 app.use(express.json({ limit: '10mb' })); //para o express ler dados em formato JSON (como os dados de cadastro, login) e limitar o tamanho da requisição para evitar sobrecarga do servidor
 app.use(express.urlencoded({ extended: true, limit: '10mb' })); //para o express ler dados de formulários e limitar o tamanho da requisição
@@ -624,7 +655,7 @@ app.delete('/delete-account', authMiddleware, async (req, res) => {
 
 module.exports = app; //exportando o app para usar em outros arquivos para rodar o servidor.
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 
 if (require.main === module) {
     app.listen(PORT, () => {

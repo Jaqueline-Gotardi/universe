@@ -25,6 +25,8 @@ const InfoMenu = () => {
       paddingBottom: "10px",
       textShadow: "0 0 30px rgba(168, 85, 247, 0.8), 0 0 60px rgba(168, 85, 247, 0.5)",
       letterSpacing: "3px",
+      textAlign: "center",
+      padding: "0 16px",
       animation: "flutuarTitulo 3s ease-in-out infinite"
     },
 
@@ -33,9 +35,12 @@ const InfoMenu = () => {
       fontSize: "clamp(14px, 2vw, 18px)",
       color: "rgba(255, 255, 255, 0.8)",
       textAlign: "center",
-      maxWidth: "600px",
+      maxWidth: "90%",
+      width: "100%",
       lineHeight: "1.6",
       paddingBottom: "50px",
+      padding: "0 16px 50px",
+      boxSizing: "border-box",
       animation: " flutuarDescricao 5s ease-in-out infinite",
     }
   }
@@ -44,7 +49,7 @@ const InfoMenu = () => {
     <div style={{position: "relative", minHeight: "100vh"}}>
       <CosmicBackground />     
 
-      <main style={{ overflow: "hidden", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      <main style={{ overflow: "visible", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px"}}>
 
         <div style={style.container}>
           <h1 style={{ ...style.tituloPrincipal, marginBottom: "10px" }}>

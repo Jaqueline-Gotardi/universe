@@ -855,6 +855,37 @@ function ExplorerMenu() {
         height: 40px; 
         }
         }
+
+        @media (max-width: 480px) {
+        .titulo-flutuante {
+        font-size: 1.6rem;
+        letter-spacing: -1px;
+        word-break: break-word;
+        padding: 0 10px;
+        }
+        .container-titulo-flutuante {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 16px;
+        text-align: center;
+        }
+        .svg-foguete {
+        width: 28px;
+        height: 28px;
+        }
+        .descricao-cosmica {
+        font-size: 1rem;
+        padding: 0 16px;
+        }
+        .btn-menu-principal {
+        padding: 8px 14px;
+        font-size: 12px;
+        }
+        .faixa-topo {
+        gap: 8px;
+        }
+        }
+
       `}</style>
     </div>
   );
