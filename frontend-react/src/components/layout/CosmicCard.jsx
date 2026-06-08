@@ -78,7 +78,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "auto",
+    minHeight: "100vh",
     padding: "20px",
     position: "relative",
     zIndex: 10,
