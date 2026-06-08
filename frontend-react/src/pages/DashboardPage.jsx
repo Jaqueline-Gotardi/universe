@@ -23,8 +23,8 @@ function DashboardPage() { //nome de componentes/funções em React deve-se come
 
   const shouldHideSound = location.pathname === "/app/delete-account"; //se a rota for delete-account-não mostra o ícone musical 
 
-  const renderBadge = !shouldHideAgentBadge ? <AgentBadge /> : null; //decide se renderiza o AgentBadge com base na rota atual
-  const renderSound = !shouldHideSound ? <SoundTrack /> : null; //decide se renderiza o SoundTrack com base na rota atual
+  const renderBadge = !shouldHideAgentBadge ? <AgentBadge isEmbedded={isMobile} /> : null; //decide se renderiza o AgentBadge com base na rota atual
+  const renderSound = !shouldHideSound ? <SoundTrack isEmbedded={isMobile} /> : null; //decide se renderiza o SoundTrack com base na rota atual
 
     return (
     <div>

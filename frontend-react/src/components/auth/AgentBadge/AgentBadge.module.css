@@ -1,3 +1,21 @@
+.containerEmbedded {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(88, 28, 135, 0.8), rgba(15, 23, 42, 0.9));
+  border-radius: 50px;
+  width: 4rem;
+  height: 4rem;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
 .container {
   position: fixed;
   bottom: 26px;

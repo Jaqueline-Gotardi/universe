@@ -27,7 +27,7 @@ const songs = [
   },
 ];
 
-const SoundTrack = () => {
+const SoundTrack = ({ isEmbedded = false }) => {
   //SoundTrack deve ser maíscula pq vai virar uma "tag" na tela. O React EXIGE assim para não confundir com <div>, <span>, etc. . .
   const [isPlaying, setIsPlaying] = useState(false);
   const [showBar, setShowBar] = useState(false); //controla a visibilidade da barra musical
@@ -146,9 +146,9 @@ const SoundTrack = () => {
       <button
         onClick={handleIconClick}
         style={{
-          position: "fixed",
-          bottom: "24px",
-          right: "24px",
+          position: isEmbedded ? "relative" : "fixed",
+          bottom: isEmbedded ? "auto" : "24px",
+          right: isEmbedded ? "auto" : "24px",
           zIndex: 50,
           cursor: "pointer",
           background: "transparent",
