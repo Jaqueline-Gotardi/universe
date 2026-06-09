@@ -139,6 +139,12 @@
   filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.3));
   font-size: clamp(30px, 30vw, 25px);
 }
+@media (max-width: 456px) {
+  .tituloFlutuante {
+    font-size: clamp(24px, 40vw, 20px);
+    padding: 0 5px;
+  }
+}
 
 .containerTituloFlutuante p {
   background: linear-gradient(to left, #3bb3c9, #9b99a0, #ff0080);
