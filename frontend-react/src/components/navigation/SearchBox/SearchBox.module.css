@@ -60,3 +60,21 @@
 @keyframes rotate {
   100% { transform: rotate(360deg); }
 }
+
+@media (max-width: 768px) {
+  .searchBoxWrapper {
+    max-width: 100%;
+    padding: 4px 12px;
+  }
+
+  .inputUniverso {
+    font-size: 12px;
+    padding: 8px 4px;
+  }
+
+  .spinnerSvg,
+  .lupaSvg {
+    width: 18px;
+    height: 18px;
+  }
+}

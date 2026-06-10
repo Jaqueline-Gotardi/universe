@@ -855,6 +855,59 @@ function ExplorerMenu() {
         height: 40px; 
         }
         }
+
+        @media (max-width: 480px) {
+        .faixa-topo {
+        padding: 5px;
+        align-items: center;
+        }
+        .titulo-flutuante {
+        font-size: 1.6rem;
+        letter-spacing: -1px;
+        word-break: break-word;
+        padding: 0 10px;
+        }
+        .container-titulo-flutuante {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 16px;
+        text-align: center;
+        }
+        .svg-foguete {
+        width: 28px;
+        height: 28px;
+        }
+        .descricao-cosmica {
+        font-size: 1rem;
+        padding: 0 16px;
+        }
+        .btn-menu-principal {
+        padding: 8px 10px;
+        font-size: 0px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        }
+        .btn-menu-principal::after {
+        content: "☰";
+        font-size: 18px;
+        
+        }
+        .faixa-topo {
+        gap: 8px;
+        }
+        .btn-home {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        flex-shrink: 0;
+        }
+        .botoes-navegacao {
+        gap: 6px;
+        flex-shrink: 0;
+        }
+        }
+
       `}</style>
     </div>
   );

@@ -242,6 +242,27 @@
   letter-spacing: 0.2rem;
 }
 
+@media (max-width: 480px) {
+  .radarWrap {
+    width: 200px;
+    height: 200px;
+  }
+  .progressBar {
+    width: 85vw;
+  }
+  .progressSintonia {
+    font-size: 0.55rem;
+    letter-spacing: 0.15rem;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .progressStatus {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
 @keyframes textAnimation {
   0% {
     transform: scale(0) rotate(-180deg);

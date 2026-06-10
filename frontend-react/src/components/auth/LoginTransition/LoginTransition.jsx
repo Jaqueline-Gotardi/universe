@@ -34,14 +34,12 @@ export function LoginTransition({ onComplete }) {
       if (current >= 100) {
         current = 100;
         clearInterval(tick);
-        setTimeout(() => {
-          if (onComplete) onComplete();
-        }, 2100);
+        setTimeout(() => onComplete?.(), 2100); 
       }
       setProgress(Math.floor(current));
     }, 50);
     return () => clearInterval(tick);
-  }, [showProgress, onComplete]); //só executa quando showProgress mudar para true, ou se a função onComplete mudar
+  }, [showProgress]); //só executa quando showProgress mudar para true, ou se a função onComplete mudar
 
   //para trocar as mensagens de status
   useEffect(() => {
@@ -52,6 +50,7 @@ export function LoginTransition({ onComplete }) {
     return () => clearInterval(interval);
   }, [showProgress]);
 
+  
   return (
     <div className={styles.overlay}>
       <BackgroundAnimationLogin />

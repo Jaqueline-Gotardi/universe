@@ -4,6 +4,7 @@
 body {
     min-height: 100dvh;
     overflow-x: hidden;
+    background: #020205;
 }
 
 /* scrool que aparece na lateral quando o conteúdo é maior que a tela */

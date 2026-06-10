@@ -78,6 +78,22 @@
   padding: 0 20px;
 }
 
+@media (max-width: 768px) {
+  .criadoresGrid {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: clamp(18px, 5vw, 28px);
+    padding: 0 16px;
+  }
+
+  .subtitle {
+    padding: 0 16px;
+  }
+}
+
 .criadorCard {
   position: relative;
   background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(25, 25, 55, 0.8));

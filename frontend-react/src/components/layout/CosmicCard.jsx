@@ -60,6 +60,12 @@ const CosmicCard = ({ items, title, onBack, style }) => {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
         }
+        @media (max-width: 456px) {
+        .card {
+        min-width: 90%;
+        max-width: 90%;
+        }
+        }
         `}
         </style>
         </div>
@@ -99,8 +105,9 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: "15px",
-    minWidth: "340px",
+    minWidth: "min(340px, 90vw)",
     maxWidth: "450px",
+    width: "90%",
     animation: "cardFloat 6s ease-in-out infinite",
   },
   menuButton: {

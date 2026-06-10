@@ -1,4 +1,4 @@
-import { Form, useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import style from "./AgentBadge.module.css"
@@ -13,14 +13,15 @@ const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
-export const AgentBadge = () => {
+export const AgentBadge = ({ isEmbedded = false }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
   const [ isHovered, setIsHovered ] = useState(false)
   const avatarExibido = user?.avatar || default_avatar;
 
   return (
-  <div className={style.container} 
+  <div className={isEmbedded ? style.containerEmbedded : style.container} 
   style={{border: isHovered ? "1px solid rgba(168,85,247,0.8)" : "1px solid rgba(168,85,247,0.5)",
   boxShadow: isHovered ? "0 0 35px rgba(168,85,247,0.6), inset 0 0 20px rgba(168,85,247,0.2)" : "0 0 22px rgba(168,85,247,0.3), inset 0 0 15px rgba(168,85,247,0.1)",
   transform: isHovered ? "scale(1.05)" : "scale(1)",}}

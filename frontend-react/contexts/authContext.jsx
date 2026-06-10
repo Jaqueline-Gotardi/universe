@@ -63,7 +63,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000
             }
             verificarAutentificação();
 
-            const interval = setInterval(verificarAutentificação, 60000);
+            const interval = setInterval(verificarAutentificação, 60 * 24 * 1000); 
             return () => clearInterval(interval); //limpar o intervalo sempre que o usuário for deslogado
         }, []);
 

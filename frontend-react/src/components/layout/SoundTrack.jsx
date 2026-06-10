@@ -27,7 +27,7 @@ const songs = [
   },
 ];
 
-const SoundTrack = () => {
+const SoundTrack = ({ isEmbedded = false }) => {
   //SoundTrack deve ser maíscula pq vai virar uma "tag" na tela. O React EXIGE assim para não confundir com <div>, <span>, etc. . .
   const [isPlaying, setIsPlaying] = useState(false);
   const [showBar, setShowBar] = useState(false); //controla a visibilidade da barra musical
@@ -50,17 +50,24 @@ const SoundTrack = () => {
   };
 
   //alternador do play
-  const togglePlay = () => {
+  const togglePlay = async () => {
     if (!audioRef.current) return; //retorna se não for o áudio atual
 
+    try {
     //mas, se o áudio atual estiver tocando:
     if (isPlaying) {
       audioRef.current.pause(); //pode pausar
+      setIsPlaying(false); //estado da música é pausada
     } else {
-      audioRef.current.play().catch(() => {}); //e tocar
+      await audioRef.current.play(); //e tocar
+      setIsPlaying(true); //estado da música é tocando
     }
-    setIsPlaying(!isPlaying); //senão, o estado da música muda (não está tocando!)
-  };
+  } catch (err) {
+    console.warn("AutoPlay bloqueado:", err);
+    setIsPlaying(false); //senão, o estado da música muda (não está tocando!)
+  }
+};
+
 
   //quando o ícone musical for clicado, a barra musical é exibida/ou escondida (é um alternador)
   const handleIconClick = (e) => {
@@ -99,14 +106,14 @@ const SoundTrack = () => {
     if (audioRef.current) {
       audioRef.current.load();
       if (isPlaying) {
-        audioRef.current
-          .play()
-          .catch(() => {
+        audioRef.current.play().catch((err) => {
+          console.warn("Não foi possível tocar:", err);
+          setIsPlaying(false); //reseta se falhar
             /*falha silenciosa no carregamento de áudio, sem quebrar a interface */
           });
       }
     }
-  }, [currentTrack, isPlaying]); //índice da música que foi pêga para tocá-la;
+  }, [currentTrack]); //índice da música que foi pêga para tocá-la;
 
   //quando o usuário clicar fora do ícone...
   useEffect(() => {
@@ -139,9 +146,9 @@ const SoundTrack = () => {
       <button
         onClick={handleIconClick}
         style={{
-          position: "fixed",
-          bottom: "24px",
-          right: "24px",
+          position: isEmbedded ? "relative" : "fixed",
+          bottom: isEmbedded ? "auto" : "24px",
+          right: isEmbedded ? "auto" : "24px",
           zIndex: 50,
           cursor: "pointer",
           background: "transparent",
@@ -475,5 +482,5 @@ const SoundTrack = () => {
       </div>
     </>
   );
-};
+}
 export default SoundTrack;
