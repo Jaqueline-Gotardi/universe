@@ -857,6 +857,10 @@ function ExplorerMenu() {
         }
 
         @media (max-width: 480px) {
+        .faixa-topo {
+        padding: 5px;
+        align-items: center;
+        }
         .titulo-flutuante {
         font-size: 1.6rem;
         letter-spacing: -1px;
@@ -878,8 +882,16 @@ function ExplorerMenu() {
         padding: 0 16px;
         }
         .btn-menu-principal {
-        padding: 8px 14px;
-        font-size: 12px;
+        padding: 8px 10px;
+        font-size: 0px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        }
+        .btn-menu-principal::after {
+        content: "☰";
+        font-size: 18px;
+        
         }
         .faixa-topo {
         gap: 8px;
