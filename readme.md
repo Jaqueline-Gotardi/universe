@@ -3,7 +3,7 @@
 💙 **“Explorar o desconhecido é o primeiro passo para criar algo incrível.”**
 
 O **Universe** é um projeto que nasceu lá em 2022, como um protótipo escolar simples feito em HTML, CSS e PowerPoint para agrupar desenhos da tela. Inicialmente, o tema dele era focado totalmente em algo moderno + pegada infantil, até que no ano de 2025 decidi refazê-lo por conta própria, focando em mais funcionalidades e adotando um desing moderno com cara de Universo de verdade.  
-Hoje, ele está evoluindo para um **site completo, interativo e moderno**, onde está sendo desenvolvido em **React**, trazendo uma experiência única de exploração pelo espaço. 🌌  
+Hoje, ele evoluiu para um **site completo, interativo e moderno**, onde tudo foi reescrito em **JavaScript** e depois **React**, trazendo uma experiência única de exploração pelo espaço. 🌌  
 
 ---
 
@@ -17,14 +17,15 @@ O projeto conta com:
 - **Sessões Interativas**: com informações sobre:
   - Constelações famosas (Órion, Cruzeiro do Sul, Andrômeda, etc.)  
   - Eventos astronômicos (Eclipses, Chuvas de Meteoros, Conjunções)  
-  - Planetas do Sistema Solar, incluindo a Lua e o Sol ☀️🌙
+  - Planetas do Sistema Solar, incluindo a Lua e o Sol 
 - **Linha do Tempo do Universe**: Galeria histórica que exibe a evolução visual do projeto, desde o protótipo de 2022, passando pela transição de 2025, até o design definitivo de 2026.
 - **Tela de Perfil do Usuário**: **Módulo de Edição completo com Galeria de Avatares**, onde é possível adicionar nome, foto, interesses e descrição (com gestão de estado de UI).
 - **Agent Badge**: Componente fixo exibindo o avatar e nome do agente em tempo real durante a navegação.
 - **Tela de Criadores**: destacando o trabalho original de 2022 e a nova versão atualizada.  
 - **Tela de Apagar Conta**: com mensagem personalizada e interação dinâmica.  
-- **Trilha Sonora Espacial**: o usuário pode ouvir até 5 músicas-tema durante a navegação. 🎶  
+- **Trilha Sonora Espacial**: o usuário pode ouvir até 5 músicas-tema durante a navegação. 
 - **Pesquisa Integrada com Múltiplas APIs da NASA:** sistema de busca robusto que combina resultados da API APOD e API Images.
+- **Tela com todos nossos Agentes**: mostrando todos que possui cadastrado em nossa base.
 
 ---
 
@@ -168,15 +169,6 @@ Cada linha de código representa uma descoberta, e alguns erros de vírgula tamb
 
 ---
 
-## 🗺️ Roadmap de Exploração (Próximos Passos)
-
-O Universe é um organismo vivo e a missão continua com as seguintes metas:
-
-1. **Linha do Tempo**: Galeria de evolução histórica (2022-2026).
-   
-Tudo isso mantendo o foco na experiência do usuário, e no aprendizado contínuo, 1% melhor por dia. 💙  
-
----
 
 ## 🌠 Evolução e Tecnologias  
 
@@ -200,10 +192,10 @@ O que antes era um site desenvolvido com JS, hoje ele evoluiu para uma aplicaç�
 
 ---
 
-🕵️‍♀️ **Tripulação aumentada, missão em andamento...** O Universo ficou maior, e nossa equipe também. Hehe! 🚀🌌
+🕵️‍♀️ **Tripulação aumentada!** O Universe ficou maior, e nossa equipe também. Hehe! 🚀🌌
 
 ---
 
 👉 [Veja nosso relatório de qualidade completo aqui (QA.md)](./QA.md)
 
-**No Universo do código, cada erro é uma nova estrela sendo descoberta.** 💙
+**No Universo do código, cada erro é uma nova estrela sendo descoberta. O Universo é gigante e as possibilidades também!** 💙
