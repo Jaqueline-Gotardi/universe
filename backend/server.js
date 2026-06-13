@@ -10,8 +10,8 @@ app.set('trust proxy', 1); //para confiar no proxy e permitir o uso de cookies s
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 //const nodemailer = require("nodemailer");
-const { Resend } = require('resend');
-const resend = new Resend(process.env.RESEND_API_KEY);
+//const { Resend } = require('resend');
+//const resend = new Resend(process.env.RESEND_API_KEY);
 const crypto = require("crypto");
 const helmet = require('helmet'); //segurança contra vulnerabilidades comuns na web
 const rateLimit = require('express-rate-limit'); //proteção contra ataques de força bruta
@@ -213,7 +213,7 @@ app.post('/register', async (req, res) => {
         const urlConfirmacao = `${SERVER_URL}/verify-email?token=${verificationToken}`;
 
         const mailOptions = {
-            from: process.env.EMAIL_FROM || '"Universe Base Control" <universe.base.st@gmail.com>',
+            //from: process.env.EMAIL_FROM || '"Universe Base Control" <universe.base.st@gmail.com>',
             to: email,
             subject: "🚀 Confirme sua identidade, Agente",
             html: ` 
@@ -450,8 +450,8 @@ app.post('/password-recovery', async(req, res) => {
 
             try {
                 //await transporter.sendMail(mailOptions); //enviar email de recuperação para o agente
-                await resend.emails.send({
-                    from: 'Universe Base Control <onboarding@resend.dev>',
+                await enviarEmailBrevo ({
+                    //from: 'Universe Base Control <onboarding@resend.dev>',
                     to: email,
                     subject: mailOptions.subject,
                     html: mailOptions.html
