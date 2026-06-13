@@ -237,25 +237,40 @@ app.post('/register', async (req, res) => {
             `
         };
         
+        // try {
+        //     await fetch('https://api.brevo.com/v3/smtp/email', {
+        //         method: 'POST',
+        //         headers: {
+        //             'accept': 'application/json',
+        //             'api-key': process.env.BREVO_API_KEY,
+        //             'content-type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             sender: { name: "Universe Base Control", email: "universe.base.st@gmail.com" },
+        //             to: [{ email: email, name: username }],
+        //             subject: "🚀 Confirme sua identidade, Agente",
+        //             htmlContent: mailOptions.html
+        //         })
+        //     });
+        //     return res.status(201).json({ message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade." });
+        // } catch (emailError) {
+        //     console.error("Erro ao enviar e-mail via Brevo:", emailError);
+        //     return res.status(201).json({ message: "Conta criada, mas houve um problema na transmissão do e-mail." });
+        // }
+
         try {
-            await fetch('https://api.brevo.com/v3/smtp/email', {
-                method: 'POST',
-                headers: {
-                    'accept': 'application/json',
-                    'api-key': process.env.BREVO_API_KEY,
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    sender: { name: "Universe Base Control", email: "universe.base.st@gmail.com" },
-                    to: [{ email: email, name: username }],
-                    subject: "🚀 Confirme sua identidade, Agente",
-                    htmlContent: mailOptions.html
-                })
+            await enviarEmailBrevo({
+                to: email,
+                name: username,
+                subject: "🚀 Confirme sua identidade, Agente",
+                html: mailOptions.html
             });
             return res.status(201).json({ message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade." });
         } catch (emailError) {
-            console.error("Erro ao enviar e-mail via Brevo:", emailError);
-            return res.status(201).json({ message: "Conta criada, mas houve um problema na transmissão do e-mail." });
+            console.error("Erro ao enviar e-mail de cadastro via Brevo:", emailError);
+            return res.status(201).json({
+                 message: "Conta criada, mas houve um problema na transmissão do e-mail." 
+                });
         }
 
         // try {
