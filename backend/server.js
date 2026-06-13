@@ -27,6 +27,31 @@ const authLimiter = rateLimit({ //para limitar o número de requisições para l
     message: { message: "Protocolo de segurança ativado: muitas tentativas de acesso. Aguarde 15 minutos." }
 });
 
+//função auxiliar para enviar emails via Brevo (gratuito, envia para qualquer pessoa)
+async function enviarEmailBrevo({ to, name, subject, html }) {
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'api-key': process.env.BREVO_API_KEY,
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            sender: { name: "Universe Base Control", email: "universe.base.st@gmail.com" },
+            to: [{ email: to, name: name || to }],
+            subject: subject,
+            htmlContent: html
+        })
+    });
+
+    if (!response.ok) {
+        const erroBody = await response.text();
+        throw new Error(`Brevo respondeu com erro: ${response.status} - ${erroBody}`);
+    }
+    return response;
+}
+
+
 app.use(helmet({ //adicionando camadas de segurança com o helmet
     crossOriginResourcePolicy: { policy: "cross-origin"},
     contentSecurityPolicy: false,
@@ -211,20 +236,41 @@ app.post('/register', async (req, res) => {
         </div>
             `
         };
-
+        
         try {
-            await resend.emails.send({
-                from: 'Universe Base Control <onboarding@resend.dev>',
-                to: email,
-                subject: "🚀 Confirme sua identidade, Agente",
-                html: mailOptions.html
+            await fetch('https://api.brevo.com/v3/smtp/email', {
+                method: 'POST',
+                headers: {
+                    'accept': 'application/json',
+                    'api-key': process.env.BREVO_API_KEY,
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    sender: { name: "Universe Base Control", email: "universe.base.st@gmail.com" },
+                    to: [{ email: email, name: username }],
+                    subject: "🚀 Confirme sua identidade, Agente",
+                    htmlContent: mailOptions.html
+                })
             });
-            //await transporter.sendMail(mailOptions);
-            return res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade."});
+            return res.status(201).json({ message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade." });
         } catch (emailError) {
-            console.error("Erro ao enviar e-mail via Nodemailer:", emailError);
-            return res.status(201).json({message: "Conta criada, mas houve um problema na transmissão do e-mail de confirmação."});
+            console.error("Erro ao enviar e-mail via Brevo:", emailError);
+            return res.status(201).json({ message: "Conta criada, mas houve um problema na transmissão do e-mail." });
         }
+
+        // try {
+        //     await resend.emails.send({
+        //         from: 'Universe Base Control <onboarding@resend.dev>',
+        //         to: email,
+        //         subject: "🚀 Confirme sua identidade, Agente",
+        //         html: mailOptions.html
+        //     });
+        //     //await transporter.sendMail(mailOptions);
+        //     return res.status(201).json({message: "Agente cadastrado! Verifique sua caixa de entrada ou spam para confirmar sua identidade."});
+        // } catch (emailError) {
+        //     console.error("Erro ao enviar e-mail via Nodemailer:", emailError);
+        //     return res.status(201).json({message: "Conta criada, mas houve um problema na transmissão do e-mail de confirmação."});
+        // }
     }
 } catch (error) {
     console.error("Erro no servidor ao registrar usuário:", error);
