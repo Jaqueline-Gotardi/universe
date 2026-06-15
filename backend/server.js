@@ -441,7 +441,7 @@ app.post('/password-recovery', async(req, res) => {
             const urlReset = `${FRONTEND_URL}/reset-password?token=${resetToken}`;
 
             const mailOptions = { 
-                from: '"Universe Base Control" <universe.base.st@gmail.com>',
+                //from: '"Universe Base Control" <universe.base.st@gmail.com>',
                 to: email,
                 subject: "🛰️ Coordenadas de Recuperação de Acesso",
                 html: `
@@ -454,11 +454,15 @@ app.post('/password-recovery', async(req, res) => {
                 <p style="font-size: 14px; color: #aaa; margin-bottom: 30px;">
                 Clique no botão abaixo para configurar uma nova chave de criptografia:
                 </p>
-                <a href="${urlReset}" style="background-color: #ff4d4d; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; display: inline-block word-break: break-word; box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);                
+                <div style="margin: 40px 0;">
+                <a href="${urlReset}" style="background-color: #ff4d4d; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; display: inline-block; max-width: 100%; word-break: break-word; box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4); box-sizing: border-box;                
                 ">REDEFINIR SENHA</a>
-                <p style="margin-top: 40px; font-size: 11px; color: #666;">
+                </div>
+                <p style="margin-top: 40px; font-size: 11px; color: #888;">
                 Este link expirará em breve. Caso não tenha solicitado, contate a Base Control imediatamente.
                 </p>
+                <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
+                <p style="font-size: 12px; color: #555;">Universe Base Control | Setor de Segurança Cibernética</p>
                 </div>
             </div>
             `};
