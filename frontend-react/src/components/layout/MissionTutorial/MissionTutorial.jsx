@@ -77,8 +77,6 @@ return (
             <span className={styles.ornamentStar}>✦</span>
             <span className={styles.ornamentLine}></span>
           </div>
-          
-          <img src="/images/ilustracao-menina-e-cao.webp" alt="Foto ilustrativa de mim e meu cachorro" className={styles.imagemAdaptavel}/>
 
           <div className={styles.timelineCards}>
             <TimelineItem
@@ -139,6 +137,8 @@ return (
             />
           </div>
         </div>
+
+        <img src="/images/ilustracao-menina-e-cao.webp" alt="Foto ilustrativa de mim e meu cachorro" className={styles.imagemAdaptavel}/>
 
         <div id="card" className={styles.missionCard}>
             <h2 id="titulo-missao" className={styles.missionTitle}>
