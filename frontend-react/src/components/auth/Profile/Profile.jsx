@@ -42,18 +42,19 @@ function Profile() {
 
   useEffect(() => {
     //sempre que o usuário fizer login ou atualizar seus dados, o perfil deve ser atualizado para refletir as mudanças, mas isso só acontece se estivermos na seção de visualização de perfil
-    if (user && activeSection === "view") { //só atualiza se NÃO estivermos editando
-      const initialData = {
-        avatar: user.avatar || default_avatar,
-        username: user.username || "",
-        bio: user.bio || "",
-        interests: user.interests || "",
-      };
-
-      setUserData(initialData);
+  if (user) {
+    const initialData = {
+      avatar: user.avatar || default_avatar,
+      username: user.username || "",
+      bio: user.bio || "",
+      interests: user.interests || "",
+    };
+    setUserData(initialData);
+    if (activeSection === "view") {
       setTempUserData(initialData);
     }
-  }, [user, activeSection]); //atualizar os dados do perfil sempre que o usuário mudar seus dados
+  }
+}, [user]); // removeu activeSection das deps — carrega sempre que user mudar
 
   //função para salvar os dados do perfil
   const handleSaveProfile = async (e) => {
