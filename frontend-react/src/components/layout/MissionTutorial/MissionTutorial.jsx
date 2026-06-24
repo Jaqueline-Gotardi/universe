@@ -65,6 +65,9 @@ return (
             <br />
             <span className={styles.emotionalText}>Quer se juntar a mim nessa jornada? 💜🚀</span>
           </p>
+
+        <img src="/images/ilustracao-menina-e-cao.webp" alt="Foto ilustrativa de mim e meu cachorro" className={styles.imagemAdaptavel}/>
+
         </div>
 
         <div className={styles.timelineContainer}>
@@ -138,7 +141,7 @@ return (
           </div>
         </div>
 
-        <img src="/images/ilustracao-menina-e-cao.webp" alt="Foto ilustrativa de mim e meu cachorro" className={styles.imagemAdaptavel}/>
+        <br />
 
         <div id="card" className={styles.missionCard}>
             <h2 id="titulo-missao" className={styles.missionTitle}>
