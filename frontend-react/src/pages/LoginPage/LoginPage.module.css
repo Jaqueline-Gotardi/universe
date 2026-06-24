@@ -12,8 +12,8 @@
   height: 50px;
   width: 100%;
   border: none;
-  padding: 10px;
-  font-size: 15px;
+  padding: 0.625rem;
+  font-size: 0.9375rem;
   box-sizing: border-box;
   outline: double;
 }
@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 .loginContainer {
@@ -45,11 +45,9 @@
   width: 100%;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
-@media (max-width: 340px) {
+@media (max-width: 420px) {
   .loginContainer {
     padding: 2rem;
-    max-width: 16rem;
-    position: absolute;
   }
 }
 
@@ -75,9 +73,9 @@
   margin-bottom: 1rem;
   color: #fff;
 }
-@media (max-width: 340px) {
+@media (max-width: 420px) {
   .welcomeTitle {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 }
 
@@ -85,6 +83,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .formGroup {
@@ -106,7 +105,7 @@
 }
 
 .campoSenhaWrapper input {
-    padding-right: 45px !important; 
+    padding-right: 2.8125rem !important; 
 }
 
 .iconeOlho {
@@ -169,8 +168,8 @@
 
 .cadastroLink {
   color: #ccc;
-  font-size: 16px;
-  margin-top: 10px;
+  font-size: 1rem;
+  margin-top: 0.625rem;
   text-align: center;
 }
 
