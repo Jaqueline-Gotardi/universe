@@ -14,6 +14,8 @@ const default_avatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
 </svg>
 `)}`;
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
 function Profile() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,40 +45,53 @@ function Profile() {
   useEffect(() => {
     //sempre que o usuário fizer login ou atualizar seus dados, o perfil deve ser atualizado para refletir as mudanças, mas isso só acontece se estivermos na seção de visualização de perfil
   if (user) {
-    const initialData = {
+    setUserData({
       avatar: user.avatar || default_avatar,
       username: user.username || "",
       bio: user.bio || "",
       interests: user.interests || "",
-    };
-    setUserData(initialData);
-    if (activeSection === "view") {
-      setTempUserData(initialData);
-    }
+    });
   }
-}, [user]); // removeu activeSection das deps — carrega sempre que user mudar
+}, [user]);  
+   
+  useEffect(() => {
+    if (activeSection === "view") {
+    setTempUserData(userData);
+  }
+}, [userData, activeSection]);
 
-  //função para salvar os dados do perfil
+
+//função para salvar os dados do perfil
   const handleSaveProfile = async (e) => {
     e.preventDefault();
 
     try {
-      const url = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'}/update-profile`;
-
-      const response = await fetch(url, {
+      const response = await fetch(`${API_BASE_URL}/update-profile`, {
         method: "PUT",
         headers: { 
-          "Content-Type": "application/json",
-         },
-         credentials: "include", //faz com que o cookie seja enviado junto com a requisição
-         body: JSON.stringify(tempUserData),
+          "Content-Type": "application/json" 
+        },
+        credentials: "include", //faz com que o cookie seja enviado junto com a requisição
+        body: JSON.stringify(tempUserData),
       });
 
       if (response.ok) {
-        setUserData(tempUserData); //pegando os dados de edição e jogando no perfil
-        login({ ...user, ...tempUserData }); // atualiza o contexto global
+        //busca os dados atualizados direto do servidor
+        const profileResponse = await fetch(`${API_BASE_URL}/profile`, {
+          credentials: "include",
+        });
+
+        if (profileResponse.ok) {
+          const profileData = await profileResponse.json();
+          login({ ...user, ...profileData }); //atualiza o contexto com dados reais do banco
+          setUserData({ ...profileData, avatar: profileData.avatar || default_avatar });
+          setTempUserData({ ...profileData, avatar: profileData.avatar || default_avatar });
+        } else {
+          setUserData(tempUserData);
+          login({ ...user, ...tempUserData });
+        }
         setIsGalleryOpen(false);
-        setActiveSection("view"); //volta para a visualização após salvar
+        setActiveSection("view");  //volta para a visualização após salvar
         toast.success("🚀 Alterações salvas na base de dados!");
       } else {
         toast.error("☄️ Erro ao sincronizar com a base.");
