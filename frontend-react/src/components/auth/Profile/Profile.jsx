@@ -60,6 +60,25 @@ function Profile() {
   }
 }, [userData, activeSection]);
 
+//busca os dados do perfil do usuário no servidor quando o componente é montado
+useEffect(() => {
+  const buscarPerfilAtualizado = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/profile`, {
+        credentials: "include",
+      });
+      if (response.ok) {
+        const profileData = await response.json();
+        login({ ...user, ...profileData });
+      }
+    } catch (error) {
+      console.error("Erro ao buscar perfil:", error);
+    }
+  };
+
+  buscarPerfilAtualizado();
+}, []); // roda só uma vez quando a tela abre
+
 
 //função para salvar os dados do perfil
   const handleSaveProfile = async (e) => {
