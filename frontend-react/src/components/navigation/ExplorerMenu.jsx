@@ -220,7 +220,7 @@ function ExplorerMenu() {
             style={{
               width: "100%",
               maxWidth: "1400px",
-              padding: "20px",
+              padding: "1.25rem",
               margin: "0 auto",
               animation: "fade-in 0.6s ease-out",
             }}
@@ -240,8 +240,8 @@ function ExplorerMenu() {
                 background: "linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.1))",
                 border: "2px solid rgba(139, 92, 246, 0.4)",
                 borderRadius: "30px",
-                padding: "40px",
-                marginBottom: "50px",
+                padding: "2.5rem",
+                marginBottom: "3.125rem",
                 cursor: "pointer",
                 transition: "all 0.4s ease",
                 backdropFilter: "blur(15px)",
@@ -250,11 +250,11 @@ function ExplorerMenu() {
             >
 
               {/* estrutura e estilização do card da apod */}
-              <div style={{ display: "flex", alignItems: "center", gap: "15px", marginBottom: "25px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.9375rem", marginBottom: "25px" }}>
                 <div style={{
                    width: "56px", height: "56px", borderRadius: "50%", background: "linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(236, 72, 153, 0.3))", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 20px rgba(139, 92, 246, 0.4)"
                 }}>
-                   <span style={{ fontSize: "28px", margin: "auto" }}>🌌</span>
+                   <span style={{ fontSize: "1.75rem", margin: "auto" }}>🌌</span>
                 </div>
                 <div>
                   <h2 style={{ fontFamily: "'Orbitron', sans-serif", color: "#a78bfa", fontSize: "1.5rem", margin: 0 }}>
@@ -362,7 +362,7 @@ function ExplorerMenu() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 50px 0;
+          padding: 3.125rem 0;
           animation: fadeIn 0.5s ease;
         }
 
@@ -373,7 +373,7 @@ function ExplorerMenu() {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 20px;
+          margin-bottom: 1.25rem;
         }
 
         .scanner-line {
@@ -388,7 +388,7 @@ function ExplorerMenu() {
 
         .radar-circles {
           display: flex;
-          gap: 10px;
+          gap: 0.625rem;
           align-items: center;
         }
 
@@ -432,8 +432,8 @@ function ExplorerMenu() {
            display: flex;
            align-items: center;
            justify-content: center;
-           gap: 15px;
-           margin-bottom: 30px;
+           gap: 0.9375rem;
+           margin-bottom: 1.875rem;
            animation: slideDown 0.6s ease;
         }
 
@@ -464,14 +464,14 @@ function ExplorerMenu() {
 
         /* estilização do box "Dica de Explorador" */
         .card-instrucao-inicial {
-          margin-top: 40px;
+          margin-top: 2.5rem;
           background: rgba(139, 92, 246, 0.1);
           border: 1px dashed rgba(139, 92, 246, 0.5);
-          padding: 20px 30px;
+          padding: 1.25rem 1.875rem;
           border-radius: 20px;
           display: flex;
           align-items: center;
-          gap: 15px;
+          gap: 0.9375rem;
           max-width: 600px;
           animation: slideUp 0.8s ease;
         }
@@ -539,14 +539,14 @@ function ExplorerMenu() {
         align-items: center; 
         justify-content: center; 
         text-align: center; 
-        margin-top: 80px; 
+        margin-top: 5rem; 
         }
 
         /* para deixar o texto flutuando */
         .container-titulo-flutuante { 
         display: flex; 
         align-items: center; 
-        gap: 15px; 
+        gap: 0.9375rem; 
         animation: flutuarTitulo 4s ease-in-out infinite; 
         }
 
@@ -583,7 +583,7 @@ function ExplorerMenu() {
         .svg-estrela { 
         width: 35px; 
         height: 35px; 
-        margin-left: 10px; 
+        margin-left: 0.625rem; 
         filter: drop-shadow(0 0 10px #8b5cf6); 
         animation: brilhoEstrela 2s infinite alternate; 
         }
@@ -594,10 +594,10 @@ function ExplorerMenu() {
         }
 
         .descricao-cosmica { 
-        font-size: 1.4rem; 
+        font-size: 1.2rem; 
         color: #cbd5e1; 
         max-width: 700px; 
-        margin-top: 20px; 
+        margin-top: 1.25rem; 
         line-height: 1.6; 
         font-style: italic; 
         font-family: 'Space Mono', monospace; 
@@ -629,7 +629,7 @@ function ExplorerMenu() {
         backdrop-filter: blur(15px); 
         z-index: 100; 
         border-bottom: 1px solid rgba(6, 182, 212, 0.2); 
-        gap: 15px;
+        gap: 0.9375rem;
         }
 
         .container-busca {  /* --> do input de busca */
@@ -641,14 +641,14 @@ function ExplorerMenu() {
         .botoes-navegacao { 
         display: flex; 
         align-items: center; 
-        gap: 20px; 
+        gap: 1.25rem; 
         }
 
         .btn-menu-principal { 
         background: rgba(6, 182, 212, 0.1); 
         border: 1px solid #06b6d4; 
         color: #06b6d4; 
-        padding: 8px 25px; 
+        padding: 0.5rem 1.5625rem; 
         border-radius: 8px; 
         cursor: pointer; 
         font-weight: bold; 
@@ -681,27 +681,27 @@ function ExplorerMenu() {
         }
 
         .container-principal { 
-        padding: 120px 5% 50px; 
+        padding: 7.5rem 5% 3.125rem; 
         }
 
         .alerta-cosmico { 
         display: flex; 
         align-items: center; 
-        gap: 12px; 
+        gap: 0.75rem; 
         background: rgba(248, 113, 113, 0.1); 
         border: 1px solid #f87171; 
         color: #f87171; 
-        padding: 15px 30px; 
+        padding: 0.9375rem 1.875rem; 
         border-radius: 15px; 
         width: fit-content; /* conteúdo adequado */
-        margin: 0 auto 30px; 
+        margin: 0 auto 1.875rem; 
         animation: slideDown 0.4s ease; 
         }
 
         .galeria-universo { 
         display: grid; 
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-        gap: 30px; 
+        gap: 1.875rem; 
         }
 
         .card-universo { 
@@ -749,7 +749,7 @@ function ExplorerMenu() {
         }
 
         .info-txt { 
-        padding: 20px; 
+        padding: 1.25rem; 
         }
 
         .info-txt h3 { 
@@ -769,7 +769,7 @@ function ExplorerMenu() {
         inset: 0; 
         background: rgba(0,0,0,0.95); 
         z-index: 1000; /* deixa o modal por cima de todos os outros elementos */
-        padding: 20px; 
+        padding: 1.25rem; 
         backdrop-filter: blur(10px); /* borra as imagens no fundo */
         }
 
@@ -816,7 +816,7 @@ function ExplorerMenu() {
         display: flex; 
         flex-direction: column; 
         flex: 1; 
-        padding: 50px; 
+        padding: 3.125rem; 
         }
 
         .modal-desc h2 { 
@@ -828,7 +828,7 @@ function ExplorerMenu() {
         .scroller { 
         flex: 1; 
         overflow-y: auto; 
-        margin: 20px 0; 
+        margin: 1.25rem 0; 
         padding-right: 15px; 
         color: #aaa; 
         line-height: 1.7; 
@@ -836,7 +836,7 @@ function ExplorerMenu() {
 
         @media (max-width: 850px) {
         .faixa-topo {
-        padding: 0 20px;
+        padding: 0 1.25rem;
         }
         .modal-body { 
         flex-direction: column; 
@@ -854,23 +854,26 @@ function ExplorerMenu() {
         width: 40px; 
         height: 40px; 
         }
+        .descricao-cosmica {
+        font-size: 1rem;
+        }
         }
 
         @media (max-width: 480px) {
         .faixa-topo {
-        padding: 5px;
+        padding: 0.3125rem;
         align-items: center;
         }
         .titulo-flutuante {
         font-size: 1.6rem;
         letter-spacing: -1px;
         word-break: break-word;
-        padding: 0 10px;
+        padding: 0 0.625rem;
         }
         .container-titulo-flutuante {
         flex-direction: column;
-        gap: 8px;
-        padding: 0 16px;
+        gap: 0.5rem;
+        padding: 0 1rem;
         text-align: center;
         }
         .svg-foguete {
@@ -878,23 +881,25 @@ function ExplorerMenu() {
         height: 28px;
         }
         .descricao-cosmica {
-        font-size: 1rem;
-        padding: 0 16px;
+        font-size: 0.875rem;
+        padding: 0 1rem;
         }
         .btn-menu-principal {
-        padding: 8px 10px;
-        font-size: 0px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0;
         width: 36px;
         height: 36px;
         border-radius: 50%;
         }
         .btn-menu-principal::after {
         content: "☰";
-        font-size: 18px;
-        
+        font-size: 1.125rem;
         }
         .faixa-topo {
-        gap: 8px;
+        gap: 0.5rem;
         }
         .btn-home {
         width: 36px;
@@ -903,8 +908,17 @@ function ExplorerMenu() {
         flex-shrink: 0;
         }
         .botoes-navegacao {
-        gap: 6px;
+        gap: 0.375rem;
         flex-shrink: 0;
+        }
+        .card-instrucao-inicial {
+        padding: 0.9375rem 1.25rem;
+        }
+        .card-instrucao-inicial p {
+        font-size: 0.85rem;
+        }
+        .card-instrucao-inicial .icon-tip {
+        font-size: 1.2rem;
         }
         }
 

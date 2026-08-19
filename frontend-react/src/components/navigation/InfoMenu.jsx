@@ -20,27 +20,27 @@ const InfoMenu = () => {
 
     tituloPrincipal: {
       fontFamily: "'Orbitron', sans-serif",
-      fontSize: "clamp(24px, 4vw, 36px)",
+      fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
       fontWeight: 900,
       color: "#ffffff",
-      paddingBottom: "10px",
+      paddingBottom: "0.625rem",
       textShadow: "0 0 30px rgba(168, 85, 247, 0.8), 0 0 60px rgba(168, 85, 247, 0.5)",
       letterSpacing: "3px",
       textAlign: "center",
-      padding: "0 16px",
+      padding: "0 1rem",
       animation: "flutuarTitulo 3s ease-in-out infinite"
     },
 
     paragrafo: {
       fontFamily: "'Space Mono', monospace",
-      fontSize: "clamp(14px, 2vw, 18px)",
+      fontSize: "clamp(0.875rem, 2vw, 1.125rem)",
       color: "rgba(255, 255, 255, 0.8)",
       textAlign: "center",
       maxWidth: "90%",
       width: "100%",
       lineHeight: "1.6",
-      paddingBottom: "50px",
-      padding: "0 16px 50px",
+      paddingBottom: "3.125rem",
+      padding: "0 1rem 3.125rem",
       boxSizing: "border-box",
       animation: " flutuarDescricao 5s ease-in-out infinite",
     }
@@ -53,7 +53,7 @@ const InfoMenu = () => {
       <main style={{ overflow: "visible", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px"}}>
 
         <div style={style.container}>
-          <h1 style={{ ...style.tituloPrincipal, marginBottom: "10px" }}>
+          <h1 style={{ ...style.tituloPrincipal, marginBottom: "2rem" }}>
             🛰️🌌 Centro de Exploração
           </h1>
           <p style={style.paragrafo}>

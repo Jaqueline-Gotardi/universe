@@ -12,7 +12,7 @@ const CosmicCard = ({ items, title, onBack, style }) => {
         <h2 style={styles.title}>{title}</h2>
         )}
         
-    <div style={styles.card}>
+    <div style={styles.card} className="card">
         {items.map((item, index) => (
           <button 
           type="button" 
@@ -60,6 +60,16 @@ const CosmicCard = ({ items, title, onBack, style }) => {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
         }
+        @media (max-width: 768px) {
+        .card {
+        padding: 1.25rem !important;
+        gap: 0.625rem !important;
+        }
+        #btn-informacoes-astronomicas {
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.8125rem !important;
+        }
+        }
         @media (max-width: 456px) {
         .card {
         min-width: 90%;
@@ -79,16 +89,16 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     minHeight: "100vh",
-    padding: "20px",
+    padding: "1.25rem",
     position: "relative",
     zIndex: 10,
   },
   title: {
     fontFamily: "'Orbitron', sans-serif",
-    fontSize: "clamp(20px, 3vw, 28px)",
+    fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
     fontWeight: 700,
     color: "#ffffff",
-    marginBottom: "30px",
+    marginBottom: "1.875rem",
     textAlign: "center",
     textShadow: "0 0 20px rgba(168, 85, 247, 0.5)",
     letterSpacing: "2px",
@@ -99,12 +109,12 @@ const styles = {
     background: "rgba(100, 80, 150, 0.15)",
     border: "2px solid rgba(6, 182, 212, 0.3)",
     borderRadius: "24px",
-    padding: "30px",
+    padding: "1.875rem",
     backdropFilter: "blur(15px)",
     boxShadow: "0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(168, 85, 247, 0.05)",
     display: "flex",
     flexDirection: "column",
-    gap: "15px",
+    gap: "0.9375rem",
     minWidth: "min(340px, 90vw)",
     maxWidth: "450px",
     width: "90%",
@@ -115,11 +125,11 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: "12px",
-    padding: "18px 30px",
+    gap: "0.75rem",
+    padding: "1.125rem 1.875rem",
     width: "100%",
     fontFamily: "'Orbitron', sans-serif",
-    fontSize: "15px",
+    fontSize: "0.9375rem",
     fontWeight: 600,
     letterSpacing: "2px",
     textTransform: "uppercase",
@@ -143,10 +153,10 @@ const styles = {
     textAlign: "center",
   },
   backButton: {
-    marginTop: "30px",
-    padding: "15px 50px",
+    marginTop: "1.875rem",
+    padding: "0.9375rem 3.125rem",
     fontFamily: "'Orbitron', sans-serif",
-    fontSize: "14px",
+    fontSize: "0.875rem",
     fontWeight: 600,
     letterSpacing: "3px",
     color: "#ffffff",
