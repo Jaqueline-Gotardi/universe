@@ -12,8 +12,8 @@
   }
 
   .hamburgerBtn {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: linear-gradient(135deg, #8b5cf6, #4f46e5);
     border: 1px solid rgba(168, 85, 247, 0.4);
@@ -22,7 +22,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 0.3125rem;
     box-shadow: 0 0 15px rgba(139, 92, 246, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -54,18 +54,18 @@
 
   .menuContent {
     position: absolute;
-    bottom: 72px;
+    bottom: 64px;
     right: 0;
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.95));
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(168, 85, 247, 0.3);
     border-radius: 24px;
-    padding: 16px;
+    padding: 0.75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
     min-width: 80px;
     box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.2);
     
